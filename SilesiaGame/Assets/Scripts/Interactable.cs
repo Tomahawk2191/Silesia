@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interactible : MonoBehaviour
+public class Interactable : MonoBehaviour
 {
     int id;
     bool ableToUse;
@@ -10,16 +10,15 @@ public class Interactible : MonoBehaviour
     [SerializeField]
     ICameraMovementType cameraMovementType;
 
-    void Start()
-    {
-        
-    }
+    [SerializeField] private InteractableSO data;
+    
     
     // method called on interacting with an object
     public void OnInteraction()
     {
         cameraMovementType.cameraMoveIn();
-        Debug.Log(gameObject.name + " was interacted");
+        GetComponent<Interaction>().interact();
+        
     }
 
     // method called on hovering over the object
