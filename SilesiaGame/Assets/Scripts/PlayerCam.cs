@@ -5,10 +5,10 @@ using UnityEngine;
 public class PlayerCam : MonoBehaviour
 {
 
-    public float sensX; 
-    public float sensY;
+    [SerializeField] private float sensX; 
+    [SerializeField] private float sensY;
 
-    public Transform orientation;
+    [SerializeField] private Transform orientation;
 
 
     float xRotation; 
