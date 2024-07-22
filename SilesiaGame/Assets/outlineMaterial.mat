@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: outlineMat
+  m_Name: outlineMaterial
   m_Shader: {fileID: -6465566751694194690, guid: c047b951aa2c8ba45b2c201f8c668c31, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -39,18 +39,12 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _aa: 5.38
-    - _fadeDistance: 30
-    - _outlineThickness: 0.0225
+    - _fadeDistance: 50
+    - _outlineThickness: 0.01
     m_Colors:
-<<<<<<<< HEAD:SilesiaGame/Assets/Textures/testMat.mat
-    - _base: {r: 0.8113208, g: 0.508989, b: 0.508989, a: 0}
-========
     - _outlineColor: {r: 1, g: 1, b: 1, a: 0}
-    - _v: {r: 29.04, g: -19.14, b: 25.38, a: 0}
->>>>>>>> shaders:SilesiaGame/Assets/outlineMat.mat
   m_BuildTextureStacks: []
---- !u!114 &3638323203858655283
+--- !u!114 &2433230377789022074
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
