@@ -8,7 +8,7 @@ public class Interactable : MonoBehaviour
     private int id;
     private static int maxID = 1;
     private bool ableToUse;
-    private static List<Interactable> listOfAllObjects;
+    private static List<Interactable> listOfAllObjects = new List<Interactable>();
 
     //datadump of the object. Here we store the serialized info.
     [SerializeField] private InteractableSO data;
@@ -16,7 +16,6 @@ public class Interactable : MonoBehaviour
 
     private void Start()
     {
-        var data = GetComponent<InteractableSO>();
         id = maxID;
         maxID += 1;
         listOfAllObjects.Add(this);
