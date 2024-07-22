@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interactible : MonoBehaviour
+public class Interactable : MonoBehaviour
 {
     int id;
     bool ableToUse;
@@ -10,11 +10,11 @@ public class Interactible : MonoBehaviour
     [SerializeField]
     ICameraMovementType cameraMovementType;
 
-    void Start()
+    private void Update()
     {
-        
+        Debug.Log(DialogueManagerScr.Instance.getLine());
     }
-    
+
     // method called on interacting with an object
     public void OnInteraction()
     {
