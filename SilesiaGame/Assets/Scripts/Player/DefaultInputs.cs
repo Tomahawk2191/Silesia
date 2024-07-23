@@ -44,6 +44,15 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ShowHint"",
+                    ""type"": ""Button"",
+                    ""id"": ""387b5fbc-57a5-41b1-9672-505c7e81d1a3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -112,6 +121,17 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bfdfa082-bcb2-47e4-9714-ae8610cc81da"",
+                    ""path"": ""<Keyboard>/alt"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShowHint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -638,6 +658,7 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
+        m_Player_ShowHint = m_Player.FindAction("ShowHint", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -713,12 +734,14 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Move;
+    private readonly InputAction m_Player_ShowHint;
     public struct PlayerActions
     {
         private @DefaultInputs m_Wrapper;
         public PlayerActions(@DefaultInputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Move => m_Wrapper.m_Player_Move;
+        public InputAction @ShowHint => m_Wrapper.m_Player_ShowHint;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -734,6 +757,9 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
+            @ShowHint.started += instance.OnShowHint;
+            @ShowHint.performed += instance.OnShowHint;
+            @ShowHint.canceled += instance.OnShowHint;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -744,6 +770,9 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
+            @ShowHint.started -= instance.OnShowHint;
+            @ShowHint.performed -= instance.OnShowHint;
+            @ShowHint.canceled -= instance.OnShowHint;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -883,6 +912,7 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
     {
         void OnInteract(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
+        void OnShowHint(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

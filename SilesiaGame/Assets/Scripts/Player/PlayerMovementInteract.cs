@@ -21,7 +21,7 @@ public class PlayerMovementInteract : MonoBehaviour
     Rigidbody rb;
 
     [SerializeField] private Camera cam;
-    private PlayerInput input;
+    public static PlayerInput input;
     [SerializeField] private float distance = 8f;
     [SerializeField] private LayerMask mask;
     private PlayerUI playerUI;
@@ -45,11 +45,11 @@ public class PlayerMovementInteract : MonoBehaviour
         if(Instance != null)
             Debug.LogError("There are two players???");
         Instance = this;
+        input = GetComponent<PlayerInput>();
     }
     void Start()
     {
         playerUI = GetComponent<PlayerUI>();
-        input = GetComponent<PlayerInput>();
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         input.OnInteraction += GameInput_OnInteraction;
@@ -90,17 +90,16 @@ public class PlayerMovementInteract : MonoBehaviour
         RaycastHit hitInfo;
         if (Physics.Raycast(ray, out hitInfo, distance, mask))
         {
-            var facedInteractable = hitInfo.collider.GetComponent<Interactable>();
+            var facedInteractable = hitInfo.collider.GetComponentInParent<Interactable>();
             if (facedInteractable != null && Vector3.Distance(facedInteractable.transform.position, rb.position)<100)
             {
+                Debug.Log("found it");
                 playerUI.UpdateText("Press E to interact");
                 if (facedInteractable != selectedInteractable)
                 {
                     SetSelectedArtefact(facedInteractable);
                 }
             }
-
-
         }
         else
         {

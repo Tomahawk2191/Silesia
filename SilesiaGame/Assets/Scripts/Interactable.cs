@@ -8,21 +8,33 @@ public class Interactable : MonoBehaviour
     private int id;
     private static int maxID = 1;
     private bool ableToUse;
-    private static List<Interactable> listOfAllObjects = new List<Interactable>();
 
     //datadump of the object. Here we store the serialized info.
     [SerializeField] private InteractableSO data;
     [SerializeField] private GameObject outline;
+    private static PlayerInput input;
 
 
     private void Start()
     {
         id = maxID;
         maxID += 1;
-        listOfAllObjects.Add(this);
         ableToUse = data.basicState;
+        input = GetComponent<PlayerInput>();
         PlayerMovementInteract.Instance.OnSelectedArtefactChanged += Instance_OnSelectedArtefactChanged;
-        Debug.Log("Started");
+        input.ShowHint += ShowAllObjects;
+        input.HideHint += HideAllObjects;
+        
+    }
+
+    private void HideAllObjects(object sender, EventArgs e)
+    {
+        setOutlineOFF();
+    }
+
+    private void ShowAllObjects(object sender, EventArgs e)
+    {
+        setOutlineON();
     }
 
     private void Instance_OnSelectedArtefactChanged(object sender, PlayerMovementInteract.OnSelectedArtefactChangedEventArgs e)
