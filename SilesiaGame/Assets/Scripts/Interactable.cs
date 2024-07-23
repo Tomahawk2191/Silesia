@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interactable : MonoBehaviour
+public abstract class Interactable : MonoBehaviour
 {
     private int id;
     private static int maxID = 1;
@@ -31,7 +31,6 @@ public class Interactable : MonoBehaviour
         {
             Debug.Log(getLine(0));
             GetComponent<ICameraMovementType>().cameraMoveIn();
-            GetComponent<Interaction>().interact();
         }
 
     }
@@ -47,5 +46,8 @@ public class Interactable : MonoBehaviour
         return GetComponent<InteractableSO>().text.text.Split('\n')[lineNumber];
     }
     // method called to set ableToUse to true for all connected objects
-    
+    public virtual void Interact()
+    {
+    }
+
 }
