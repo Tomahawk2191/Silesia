@@ -56,8 +56,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
+
+        
         // calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+        //                                      pos fwd                               pos right
+        
 
         rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
     }
