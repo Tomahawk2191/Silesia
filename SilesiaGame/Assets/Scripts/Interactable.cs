@@ -24,7 +24,7 @@ public class Interactable : MonoBehaviour
         PlayerMovementInteract.Instance.OnSelectedArtefactChanged += Instance_OnSelectedArtefactChanged;
         input.ShowHint += ShowAllObjects;
         input.HideHint += HideAllObjects;
-        
+
     }
 
     private void HideAllObjects(object sender, EventArgs e)
@@ -63,7 +63,7 @@ public class Interactable : MonoBehaviour
     public virtual void Interact()
     {
     }
-    
+
 
     public void setOutlineON()
     {
@@ -72,8 +72,8 @@ public class Interactable : MonoBehaviour
     }
     public void setOutlineOFF()
     {
-        
+
         this.outline.SetActive(false);
-        
+
     }
 }
