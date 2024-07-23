@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     private float moveSpeed = 6f;
 
     [SerializeField]
-    private float groundDrag = 5f; 
+    private float groundDrag = 5f;
 
     [SerializeField]
     private Transform orientation;
@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        rb.drag = groundDrag;
+
     }
 
     // FixedUpdate handles all physics-related movement
@@ -41,8 +43,6 @@ public class PlayerMovement : MonoBehaviour
         MyInput();
 
 
-        rb.drag = groundDrag;
-
 
 
 
@@ -57,11 +57,10 @@ public class PlayerMovement : MonoBehaviour
     private void MovePlayer()
     {
 
-        
+
         // calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
         //                                      pos fwd                               pos right
-        
 
         rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
     }

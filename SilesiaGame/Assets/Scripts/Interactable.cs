@@ -19,7 +19,7 @@ public class Interactable : MonoBehaviour
     {
         id = maxID;
         maxID += 1;
-        ableToUse = data.basicState;
+        ableToUse = data.basicState; // IVAN YOUR CODE IS THROWING NULL REFERENCE EXCEPTION
         input = GetComponent<PlayerInput>();
         PlayerMovementInteract.Instance.OnSelectedArtefactChanged += Instance_OnSelectedArtefactChanged;
         input.ShowHint += ShowAllObjects;

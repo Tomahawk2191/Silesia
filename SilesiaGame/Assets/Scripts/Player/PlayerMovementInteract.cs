@@ -4,18 +4,21 @@ using UnityEngine;
 public class PlayerMovementInteract : MonoBehaviour
 {
     [Header("Movement")]
-    public float moveSpeed;
+    [SerializeField]
+    private float moveSpeed = 6f;
 
-    public float groundDrag;
+    [SerializeField]
+    private float groundDrag = 5f;
 
-
-    public Transform orientation;
+    [SerializeField]
+    private Transform orientation;
 
     float horizontalInput;
     float verticalInput;
 
     Vector3 moveDirection;
     Rigidbody rb;
+
 
     [SerializeField] private Camera cam;
     public static PlayerInput input;
@@ -49,7 +52,7 @@ public class PlayerMovementInteract : MonoBehaviour
         playerUI = GetComponent<PlayerUI>();
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-        input.OnInteraction += GameInput_OnInteraction;
+        input.OnInteraction += GameInput_OnInteraction;  // IVAN YOUR CODE IS THROWING NULL REFERENCE EXCEPTION
         playerUI = GetComponent<PlayerUI>();
     }
 
@@ -62,27 +65,39 @@ public class PlayerMovementInteract : MonoBehaviour
         }
     }
 
-    // FixedUpdate handles all physics-related movement
-    private void FixedUpdate()
-    {
-        MovePlayer();
-    }
-
+    //lines 74-83 for hovering
     private Interactable getSelectedInteractable()
     {
         return selectedInteractable;
     }
 
 
-    // Update is called once per frame
-    //lines 74-83 for hovering
+    // FixedUpdate handles all physics-related movement
+    private void FixedUpdate()
+    {
+        MovePlayer();
+    }
+
+
+
+    // Update is called once per frame 
     void Update()
     {
         // ground check 
-        playerUI.UpdateText(String.Empty);
-        MyInput();
         // handle drag
         rb.drag = groundDrag;
+        MyInput();
+
+
+
+
+
+        //////////////// IVAN YOUR CODE IS BREAKING THE MOVEMENT SYSTEM BECAUSE IT KEEPS THROWING NULL POINTER EXCEPTIONS. THIS TOOK ME
+        //////////////// UPWARDS OF 3HRS LAST NIGHT TO FIGURE OUT WAS THE ISSUE. THIS IS WHY I WANTED TWO SEPARATE CODE FILES FOR MOVEMENT
+        //////////////// AND INTERACTION. FIX IT. DO NOT UNCOMMENT IT IN A FINAL PUSH UNTIL ITS FIXED. 
+        /*
+        playerUI.UpdateText(String.Empty);
+
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
         RaycastHit hitInfo;
         if (Physics.Raycast(ray, out hitInfo, distance, mask))
@@ -102,7 +117,7 @@ public class PlayerMovementInteract : MonoBehaviour
         {
             SetSelectedArtefact(null);
         }
-
+        */
 
     }
 
