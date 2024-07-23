@@ -1,26 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
-    public float moveSpeed;
+    [SerializeField]
+    private float moveSpeed;
 
-    public float groundDrag; 
+    [SerializeField]
+    private float groundDrag;
 
-    [Header("Ground Check")]
-    public float playerHeight;
-    public LayerMask whatIsGround;
-    bool grounded; 
+    [SerializeField]
+    private Transform orientation;
 
-    public Transform orientation;
-
-    float horizontalInput; 
+    float horizontalInput;
     float verticalInput;
 
     Vector3 moveDirection;
-    Rigidbody rb; 
+    Rigidbody rb;
 
 
     // Start is called before the first frame update
@@ -33,23 +29,20 @@ public class PlayerMovement : MonoBehaviour
     // FixedUpdate handles all physics-related movement
     private void FixedUpdate()
     {
-        MovePlayer(); 
+        MovePlayer();
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        // ground check 
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround); 
 
 
         MyInput();
 
-        // handle drag
-        if (grounded)
-            rb.drag = groundDrag;
-        else rb.drag = 0; 
+
+        rb.drag = groundDrag;
+
 
 
 
@@ -58,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
     private void MyInput()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical"); 
+        verticalInput = Input.GetAxisRaw("Vertical");
     }
 
     private void MovePlayer()
@@ -66,6 +59,6 @@ public class PlayerMovement : MonoBehaviour
         // calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-        rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force); 
+        rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
     }
 }
