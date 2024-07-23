@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PprocessMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: 121e46c39e42d8943b5686d691c3365a, type: 3}
+  m_Name: OutlineProcessingShaderMat
+  m_Shader: {fileID: -6465566751694194690, guid: c21eeed135c402b48bf280834a522c36, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -23,6 +23,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _cameraTxt:
+        m_Texture: {fileID: 8400000, guid: 574f7a3880aced54db139e45db43645f, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -39,14 +43,10 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Resolution: 256
-    - _aspect: 1.7777778
-    - _ditherScale: 1
-    - _ditherStrength: 0.01
-    - _steps: 24
+    - _Resolution: 512
     m_Colors: []
   m_BuildTextureStacks: []
---- !u!114 &6248381357319038987
+--- !u!114 &4249215883862028428
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
