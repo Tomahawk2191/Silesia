@@ -1,19 +1,19 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovementInteract : MonoBehaviour
 {
     [Header("Movement")]
-    public float moveSpeed;
+    [SerializeField]
+    private float moveSpeed = 6f;
 
-    public float groundDrag; 
+    [SerializeField]
+    private float groundDrag = 5f;
 
-    
-    public Transform orientation;
+    [SerializeField]
+    private Transform orientation;
 
-    float horizontalInput; 
+    float horizontalInput;
     float verticalInput;
 
     Vector3 moveDirection;
@@ -68,9 +68,12 @@ public class PlayerMovement : MonoBehaviour
         // ground check 
 
         MyInput();
-        playerUI.UpdateText(String.Empty);
         // handle drag
         rb.drag = groundDrag;
+
+
+        playerUI.UpdateText(String.Empty);
+
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
         RaycastHit hitInfo;
         if (Physics.Raycast(ray, out hitInfo, distance, mask))
@@ -88,16 +91,20 @@ public class PlayerMovement : MonoBehaviour
     private void MyInput()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical"); 
+        verticalInput = Input.GetAxisRaw("Vertical");
     }
 
     private void MovePlayer()
     {
+
+
         // calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+        //                                      pos fwd                               pos right
 
-        rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force); 
+
+        rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
     }
-    
+
 }
 
