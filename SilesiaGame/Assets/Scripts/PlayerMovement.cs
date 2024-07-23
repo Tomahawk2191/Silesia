@@ -4,10 +4,10 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField]
-    private float moveSpeed;
+    private float moveSpeed = 6f;
 
     [SerializeField]
-    private float groundDrag;
+    private float groundDrag = 5f; 
 
     [SerializeField]
     private Transform orientation;
