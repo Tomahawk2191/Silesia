@@ -36,7 +36,7 @@ public class PlayerInteract : MonoBehaviour
     void Start()
     {
         playerUI = PlayerUI.Instance;
-        input.OnInteraction += GameInput_OnInteraction;  // IVAN YOUR CODE IS THROWING NULL REFERENCE EXCEPTION
+        input.OnInteraction += GameInput_OnInteraction;
         rb = GetComponent<Rigidbody>();
     }
 
