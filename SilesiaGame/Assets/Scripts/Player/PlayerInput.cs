@@ -43,6 +43,14 @@ public class PlayerInput
     {
         OnInteraction?.Invoke(this, EventArgs.Empty);
     }
+    public void BlockInputForInteraction() { 
+        input.Disable();
+    }
+    public void EnableInputForInteraction()
+    {
+        input.Enable();
+    }
+      
 
     // Update is called once per frame
 }

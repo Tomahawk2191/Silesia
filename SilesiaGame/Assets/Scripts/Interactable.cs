@@ -58,10 +58,13 @@ public class Interactable : MonoBehaviour
     }
     
     //THIS METHOD MUST BE OVERRIDEN IN CLASSES THAT EXTEND INTERACTABLE
-    public virtual void Interact()
+    public virtual void Interact(PlayerInteract playerInteract)
     {
     }
+    public virtual void Uninteract()
+    {
 
+    }
 
     public void setOutlineON()
     {

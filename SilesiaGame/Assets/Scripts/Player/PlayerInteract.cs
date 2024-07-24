@@ -16,7 +16,10 @@ public class PlayerInteract : MonoBehaviour
 
     public static Interactable selectedInteractable;
     public event EventHandler<OnSelectedArtefactChangedEventArgs> OnSelectedArtefactChanged;
-    
+
+    public Transform holdPt;
+
+
     public class OnSelectedArtefactChangedEventArgs : EventArgs
     {
         public Interactable selectedArtefact;
@@ -42,7 +45,7 @@ public class PlayerInteract : MonoBehaviour
     {
         if (selectedInteractable != null)
         {
-            selectedInteractable.Interact();
+            selectedInteractable.Interact(this);
         }
     }
 
@@ -62,7 +65,7 @@ public class PlayerInteract : MonoBehaviour
             var facedInteractable = hitInfo.collider.GetComponent<Interactable>();
             if (facedInteractable != null && Vector3.Distance(facedInteractable.transform.position, rb.position) < 100)
             {
-                playerUI.UpdateText("Press E to interact");
+                playerUI.UpdateText("Press LMB to interact");
                 if (facedInteractable != selectedInteractable)
                 {
                     SetSelectedArtefact(facedInteractable);
