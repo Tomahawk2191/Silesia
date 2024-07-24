@@ -1,32 +1,18 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovementInteract : MonoBehaviour
+public class PlayerInteract : MonoBehaviour
 {
-    [Header("Movement")]
-    [SerializeField]
-    private float moveSpeed = 6f;
-
-    [SerializeField]
-    private float groundDrag = 5f;
-
-    [SerializeField]
-    private Transform orientation;
-
-    float horizontalInput;
-    float verticalInput;
-
-    Vector3 moveDirection;
-    Rigidbody rb;
-
-
     [SerializeField] private Camera cam;
     public static PlayerInput input;
     [SerializeField] private float distance = 8f;
     [SerializeField] private LayerMask mask;
     private PlayerUI playerUI;
+    Rigidbody rb;
 
-    public static PlayerMovementInteract Instance { get; set; }
+    public static PlayerInteract Instance { get; set; }
 
     public static Interactable selectedInteractable;
     public event EventHandler<OnSelectedArtefactChangedEventArgs> OnSelectedArtefactChanged;
@@ -52,13 +38,7 @@ public class PlayerMovementInteract : MonoBehaviour
         playerUI = GetComponent<PlayerUI>();
         input.OnInteraction += GameInput_OnInteraction;  // IVAN YOUR CODE IS THROWING NULL REFERENCE EXCEPTION
         playerUI = GetComponent<PlayerUI>();
-
         rb = GetComponent<Rigidbody>();
-        rb.freezeRotation = true;
-        // handle drag
-        rb.drag = groundDrag;
-
-
     }
 
 
@@ -77,29 +57,14 @@ public class PlayerMovementInteract : MonoBehaviour
     }
 
 
-    // FixedUpdate handles all physics-related movement
-    private void FixedUpdate()
-    {
-        MovePlayer();
-    }
-
-
 
     // Update is called once per frame 
     void Update()
     {
-        // ground check 
-
-        MyInput();
-
-
-
-
-
         //////////////// IVAN YOUR CODE IS BREAKING THE MOVEMENT SYSTEM BECAUSE IT KEEPS THROWING NULL POINTER EXCEPTIONS. THIS TOOK ME
         //////////////// UPWARDS OF 3HRS LAST NIGHT TO FIGURE OUT WAS THE ISSUE. THIS IS WHY I WANTED TWO SEPARATE CODE FILES FOR MOVEMENT
         //////////////// AND INTERACTION. FIX IT. DO NOT UNCOMMENT IT IN A FINAL PUSH UNTIL ITS FIXED. 
-        /*
+        
         playerUI.UpdateText(String.Empty);
 
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
@@ -121,23 +86,10 @@ public class PlayerMovementInteract : MonoBehaviour
         {
             SetSelectedArtefact(null);
         }
-        */
+        
 
     }
 
-    private void MyInput()
-    {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
-    }
-
-    private void MovePlayer()
-    {
-        // calculate movement direction
-        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-
-        rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
-    }
 
     private void SetSelectedArtefact(Interactable artefact)
     {
