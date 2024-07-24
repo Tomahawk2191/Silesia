@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 37411421}
   - component: {fileID: 37411423}
   - component: {fileID: 37411422}
+  - component: {fileID: 37411424}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -220,6 +221,22 @@ MonoBehaviour:
   moveSpeed: 6
   groundDrag: 5
   orientation: {fileID: 1223114548}
+--- !u!114 &37411424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37411418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08608e9636bf622468406fedd0bd737c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  width: 1920
+  height: 1080
+  ppFilter: {fileID: 432056377}
+  pProcess: {fileID: 2100000, guid: 9819be8d327622046841ec78a59ffc01, type: 2}
 --- !u!1 &38797770
 GameObject:
   m_ObjectHideFlags: 0
@@ -1093,8 +1110,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 2880, y: 1620}
+  m_AnchoredPosition: {x: 246, y: -186}
+  m_SizeDelta: {x: 270.3295, y: 1268.0496}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &432056377
 MonoBehaviour:
@@ -3205,7 +3222,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1565912697
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3223,7 +3240,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 1277, y: 1265}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1565912698
 MonoBehaviour:
@@ -3239,13 +3256,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: da72b5df614dcef4093ef872a46eb7f2, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: ad4c3fffe4b472f4da8cad7e04bb1866, type: 3}
+  m_Texture: {fileID: 10900, guid: 0000000000000000f000000000000000, type: 0}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -3259,7 +3276,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1565912696}
-  m_CullTransparentMesh: 1
+  m_CullTransparentMesh: 0
 --- !u!1 &1610032305
 GameObject:
   m_ObjectHideFlags: 0
