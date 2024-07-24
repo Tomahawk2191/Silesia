@@ -16,32 +16,28 @@ public class PlayerInteract : MonoBehaviour
 
     public static Interactable selectedInteractable;
     public event EventHandler<OnSelectedArtefactChangedEventArgs> OnSelectedArtefactChanged;
-
+    
     public class OnSelectedArtefactChangedEventArgs : EventArgs
     {
         public Interactable selectedArtefact;
     }
-    // Start is called before the first frame update
-    //input = PlayerInput, made with InputSystem package
-    // += stands for listening to the event triggered by PlayerInput,
-    //once it is triggered the GameInput_OnInteraction is executed
-    //playerUI - test thing, replace with onHover system later
     void Awake()
     {
         if (Instance != null)
             Debug.LogError("There are two players???");
         Instance = this;
-        input = GetComponent<PlayerInput>();
+        input = new PlayerInput();
     }
     void Start()
     {
-        playerUI = GetComponent<PlayerUI>();
-        input.OnInteraction += GameInput_OnInteraction;  // IVAN YOUR CODE IS THROWING NULL REFERENCE EXCEPTION
-        playerUI = GetComponent<PlayerUI>();
+        playerUI = PlayerUI.Instance;
+        input.OnInteraction += GameInput_OnInteraction;
         rb = GetComponent<Rigidbody>();
     }
 
 
+    // method that is used for interactions every time the PlayerInput triggers the event;
+    //the selected interactable object is set in the update
     private void GameInput_OnInteraction(object sender, EventArgs e)
     {
         if (selectedInteractable != null)
@@ -50,42 +46,35 @@ public class PlayerInteract : MonoBehaviour
         }
     }
 
-    //lines 74-83 for hovering
-    private Interactable getSelectedInteractable()
-    {
-        return selectedInteractable;
-    }
-
-
 
     // Update is called once per frame 
+    // using the raycast it check if there is an interactable object in front of the camera and sets it as the selected interactable
+    // also triggers event for each interactable object to check if it is the one looked at, if so -> turns on the outline
     void Update()
     {
-        //////////////// IVAN YOUR CODE IS BREAKING THE MOVEMENT SYSTEM BECAUSE IT KEEPS THROWING NULL POINTER EXCEPTIONS. THIS TOOK ME
-        //////////////// UPWARDS OF 3HRS LAST NIGHT TO FIGURE OUT WAS THE ISSUE. THIS IS WHY I WANTED TWO SEPARATE CODE FILES FOR MOVEMENT
-        //////////////// AND INTERACTION. FIX IT. DO NOT UNCOMMENT IT IN A FINAL PUSH UNTIL ITS FIXED. 
-        
+
         playerUI.UpdateText(String.Empty);
 
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
         RaycastHit hitInfo;
         if (Physics.Raycast(ray, out hitInfo, distance, mask))
         {
-            var facedInteractable = hitInfo.collider.GetComponentInParent<Interactable>();
+            var facedInteractable = hitInfo.collider.GetComponent<Interactable>();
             if (facedInteractable != null && Vector3.Distance(facedInteractable.transform.position, rb.position) < 100)
             {
-                Debug.Log("found it");
                 playerUI.UpdateText("Press E to interact");
                 if (facedInteractable != selectedInteractable)
                 {
                     SetSelectedArtefact(facedInteractable);
                 }
+                
             }
         }
         else
         {
             SetSelectedArtefact(null);
         }
+        
         
 
     }
