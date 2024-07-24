@@ -886,6 +886,11 @@ Transform:
   - {fileID: 321432554}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &301557298 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 775620113040a2742b4868e02a00f80f, type: 3}
+  m_PrefabInstance: {fileID: 75948045}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &321432553
 GameObject:
   m_ObjectHideFlags: 0
@@ -1425,7 +1430,8 @@ GameObject:
   - component: {fileID: 744000690}
   - component: {fileID: 744000689}
   - component: {fileID: 744000688}
-  m_Layer: 0
+  - component: {fileID: 744000692}
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Selectable
   m_Icon: {fileID: 0}
@@ -1520,6 +1526,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &744000692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744000687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72b6d7b6b0ac03e4f869f2dd988f2a82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 4bfbb40f37f4ded47a39fb4652ce5e0b, type: 2}
+  outline: {fileID: 301557298}
 --- !u!1 &817850192
 GameObject:
   m_ObjectHideFlags: 0
