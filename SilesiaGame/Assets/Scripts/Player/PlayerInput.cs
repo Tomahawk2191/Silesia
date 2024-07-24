@@ -10,7 +10,7 @@ public class PlayerInput
 {
     //input handler for the DefaultInputs. Triggeres events for other classses based on player input
 
-    private DefaultInputs input;
+    private static DefaultInputs input { get; set; }
 
     public event EventHandler OnInteraction;
 
@@ -19,7 +19,7 @@ public class PlayerInput
     public event EventHandler HideHint;
     // Start is called before the first frame update
 
-    private PlayerInput()
+    public PlayerInput()
     {
         input = new DefaultInputs();
         input.Player.Enable();

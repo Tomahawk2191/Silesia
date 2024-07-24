@@ -31,13 +31,12 @@ public class PlayerInteract : MonoBehaviour
         if (Instance != null)
             Debug.LogError("There are two players???");
         Instance = this;
-        input = GetComponent<PlayerInput>();
+        input = new PlayerInput();
     }
     void Start()
     {
-        playerUI = GetComponent<PlayerUI>();
+        playerUI = PlayerUI.Instance;
         input.OnInteraction += GameInput_OnInteraction;  // IVAN YOUR CODE IS THROWING NULL REFERENCE EXCEPTION
-        playerUI = GetComponent<PlayerUI>();
         rb = GetComponent<Rigidbody>();
     }
 
@@ -50,42 +49,33 @@ public class PlayerInteract : MonoBehaviour
         }
     }
 
-    //lines 74-83 for hovering
-    private Interactable getSelectedInteractable()
-    {
-        return selectedInteractable;
-    }
-
-
 
     // Update is called once per frame 
     void Update()
     {
-        //////////////// IVAN YOUR CODE IS BREAKING THE MOVEMENT SYSTEM BECAUSE IT KEEPS THROWING NULL POINTER EXCEPTIONS. THIS TOOK ME
-        //////////////// UPWARDS OF 3HRS LAST NIGHT TO FIGURE OUT WAS THE ISSUE. THIS IS WHY I WANTED TWO SEPARATE CODE FILES FOR MOVEMENT
-        //////////////// AND INTERACTION. FIX IT. DO NOT UNCOMMENT IT IN A FINAL PUSH UNTIL ITS FIXED. 
-        
+
         playerUI.UpdateText(String.Empty);
 
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
         RaycastHit hitInfo;
         if (Physics.Raycast(ray, out hitInfo, distance, mask))
         {
-            var facedInteractable = hitInfo.collider.GetComponentInParent<Interactable>();
+            var facedInteractable = hitInfo.collider.GetComponent<Interactable>();
             if (facedInteractable != null && Vector3.Distance(facedInteractable.transform.position, rb.position) < 100)
             {
-                Debug.Log("found it");
                 playerUI.UpdateText("Press E to interact");
                 if (facedInteractable != selectedInteractable)
                 {
                     SetSelectedArtefact(facedInteractable);
                 }
+                
             }
         }
         else
         {
             SetSelectedArtefact(null);
         }
+        
         
 
     }
