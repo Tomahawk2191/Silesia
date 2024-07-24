@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using JetBrains.Annotations;
-using Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Video;
@@ -34,16 +33,26 @@ public class PlayerInput
 
     public void SwitchToDialogueMap()
     {
-        _currentActionMap.Disable();
+        if (_currentActionMap != null)
+        {
+            _currentActionMap.Disable();
+        }
         _currentActionMap = input.Dialogue;
         _currentActionMap.Enable();
         input.Dialogue.NextLine.performed += NextLine_performed;
+        input.Player.Interact.performed -= Interact_performed;
+        
     }
     public void SwitchToPlayerMap()
     {
-        _currentActionMap.Disable();
+        if (_currentActionMap != null)
+        {
+            
+            _currentActionMap.Disable();
+        }
         _currentActionMap = input.Player;
         _currentActionMap.Enable();
+        input.Dialogue.NextLine.performed -= NextLine_performed;
         input.Player.Interact.performed += Interact_performed;
         input.Player.ShowHint.performed += ShowHint_performed;
         input.Player.ShowHint.canceled += ShowHint_canceled;
@@ -64,22 +73,37 @@ public class PlayerInput
 
     private void NextLine_performed(InputAction.CallbackContext obj)
     {
-        NextLine?.Invoke(this, EventArgs.Empty);
+        if (_currentActionMap.Equals((InputActionMap)input.Dialogue))
+        {
+            Debug.Log("next");
+            NextLine?.Invoke(this, EventArgs.Empty);
+        }
+       
     }
 
     private void ShowHint_canceled(InputAction.CallbackContext obj)
     {
-        HideHint?.Invoke(this, EventArgs.Empty);
+        if (_currentActionMap.Equals((InputActionMap)input.Player) && !DialogueManager.inTheDialogue) //the inTheDialogue check should be replaced later
+        {
+            HideHint?.Invoke(this, EventArgs.Empty);
+        }
     }
 
     private void ShowHint_performed(InputAction.CallbackContext obj)
     {
-        ShowHint?.Invoke(this, EventArgs.Empty);
+        if (_currentActionMap.Equals((InputActionMap)input.Player) && !DialogueManager.inTheDialogue)//the inTheDialogue check should be replaced later
+        {
+            ShowHint?.Invoke(this, EventArgs.Empty);
+        }
     }
 
     private void Interact_performed(InputAction.CallbackContext obj)
     {
-        OnInteraction?.Invoke(this, EventArgs.Empty);
+        if (_currentActionMap.Equals((InputActionMap)input.Player) && !DialogueManager.inTheDialogue)//the inTheDialogue check should be replaced later
+        {
+            Debug.Log("int");
+            OnInteraction?.Invoke(this, EventArgs.Empty);
+        }
     }
     public void BlockInputForInteraction() { 
         input.Disable();

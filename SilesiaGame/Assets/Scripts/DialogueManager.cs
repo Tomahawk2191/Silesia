@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -10,46 +11,72 @@ public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance { get; set; }
 
-    private Queue<string> sentences;
-    private TextMeshPro display;
-    public event EventHandler OnStartDialogue;
-    private PlayerInput input;
+    private Queue<string> _sentences;
+    private PlayerInput _input;
+    public static bool inTheDialogue = false;
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Debug.LogError("There two instances of DialogueManagers");
+        }
+    }
+
     void Start()
     {
-        input = PlayerInteract.input;
-        sentences = new Queue<string>();
+        _input = PlayerInteract.input;
+        _sentences = new Queue<string>();
+        PlayerInteract.input.NextLine += DisplayNextSentence;
     }
 
     // Update is called once per frame
     public void StartDialogue(TextAsset text)
     {
-        input.SwitchToDialogueMap();
-        input.DisableInputForCameraMovemen();
+        if (inTheDialogue) return;
+        inTheDialogue = true;
+        PlayerInteract.selectedInteractable.cameraMovementType.cameraMoveIn();
+        _input.SwitchToDialogueMap();
         Debug.Log("Started the dialogue");
-        sentences.Clear();
+        _sentences.Clear();
         string[] str = text.text.Split('\n');
         foreach (var sentence in str)
         {
-            sentences.Enqueue(sentence);
+            _sentences.Enqueue(sentence);
         }
+
     }
 
-    public void DisplayNextSentence()
+    private void DisplayNextSentence(object sender, EventArgs e)
     {
-        if (sentences.Count() == 0) 
+        if (!inTheDialogue) return;
+        if (!_sentences.Any()) 
         {
             EndDialogue();
             return;
         }
-        string sentence = sentences.Dequeue();
+        string sentence = _sentences.Dequeue();
         Debug.Log(sentence);
+        PlayerUI.Instance.UpdateDialogueText(sentence);
     }
 
-    private void EndDialogue()
+    private static void EndDialogue()
     {
-        
+        Debug.Log("End of Dialogue");
+        if (PlayerInteract.selectedInteractable != null)
+        {
+            PlayerInteract.selectedInteractable.cameraMovementType.cameraMoveOut();
+        }
+        PlayerUI.Instance.UpdateDialogueText(String.Empty);
+        PlayerInteract.input.SwitchToPlayerMap();
+        inTheDialogue = false;
+
     }
+    
 }
 

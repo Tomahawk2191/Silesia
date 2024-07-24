@@ -7,7 +7,9 @@ public class PlayerUI : MonoBehaviour
 {
     public static PlayerUI Instance { get; set; }
 
-    [SerializeField] private TextMeshProUGUI promptText;
+    [SerializeField] private TextMeshProUGUI InteractionText;
+
+    [SerializeField] private TextMeshProUGUI DialogueDiasplay;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -19,11 +21,19 @@ public class PlayerUI : MonoBehaviour
         {
             Instance = this;
         }
+        InteractionText.text = String.Empty;
+        DialogueDiasplay.text = String.Empty;
+
     }
 
     // Update is called once per frame
-    public void UpdateText(string promptMessage)
+    public void UpdateInteractionText(string promptMessage)
     {
-        promptText.text = promptMessage;
+        InteractionText.text = promptMessage;
+    }
+
+    public void UpdateDialogueText(string promptMessage)
+    {
+        DialogueDiasplay.text = promptMessage;
     }
 }

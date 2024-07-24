@@ -11,6 +11,7 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private LayerMask mask;
     private PlayerUI playerUI;
     Rigidbody rb;
+    public GameObject objPos;
 
     public static PlayerInteract Instance { get; set; }
 
@@ -40,10 +41,12 @@ public class PlayerInteract : MonoBehaviour
     //the selected interactable object is set in the update
     private void GameInput_OnInteraction(object sender, EventArgs e)
     {
+        
         if (selectedInteractable != null)
         {
             selectedInteractable.TriggerDialogue();
             selectedInteractable.Interact();
+            
         }
     }
 
@@ -54,7 +57,7 @@ public class PlayerInteract : MonoBehaviour
     void Update()
     {
 
-        playerUI.UpdateText(String.Empty);
+        playerUI.UpdateInteractionText(String.Empty);
 
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
         RaycastHit hitInfo;
@@ -63,12 +66,16 @@ public class PlayerInteract : MonoBehaviour
             var facedInteractable = hitInfo.collider.GetComponent<Interactable>();
             if (facedInteractable != null && Vector3.Distance(facedInteractable.transform.position, rb.position) < 100)
             {
-                playerUI.UpdateText("Press E to interact");
+                playerUI.UpdateInteractionText("Press E to interact");
                 if (facedInteractable != selectedInteractable)
                 {
                     SetSelectedArtefact(facedInteractable);
                 }
                 
+            }
+            else
+            {
+                SetSelectedArtefact(null);
             }
         }
         else

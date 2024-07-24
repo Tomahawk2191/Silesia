@@ -9,6 +9,8 @@ public class Interactable : MonoBehaviour
     private static int maxID = 1;
     private bool ableToUse;
 
+    public ICameraMovementType cameraMovementType { get; protected set; }
+
     //datadump of the object. Here we store the serialized info.
     [SerializeField] private InteractableSO data;
     [SerializeField] private GameObject outline;
@@ -65,6 +67,7 @@ public class Interactable : MonoBehaviour
     public void TriggerDialogue()
     {
         
+        DialogueManager.Instance.StartDialogue(data.text);
     }
 
 
