@@ -1,24 +1,24 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class PlayerMovementInteract : MonoBehaviour
 {
     [Header("Movement")]
-    public float moveSpeed;
+    [SerializeField]
+    private float moveSpeed = 6f;
 
-    public float groundDrag; 
+    [SerializeField]
+    private float groundDrag = 5f;
 
-    
-    public Transform orientation;
+    [SerializeField]
+    private Transform orientation;
 
-    float horizontalInput; 
+    float horizontalInput;
     float verticalInput;
 
     Vector3 moveDirection;
     Rigidbody rb;
+
 
     [SerializeField] private Camera cam;
     public static PlayerInput input;
@@ -42,7 +42,7 @@ public class PlayerMovementInteract : MonoBehaviour
     //playerUI - test thing, replace with onHover system later
     void Awake()
     {
-        if(Instance != null)
+        if (Instance != null)
             Debug.LogError("There are two players???");
         Instance = this;
         input = GetComponent<PlayerInput>();
@@ -50,12 +50,17 @@ public class PlayerMovementInteract : MonoBehaviour
     void Start()
     {
         playerUI = GetComponent<PlayerUI>();
+        input.OnInteraction += GameInput_OnInteraction;  // IVAN YOUR CODE IS THROWING NULL REFERENCE EXCEPTION
+        playerUI = GetComponent<PlayerUI>();
+
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-        input.OnInteraction += GameInput_OnInteraction;
-        playerUI = GetComponent<PlayerUI>();
+        // handle drag
+        rb.drag = groundDrag;
+
+
     }
-    
+
 
     private void GameInput_OnInteraction(object sender, EventArgs e)
     {
@@ -65,33 +70,44 @@ public class PlayerMovementInteract : MonoBehaviour
         }
     }
 
-    // FixedUpdate handles all physics-related movement
-    private void FixedUpdate()
-    {
-        MovePlayer();
-    }
-
+    //lines 74-83 for hovering
     private Interactable getSelectedInteractable()
     {
         return selectedInteractable;
     }
 
 
-    // Update is called once per frame
-    //lines 74-83 for hovering
+    // FixedUpdate handles all physics-related movement
+    private void FixedUpdate()
+    {
+        MovePlayer();
+    }
+
+
+
+    // Update is called once per frame 
     void Update()
     {
         // ground check 
-        playerUI.UpdateText(String.Empty);
+
         MyInput();
-        // handle drag
-        rb.drag = groundDrag;
+
+
+
+
+
+        //////////////// IVAN YOUR CODE IS BREAKING THE MOVEMENT SYSTEM BECAUSE IT KEEPS THROWING NULL POINTER EXCEPTIONS. THIS TOOK ME
+        //////////////// UPWARDS OF 3HRS LAST NIGHT TO FIGURE OUT WAS THE ISSUE. THIS IS WHY I WANTED TWO SEPARATE CODE FILES FOR MOVEMENT
+        //////////////// AND INTERACTION. FIX IT. DO NOT UNCOMMENT IT IN A FINAL PUSH UNTIL ITS FIXED. 
+        /*
+        playerUI.UpdateText(String.Empty);
+
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
         RaycastHit hitInfo;
         if (Physics.Raycast(ray, out hitInfo, distance, mask))
         {
             var facedInteractable = hitInfo.collider.GetComponentInParent<Interactable>();
-            if (facedInteractable != null && Vector3.Distance(facedInteractable.transform.position, rb.position)<100)
+            if (facedInteractable != null && Vector3.Distance(facedInteractable.transform.position, rb.position) < 100)
             {
                 Debug.Log("found it");
                 playerUI.UpdateText("Press E to interact");
@@ -105,14 +121,14 @@ public class PlayerMovementInteract : MonoBehaviour
         {
             SetSelectedArtefact(null);
         }
-
+        */
 
     }
 
     private void MyInput()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical"); 
+        verticalInput = Input.GetAxisRaw("Vertical");
     }
 
     private void MovePlayer()
@@ -120,7 +136,7 @@ public class PlayerMovementInteract : MonoBehaviour
         // calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-        rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force); 
+        rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
     }
 
     private void SetSelectedArtefact(Interactable artefact)
@@ -131,6 +147,5 @@ public class PlayerMovementInteract : MonoBehaviour
             selectedArtefact = artefact
         });
     }
-    
-}
 
+}

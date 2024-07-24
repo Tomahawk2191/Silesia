@@ -35,7 +35,7 @@ public class PlayerInput
 
     private void ShowHint_performed(InputAction.CallbackContext obj)
     {
-        ShowHint?.Invoke(this,EventArgs.Empty);
+        ShowHint?.Invoke(this, EventArgs.Empty);
     }
 
     private void Interact_performed(InputAction.CallbackContext obj)
