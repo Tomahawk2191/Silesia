@@ -6,7 +6,7 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerInput
+public class PlayerInput : MonoBehaviour
 {
     //input handler for the DefaultInputs. Triggeres events for other classses based on player input
 
