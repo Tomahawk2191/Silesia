@@ -62,6 +62,11 @@ public class Interactable : MonoBehaviour
     {
     }
 
+    public void TriggerDialogue()
+    {
+        
+    }
+
 
     public void setOutlineON()
     {

@@ -42,6 +42,7 @@ public class PlayerInteract : MonoBehaviour
     {
         if (selectedInteractable != null)
         {
+            selectedInteractable.TriggerDialogue();
             selectedInteractable.Interact();
         }
     }
