@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using JetBrains.Annotations;
+using Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Video;
@@ -21,36 +22,45 @@ public class PlayerInput
     public event EventHandler HideHint;
     public event EventHandler NextLine;
 
-    private DialogueManager _dialogueManager;
+    private InputActionMap _currentActionMap;
     // Start is called before the first frame update
 
     public PlayerInput()
     {
-        _dialogueManager = DialogueManager.Instance;
         input = new DefaultInputs();
-        input.Player.Enable();
+        SwitchToPlayerMap();
+
+    }
+
+    public void SwitchToDialogueMap()
+    {
+        _currentActionMap.Disable();
+        _currentActionMap = input.Dialogue;
+        _currentActionMap.Enable();
+        input.Dialogue.NextLine.performed += NextLine_performed;
+    }
+    public void SwitchToPlayerMap()
+    {
+        _currentActionMap.Disable();
+        _currentActionMap = input.Player;
+        _currentActionMap.Enable();
         input.Player.Interact.performed += Interact_performed;
         input.Player.ShowHint.performed += ShowHint_performed;
         input.Player.ShowHint.canceled += ShowHint_canceled;
-        _dialogueManager.OnStartDialogue += BlockInputsForTheDialogue;
-
     }
 
-    private void BlockInputsForTheDialogue(object sender, EventArgs e)
+
+    public void DisableInputForCameraMovemen()
     {
+        _currentActionMap.Disable();
     }
-    private void SwitchToCameraMovementMap(){}
-
-    private void SwitchToPlayerMap()
+    public void EnableInputForCameraMovemen()
     {
+        _currentActionMap.Enable();
     }
 
-    private void SwitchToDialogueMap()
-    {
-        input.Player.Disable();
-        input.Dialogue.Enable();
-        input.Dialogue.NextLine.performed += NextLine_performed;
-    }
+    
+    
 
     private void NextLine_performed(InputAction.CallbackContext obj)
     {

@@ -25,7 +25,8 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     public void StartDialogue(TextAsset text)
     {
-        OnStartDialogue?.Invoke(this,EventArgs.Empty);
+        input.SwitchToDialogueMap();
+        input.DisableInputForCameraMovemen();
         Debug.Log("Started the dialogue");
         sentences.Clear();
         string[] str = text.text.Split('\n');
