@@ -16,16 +16,11 @@ public class PlayerInteract : MonoBehaviour
 
     public static Interactable selectedInteractable;
     public event EventHandler<OnSelectedArtefactChangedEventArgs> OnSelectedArtefactChanged;
-
+    
     public class OnSelectedArtefactChangedEventArgs : EventArgs
     {
         public Interactable selectedArtefact;
     }
-    // Start is called before the first frame update
-    //input = PlayerInput, made with InputSystem package
-    // += stands for listening to the event triggered by PlayerInput,
-    //once it is triggered the GameInput_OnInteraction is executed
-    //playerUI - test thing, replace with onHover system later
     void Awake()
     {
         if (Instance != null)
@@ -41,6 +36,8 @@ public class PlayerInteract : MonoBehaviour
     }
 
 
+    // method that is used for interactions every time the PlayerInput triggers the event;
+    //the selected interactable object is set in the update
     private void GameInput_OnInteraction(object sender, EventArgs e)
     {
         if (selectedInteractable != null)
@@ -51,6 +48,8 @@ public class PlayerInteract : MonoBehaviour
 
 
     // Update is called once per frame 
+    // using the raycast it check if there is an interactable object in front of the camera and sets it as the selected interactable
+    // also triggers event for each interactable object to check if it is the one looked at, if so -> turns on the outline
     void Update()
     {
 

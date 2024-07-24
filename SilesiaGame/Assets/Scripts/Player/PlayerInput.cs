@@ -9,6 +9,7 @@ using UnityEngine.InputSystem;
 public class PlayerInput
 {
     //input handler for the DefaultInputs. Triggeres events for other classses based on player input
+    //the subscribers are PlayerInteract and Interactable
 
     private static DefaultInputs input { get; set; }
 

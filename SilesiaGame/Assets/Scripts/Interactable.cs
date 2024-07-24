@@ -27,6 +27,7 @@ public class Interactable : MonoBehaviour
 
     }
 
+    // method that handles the outline. Subscribed to PlayerInteract class
     private void Instance_OnSelectedArtefactChanged(object sender, PlayerInteract.OnSelectedArtefactChangedEventArgs e)
     {
         if (this == e.selectedArtefact)
@@ -38,8 +39,8 @@ public class Interactable : MonoBehaviour
             setOutlineOFF();
         }
     }
-
-
+    
+    //Hide and Show all objects might not be used. Wrote this for hints
     private void HideAllObjects(object sender, EventArgs e)
     {
         setOutlineOFF();
@@ -51,17 +52,12 @@ public class Interactable : MonoBehaviour
     }
     
 
-    // method called on interacting with an object
-    //this should be completly rewriten once the inpput system will be made
-    //see the OnInteraction State Diagram (lucidchart)
-
-    // method called on hovering over the object
-
     public string getLine(int lineNumber)
     {
         return GetComponent<InteractableSO>().text.text.Split('\n')[lineNumber];
     }
-    // method called to set ableToUse to true for all connected objects
+    
+    //THIS METHOD MUST BE OVERRIDEN IN CLASSES THAT EXTEND INTERACTABLE
     public virtual void Interact()
     {
     }
