@@ -6,11 +6,12 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerInput : MonoBehaviour
+public class PlayerInput
 {
     //input handler for the DefaultInputs. Triggeres events for other classses based on player input
+    //the subscribers are PlayerInteract and Interactable
 
-    private DefaultInputs input;
+    private static DefaultInputs input { get; set; }
 
     public event EventHandler OnInteraction;
 
@@ -19,7 +20,7 @@ public class PlayerInput : MonoBehaviour
     public event EventHandler HideHint;
     // Start is called before the first frame update
 
-    private void Awake()
+    public PlayerInput()
     {
         input = new DefaultInputs();
         input.Player.Enable();
