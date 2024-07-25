@@ -3,13 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+
 public class PlayerUI : MonoBehaviour
 {
     public static PlayerUI Instance { get; set; }
 
-    [SerializeField] private TextMeshProUGUI InteractionText;
+    //this is old text, we are just using a 2d cursor now
+    //[SerializeField] private TextMeshProUGUI promptText;
 
+    [SerializeField] private GameObject interactCursor;
+    [SerializeField] private GameObject normalCursor;
     [SerializeField] private TextMeshProUGUI DialogueDiasplay;
+    
     // Start is called before the first frame update
     private void Awake()
     {
@@ -26,11 +32,16 @@ public class PlayerUI : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    public void UpdateInteractionText(string promptMessage)
+    public void ShowInteractCursor()
     {
-        InteractionText.text = promptMessage;
+        interactCursor.SetActive(true);
+        normalCursor.SetActive(false);
     }
+
+    public void ShowNormalCursor()
+    {
+        interactCursor.SetActive(false);
+        normalCursor.SetActive(true);
 
     public void UpdateDialogueText(string promptMessage)
     {

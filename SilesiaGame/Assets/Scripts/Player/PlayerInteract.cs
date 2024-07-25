@@ -22,6 +22,7 @@ public class PlayerInteract : MonoBehaviour
     {
         public Interactable selectedArtefact;
     }
+
     void Awake()
     {
         if (Instance != null)
@@ -29,6 +30,7 @@ public class PlayerInteract : MonoBehaviour
         Instance = this;
         input = new PlayerInput();
     }
+
     void Start()
     {
         playerUI = PlayerUI.Instance;
@@ -56,22 +58,40 @@ public class PlayerInteract : MonoBehaviour
     // also triggers event for each interactable object to check if it is the one looked at, if so -> turns on the outline
     void Update()
     {
-
-        playerUI.UpdateInteractionText(String.Empty);
+        //playerUI.UpdateText(String.Empty);
+        playerUI.ShowNormalCursor();
 
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
         RaycastHit hitInfo;
+        
+        if (selectedInteractable != null)
+        {
+            selectedInteractable.gameObject.GetComponent<Outline>().enabled = false;
+        }
+        
         if (Physics.Raycast(ray, out hitInfo, distance, mask))
         {
             var facedInteractable = hitInfo.collider.GetComponent<Interactable>();
             if (facedInteractable != null && Vector3.Distance(facedInteractable.transform.position, rb.position) < 100)
             {
-                playerUI.UpdateInteractionText("Press E to interact");
+                //playerUI.UpdateText("Press LMB to interact");
+                playerUI.ShowInteractCursor();
                 if (facedInteractable != selectedInteractable)
                 {
                     SetSelectedArtefact(facedInteractable);
                 }
                 
+                if (facedInteractable.gameObject.GetComponent<Outline>() != null)
+                {
+                    facedInteractable.gameObject.GetComponent<Outline>().enabled = true;
+                }
+                else
+                {
+                    Outline outline = facedInteractable.gameObject.AddComponent<Outline>();
+                    outline.enabled = true;
+                    facedInteractable.gameObject.GetComponent<Outline>().OutlineColor = Color.magenta;
+                    facedInteractable.gameObject.GetComponent<Outline>().OutlineWidth = 15.0f;
+                }
             }
             else
             {
