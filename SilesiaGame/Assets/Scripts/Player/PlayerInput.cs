@@ -75,7 +75,6 @@ public class PlayerInput
     {
         if (_currentActionMap.Equals((InputActionMap)input.Dialogue))
         {
-            Debug.Log("next");
             NextLine?.Invoke(this, EventArgs.Empty);
         }
        
@@ -83,27 +82,23 @@ public class PlayerInput
 
     private void ShowHint_canceled(InputAction.CallbackContext obj)
     {
-        if (_currentActionMap.Equals((InputActionMap)input.Player) && !DialogueManager.inTheDialogue) //the inTheDialogue check should be replaced later
-        {
+        
             HideHint?.Invoke(this, EventArgs.Empty);
-        }
+        
     }
 
     private void ShowHint_performed(InputAction.CallbackContext obj)
     {
-        if (_currentActionMap.Equals((InputActionMap)input.Player) && !DialogueManager.inTheDialogue)//the inTheDialogue check should be replaced later
-        {
+        
             ShowHint?.Invoke(this, EventArgs.Empty);
-        }
+        
     }
 
     private void Interact_performed(InputAction.CallbackContext obj)
     {
-        if (_currentActionMap.Equals((InputActionMap)input.Player) && !DialogueManager.inTheDialogue)//the inTheDialogue check should be replaced later
-        {
-            Debug.Log("int");
+        
             OnInteraction?.Invoke(this, EventArgs.Empty);
-        }
+        
     }
     public void BlockInputForInteraction() { 
         input.Disable();

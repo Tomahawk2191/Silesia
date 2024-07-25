@@ -13,7 +13,7 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<string> _sentences;
     private PlayerInput _input;
-    public static bool inTheDialogue = false;
+    public static bool justFinishedTheDialogue = false;
 
     // Start is called before the first frame update
     private void Awake()
@@ -38,8 +38,9 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     public void StartDialogue(TextAsset text)
     {
-        if (inTheDialogue) return;
-        inTheDialogue = true;
+        if (justFinishedTheDialogue) return;
+        justFinishedTheDialogue = true;
+        PlayerMovement.setCanMove(false);
         PlayerInteract.selectedInteractable.cameraMovementType.cameraMoveIn();
         _input.SwitchToDialogueMap();
         Debug.Log("Started the dialogue");
@@ -54,7 +55,6 @@ public class DialogueManager : MonoBehaviour
 
     private void DisplayNextSentence(object sender, EventArgs e)
     {
-        if (!inTheDialogue) return;
         if (!_sentences.Any()) 
         {
             EndDialogue();
@@ -74,7 +74,8 @@ public class DialogueManager : MonoBehaviour
         }
         PlayerUI.Instance.UpdateDialogueText(String.Empty);
         PlayerInteract.input.SwitchToPlayerMap();
-        inTheDialogue = false;
+        justFinishedTheDialogue = true;
+        PlayerMovement.setCanMove(true);
 
     }
     

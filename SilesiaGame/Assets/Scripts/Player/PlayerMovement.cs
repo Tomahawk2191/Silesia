@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 moveDirection;
     Rigidbody rb;
+    private static bool canMove = true;
 
 
     // Start is called before the first frame update
@@ -52,11 +53,18 @@ public class PlayerMovement : MonoBehaviour
     private void MovePlayer()
     {
 
+        if (canMove)
+        {
+            // calculate movement direction
+            moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+            //                                      pos fwd                               pos right
 
-        // calculate movement direction
-        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-        //                                      pos fwd                               pos right
+            rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force); 
+        }
+    }
 
-        rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+    public static void setCanMove(bool value)
+    {
+        canMove = value;
     }
 }
