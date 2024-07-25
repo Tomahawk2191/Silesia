@@ -24,6 +24,7 @@ public class PlayerInteract : MonoBehaviour
     {
         public Interactable selectedArtefact;
     }
+
     void Awake()
     {
         if (Instance != null)
@@ -31,6 +32,7 @@ public class PlayerInteract : MonoBehaviour
         Instance = this;
         input = new PlayerInput();
     }
+
     void Start()
     {
         playerUI = PlayerUI.Instance;
