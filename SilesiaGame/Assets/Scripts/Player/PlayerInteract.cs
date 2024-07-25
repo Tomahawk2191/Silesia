@@ -63,6 +63,12 @@ public class PlayerInteract : MonoBehaviour
 
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
         RaycastHit hitInfo;
+        
+        if (selectedInteractable != null)
+        {
+            selectedInteractable.gameObject.GetComponent<Outline>().enabled = false;
+        }
+        
         if (Physics.Raycast(ray, out hitInfo, distance, mask))
         {
             var facedInteractable = hitInfo.collider.GetComponent<Interactable>();
@@ -75,6 +81,17 @@ public class PlayerInteract : MonoBehaviour
                     SetSelectedArtefact(facedInteractable);
                 }
                 
+                if (facedInteractable.gameObject.GetComponent<Outline>() != null)
+                {
+                    facedInteractable.gameObject.GetComponent<Outline>().enabled = true;
+                }
+                else
+                {
+                    Outline outline = facedInteractable.gameObject.AddComponent<Outline>();
+                    outline.enabled = true;
+                    facedInteractable.gameObject.GetComponent<Outline>().OutlineColor = Color.magenta;
+                    facedInteractable.gameObject.GetComponent<Outline>().OutlineWidth = 15.0f;
+                }
             }
         }
         else

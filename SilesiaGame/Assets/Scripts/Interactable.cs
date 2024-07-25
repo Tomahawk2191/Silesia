@@ -11,7 +11,7 @@ public class Interactable : MonoBehaviour
 
     //datadump of the object. Here we store the serialized info.
     [SerializeField] private InteractableSO data;
-    [SerializeField] private GameObject outline;
+    //[SerializeField] private GameObject outline;
     private static PlayerInput input;
 
 
@@ -68,12 +68,12 @@ public class Interactable : MonoBehaviour
 
     public void setOutlineON()
     {
-        outline.SetActive(true);
+        //outline.SetActive(true);
 
     }
     public void setOutlineOFF()
     {
-        outline.SetActive(false);
+        //outline.SetActive(false);
 
     }
 }
