@@ -586,10 +586,9 @@ GameObject:
   - component: {fileID: 292661342}
   - component: {fileID: 292661344}
   - component: {fileID: 292661343}
-  - component: {fileID: 292661345}
   m_Layer: 7
   m_Name: SampleArtefact
-  m_TagString: Selectable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -644,20 +643,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 4bfbb40f37f4ded47a39fb4652ce5e0b, type: 2}
---- !u!114 &292661345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 292661340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 323f373aa6c62b44e927fc9e4fd6d9ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlight: {fileID: 0}
-  selection: {fileID: 0}
 --- !u!1 &321432553
 GameObject:
   m_ObjectHideFlags: 0
@@ -756,11 +741,10 @@ GameObject:
   - component: {fileID: 431710281}
   - component: {fileID: 431710280}
   - component: {fileID: 431710279}
-  - component: {fileID: 431710284}
   - component: {fileID: 431710283}
   m_Layer: 7
   m_Name: Cube (5)
-  m_TagString: Selectable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -864,20 +848,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 4bfbb40f37f4ded47a39fb4652ce5e0b, type: 2}
---- !u!114 &431710284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 431710278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 323f373aa6c62b44e927fc9e4fd6d9ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlight: {fileID: 0}
-  selection: {fileID: 0}
 --- !u!1 &435578835
 GameObject:
   m_ObjectHideFlags: 0
@@ -1440,11 +1410,10 @@ GameObject:
   - component: {fileID: 942356891}
   - component: {fileID: 942356890}
   - component: {fileID: 942356889}
-  - component: {fileID: 942356892}
   - component: {fileID: 942356893}
   m_Layer: 7
   m_Name: SampleArtefact (2)
-  m_TagString: Selectable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1499,20 +1468,6 @@ Transform:
   - {fileID: 135994212}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &942356892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 942356888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 323f373aa6c62b44e927fc9e4fd6d9ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlight: {fileID: 0}
-  selection: {fileID: 0}
 --- !u!114 &942356893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1525,7 +1480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72b6d7b6b0ac03e4f869f2dd988f2a82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 0}
+  data: {fileID: 11400000, guid: 4bfbb40f37f4ded47a39fb4652ce5e0b, type: 2}
 --- !u!1 &969971532
 GameObject:
   m_ObjectHideFlags: 0
@@ -2070,11 +2025,10 @@ GameObject:
   - component: {fileID: 1253240077}
   - component: {fileID: 1253240076}
   - component: {fileID: 1253240075}
-  - component: {fileID: 1253240080}
   - component: {fileID: 1253240079}
   m_Layer: 7
   m_Name: Sphere (1)
-  m_TagString: Selectable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2178,20 +2132,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 4bfbb40f37f4ded47a39fb4652ce5e0b, type: 2}
---- !u!114 &1253240080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1253240074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 323f373aa6c62b44e927fc9e4fd6d9ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlight: {fileID: 0}
-  selection: {fileID: 0}
 --- !u!1 &1284544329
 GameObject:
   m_ObjectHideFlags: 0
@@ -3003,10 +2943,9 @@ GameObject:
   - component: {fileID: 1763509252}
   - component: {fileID: 1763509251}
   - component: {fileID: 1763509250}
-  - component: {fileID: 1763509253}
   m_Layer: 7
   m_Name: SampleArtefact (1)
-  m_TagString: Selectable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3061,20 +3000,6 @@ Transform:
   - {fileID: 1993651273}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1763509253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1763509249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 323f373aa6c62b44e927fc9e4fd6d9ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlight: {fileID: 0}
-  selection: {fileID: 0}
 --- !u!1 &1910994202
 GameObject:
   m_ObjectHideFlags: 0
