@@ -58,7 +58,8 @@ public class PlayerInteract : MonoBehaviour
     void Update()
     {
 
-        playerUI.UpdateText(String.Empty);
+        //playerUI.UpdateText(String.Empty);
+        playerUI.ShowNormalCursor();
 
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
         RaycastHit hitInfo;
@@ -67,7 +68,8 @@ public class PlayerInteract : MonoBehaviour
             var facedInteractable = hitInfo.collider.GetComponent<Interactable>();
             if (facedInteractable != null && Vector3.Distance(facedInteractable.transform.position, rb.position) < 100)
             {
-                playerUI.UpdateText("Press LMB to interact");
+                //playerUI.UpdateText("Press LMB to interact");
+                playerUI.ShowInteractCursor();
                 if (facedInteractable != selectedInteractable)
                 {
                     SetSelectedArtefact(facedInteractable);
