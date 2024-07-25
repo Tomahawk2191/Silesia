@@ -7,9 +7,9 @@ public class CameraForSmallObjects : ICameraMovementType
     private Transform objToMove;
     private Vector3 startPos, startRot;
 
-    public CameraForSmallObjects(PlayerInteract playerInteract, Transform objToMove)
+    public CameraForSmallObjects(Transform objToMove)
     {
-        this.playerInteract = playerInteract;
+        playerInteract = PlayerInteract.Instance;
         this.objToMove = objToMove;
         startPos = objToMove.position;
         startRot = objToMove.eulerAngles;
@@ -18,8 +18,8 @@ public class CameraForSmallObjects : ICameraMovementType
     public void cameraMoveIn()
     {
         PlayerInteract.input.BlockInputForInteraction();
-        objToMove.DOMove(playerInteract.holdPt.position, 2);
-        objToMove.DORotate(playerInteract.holdPt.eulerAngles, 2);
+        objToMove.DOMove(PlayerInteract.Instance.objPos.transform.position, 2);
+        objToMove.DORotate(PlayerInteract.Instance.objPos.transform.eulerAngles, 2);
        
     }
 

@@ -14,7 +14,8 @@ public class PlayerUI : MonoBehaviour
 
     [SerializeField] private GameObject interactCursor;
     [SerializeField] private GameObject normalCursor;
-
+    [SerializeField] private TextMeshProUGUI DialogueDiasplay;
+    
     // Start is called before the first frame update
     private void Awake()
     {
@@ -26,13 +27,10 @@ public class PlayerUI : MonoBehaviour
         {
             Instance = this;
         }
-    }
+        InteractionText.text = String.Empty;
+        DialogueDiasplay.text = String.Empty;
 
-    // old
-    //public void UpdateText(string promptMessage)
-    //{
-    //    promptText.text = promptMessage;
-    //}
+    }
 
     public void ShowInteractCursor()
     {
@@ -44,5 +42,9 @@ public class PlayerUI : MonoBehaviour
     {
         interactCursor.SetActive(false);
         normalCursor.SetActive(true);
+
+    public void UpdateDialogueText(string promptMessage)
+    {
+        DialogueDiasplay.text = promptMessage;
     }
 }

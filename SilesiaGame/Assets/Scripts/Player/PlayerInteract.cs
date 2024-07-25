@@ -11,15 +11,13 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private LayerMask mask;
     private PlayerUI playerUI;
     Rigidbody rb;
+    public GameObject objPos;
 
     public static PlayerInteract Instance { get; set; }
 
     public static Interactable selectedInteractable;
     public event EventHandler<OnSelectedArtefactChangedEventArgs> OnSelectedArtefactChanged;
-
-    public Transform holdPt;
-
-
+    
     public class OnSelectedArtefactChangedEventArgs : EventArgs
     {
         public Interactable selectedArtefact;
@@ -45,9 +43,12 @@ public class PlayerInteract : MonoBehaviour
     //the selected interactable object is set in the update
     private void GameInput_OnInteraction(object sender, EventArgs e)
     {
+        
         if (selectedInteractable != null)
         {
-            selectedInteractable.Interact(this);
+            selectedInteractable.TriggerDialogue();
+            selectedInteractable.Interact();
+            
         }
     }
 
@@ -57,7 +58,6 @@ public class PlayerInteract : MonoBehaviour
     // also triggers event for each interactable object to check if it is the one looked at, if so -> turns on the outline
     void Update()
     {
-
         //playerUI.UpdateText(String.Empty);
         playerUI.ShowNormalCursor();
 
@@ -92,6 +92,10 @@ public class PlayerInteract : MonoBehaviour
                     facedInteractable.gameObject.GetComponent<Outline>().OutlineColor = Color.magenta;
                     facedInteractable.gameObject.GetComponent<Outline>().OutlineWidth = 15.0f;
                 }
+            }
+            else
+            {
+                SetSelectedArtefact(null);
             }
         }
         else
