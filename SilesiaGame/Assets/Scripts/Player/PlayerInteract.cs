@@ -11,6 +11,7 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private LayerMask mask;
     private PlayerUI playerUI;
     Rigidbody rb;
+    public GameObject objPos;
 
     public static PlayerInteract Instance { get; set; }
 
@@ -42,9 +43,12 @@ public class PlayerInteract : MonoBehaviour
     //the selected interactable object is set in the update
     private void GameInput_OnInteraction(object sender, EventArgs e)
     {
+        
         if (selectedInteractable != null)
         {
+            selectedInteractable.TriggerDialogue();
             selectedInteractable.Interact();
+            
         }
     }
 
@@ -54,22 +58,47 @@ public class PlayerInteract : MonoBehaviour
     // also triggers event for each interactable object to check if it is the one looked at, if so -> turns on the outline
     void Update()
     {
-
-        playerUI.UpdateText(String.Empty);
+        //playerUI.UpdateText(String.Empty);
+        playerUI.ShowNormalCursor();
 
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
         RaycastHit hitInfo;
+        
+        if (selectedInteractable != null)
+        {
+            selectedInteractable.gameObject.GetComponent<Outline>().enabled = false;
+        }
+        
         if (Physics.Raycast(ray, out hitInfo, distance, mask))
         {
             var facedInteractable = hitInfo.collider.GetComponent<Interactable>();
             if (facedInteractable != null && Vector3.Distance(facedInteractable.transform.position, rb.position) < 100)
             {
-                playerUI.UpdateText("Press E to interact");
-                if (facedInteractable != selectedInteractable)
+                if (facedInteractable.getAbleToUse())
                 {
-                    SetSelectedArtefact(facedInteractable);
+                    playerUI.ShowInteractCursor();
+                    if (facedInteractable != selectedInteractable)
+                    {
+                        SetSelectedArtefact(facedInteractable);
+                    }
+                
+                    if (facedInteractable.gameObject.GetComponent<Outline>() != null)
+                    {
+                        facedInteractable.gameObject.GetComponent<Outline>().enabled = true;
+                    }
+                    else
+                    {
+                        Outline outline = facedInteractable.gameObject.AddComponent<Outline>();
+                        outline.enabled = true;
+                        facedInteractable.gameObject.GetComponent<Outline>().OutlineColor = Color.magenta;
+                        facedInteractable.gameObject.GetComponent<Outline>().OutlineWidth = 15.0f;
+                    }
                 }
                 
+            }
+            else
+            {
+                SetSelectedArtefact(null);
             }
         }
         else

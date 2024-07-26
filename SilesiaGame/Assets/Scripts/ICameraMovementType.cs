@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-interface ICameraMovementType
+public interface ICameraMovementType
 {
     void cameraMoveIn();
     void cameraMoveOut();

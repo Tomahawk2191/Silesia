@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Interactable : MonoBehaviour
 {
@@ -9,9 +10,11 @@ public class Interactable : MonoBehaviour
     private static int maxID = 1;
     private bool ableToUse;
 
+    public ICameraMovementType cameraMovementType { get; protected set; }
+
     //datadump of the object. Here we store the serialized info.
     [SerializeField] private InteractableSO data;
-    [SerializeField] private GameObject outline;
+    //[SerializeField] private GameObject outline;
     private static PlayerInput input;
 
 
@@ -50,27 +53,36 @@ public class Interactable : MonoBehaviour
     {
         setOutlineON();
     }
-    
 
-    public string getLine(int lineNumber)
-    {
-        return GetComponent<InteractableSO>().text.text.Split('\n')[lineNumber];
-    }
-    
     //THIS METHOD MUST BE OVERRIDEN IN CLASSES THAT EXTEND INTERACTABLE
     public virtual void Interact()
     {
     }
 
+    public void TriggerDialogue()
+    {
+        if (ableToUse)
+        {
+            DialogueManager.Instance.StartDialogue(data.text);
+        }
+
+        ableToUse = false;
+    }
+
 
     public void setOutlineON()
     {
-        outline.SetActive(true);
+        //outline.SetActive(true);
 
     }
     public void setOutlineOFF()
     {
-        outline.SetActive(false);
+        //outline.SetActive(false);
 
+    }
+
+    public bool getAbleToUse()
+    {
+        return ableToUse;
     }
 }
