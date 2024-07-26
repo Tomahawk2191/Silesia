@@ -27,7 +27,6 @@ public class PlayerUI : MonoBehaviour
         {
             Instance = this;
         }
-        InteractionText.text = String.Empty;
         DialogueDiasplay.text = String.Empty;
 
     }
@@ -42,6 +41,7 @@ public class PlayerUI : MonoBehaviour
     {
         interactCursor.SetActive(false);
         normalCursor.SetActive(true);
+    }
 
     public void UpdateDialogueText(string promptMessage)
     {
