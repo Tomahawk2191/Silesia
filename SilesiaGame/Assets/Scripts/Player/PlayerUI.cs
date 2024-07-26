@@ -32,8 +32,9 @@ public class PlayerUI : MonoBehaviour
         {
             Instance = this;
         }
-        DialogueDisplay.text = string.Empty;
 
+        DialogueDisplay.text = string.Empty;
+    }
 
     private void Start()
     {
