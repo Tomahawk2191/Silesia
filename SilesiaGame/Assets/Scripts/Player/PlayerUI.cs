@@ -32,6 +32,7 @@ public class PlayerUI : MonoBehaviour
             Instance = this;
         }
         DialogueDisplay.text = String.Empty;
+        DialogueDisplay.autoSizeTextContainer = true;
 
     }
 
