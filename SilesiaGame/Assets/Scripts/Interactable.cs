@@ -52,13 +52,7 @@ public class Interactable : MonoBehaviour
     {
         setOutlineON();
     }
-    
 
-    public string getLine(int lineNumber)
-    {
-        return GetComponent<InteractableSO>().text.text.Split('\n')[lineNumber];
-    }
-    
     //THIS METHOD MUST BE OVERRIDEN IN CLASSES THAT EXTEND INTERACTABLE
     public virtual void Interact()
     {
@@ -71,7 +65,7 @@ public class Interactable : MonoBehaviour
             DialogueManager.Instance.StartDialogue(data.text);
         }
 
-        DialogueManager.Instance.StartDialogue(data.text);
+        ableToUse = false;
     }
 
 
@@ -84,5 +78,10 @@ public class Interactable : MonoBehaviour
     {
         //outline.SetActive(false);
 
+    }
+
+    public bool getAbleToUse()
+    {
+        return ableToUse;
     }
 }
