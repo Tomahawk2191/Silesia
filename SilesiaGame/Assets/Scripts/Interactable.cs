@@ -66,7 +66,11 @@ public class Interactable : MonoBehaviour
 
     public void TriggerDialogue()
     {
-        
+        if (ableToUse)
+        {
+            DialogueManager.Instance.StartDialogue(data.text);
+        }
+
         DialogueManager.Instance.StartDialogue(data.text);
     }
 

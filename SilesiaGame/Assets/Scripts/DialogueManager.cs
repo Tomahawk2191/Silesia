@@ -38,8 +38,12 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     public void StartDialogue(TextAsset text)
     {
-        if (justFinishedTheDialogue) return;
-        justFinishedTheDialogue = true;
+        Debug.Log("want to start dialogue");
+        if (justFinishedTheDialogue)
+        {
+            justFinishedTheDialogue = false;
+            return;
+        }
         PlayerMovement.setCanMove(false);
         PlayerInteract.selectedInteractable.cameraMovementType.cameraMoveIn();
         _input.SwitchToDialogueMap();
