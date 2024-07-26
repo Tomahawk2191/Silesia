@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float oscillationVal = 0f;
     [SerializeField] float oscillationFreq = 8f; 
     float lurchVal = 0f;
-    [SerializeField] float lurchStrength = 0; 
+    [SerializeField] float lurchStrength = 0.05f; 
 
 
     // Start is called before the first frame update

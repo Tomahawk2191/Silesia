@@ -19,7 +19,7 @@ public class PlayerCam : MonoBehaviour
 // CAMERA BOB VARIABLES
     bool bIsOnTheMove;
     CinemachineVirtualCamera vCam;
-    [SerializeField] private float AmplitudeGain = 0f;
+    [SerializeField] private float AmplitudeGain = 2f;
     [SerializeField] private float FrequencyGain = 0.02f;
 
     float horizontalInput;
@@ -32,7 +32,7 @@ public class PlayerCam : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked; 
         Cursor.visible = false;
         bIsOnTheMove = false;
-        
+        vCam = gameObject.GetComponent<CinemachineVirtualCamera>(); 
 
     }
 
@@ -77,12 +77,12 @@ public class PlayerCam : MonoBehaviour
         Debug.Log("Ran CameraBobOn");
         if (bIsOnTheMove)
         {
-            gameObject.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = AmplitudeGain; 
+            vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = AmplitudeGain; 
             Debug.Log("Set Frequency to on");
         }
         else
         {
-            gameObject.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 0;
+            vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 0;
             Debug.Log("Set Frequency to 0");
         }
     }
