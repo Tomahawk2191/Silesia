@@ -74,24 +74,27 @@ public class PlayerInteract : MonoBehaviour
             var facedInteractable = hitInfo.collider.GetComponent<Interactable>();
             if (facedInteractable != null && Vector3.Distance(facedInteractable.transform.position, rb.position) < 100)
             {
-                //playerUI.UpdateText("Press LMB to interact");
-                playerUI.ShowInteractCursor();
-                if (facedInteractable != selectedInteractable)
+                if (facedInteractable.getAbleToUse())
                 {
-                    SetSelectedArtefact(facedInteractable);
+                    playerUI.ShowInteractCursor();
+                    if (facedInteractable != selectedInteractable)
+                    {
+                        SetSelectedArtefact(facedInteractable);
+                    }
+                
+                    if (facedInteractable.gameObject.GetComponent<Outline>() != null)
+                    {
+                        facedInteractable.gameObject.GetComponent<Outline>().enabled = true;
+                    }
+                    else
+                    {
+                        Outline outline = facedInteractable.gameObject.AddComponent<Outline>();
+                        outline.enabled = true;
+                        facedInteractable.gameObject.GetComponent<Outline>().OutlineColor = Color.magenta;
+                        facedInteractable.gameObject.GetComponent<Outline>().OutlineWidth = 15.0f;
+                    }
                 }
                 
-                if (facedInteractable.gameObject.GetComponent<Outline>() != null)
-                {
-                    facedInteractable.gameObject.GetComponent<Outline>().enabled = true;
-                }
-                else
-                {
-                    Outline outline = facedInteractable.gameObject.AddComponent<Outline>();
-                    outline.enabled = true;
-                    facedInteractable.gameObject.GetComponent<Outline>().OutlineColor = Color.magenta;
-                    facedInteractable.gameObject.GetComponent<Outline>().OutlineWidth = 15.0f;
-                }
             }
             else
             {
