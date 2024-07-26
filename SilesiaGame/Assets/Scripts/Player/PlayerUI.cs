@@ -32,8 +32,7 @@ public class PlayerUI : MonoBehaviour
         {
             Instance = this;
         }
-        DialogueDisplay.text = String.Empty;
-        DialogueDisplay.autoSizeTextContainer = true;
+        DialogueDisplay.text = string.Empty;
     }
 
     private void Start()
@@ -52,6 +51,13 @@ public class PlayerUI : MonoBehaviour
         interactCursor.SetActive(false);
         normalCursor.SetActive(true);
     }
+
+    public void HideAllCursors()
+    {
+        interactCursor.SetActive(false);
+        normalCursor.SetActive(false);
+    }
+
     public void UpdateDialogueText(string promptMessage)
     {
         if (DialogueDisplay.text != string.Empty)

@@ -94,6 +94,11 @@ public class PlayerInteract : MonoBehaviour
                         facedInteractable.gameObject.GetComponent<Outline>().OutlineWidth = 15.0f;
                     }
                 }
+
+                if (DialogueManager.currentObject != null)
+                {
+                    playerUI.HideAllCursors();
+                }
                 
             }
             else
