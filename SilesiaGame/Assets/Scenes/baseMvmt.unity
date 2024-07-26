@@ -207,10 +207,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b8416c2a1a689c4d978cae6a8ae6959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensX: 600
-  sensY: 600
+  sensX: 500
+  sensY: 500
   orientation: {fileID: 1616909222}
-  AmplitudeGain: 2.5
+  AmplitudeGain: 2
   FrequencyGain: 0.02
 --- !u!114 &100256454
 MonoBehaviour:
@@ -797,6 +797,7 @@ GameObject:
   m_Component:
   - component: {fileID: 788833406}
   - component: {fileID: 788833409}
+  - component: {fileID: 788833410}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -831,6 +832,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &788833410
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788833405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 2
+  m_FrequencyGain: 0.02
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &1068576363
 GameObject:
   m_ObjectHideFlags: 0
@@ -974,9 +992,9 @@ MonoBehaviour:
   moveSpeed: 9
   groundDrag: 6
   orientation: {fileID: 1616909222}
-  oscillationVal: 1
-  oscillationFreq: 6
-  lurchStrength: 0.2
+  oscillationVal: 0
+  oscillationFreq: 8
+  lurchStrength: 0.05
 --- !u!1 &1285934310
 GameObject:
   m_ObjectHideFlags: 0
