@@ -19,13 +19,17 @@ public class PlayerCam : MonoBehaviour
     // CAMERA BOB VARIABLES
     bool bIsOnTheMove;
     CinemachineVirtualCamera vCam;
-    [SerializeField] private float AmplitudeGain = 2.0f;
+    [SerializeField] private float AmplitudeGain = 0f;
     [SerializeField] private float FrequencyGain = 0.02f;
+
+    float horizontalInput;
+    float verticalInput;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        vCam = gameObject.GetComponent<CinemachineVirtualCamera>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         bIsOnTheMove = false;
@@ -58,26 +62,26 @@ public class PlayerCam : MonoBehaviour
 
         // check if object is moving
 
+        CheckInput(); 
+
         Debug.Log("Called checkMoving");
 
-        Tempfunc();
+        //Tempfunc();
 
-        CheckMoving();
+        //CheckMoving();
 
         CameraBobOn();
-
-        //Debug.Log()
-
+        Debug.Log("Called CameraBobOn");
 
     }
 
     void Tempfunc()
     {
         Debug.Log("Ran checkMoving");
-        Vector3 startPos = new Vector3(3f,3f,3f);
+        
         Debug.Log("set startPos"); 
     }
-
+    /*
     private IEnumerator CheckMoving()
     {
         Debug.Log("Ran checkMoving");
@@ -94,12 +98,32 @@ public class PlayerCam : MonoBehaviour
         Debug.Log("StartPos.z != finalPos.z: " + (startPos.z != finalPos.z));
 
     }
+    */
 
-    void CameraBobOn()
+    private void CheckInput()
+    {
+        Debug.Log("Ran checkInput"); 
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
+        Debug.Log("Set input vars"); 
+
+        bIsOnTheMove = horizontalInput != 0f || verticalInput != 0f;
+        Debug.Log("Set bIsOnTheMove to" + bIsOnTheMove); 
+    }
+
+    private void CameraBobOn()
     {
         Debug.Log("Ran CameraBobOn");
-        if (bIsOnTheMove) vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = FrequencyGain;
-        else vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = 0;
+        if (bIsOnTheMove)
+        {
+            vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = AmplitudeGain; 
+            Debug.Log("Set Frequency to on");
+        }
+        else
+        {
+            vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 0;
+            Debug.Log("Set Frequency to 0");
+        }
     }
 
 
