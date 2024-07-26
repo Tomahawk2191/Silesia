@@ -1,5 +1,6 @@
+using Cinemachine;
 using System.Collections;
-using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class PlayerCam : MonoBehaviour
@@ -15,7 +16,14 @@ public class PlayerCam : MonoBehaviour
     float xRotation; 
     float yRotation;
 
+// CAMERA BOB VARIABLES
+    bool bIsOnTheMove;
+    CinemachineVirtualCamera vCam;
+    [SerializeField] private float AmplitudeGain = 0f;
+    [SerializeField] private float FrequencyGain = 0.02f;
 
+    float horizontalInput;
+    float verticalInput;
 
 
     // Start is called before the first frame update
@@ -23,6 +31,8 @@ public class PlayerCam : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked; 
         Cursor.visible = false;
+        bIsOnTheMove = false;
+        
 
     }
 
@@ -44,7 +54,38 @@ public class PlayerCam : MonoBehaviour
             orientation.rotation = Quaternion.Euler(0, yRotation, 0); 
         }
         
+        CheckInput(); 
 
+        CameraBobOn();
 
     }
+    
+    
+    private void CheckInput()
+    {
+        Debug.Log("Ran checkInput"); 
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
+        Debug.Log("Set input vars"); 
+
+        bIsOnTheMove = horizontalInput != 0f || verticalInput != 0f;
+        Debug.Log("Set bIsOnTheMove to" + bIsOnTheMove); 
+    }
+
+    private void CameraBobOn()
+    {
+        Debug.Log("Ran CameraBobOn");
+        if (bIsOnTheMove)
+        {
+            gameObject.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = AmplitudeGain; 
+            Debug.Log("Set Frequency to on");
+        }
+        else
+        {
+            gameObject.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 0;
+            Debug.Log("Set Frequency to 0");
+        }
+    }
+    
+    
 }
