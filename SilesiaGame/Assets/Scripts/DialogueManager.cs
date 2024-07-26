@@ -14,7 +14,6 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<string> _sentences;
     private PlayerInput _input;
-    public static bool justFinishedTheDialogue = false;
 
     // Start is called before the first frame update
     private void Awake()
