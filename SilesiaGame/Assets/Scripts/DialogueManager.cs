@@ -56,6 +56,7 @@ public class DialogueManager : MonoBehaviour
 
     private void DisplayNextSentence(object sender, EventArgs e)
     {
+        
         if (PlayerUI.Instance.inAnimation)
             return;
         if (!_sentences.Any()) 
@@ -74,6 +75,7 @@ public class DialogueManager : MonoBehaviour
         PlayerUI.Instance.UpdateDialogueText(String.Empty);
         PlayerInteract.input.SwitchToPlayerMap();
         PlayerInteract.Instance.unblockPlayerFromDialogue();
+        currentObject = null;
 
 
     }

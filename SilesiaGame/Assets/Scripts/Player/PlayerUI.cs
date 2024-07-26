@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class PlayerUI : MonoBehaviour
@@ -31,8 +32,12 @@ public class PlayerUI : MonoBehaviour
         {
             Instance = this;
         }
-        DialogueDisplay.text = String.Empty;
+        DialogueDisplay.text = string.Empty;
 
+
+    private void Start()
+    {
+        DialogueDisplay.alpha = 0f;
     }
 
     public void ShowInteractCursor()
@@ -47,22 +52,47 @@ public class PlayerUI : MonoBehaviour
         normalCursor.SetActive(true);
     }
 
+    public void HideAllCursors()
+    {
+        interactCursor.SetActive(false);
+        normalCursor.SetActive(false);
+    }
+
     public void UpdateDialogueText(string promptMessage)
     {
-        DialogueDisplay.text = promptMessage;
-        Animate(1f);
+        if (DialogueDisplay.text != string.Empty)
+        {
+            HidePreviousLine(promptMessage);
+        }
+        else
+        {
+            ShowNewLine(promptMessage);
+        }
     }
-    private void Animate(float fadeTarget)
+
+    private void ShowNewLine(string promptMessage)
+    {
+        inAnimation = true;
+        DialogueDisplay.text = promptMessage;
+        var outSeq = DOTween.Sequence();
+        outSeq.Insert(0, DialogueDisplay.DOFade(1f, fadeDuration).SetEase(Ease.InOutSine));
+        outSeq.AppendCallback(() =>
+        {
+            inAnimation = false;
+            Debug.Log("Anim is finished");
+        });
+        outSeq.Play();
+    }
+
+    private void HidePreviousLine(string promptMessage)
     {
         inAnimation = true;
         var outSeq = DOTween.Sequence();
-        outSeq.Insert(0, DialogueDisplay.DOFade(fadeTarget, fadeDuration).SetEase(Ease.InOutSine));
-        var targetY = DialogueDisplay.transform.position.y;
-        var tempMove = DialogueDisplay.transform.DOMoveY(targetY + fadeDistance, fadeDuration);
-        outSeq.Insert(0, tempMove);
-        tempMove.SetEase(Ease.InOutQuad);
-        outSeq.AppendCallback(() => inAnimation = false);
-        outSeq.Play();
+        outSeq.Insert(0, DialogueDisplay.DOFade(0f, fadeDuration).SetEase(Ease.InSine));
+        outSeq.AppendCallback(() => ShowNewLine(promptMessage));
     }
-    
+
+
+
+
 }

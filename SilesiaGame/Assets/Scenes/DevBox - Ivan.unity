@@ -183,7 +183,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c5693547bab5ae44faf05e0c3f5f527a, type: 2}
+  - {fileID: 2100000, guid: 76e68ccc8b8453249afec173814307ba, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3084,6 +3084,54 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1249981396067035249, guid: 44aa7f4a229cf3f45826f51193426b3a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 1249981396067035249, guid: 44aa7f4a229cf3f45826f51193426b3a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 1249981396067035249, guid: 44aa7f4a229cf3f45826f51193426b3a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 1249981396067035249, guid: 44aa7f4a229cf3f45826f51193426b3a, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3442996368377687302, guid: 44aa7f4a229cf3f45826f51193426b3a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 3442996368377687302, guid: 44aa7f4a229cf3f45826f51193426b3a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 3442996368377687302, guid: 44aa7f4a229cf3f45826f51193426b3a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 3442996368377687302, guid: 44aa7f4a229cf3f45826f51193426b3a, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4139192380612580797, guid: 44aa7f4a229cf3f45826f51193426b3a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4139192380612580797, guid: 44aa7f4a229cf3f45826f51193426b3a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4139192380612580797, guid: 44aa7f4a229cf3f45826f51193426b3a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4139192380612580797, guid: 44aa7f4a229cf3f45826f51193426b3a, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5638826266761842683, guid: 44aa7f4a229cf3f45826f51193426b3a, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -3110,6 +3158,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1610032310}
     - target: {fileID: 7976865495589056501, guid: 742a8024314f45b4b9b3b612e9581086, type: 3}
+      propertyPath: fadeDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7976865495589056501, guid: 742a8024314f45b4b9b3b612e9581086, type: 3}
+      propertyPath: fadeDuration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7976865495589056501, guid: 742a8024314f45b4b9b3b612e9581086, type: 3}
       propertyPath: normalCursor
       value: 
       objectReference: {fileID: 1790437974}
@@ -3117,6 +3173,10 @@ PrefabInstance:
       propertyPath: interactCursor
       value: 
       objectReference: {fileID: 1709919526}
+    - target: {fileID: 7976865495589056501, guid: 742a8024314f45b4b9b3b612e9581086, type: 3}
+      propertyPath: DialogueDisplay
+      value: 
+      objectReference: {fileID: 1193962285}
     - target: {fileID: 7976865495589056501, guid: 742a8024314f45b4b9b3b612e9581086, type: 3}
       propertyPath: DialogueDiasplay
       value: 

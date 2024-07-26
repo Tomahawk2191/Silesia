@@ -63,27 +63,23 @@ public class PlayerCam : MonoBehaviour
     
     private void CheckInput()
     {
-        Debug.Log("Ran checkInput"); 
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
-        Debug.Log("Set input vars"); 
 
         bIsOnTheMove = horizontalInput != 0f || verticalInput != 0f;
-        Debug.Log("Set bIsOnTheMove to" + bIsOnTheMove); 
     }
 
     private void CameraBobOn()
     {
-        Debug.Log("Ran CameraBobOn");
         if (bIsOnTheMove)
         {
             vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = AmplitudeGain; 
-            Debug.Log("Set Frequency to on");
+        
         }
         else
         {
             vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 0;
-            Debug.Log("Set Frequency to 0");
+           
         }
     }
     
