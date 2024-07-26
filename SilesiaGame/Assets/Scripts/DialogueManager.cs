@@ -39,13 +39,7 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     public void StartDialogue(TextAsset text)
     {
-        PlayerCam.canMoveCamera = false;
-        if (justFinishedTheDialogue)
-        {
-            justFinishedTheDialogue = false;
-            return;
-        }
-        PlayerMovement.setCanMove(false);
+        PlayerInteract.Instance.blockPlayerForDialogue();
         PlayerInteract.selectedInteractable.cameraMovementType.cameraMoveIn();
         _input.SwitchToDialogueMap();
 
@@ -80,9 +74,8 @@ public class DialogueManager : MonoBehaviour
         }
         PlayerUI.Instance.UpdateDialogueText(String.Empty);
         PlayerInteract.input.SwitchToPlayerMap();
-        justFinishedTheDialogue = true;
-        PlayerMovement.setCanMove(true);
-        PlayerCam.canMoveCamera = true;
+        PlayerInteract.Instance.unblockPlayerFromDialogue();
+
 
     }
 
