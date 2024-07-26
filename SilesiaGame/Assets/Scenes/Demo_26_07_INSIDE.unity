@@ -261,13 +261,17 @@ PrefabInstance:
       propertyPath: lurchStrength
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 1266642191090067040, guid: 742a8024314f45b4b9b3b612e9581086, type: 3}
+      propertyPath: m_Lens.FieldOfView
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1384286574198773472, guid: 742a8024314f45b4b9b3b612e9581086, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.65
+      value: 0.625
       objectReference: {fileID: 0}
     - target: {fileID: 1692464804591652718, guid: 742a8024314f45b4b9b3b612e9581086, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.65
+      value: 0.625
       objectReference: {fileID: 0}
     - target: {fileID: 5818949185682659389, guid: 742a8024314f45b4b9b3b612e9581086, type: 3}
       propertyPath: sensX
@@ -5665,20 +5669,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 21c6b418e33c2b746921bef7a26bf244, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 21c6b418e33c2b746921bef7a26bf244, type: 3}
       propertyPath: m_Name
       value: TILED_STOVE_exp_test
       objectReference: {fileID: 0}
     - target: {fileID: 5254400261400618434, guid: 21c6b418e33c2b746921bef7a26bf244, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254400261400618434, guid: 21c6b418e33c2b746921bef7a26bf244, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254400261400618434, guid: 21c6b418e33c2b746921bef7a26bf244, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254400261400618434, guid: 21c6b418e33c2b746921bef7a26bf244, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0022
+      value: 0.00581
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254400261400618434, guid: 21c6b418e33c2b746921bef7a26bf244, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0197
       objectReference: {fileID: 0}
     - target: {fileID: 5254400261400618434, guid: 21c6b418e33c2b746921bef7a26bf244, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.4434
       objectReference: {fileID: 0}
+    - target: {fileID: 5254400261400618434, guid: 21c6b418e33c2b746921bef7a26bf244, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: -3484170554001190091, guid: 21c6b418e33c2b746921bef7a26bf244, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2775559207706161422, guid: 21c6b418e33c2b746921bef7a26bf244, type: 3}
@@ -6358,7 +6387,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 1000
-  field of view: 60.000004
+  field of view: 50
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -6385,7 +6414,7 @@ Transform:
   m_GameObject: {fileID: 1610032305}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 80.54, y: 5.285, z: 12.37}
+  m_LocalPosition: {x: 80.54, y: 5.2225, z: 12.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
