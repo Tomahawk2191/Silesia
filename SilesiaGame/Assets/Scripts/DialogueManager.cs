@@ -38,7 +38,6 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     public void StartDialogue(TextAsset text)
     {
-        Debug.Log("want to start dialogue");
         if (justFinishedTheDialogue)
         {
             justFinishedTheDialogue = false;
@@ -47,7 +46,7 @@ public class DialogueManager : MonoBehaviour
         PlayerMovement.setCanMove(false);
         PlayerInteract.selectedInteractable.cameraMovementType.cameraMoveIn();
         _input.SwitchToDialogueMap();
-        Debug.Log("Started the dialogue");
+
         _sentences.Clear();
         string[] str = text.text.Split('\n');
         foreach (var sentence in str)
@@ -71,7 +70,6 @@ public class DialogueManager : MonoBehaviour
 
     private static void EndDialogue()
     {
-        Debug.Log("End of Dialogue");
         if (PlayerInteract.selectedInteractable != null)
         {
             PlayerInteract.selectedInteractable.cameraMovementType.cameraMoveOut();
