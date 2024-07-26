@@ -79,4 +79,9 @@ public class PlayerMovement : MonoBehaviour
     {
         canMove = value;
     }
+
+    public static bool getCanMove()
+    {
+        return canMove;
+    }
 }

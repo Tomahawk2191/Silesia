@@ -66,7 +66,7 @@ public class PlayerCam : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        bIsOnTheMove = horizontalInput != 0f || verticalInput != 0f;
+        bIsOnTheMove = (horizontalInput != 0f || verticalInput != 0f) && PlayerMovement.getCanMove();
     }
 
     private void CameraBobOn()
