@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Video;
@@ -38,6 +39,7 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     public void StartDialogue(TextAsset text)
     {
+        PlayerCam.canMoveCamera = false;
         if (justFinishedTheDialogue)
         {
             justFinishedTheDialogue = false;
@@ -58,6 +60,8 @@ public class DialogueManager : MonoBehaviour
 
     private void DisplayNextSentence(object sender, EventArgs e)
     {
+        if (PlayerUI.Instance.inAnimation)
+            return;
         if (!_sentences.Any()) 
         {
             EndDialogue();
@@ -78,8 +82,9 @@ public class DialogueManager : MonoBehaviour
         PlayerInteract.input.SwitchToPlayerMap();
         justFinishedTheDialogue = true;
         PlayerMovement.setCanMove(true);
+        PlayerCam.canMoveCamera = true;
 
     }
-    
+
 }
 

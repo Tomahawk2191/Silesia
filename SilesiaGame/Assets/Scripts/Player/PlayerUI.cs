@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -14,8 +15,11 @@ public class PlayerUI : MonoBehaviour
 
     [SerializeField] private GameObject interactCursor;
     [SerializeField] private GameObject normalCursor;
-    [SerializeField] private TextMeshProUGUI DialogueDiasplay;
-    
+    [SerializeField] private TextMeshProUGUI DialogueDisplay;
+    [SerializeField] float fadeDuration;
+    [SerializeField] float fadeDistance;
+    public bool inAnimation { get; private set; }
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -27,7 +31,7 @@ public class PlayerUI : MonoBehaviour
         {
             Instance = this;
         }
-        DialogueDiasplay.text = String.Empty;
+        DialogueDisplay.text = String.Empty;
 
     }
 
@@ -45,6 +49,20 @@ public class PlayerUI : MonoBehaviour
 
     public void UpdateDialogueText(string promptMessage)
     {
-        DialogueDiasplay.text = promptMessage;
+        DialogueDisplay.text = promptMessage;
+        Animate(1f);
     }
+    private void Animate(float fadeTarget)
+    {
+        inAnimation = true;
+        var outSeq = DOTween.Sequence();
+        outSeq.Insert(0, DialogueDisplay.DOFade(fadeTarget, fadeDuration).SetEase(Ease.InOutSine));
+        var targetY = DialogueDisplay.transform.position.y;
+        var tempMove = DialogueDisplay.transform.DOMoveY(targetY + fadeDistance, fadeDuration);
+        outSeq.Insert(0, tempMove);
+        tempMove.SetEase(Ease.InOutQuad);
+        outSeq.AppendCallback(() => inAnimation = false);
+        outSeq.Play();
+    }
+    
 }
