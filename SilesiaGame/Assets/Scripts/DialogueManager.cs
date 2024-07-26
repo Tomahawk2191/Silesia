@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Video;
@@ -38,16 +39,10 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     public void StartDialogue(TextAsset text)
     {
-        Debug.Log("want to start dialogue");
-        if (justFinishedTheDialogue)
-        {
-            justFinishedTheDialogue = false;
-            return;
-        }
-        PlayerMovement.setCanMove(false);
+        PlayerInteract.Instance.blockPlayerForDialogue();
         PlayerInteract.selectedInteractable.cameraMovementType.cameraMoveIn();
         _input.SwitchToDialogueMap();
-        Debug.Log("Started the dialogue");
+
         _sentences.Clear();
         string[] str = text.text.Split('\n');
         foreach (var sentence in str)
@@ -59,6 +54,8 @@ public class DialogueManager : MonoBehaviour
 
     private void DisplayNextSentence(object sender, EventArgs e)
     {
+        if (PlayerUI.Instance.inAnimation)
+            return;
         if (!_sentences.Any()) 
         {
             EndDialogue();
@@ -71,17 +68,16 @@ public class DialogueManager : MonoBehaviour
 
     private static void EndDialogue()
     {
-        Debug.Log("End of Dialogue");
         if (PlayerInteract.selectedInteractable != null)
         {
             PlayerInteract.selectedInteractable.cameraMovementType.cameraMoveOut();
         }
         PlayerUI.Instance.UpdateDialogueText(String.Empty);
         PlayerInteract.input.SwitchToPlayerMap();
-        justFinishedTheDialogue = true;
-        PlayerMovement.setCanMove(true);
+        PlayerInteract.Instance.unblockPlayerFromDialogue();
+
 
     }
-    
+
 }
 

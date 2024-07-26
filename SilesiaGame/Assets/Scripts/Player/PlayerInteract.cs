@@ -120,4 +120,16 @@ public class PlayerInteract : MonoBehaviour
         });
     }
 
+    public void blockPlayerForDialogue()
+    {
+        PlayerMovement.setCanMove(false);
+        PlayerCam.canMoveCamera = false;
+    }
+
+    public void unblockPlayerFromDialogue()
+    {
+        PlayerMovement.setCanMove(true);
+        PlayerCam.canMoveCamera = true;
+    }
+
 }
