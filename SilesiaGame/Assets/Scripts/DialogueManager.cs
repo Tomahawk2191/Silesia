@@ -14,6 +14,8 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<string> _sentences;
     private PlayerInput _input;
+    public static bool justFinishedTheDialogue = false;
+    public static Interactable currentObject;
 
     // Start is called before the first frame update
     private void Awake()
@@ -36,14 +38,15 @@ public class DialogueManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void StartDialogue(TextAsset text)
+    public void StartDialogue(Interactable interactable)
     {
+        currentObject = interactable;
         PlayerInteract.Instance.blockPlayerForDialogue();
-        PlayerInteract.selectedInteractable.cameraMovementType.cameraMoveIn();
+        currentObject.cameraMovementType.cameraMoveIn();
         _input.SwitchToDialogueMap();
 
         _sentences.Clear();
-        string[] str = text.text.Split('\n');
+        string[] str = interactable.getText().Split('\n');
         foreach (var sentence in str)
         {
             _sentences.Enqueue(sentence);
@@ -67,10 +70,7 @@ public class DialogueManager : MonoBehaviour
 
     private static void EndDialogue()
     {
-        if (PlayerInteract.selectedInteractable != null)
-        {
-            PlayerInteract.selectedInteractable.cameraMovementType.cameraMoveOut();
-        }
+        currentObject.cameraMovementType.cameraMoveOut();
         PlayerUI.Instance.UpdateDialogueText(String.Empty);
         PlayerInteract.input.SwitchToPlayerMap();
         PlayerInteract.Instance.unblockPlayerFromDialogue();

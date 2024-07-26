@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Interactable : MonoBehaviour
 {
@@ -62,7 +63,7 @@ public class Interactable : MonoBehaviour
     {
         if (ableToUse)
         {
-            DialogueManager.Instance.StartDialogue(data.text);
+            DialogueManager.Instance.StartDialogue(this);
         }
 
         ableToUse = false;
@@ -84,4 +85,10 @@ public class Interactable : MonoBehaviour
     {
         return ableToUse;
     }
+
+    public string getText()
+    {
+        return data.text.text;
+    }
+    
 }
