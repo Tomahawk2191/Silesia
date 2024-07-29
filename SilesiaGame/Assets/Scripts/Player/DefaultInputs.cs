@@ -62,6 +62,15 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PauseMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""a41d6b9b-36d0-431b-a910-17deacddfb78"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -150,6 +159,17 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""OpenJournal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""246cb5bc-0fea-4044-a812-a7a171f8e354"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PauseMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -288,6 +308,7 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_ShowHint = m_Player.FindAction("ShowHint", throwIfNotFound: true);
         m_Player_OpenJournal = m_Player.FindAction("OpenJournal", throwIfNotFound: true);
+        m_Player_PauseMenu = m_Player.FindAction("PauseMenu", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_PauseMenu = m_UI.FindAction("PauseMenu", throwIfNotFound: true);
@@ -364,6 +385,7 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_ShowHint;
     private readonly InputAction m_Player_OpenJournal;
+    private readonly InputAction m_Player_PauseMenu;
     public struct PlayerActions
     {
         private @DefaultInputs m_Wrapper;
@@ -372,6 +394,7 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @ShowHint => m_Wrapper.m_Player_ShowHint;
         public InputAction @OpenJournal => m_Wrapper.m_Player_OpenJournal;
+        public InputAction @PauseMenu => m_Wrapper.m_Player_PauseMenu;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -393,6 +416,9 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
             @OpenJournal.started += instance.OnOpenJournal;
             @OpenJournal.performed += instance.OnOpenJournal;
             @OpenJournal.canceled += instance.OnOpenJournal;
+            @PauseMenu.started += instance.OnPauseMenu;
+            @PauseMenu.performed += instance.OnPauseMenu;
+            @PauseMenu.canceled += instance.OnPauseMenu;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -409,6 +435,9 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
             @OpenJournal.started -= instance.OnOpenJournal;
             @OpenJournal.performed -= instance.OnOpenJournal;
             @OpenJournal.canceled -= instance.OnOpenJournal;
+            @PauseMenu.started -= instance.OnPauseMenu;
+            @PauseMenu.performed -= instance.OnPauseMenu;
+            @PauseMenu.canceled -= instance.OnPauseMenu;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -586,6 +615,7 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnShowHint(InputAction.CallbackContext context);
         void OnOpenJournal(InputAction.CallbackContext context);
+        void OnPauseMenu(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
