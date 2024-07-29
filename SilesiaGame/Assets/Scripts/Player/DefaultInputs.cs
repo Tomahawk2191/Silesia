@@ -53,6 +53,15 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Hold"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenJournal"",
+                    ""type"": ""Button"",
+                    ""id"": ""24abfa57-060d-4eb6-a1a5-2c9c67e1b127"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -130,6 +139,17 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""ShowHint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b5f48961-c742-455e-8daf-9c1a6224ecb1"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenJournal"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -678,6 +698,74 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Journal"",
+            ""id"": ""17697988-2e5f-42f4-a45f-e03be69612b5"",
+            ""actions"": [
+                {
+                    ""name"": ""JournalPreviousPage"",
+                    ""type"": ""Button"",
+                    ""id"": ""8e36269d-f6fe-4205-9760-01cf559a0f09"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""JournalNextPage"",
+                    ""type"": ""Button"",
+                    ""id"": ""7fc22395-8696-4bae-aba2-ca6abc9b3efd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""QuitJournal"",
+                    ""type"": ""Button"",
+                    ""id"": ""476043a1-d8bf-4fc8-b7df-b7d5a3b73138"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""a522c106-d435-4610-8835-4e03672d4abc"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JournalNextPage"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""82b1a49f-2a4e-4dee-9fc4-93765865fbc6"",
+                    ""path"": ""<Keyboard>/h"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JournalPreviousPage"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""237edc57-d562-4767-ba38-bc428657f589"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""QuitJournal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -687,6 +775,7 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_ShowHint = m_Player.FindAction("ShowHint", throwIfNotFound: true);
+        m_Player_OpenJournal = m_Player.FindAction("OpenJournal", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -702,6 +791,11 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
         // Dialogue
         m_Dialogue = asset.FindActionMap("Dialogue", throwIfNotFound: true);
         m_Dialogue_NextLine = m_Dialogue.FindAction("NextLine", throwIfNotFound: true);
+        // Journal
+        m_Journal = asset.FindActionMap("Journal", throwIfNotFound: true);
+        m_Journal_JournalPreviousPage = m_Journal.FindAction("JournalPreviousPage", throwIfNotFound: true);
+        m_Journal_JournalNextPage = m_Journal.FindAction("JournalNextPage", throwIfNotFound: true);
+        m_Journal_QuitJournal = m_Journal.FindAction("QuitJournal", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -766,6 +860,7 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_ShowHint;
+    private readonly InputAction m_Player_OpenJournal;
     public struct PlayerActions
     {
         private @DefaultInputs m_Wrapper;
@@ -773,6 +868,7 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @ShowHint => m_Wrapper.m_Player_ShowHint;
+        public InputAction @OpenJournal => m_Wrapper.m_Player_OpenJournal;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -791,6 +887,9 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
             @ShowHint.started += instance.OnShowHint;
             @ShowHint.performed += instance.OnShowHint;
             @ShowHint.canceled += instance.OnShowHint;
+            @OpenJournal.started += instance.OnOpenJournal;
+            @OpenJournal.performed += instance.OnOpenJournal;
+            @OpenJournal.canceled += instance.OnOpenJournal;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -804,6 +903,9 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
             @ShowHint.started -= instance.OnShowHint;
             @ShowHint.performed -= instance.OnShowHint;
             @ShowHint.canceled -= instance.OnShowHint;
+            @OpenJournal.started -= instance.OnOpenJournal;
+            @OpenJournal.performed -= instance.OnOpenJournal;
+            @OpenJournal.canceled -= instance.OnOpenJournal;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -985,11 +1087,74 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
         }
     }
     public DialogueActions @Dialogue => new DialogueActions(this);
+
+    // Journal
+    private readonly InputActionMap m_Journal;
+    private List<IJournalActions> m_JournalActionsCallbackInterfaces = new List<IJournalActions>();
+    private readonly InputAction m_Journal_JournalPreviousPage;
+    private readonly InputAction m_Journal_JournalNextPage;
+    private readonly InputAction m_Journal_QuitJournal;
+    public struct JournalActions
+    {
+        private @DefaultInputs m_Wrapper;
+        public JournalActions(@DefaultInputs wrapper) { m_Wrapper = wrapper; }
+        public InputAction @JournalPreviousPage => m_Wrapper.m_Journal_JournalPreviousPage;
+        public InputAction @JournalNextPage => m_Wrapper.m_Journal_JournalNextPage;
+        public InputAction @QuitJournal => m_Wrapper.m_Journal_QuitJournal;
+        public InputActionMap Get() { return m_Wrapper.m_Journal; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(JournalActions set) { return set.Get(); }
+        public void AddCallbacks(IJournalActions instance)
+        {
+            if (instance == null || m_Wrapper.m_JournalActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_JournalActionsCallbackInterfaces.Add(instance);
+            @JournalPreviousPage.started += instance.OnJournalPreviousPage;
+            @JournalPreviousPage.performed += instance.OnJournalPreviousPage;
+            @JournalPreviousPage.canceled += instance.OnJournalPreviousPage;
+            @JournalNextPage.started += instance.OnJournalNextPage;
+            @JournalNextPage.performed += instance.OnJournalNextPage;
+            @JournalNextPage.canceled += instance.OnJournalNextPage;
+            @QuitJournal.started += instance.OnQuitJournal;
+            @QuitJournal.performed += instance.OnQuitJournal;
+            @QuitJournal.canceled += instance.OnQuitJournal;
+        }
+
+        private void UnregisterCallbacks(IJournalActions instance)
+        {
+            @JournalPreviousPage.started -= instance.OnJournalPreviousPage;
+            @JournalPreviousPage.performed -= instance.OnJournalPreviousPage;
+            @JournalPreviousPage.canceled -= instance.OnJournalPreviousPage;
+            @JournalNextPage.started -= instance.OnJournalNextPage;
+            @JournalNextPage.performed -= instance.OnJournalNextPage;
+            @JournalNextPage.canceled -= instance.OnJournalNextPage;
+            @QuitJournal.started -= instance.OnQuitJournal;
+            @QuitJournal.performed -= instance.OnQuitJournal;
+            @QuitJournal.canceled -= instance.OnQuitJournal;
+        }
+
+        public void RemoveCallbacks(IJournalActions instance)
+        {
+            if (m_Wrapper.m_JournalActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IJournalActions instance)
+        {
+            foreach (var item in m_Wrapper.m_JournalActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_JournalActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public JournalActions @Journal => new JournalActions(this);
     public interface IPlayerActions
     {
         void OnInteract(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
         void OnShowHint(InputAction.CallbackContext context);
+        void OnOpenJournal(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
@@ -1007,5 +1172,11 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
     public interface IDialogueActions
     {
         void OnNextLine(InputAction.CallbackContext context);
+    }
+    public interface IJournalActions
+    {
+        void OnJournalPreviousPage(InputAction.CallbackContext context);
+        void OnJournalNextPage(InputAction.CallbackContext context);
+        void OnQuitJournal(InputAction.CallbackContext context);
     }
 }
