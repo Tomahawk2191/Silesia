@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 472085240177108318}
   - component: {fileID: 826933259334822886}
   - component: {fileID: 7494342777094325639}
+  - component: {fileID: 4530043061432578357}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -79,6 +80,9 @@ MonoBehaviour:
   moveSpeed: 6
   groundDrag: 5
   orientation: {fileID: 8784157470321378215}
+  oscillationVal: 0
+  oscillationFreq: 8
+  lurchStrength: 0.05
 --- !u!114 &7494342777094325639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,6 +101,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   objPos: {fileID: 5773915141460706914}
+--- !u!114 &4530043061432578357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131754086796161834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80306432030f5dd43b0e30414458023c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3670318671187097776
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,7 +138,7 @@ Transform:
   m_GameObject: {fileID: 3670318671187097776}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.625, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -222,7 +238,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5251186001061192638}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 980f9c2e32ab0374f9dbe99ed9910a92, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -265,7 +281,7 @@ Transform:
   m_GameObject: {fileID: 5634563535232415352}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.625, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -294,7 +310,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 60.000004
+    FieldOfView: 50
     OrthographicSize: 5
     NearClipPlane: 0.01
     FarClipPlane: 1000
@@ -324,9 +340,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b8416c2a1a689c4d978cae6a8ae6959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensX: 600
-  sensY: 600
+  sensX: 500
+  sensY: 500
   orientation: {fileID: 8784157470321378215}
+  AmplitudeGain: 2
+  FrequencyGain: 0.02
 --- !u!1 &5773915141460706914
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,7 +454,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactCursor: {fileID: 0}
   normalCursor: {fileID: 0}
-  DialogueDiasplay: {fileID: 0}
+  DialogueDisplay: {fileID: 0}
+  fadeDuration: 0
+  fadeDistance: 0
 --- !u!114 &1566910214554576026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -475,7 +495,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.5, z: -3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8781952236389264725}
@@ -493,6 +513,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1422564924853431609}
   - component: {fileID: 1796404159312489485}
+  - component: {fileID: 2032327492817986193}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -527,3 +548,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2032327492817986193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8912205645409680355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 2.5
+  m_FrequencyGain: 0.02
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
