@@ -51,6 +51,7 @@ public class DialogueManager : MonoBehaviour
         {
             _sentences.Enqueue(sentence);
         }
+        DisplayNextSentence(this, EventArgs.Empty);
 
     }
 
