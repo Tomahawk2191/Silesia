@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using DefaultNamespace;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -16,6 +17,7 @@ public class DialogueManager : MonoBehaviour
     private PlayerInput _input;
     public static bool justFinishedTheDialogue = false;
     public static Interactable currentObject;
+    public static InspectorModeRotation rotation;
 
     // Start is called before the first frame update
     private void Awake()
@@ -35,12 +37,15 @@ public class DialogueManager : MonoBehaviour
         _input = PlayerInteract.input;
         _sentences = new Queue<string>();
         PlayerInteract.input.NextLine += DisplayNextSentence;
+        rotation = GetComponent<InspectorModeRotation>();
     }
 
     // Update is called once per frame
     public void StartDialogue(Interactable interactable)
     {
         currentObject = interactable;
+        rotation.setObject(currentObject.transform);
+        rotation.setEnabledRotation(true);
         PlayerInteract.Instance.blockPlayerForDialogue();
         currentObject.cameraMovementType.cameraMoveIn();
         _input.SwitchToDialogueMap();
@@ -77,6 +82,7 @@ public class DialogueManager : MonoBehaviour
         PlayerInteract.input.SwitchToPlayerMap();
         PlayerInteract.Instance.unblockPlayerFromDialogue();
         currentObject = null;
+        rotation.setEnabledRotation(false);
 
 
     }

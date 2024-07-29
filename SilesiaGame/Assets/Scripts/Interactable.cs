@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -9,13 +10,13 @@ public class Interactable : MonoBehaviour
     private int id;
     private static int maxID = 1;
     private bool ableToUse;
-
     public ICameraMovementType cameraMovementType { get; protected set; }
 
     //datadump of the object. Here we store the serialized info.
     [SerializeField] private InteractableSO data;
     //[SerializeField] private GameObject outline;
     private static PlayerInput input;
+    
 
 
     private void Start()
@@ -90,5 +91,5 @@ public class Interactable : MonoBehaviour
     {
         return data.text.text;
     }
-    
+
 }
