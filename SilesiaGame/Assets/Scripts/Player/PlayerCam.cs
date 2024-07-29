@@ -59,11 +59,11 @@ public class PlayerCam : MonoBehaviour
         CameraBobOn();
 
 
-        if (Input.GetButton("Fire2") && !PlayerMovement.getCanMove() && !isZoomed)
+        if (Input.GetButtonDown("Fire2") && !PlayerMovement.getCanMove() && !isZoomed)
         {
             switchCamera(inspectCam);
             isZoomed = true;
-        } else if (Input.GetButton("Fire2") && !PlayerMovement.getCanMove())
+        } else if (Input.GetButtonDown("Fire2") && isZoomed)
         {
             switchCamera(vCam);
             isZoomed = false;
@@ -84,12 +84,10 @@ public class PlayerCam : MonoBehaviour
         if (bIsOnTheMove)
         {
             vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = AmplitudeGain;
-
         }
         else
         {
             vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 0;
-
         }
     }
     public void switchCamera(CinemachineVirtualCamera switchCam)
