@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour
@@ -17,12 +15,10 @@ public class PlayerInteract : MonoBehaviour
 
     public static Interactable selectedInteractable;
     public event EventHandler<OnSelectedArtefactChangedEventArgs> OnSelectedArtefactChanged;
-    
     public class OnSelectedArtefactChangedEventArgs : EventArgs
     {
         public Interactable selectedArtefact;
     }
-
     void Awake()
     {
         if (Instance != null)
@@ -38,20 +34,18 @@ public class PlayerInteract : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-
     // method that is used for interactions every time the PlayerInput triggers the event;
     //the selected interactable object is set in the update
     private void GameInput_OnInteraction(object sender, EventArgs e)
     {
-        
+
         if (selectedInteractable != null)
         {
             selectedInteractable.TriggerDialogue();
             selectedInteractable.Interact();
-            
+
         }
     }
-
 
     // Update is called once per frame 
     // using the raycast it check if there is an interactable object in front of the camera and sets it as the selected interactable
@@ -63,12 +57,12 @@ public class PlayerInteract : MonoBehaviour
 
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
         RaycastHit hitInfo;
-        
+
         if (selectedInteractable != null)
         {
             selectedInteractable.gameObject.GetComponent<Outline>().enabled = false;
         }
-        
+
         if (Physics.Raycast(ray, out hitInfo, distance, mask))
         {
             var facedInteractable = hitInfo.collider.GetComponent<Interactable>();
@@ -81,7 +75,7 @@ public class PlayerInteract : MonoBehaviour
                     {
                         SetSelectedArtefact(facedInteractable);
                     }
-                
+
                     if (facedInteractable.gameObject.GetComponent<Outline>() != null)
                     {
                         facedInteractable.gameObject.GetComponent<Outline>().enabled = true;
@@ -99,7 +93,7 @@ public class PlayerInteract : MonoBehaviour
                 {
                     playerUI.HideAllCursors();
                 }
-                
+
             }
             else
             {
@@ -110,12 +104,10 @@ public class PlayerInteract : MonoBehaviour
         {
             SetSelectedArtefact(null);
         }
-        
-        
+
+
 
     }
-
-
     private void SetSelectedArtefact(Interactable artefact)
     {
         selectedInteractable = artefact;
@@ -124,17 +116,14 @@ public class PlayerInteract : MonoBehaviour
             selectedArtefact = artefact
         });
     }
-
     public void blockPlayerForDialogue()
     {
         PlayerMovement.setCanMove(false);
         PlayerCam.canMoveCamera = false;
     }
-
     public void unblockPlayerFromDialogue()
     {
         PlayerMovement.setCanMove(true);
         PlayerCam.canMoveCamera = true;
     }
-
 }

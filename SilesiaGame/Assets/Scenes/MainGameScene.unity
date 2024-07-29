@@ -3077,7 +3077,7 @@ GameObject:
   m_Component:
   - component: {fileID: 705668854}
   - component: {fileID: 705668856}
-  - component: {fileID: 705668855}
+  - component: {fileID: 705668858}
   m_Layer: 7
   m_Name: journal
   m_TagString: Untagged
@@ -3094,14 +3094,27 @@ Transform:
   m_GameObject: {fileID: 705668853}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5473787, y: -0.08230083, z: -0.054207392, w: 0.8310624}
-  m_LocalPosition: {x: 0.603, y: 0.055, z: 0.019}
+  m_LocalPosition: {x: 0.603, y: 0.055, z: 0.065}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 140107548}
   m_Father: {fileID: 995916474}
   m_LocalEulerAnglesHint: {x: -66.742, y: -11.311, z: 0}
---- !u!65 &705668855
+--- !u!114 &705668856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705668853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f574fe3c882f014a8f58c77364391fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 3fab92295e5664442bad34365ca20e55, type: 2}
+--- !u!65 &705668858
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3120,21 +3133,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.90285164, y: 1.1880162, z: 0.51633286}
-  m_Center: {x: 0.001409024, y: -0.23261333, z: -0.00978823}
---- !u!114 &705668856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 705668853}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f574fe3c882f014a8f58c77364391fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 3fab92295e5664442bad34365ca20e55, type: 2}
+  m_Size: {x: 0.99528384, y: 1.2818546, z: 0.45645458}
+  m_Center: {x: -0.0023573448, y: -0.21112205, z: 0.025654819}
 --- !u!1001 &784139735
 PrefabInstance:
   m_ObjectHideFlags: 0
