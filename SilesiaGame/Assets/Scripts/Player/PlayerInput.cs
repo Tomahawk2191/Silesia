@@ -24,6 +24,7 @@ public class PlayerInput
 
     public event EventHandler OpenJournal;
     public event EventHandler QuitJournal;
+    public event EventHandler OpenPauseMenu;
 
     private InputActionMap _currentActionMap;
     // Start is called before the first frame update
@@ -32,7 +33,14 @@ public class PlayerInput
     {
         input = new DefaultInputs();
         SwitchToPlayerMap();
+        input.UI.Enable();
+        input.UI.PauseMenu.performed += OpenPauseMenu_performed;
 
+    }
+
+    private void OpenPauseMenu_performed(InputAction.CallbackContext obj)
+    {
+        OpenPauseMenu?.Invoke(this,EventArgs.Empty);
     }
 
     public void SwitchToDialogueMap()

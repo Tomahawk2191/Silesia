@@ -5,6 +5,7 @@ using DG.Tweening;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerUI : MonoBehaviour
@@ -19,6 +20,7 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI DialogueDisplay;
     [SerializeField] float fadeDuration;
     [SerializeField] float fadeDistance;
+    [SerializeField] private GameObject _pauseMenuPanel;
     public bool inAnimation { get; private set; }
 
     // Start is called before the first frame update
@@ -36,9 +38,44 @@ public class PlayerUI : MonoBehaviour
         DialogueDisplay.text = string.Empty;
     }
 
+    private void TogglePauseMenuPerformed(object sender, EventArgs e)
+    {
+        TogglePauseMenu();
+    }
+
+    public void TogglePauseMenu()
+    {
+        if (_pauseMenuPanel != null)
+        {
+            if (_pauseMenuPanel.activeSelf )
+            {
+            
+                PlayerCam.LockCursor();
+                PlayerMovement.setCanMove(true);
+                _pauseMenuPanel.SetActive(false);
+                PlayerCam.canMoveCamera = true;
+            }
+            else
+            {
+                PlayerCam.UnlockCursor();
+                PlayerCam.canMoveCamera = false;
+                _pauseMenuPanel.SetActive(true);
+                PlayerMovement.setCanMove(false);
+            }
+        }
+        
+    }
+
+    public void pint()
+    {
+        Debug.Log("Resume");
+    }
+    
+
     private void Start()
     {
         DialogueDisplay.alpha = 0f;
+        PlayerInteract.input.OpenPauseMenu += TogglePauseMenuPerformed;
     }
 
     public void ShowInteractCursor()
@@ -91,6 +128,11 @@ public class PlayerUI : MonoBehaviour
         var outSeq = DOTween.Sequence();
         outSeq.Insert(0, DialogueDisplay.DOFade(0f, fadeDuration).SetEase(Ease.InSine));
         outSeq.AppendCallback(() => ShowNewLine(promptMessage));
+    }
+
+    public void goToMainMenu()
+    {
+        SceneManager.LoadSceneAsync(0);
     }
 
 

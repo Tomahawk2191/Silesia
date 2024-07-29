@@ -29,11 +29,22 @@ public class PlayerCam : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked; 
-        Cursor.visible = false;
+        LockCursor();
         bIsOnTheMove = false;
         vCam = gameObject.GetComponent<CinemachineVirtualCamera>(); 
 
+    }
+
+    public static void LockCursor()
+    {
+        Cursor.lockState = CursorLockMode.Locked; 
+        Cursor.visible = false;
+    }
+
+    public static void UnlockCursor()
+    {
+        Cursor.lockState = CursorLockMode.Confined; 
+        Cursor.visible = true;
     }
 
     // Update is called once per frame
