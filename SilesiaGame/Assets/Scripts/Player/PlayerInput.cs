@@ -33,12 +33,20 @@ public class PlayerInput
     {
         input = new DefaultInputs();
         SwitchToPlayerMap();
-        input.UI.Enable();
+        //input.UI.Enable();
 
+        input.Player.Interact.performed += Interact_performed;
+        input.Player.ShowHint.performed += ShowHint_performed;
+        input.Player.ShowHint.canceled += ShowHint_canceled;
+        input.Player.OpenJournal.performed += OpenJournal_performed;
+        input.Dialogue.NextLine.performed += NextLine_performed;
+        input.Player.PauseMenu.performed += OpenPauseMenu_performed;
+        input.Journal.QuitJournal.performed += QuitJournal_performed;
     }
 
     private void OpenPauseMenu_performed(InputAction.CallbackContext obj)
     {
+        Debug.Log("opened menu");
         OpenPauseMenu?.Invoke(this,EventArgs.Empty);
     }
 
@@ -50,38 +58,26 @@ public class PlayerInput
         }
         _currentActionMap = input.Dialogue;
         _currentActionMap.Enable();
-        input.Dialogue.NextLine.performed += NextLine_performed;
-        input.Player.Interact.performed -= Interact_performed;
-        
     }
     public void SwitchToPlayerMap()
     {
         if (_currentActionMap != null)
         {
-            
+            Debug.Log(_currentActionMap.name+" disabled");
             _currentActionMap.Disable();
         }
         _currentActionMap = input.Player;
         _currentActionMap.Enable();
-        input.Dialogue.NextLine.performed -= NextLine_performed;
-        input.Player.Interact.performed += Interact_performed;
-        input.Player.ShowHint.performed += ShowHint_performed;
-        input.Player.ShowHint.canceled += ShowHint_canceled;
-        input.Player.OpenJournal.performed += OpenJournal_performed;
-        input.UI.PauseMenu.performed += OpenPauseMenu_performed;
-        
     }
     public void SwitchToJournalMap()
     {
         if (_currentActionMap != null)
         {
+            Debug.Log(_currentActionMap.name+" disabled");
             _currentActionMap.Disable();
         }
         _currentActionMap = input.Journal;
         _currentActionMap.Enable();
-        input.Journal.QuitJournal.performed += QuitJournal_performed;
-        input.UI.PauseMenu.performed -= OpenPauseMenu_performed;
-
     }
 
     private void QuitJournal_performed(InputAction.CallbackContext obj)
@@ -109,11 +105,7 @@ public class PlayerInput
 
     private void NextLine_performed(InputAction.CallbackContext obj)
     {
-        if (_currentActionMap.Equals((InputActionMap)input.Dialogue))
-        {
             NextLine?.Invoke(this, EventArgs.Empty);
-        }
-       
     }
 
     private void ShowHint_canceled(InputAction.CallbackContext obj)
