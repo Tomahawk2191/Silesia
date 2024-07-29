@@ -13,13 +13,18 @@ public class Interactable : MonoBehaviour
     private bool ableToUse;
     private bool collectable;
     public ICameraMovementType cameraMovementType { get; protected set; }
+    public event EventHandler<NewItemCollected> collectableInteracted;
+
+    public class NewItemCollected : EventArgs
+    {
+        public int id;
+    }
 
     //datadump of the object. Here we store the serialized info.
     [SerializeField] private InteractableSO data;
     //[SerializeField] private GameObject outline;
     private static PlayerInput input;
-    public static IEnumerable<Interactable> collected = new List<Interactable>();
-    
+
 
 
     private void Start()
@@ -49,6 +54,14 @@ public class Interactable : MonoBehaviour
         if (ableToUse)
         {
             DialogueManager.Instance.StartDialogue(this);
+        }
+
+        if (collectable)
+        {
+            collectableInteracted?.Invoke(this,new NewItemCollected()
+            {
+                id = this.id
+            });
         }
 
         
