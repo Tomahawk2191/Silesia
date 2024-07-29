@@ -16,8 +16,6 @@ public class Interactable : MonoBehaviour
     [SerializeField] private InteractableSO data;
     //[SerializeField] private GameObject outline;
     private static PlayerInput input;
-
-
     private void Start()
     {
         id = maxID;

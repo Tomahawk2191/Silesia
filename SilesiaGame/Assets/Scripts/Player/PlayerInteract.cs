@@ -43,7 +43,6 @@ public class PlayerInteract : MonoBehaviour
         {
             selectedInteractable.TriggerDialogue();
             selectedInteractable.Interact();
-
         }
     }
 
@@ -119,11 +118,11 @@ public class PlayerInteract : MonoBehaviour
     public void blockPlayerForDialogue()
     {
         PlayerMovement.setCanMove(false);
-        PlayerCam.canMoveCamera = false;
+        PlayerCam.setCanMoveCamera(false);
     }
     public void unblockPlayerFromDialogue()
     {
         PlayerMovement.setCanMove(true);
-        PlayerCam.canMoveCamera = true;
+        PlayerCam.setCanMoveCamera(true);
     }
 }
