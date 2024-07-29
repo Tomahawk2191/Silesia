@@ -32,11 +32,7 @@ public class JournalManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
+
     private void NextPage()
     {
         Debug.Log("next");
@@ -48,4 +44,5 @@ public class JournalManager : MonoBehaviour
         Debug.Log("previous");
 
     }
+    
 }

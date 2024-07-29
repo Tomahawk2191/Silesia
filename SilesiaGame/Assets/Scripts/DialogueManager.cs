@@ -71,7 +71,6 @@ public class DialogueManager : MonoBehaviour
             return;
         }
         string sentence = _sentences.Dequeue();
-        Debug.Log(sentence);
         PlayerUI.Instance.UpdateDialogueText(sentence);
     }
 

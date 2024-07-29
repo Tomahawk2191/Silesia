@@ -34,7 +34,6 @@ public class PlayerInput
         input = new DefaultInputs();
         SwitchToPlayerMap();
         input.UI.Enable();
-        input.UI.PauseMenu.performed += OpenPauseMenu_performed;
 
     }
 
@@ -69,6 +68,7 @@ public class PlayerInput
         input.Player.ShowHint.performed += ShowHint_performed;
         input.Player.ShowHint.canceled += ShowHint_canceled;
         input.Player.OpenJournal.performed += OpenJournal_performed;
+        input.UI.PauseMenu.performed += OpenPauseMenu_performed;
         
     }
     public void SwitchToJournalMap()
@@ -80,7 +80,8 @@ public class PlayerInput
         _currentActionMap = input.Journal;
         _currentActionMap.Enable();
         input.Journal.QuitJournal.performed += QuitJournal_performed;
-        
+        input.UI.PauseMenu.performed -= OpenPauseMenu_performed;
+
     }
 
     private void QuitJournal_performed(InputAction.CallbackContext obj)
