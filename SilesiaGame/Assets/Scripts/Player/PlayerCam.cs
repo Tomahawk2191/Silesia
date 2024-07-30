@@ -34,6 +34,24 @@ public class PlayerCam : MonoBehaviour
         bIsOnTheMove = false;
         vCam = gameObject.GetComponent<CinemachineVirtualCamera>();
         currentCam = vCam;
+        LockCursor();
+        bIsOnTheMove = false;
+        vCam = gameObject.GetComponent<CinemachineVirtualCamera>();
+        PlayerInteract.input.OnZoomOutEvent += yourmethod;
+        PlayerInteract.input.OnZoomInEvent += yoursecondmethod;
+
+    }
+
+    public static void LockCursor()
+    {
+        Cursor.lockState = CursorLockMode.Locked; 
+        Cursor.visible = false;
+    }
+
+    public static void UnlockCursor()
+    {
+        Cursor.lockState = CursorLockMode.Confined; 
+        Cursor.visible = true;
     }
 
     // Update is called once per frame
