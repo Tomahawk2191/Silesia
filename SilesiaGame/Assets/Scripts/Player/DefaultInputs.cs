@@ -71,6 +71,15 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Zoom In"",
+                    ""type"": ""Button"",
+                    ""id"": ""ad8992ae-73c2-42ac-b75f-ef35ddf0152b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -170,6 +179,17 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""PauseMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""60d2d925-e4d5-4e20-b5de-e472285953e1"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Zoom In"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -309,6 +329,7 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
         m_Player_ShowHint = m_Player.FindAction("ShowHint", throwIfNotFound: true);
         m_Player_OpenJournal = m_Player.FindAction("OpenJournal", throwIfNotFound: true);
         m_Player_PauseMenu = m_Player.FindAction("PauseMenu", throwIfNotFound: true);
+        m_Player_ZoomIn = m_Player.FindAction("Zoom In", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_PauseMenu = m_UI.FindAction("PauseMenu", throwIfNotFound: true);
@@ -386,6 +407,7 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_ShowHint;
     private readonly InputAction m_Player_OpenJournal;
     private readonly InputAction m_Player_PauseMenu;
+    private readonly InputAction m_Player_ZoomIn;
     public struct PlayerActions
     {
         private @DefaultInputs m_Wrapper;
@@ -395,6 +417,7 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
         public InputAction @ShowHint => m_Wrapper.m_Player_ShowHint;
         public InputAction @OpenJournal => m_Wrapper.m_Player_OpenJournal;
         public InputAction @PauseMenu => m_Wrapper.m_Player_PauseMenu;
+        public InputAction @ZoomIn => m_Wrapper.m_Player_ZoomIn;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -419,6 +442,9 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
             @PauseMenu.started += instance.OnPauseMenu;
             @PauseMenu.performed += instance.OnPauseMenu;
             @PauseMenu.canceled += instance.OnPauseMenu;
+            @ZoomIn.started += instance.OnZoomIn;
+            @ZoomIn.performed += instance.OnZoomIn;
+            @ZoomIn.canceled += instance.OnZoomIn;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -438,6 +464,9 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
             @PauseMenu.started -= instance.OnPauseMenu;
             @PauseMenu.performed -= instance.OnPauseMenu;
             @PauseMenu.canceled -= instance.OnPauseMenu;
+            @ZoomIn.started -= instance.OnZoomIn;
+            @ZoomIn.performed -= instance.OnZoomIn;
+            @ZoomIn.canceled -= instance.OnZoomIn;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -616,6 +645,7 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
         void OnShowHint(InputAction.CallbackContext context);
         void OnOpenJournal(InputAction.CallbackContext context);
         void OnPauseMenu(InputAction.CallbackContext context);
+        void OnZoomIn(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

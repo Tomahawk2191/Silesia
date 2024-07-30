@@ -25,6 +25,9 @@ public class PlayerInput
     public event EventHandler OpenJournal;
     public event EventHandler QuitJournal;
     public event EventHandler OpenPauseMenu;
+    public event EventHandler OnZoomInEvent;
+    public event EventHandler OnZoomOutEvent;
+    
 
     private InputActionMap _currentActionMap;
     // Start is called before the first frame update
@@ -42,6 +45,18 @@ public class PlayerInput
         input.Dialogue.NextLine.performed += NextLine_performed;
         input.Player.PauseMenu.performed += OpenPauseMenu_performed;
         input.Journal.QuitJournal.performed += QuitJournal_performed;
+        input.Player.ZoomIn.performed += OnZoomIn;
+        input.Player.ZoomIn.canceled += OnzoomOut;
+    }
+
+    private void OnzoomOut(InputAction.CallbackContext obj)
+    {
+        OnZoomOutEvent?.Invoke(this,EventArgs.Empty);
+    }
+
+    private void OnZoomIn(InputAction.CallbackContext obj)
+    {
+        OnZoomInEvent?.Invoke(this,EventArgs.Empty);
     }
 
     private void OpenPauseMenu_performed(InputAction.CallbackContext obj)
