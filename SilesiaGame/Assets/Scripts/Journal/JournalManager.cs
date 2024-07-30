@@ -23,7 +23,7 @@ public class JournalManager : MonoBehaviour
     {
         PlayerCam.LockCursor();
         PlayerMovement.setCanMove(true);
-        PlayerCam.canMoveCamera = true;
+        PlayerCam.setCanMoveCamera(true);
         gameObject.SetActive(false);
         Debug.Log("close");
         PlayerInteract.input.SwitchToPlayerMap();
@@ -32,7 +32,7 @@ public class JournalManager : MonoBehaviour
     private void OpenJournal(object sender, EventArgs e)
     {
         PlayerCam.UnlockCursor();
-        PlayerCam.canMoveCamera = false;
+        PlayerCam.setCanMoveCamera(false);
         PlayerMovement.setCanMove(false);
         gameObject.SetActive(true);
         Debug.Log("open");
