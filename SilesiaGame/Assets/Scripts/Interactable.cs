@@ -1,10 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using DefaultNamespace;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class Interactable : MonoBehaviour
 {
@@ -25,8 +20,6 @@ public class Interactable : MonoBehaviour
     //[SerializeField] private GameObject outline;
     private static PlayerInput input;
 
-
-
     private void Start()
     {
         collectable = data.collectable;
@@ -34,15 +27,15 @@ public class Interactable : MonoBehaviour
         maxID += 1;
         ableToUse = data.basicState;
         input = PlayerInteract.input;
-        
+
 
     }
 
     // method that handles the outline. Subscribed to PlayerInteract class
-   
-    
+
+
     //Hide and Show all objects might not be used. Wrote this for hints
-   
+
 
     //THIS METHOD MUST BE OVERRIDEN IN CLASSES THAT EXTEND INTERACTABLE
     public virtual void Interact()
@@ -58,16 +51,12 @@ public class Interactable : MonoBehaviour
 
         if (collectable)
         {
-            collectableInteracted?.Invoke(this,new NewItemCollected()
+            collectableInteracted?.Invoke(this, new NewItemCollected()
             {
                 id = this.id
             });
         }
-
-        
     }
-
-    
 
     public bool getAbleToUse()
     {
@@ -78,5 +67,4 @@ public class Interactable : MonoBehaviour
     {
         return data.text.text;
     }
-
 }

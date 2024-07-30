@@ -1,5 +1,7 @@
 using Cinemachine;
+using System;
 using System.Collections;
+using System.Linq.Expressions;
 using UnityEditor.Rendering;
 using UnityEngine;
 
@@ -22,7 +24,7 @@ public class PlayerCam : MonoBehaviour
 
     [Header("Inspect Camera")]
     [SerializeField] private CinemachineVirtualCamera inspectCam;
-    private CinemachineVirtualCamera currentCam;
+    private static CinemachineVirtualCamera currentCam;
     private bool isZoomed = false;
 
     private float horizontalInput;
@@ -35,11 +37,20 @@ public class PlayerCam : MonoBehaviour
         vCam = gameObject.GetComponent<CinemachineVirtualCamera>();
         currentCam = vCam;
         LockCursor();
-        bIsOnTheMove = false;
-        vCam = gameObject.GetComponent<CinemachineVirtualCamera>();
-        PlayerInteract.input.OnZoomOutEvent += yourmethod;
-        PlayerInteract.input.OnZoomInEvent += yoursecondmethod;
+        PlayerInteract.input.OnZoomOutEvent += onZoomOut;
+        PlayerInteract.input.OnZoomInEvent += onZoomIn;
+    }
 
+    private void onZoomIn(object sender, EventArgs e)
+    {
+        isZoomed = true;
+        switchCamera(inspectCam);
+    }
+
+    private void onZoomOut(object sender, EventArgs e)
+    {
+        isZoomed = false;
+        switchCamera(vCam);
     }
 
     public static void LockCursor()
@@ -76,18 +87,16 @@ public class PlayerCam : MonoBehaviour
 
         CameraBobOn();
 
-
-        if (Input.GetButtonDown("Fire2") && !PlayerMovement.getCanMove() && !isZoomed)
-        {
-            switchCamera(inspectCam);
-            isZoomed = true;
-        } else if (Input.GetButtonDown("Fire2") && isZoomed)
-        {
-            switchCamera(vCam);
-            isZoomed = false;
-        }
+        //if (Input.GetButtonDown("Fire2") && !PlayerMovement.getCanMove() && !isZoomed)
+        //{
+        //    switchCamera(inspectCam);
+        //    isZoomed = true;
+        //} else if (Input.GetButtonDown("Fire2") && isZoomed)
+        //{
+        //    switchCamera(vCam);
+        //    isZoomed = false;
+        //}
     }
-
 
     private void CheckInput()
     {
@@ -110,17 +119,23 @@ public class PlayerCam : MonoBehaviour
     }
     public void switchCamera(CinemachineVirtualCamera switchCam)
     {
-        isZoomed = !isZoomed;
         switchCam.Priority = 20;
         currentCam.Priority = 10;
         currentCam = switchCam;
     }
+
     public static bool getCanMoveCamera()
     {
         return canMoveCamera;
     }
+
     public static void setCanMoveCamera(bool set)
     {
         canMoveCamera = set;
+    }
+
+    public static CinemachineVirtualCamera getCurrentCamera()
+    {
+        return currentCam;
     }
 }

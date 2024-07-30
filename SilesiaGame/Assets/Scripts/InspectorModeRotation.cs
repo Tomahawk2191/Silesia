@@ -1,3 +1,4 @@
+using Cinemachine;
 using UnityEngine;
 
 namespace DefaultNamespace
@@ -8,12 +9,13 @@ namespace DefaultNamespace
         public float verticalSpeed = 2.0F;
         private bool enabledRot = false;
         private Transform obj;
+
         void Update() {
-            if (enabledRot && Input.GetMouseButton(1) )
+            if (enabledRot && Input.GetMouseButton(1))
             {
                 float h = horizontalSpeed * Input.GetAxis("Mouse X");
                 float v = verticalSpeed * Input.GetAxis("Mouse Y");
-                obj.Rotate(v, h, 0);
+                obj.Rotate(v, h, 0, Space.World);
             }
         }
 

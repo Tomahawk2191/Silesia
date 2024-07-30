@@ -38,7 +38,6 @@ public class PlayerInteract : MonoBehaviour
     //the selected interactable object is set in the update
     private void GameInput_OnInteraction(object sender, EventArgs e)
     {
-
         if (selectedInteractable != null)
         {
             selectedInteractable.TriggerDialogue();

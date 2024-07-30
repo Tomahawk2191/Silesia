@@ -1,12 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
-using JetBrains.Annotations;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Video;
 
 public class PlayerInput
 {
@@ -27,7 +21,7 @@ public class PlayerInput
     public event EventHandler OpenPauseMenu;
     public event EventHandler OnZoomInEvent;
     public event EventHandler OnZoomOutEvent;
-    
+
 
     private InputActionMap _currentActionMap;
     // Start is called before the first frame update
@@ -51,18 +45,18 @@ public class PlayerInput
 
     private void OnzoomOut(InputAction.CallbackContext obj)
     {
-        OnZoomOutEvent?.Invoke(this,EventArgs.Empty);
+        OnZoomOutEvent?.Invoke(this, EventArgs.Empty);
     }
 
     private void OnZoomIn(InputAction.CallbackContext obj)
     {
-        OnZoomInEvent?.Invoke(this,EventArgs.Empty);
+        OnZoomInEvent?.Invoke(this, EventArgs.Empty);
     }
 
     private void OpenPauseMenu_performed(InputAction.CallbackContext obj)
     {
         Debug.Log("opened menu");
-        OpenPauseMenu?.Invoke(this,EventArgs.Empty);
+        OpenPauseMenu?.Invoke(this, EventArgs.Empty);
     }
 
     public void SwitchToDialogueMap()
@@ -74,21 +68,23 @@ public class PlayerInput
         _currentActionMap = input.Dialogue;
         _currentActionMap.Enable();
     }
+
     public void SwitchToPlayerMap()
     {
         if (_currentActionMap != null)
         {
-            Debug.Log(_currentActionMap.name+" disabled");
+            Debug.Log(_currentActionMap.name + " disabled");
             _currentActionMap.Disable();
         }
         _currentActionMap = input.Player;
         _currentActionMap.Enable();
     }
+
     public void SwitchToJournalMap()
     {
         if (_currentActionMap != null)
         {
-            Debug.Log(_currentActionMap.name+" disabled");
+            Debug.Log(_currentActionMap.name + " disabled");
             _currentActionMap.Disable();
         }
         _currentActionMap = input.Journal;
@@ -102,55 +98,46 @@ public class PlayerInput
 
     private void OpenJournal_performed(InputAction.CallbackContext obj)
     {
-        OpenJournal?.Invoke(this,EventArgs.Empty);
+        OpenJournal?.Invoke(this, EventArgs.Empty);
     }
-
 
     public void DisableInputForCameraMovemen()
     {
         _currentActionMap.Disable();
     }
+
     public void EnableInputForCameraMovemen()
     {
         _currentActionMap.Enable();
     }
 
-    
-    
-
     private void NextLine_performed(InputAction.CallbackContext obj)
     {
-            NextLine?.Invoke(this, EventArgs.Empty);
+        NextLine?.Invoke(this, EventArgs.Empty);
     }
 
     private void ShowHint_canceled(InputAction.CallbackContext obj)
     {
-        
-            HideHint?.Invoke(this, EventArgs.Empty);
-        
+        HideHint?.Invoke(this, EventArgs.Empty);
     }
 
     private void ShowHint_performed(InputAction.CallbackContext obj)
     {
-        
-            ShowHint?.Invoke(this, EventArgs.Empty);
-        
+        ShowHint?.Invoke(this, EventArgs.Empty);
     }
 
     private void Interact_performed(InputAction.CallbackContext obj)
     {
-        
-            OnInteraction?.Invoke(this, EventArgs.Empty);
-        
+        OnInteraction?.Invoke(this, EventArgs.Empty);
     }
-    public void BlockInputForInteraction() { 
+
+    public void BlockInputForInteraction()
+    {
         input.Disable();
     }
+
     public void EnableInputForInteraction()
     {
         input.Enable();
     }
-      
-
-    // Update is called once per frame
 }
