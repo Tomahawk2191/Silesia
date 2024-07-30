@@ -2,6 +2,7 @@ using Cinemachine;
 using System;
 using System.Collections;
 using System.Linq.Expressions;
+using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
 
@@ -24,28 +25,39 @@ public class PlayerCam : MonoBehaviour
 
     [Header("Inspect Camera")]
     [SerializeField] private CinemachineVirtualCamera inspectCam;
-    [SerializeField] private Material shaderMat;
     private static CinemachineVirtualCamera currentCam;
+    private CinemachineBrain brain;
+    [SerializeField] private float blendTime;
+
+    [Header("Shader")]
+    [SerializeField] private Material shaderMat;
+    private Renderer rend;
+
     private bool isZoomed;
 
     private float horizontalInput;
     private float verticalInput;
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         bIsOnTheMove = false;
         vCam = gameObject.GetComponent<CinemachineVirtualCamera>();
+        brain = Camera.main.GetComponent<CinemachineBrain>();
+        blendTime = brain.m_DefaultBlend.BlendTime;
         currentCam = vCam;
         LockCursor();
         PlayerInteract.input.OnZoomOutEvent += onZoomOut;
         PlayerInteract.input.OnZoomInEvent += onZoomIn;
+        rend = shaderMat.GetComponent<Renderer>();
     }
 
     private void onZoomIn(object sender, EventArgs e)
     {
         isZoomed = true;
         switchCamera(inspectCam);
+        rend.material.SetFloat("_ditherStrength", 200);
     }
 
     private void onZoomOut(object sender, EventArgs e)
@@ -58,6 +70,7 @@ public class PlayerCam : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked; 
         Cursor.visible = false;
+        
     }
 
     public static void UnlockCursor()
