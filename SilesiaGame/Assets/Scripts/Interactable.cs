@@ -54,6 +54,7 @@ public class Interactable : MonoBehaviour
         if (ableToUse)
         {
             DialogueManager.Instance.StartDialogue(this);
+            ableToUse = false;
         }
 
         if (collectable)
@@ -63,8 +64,9 @@ public class Interactable : MonoBehaviour
                 id = this.id
             });
         }
-
         
+
+
     }
 
     

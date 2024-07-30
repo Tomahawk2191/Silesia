@@ -32,8 +32,8 @@ public class PlayerCam : MonoBehaviour
         LockCursor();
         bIsOnTheMove = false;
         vCam = gameObject.GetComponent<CinemachineVirtualCamera>();
-        PlayerInteract.input.OnZoomOutEvent += yourmethod;
-        PlayerInteract.input.OnZoomInEvent += yoursecondmethod;
+        /*PlayerInteract.input.OnZoomOutEvent += yourmethod;
+        PlayerInteract.input.OnZoomInEvent += yoursecondmethod;*/
 
     }
 
