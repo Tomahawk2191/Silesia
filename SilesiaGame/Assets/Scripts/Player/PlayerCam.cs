@@ -24,6 +24,7 @@ public class PlayerCam : MonoBehaviour
 
     [Header("Inspect Camera")]
     [SerializeField] private CinemachineVirtualCamera inspectCam;
+    [SerializeField] private Material shaderMat;
     private static CinemachineVirtualCamera currentCam;
     private bool isZoomed;
 
@@ -86,16 +87,6 @@ public class PlayerCam : MonoBehaviour
         CheckInput();
 
         CameraBobOn();
-
-        //if (Input.GetButtonDown("Fire2") && !PlayerMovement.getCanMove() && !isZoomed)
-        //{
-        //    switchCamera(inspectCam);
-        //    isZoomed = true;
-        //} else if (Input.GetButtonDown("Fire2") && isZoomed)
-        //{
-        //    switchCamera(vCam);
-        //    isZoomed = false;
-        //}
     }
 
     private void CheckInput()
@@ -117,6 +108,7 @@ public class PlayerCam : MonoBehaviour
             vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = 0;
         }
     }
+
     public void switchCamera(CinemachineVirtualCamera switchCam)
     {
         switchCam.Priority = 20;
