@@ -53,12 +53,12 @@ public class PlayerUI : MonoBehaviour
                 PlayerCam.LockCursor();
                 PlayerMovement.setCanMove(true);
                 _pauseMenuPanel.SetActive(false);
-                PlayerCam.canMoveCamera = true;
+                PlayerCam.setCanMoveCamera(true);
             }
             else
             {
                 PlayerCam.UnlockCursor();
-                PlayerCam.canMoveCamera = false;
+                PlayerCam.setCanMoveCamera(false);
                 _pauseMenuPanel.SetActive(true);
                 PlayerMovement.setCanMove(false);
             }

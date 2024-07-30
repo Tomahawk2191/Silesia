@@ -40,6 +40,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "PauseMenu",
+                    "type": "Button",
+                    "id": "a41d6b9b-36d0-431b-a910-17deacddfb78",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Zoom In",
+                    "type": "Button",
+                    "id": "ad8992ae-73c2-42ac-b75f-ef35ddf0152b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -130,32 +148,26 @@
                     "action": "OpenJournal",
                     "isComposite": false,
                     "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "UI",
-            "id": "728df8dd-22ec-42f3-a439-288a5d744c78",
-            "actions": [
-                {
-                    "name": "PauseMenu",
-                    "type": "Button",
-                    "id": "b7971493-20d8-4635-8ee3-5b4afc532719",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
+                },
                 {
                     "name": "",
-                    "id": "5f1dd161-8a8f-42a5-9a63-05513dd95dc2",
+                    "id": "246cb5bc-0fea-4044-a812-a7a171f8e354",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "PauseMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "60d2d925-e4d5-4e20-b5de-e472285953e1",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Zoom In",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

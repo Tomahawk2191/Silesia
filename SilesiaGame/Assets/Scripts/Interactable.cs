@@ -1,43 +1,39 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using DefaultNamespace;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class Interactable : MonoBehaviour
 {
-    private int id;
     private static int maxID = 1;
     private bool ableToUse;
     private bool collectable;
+    [SerializeField] private GameObject photo;
     public ICameraMovementType cameraMovementType { get; protected set; }
+    public static event EventHandler<NewItemCollected> collectableInteracted;
+
+    public class NewItemCollected : EventArgs
+    {
+        public int id;
+    }
 
     //datadump of the object. Here we store the serialized info.
     [SerializeField] private InteractableSO data;
     //[SerializeField] private GameObject outline;
     private static PlayerInput input;
-    public static IEnumerable<Interactable> collected = new List<Interactable>();
-    
-
 
     private void Start()
     {
         collectable = data.collectable;
-        id = maxID;
-        maxID += 1;
         ableToUse = data.basicState;
         input = PlayerInteract.input;
-        
+
 
     }
 
     // method that handles the outline. Subscribed to PlayerInteract class
-   
-    
+
+
     //Hide and Show all objects might not be used. Wrote this for hints
-   
+
 
     //THIS METHOD MUST BE OVERRIDEN IN CLASSES THAT EXTEND INTERACTABLE
     public virtual void Interact()
@@ -49,12 +45,25 @@ public class Interactable : MonoBehaviour
         if (ableToUse)
         {
             DialogueManager.Instance.StartDialogue(this);
+            ableToUse = false;
         }
 
-        
-    }
+        if (collectable)
+        {
+            collectableInteracted?.Invoke(this, new NewItemCollected()
+            {
+                id = data.id
+            });
+        }
 
-    
+        if (photo != null)
+        {
+            photo.SetActive(true);
+        }
+        
+
+
+    }
 
     public bool getAbleToUse()
     {
@@ -65,5 +74,4 @@ public class Interactable : MonoBehaviour
     {
         return data.text.text;
     }
-
 }

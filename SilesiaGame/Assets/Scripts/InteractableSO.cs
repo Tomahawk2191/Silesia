@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using JetBrains.Annotations;
 using UnityEngine;
 
 
@@ -12,4 +13,5 @@ public class InteractableSO : ScriptableObject
     public TextAsset text;
     public bool basicState;
     public bool collectable;
+    public int id;
 }
