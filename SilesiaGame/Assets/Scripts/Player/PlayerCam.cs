@@ -25,7 +25,7 @@ public class PlayerCam : MonoBehaviour
     [Header("Inspect Camera")]
     [SerializeField] private CinemachineVirtualCamera inspectCam;
     private static CinemachineVirtualCamera currentCam;
-    private bool isZoomed = false;
+    private bool isZoomed;
 
     private float horizontalInput;
     private float verticalInput;
@@ -78,8 +78,8 @@ public class PlayerCam : MonoBehaviour
             xRotation -= mouseY;
             xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-            // rotate cam and orientation 
-            transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+            // rotate cam and orientation
+            currentCam.transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
             orientation.rotation = Quaternion.Euler(0, yRotation, 0);
         }
 
