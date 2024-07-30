@@ -49,6 +49,7 @@ public class Interactable : MonoBehaviour
         if (ableToUse)
         {
             DialogueManager.Instance.StartDialogue(this);
+            ableToUse = false;
         }
 
         

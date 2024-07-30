@@ -1,12 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Text;
-using JetBrains.Annotations;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Video;
 
 public class PlayerInput
 {
@@ -54,10 +48,12 @@ public class PlayerInput
     {
         if (_currentActionMap != null)
         {
+            Debug.Log(_currentActionMap.name+" disabled");
             _currentActionMap.Disable();
         }
         _currentActionMap = input.Dialogue;
         _currentActionMap.Enable();
+        Debug.Log(_currentActionMap.name+" enabled");
     }
     public void SwitchToPlayerMap()
     {
@@ -68,6 +64,7 @@ public class PlayerInput
         }
         _currentActionMap = input.Player;
         _currentActionMap.Enable();
+        Debug.Log(_currentActionMap.name+" enabled");
     }
     public void SwitchToJournalMap()
     {
@@ -78,6 +75,7 @@ public class PlayerInput
         }
         _currentActionMap = input.Journal;
         _currentActionMap.Enable();
+        Debug.Log(_currentActionMap.name+" enabled");
     }
 
     private void QuitJournal_performed(InputAction.CallbackContext obj)
