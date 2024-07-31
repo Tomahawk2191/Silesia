@@ -67,6 +67,8 @@ public class PlayerInput
         }
         _currentActionMap = input.Dialogue;
         _currentActionMap.Enable();
+        input.Player.PauseMenu.performed -= OpenPauseMenu_performed;
+        input.Journal.QuitJournal.performed -= QuitJournal_performed;
     }
 
     public void SwitchToPlayerMap()
@@ -78,6 +80,8 @@ public class PlayerInput
         }
         _currentActionMap = input.Player;
         _currentActionMap.Enable();
+        input.Player.PauseMenu.performed += OpenPauseMenu_performed;
+        input.Journal.QuitJournal.performed -= QuitJournal_performed;
     }
 
     public void SwitchToJournalMap()
@@ -89,6 +93,8 @@ public class PlayerInput
         }
         _currentActionMap = input.Journal;
         _currentActionMap.Enable();
+        input.Player.PauseMenu.performed -= OpenPauseMenu_performed;
+        input.Journal.QuitJournal.performed += QuitJournal_performed;
     }
 
     private void QuitJournal_performed(InputAction.CallbackContext obj)

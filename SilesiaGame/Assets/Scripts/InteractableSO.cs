@@ -13,4 +13,5 @@ public class InteractableSO : ScriptableObject
     public TextAsset text;
     public bool basicState;
     public bool collectable;
+    public int id;
 }

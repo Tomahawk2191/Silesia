@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    private int id;
     private static int maxID = 1;
     private bool ableToUse;
     private bool collectable;
+    [SerializeField] private GameObject photo;
     public ICameraMovementType cameraMovementType { get; protected set; }
-    public event EventHandler<NewItemCollected> collectableInteracted;
+    public static event EventHandler<NewItemCollected> collectableInteracted;
 
     public class NewItemCollected : EventArgs
     {
@@ -23,8 +23,6 @@ public class Interactable : MonoBehaviour
     private void Start()
     {
         collectable = data.collectable;
-        id = maxID;
-        maxID += 1;
         ableToUse = data.basicState;
         input = PlayerInteract.input;
 
@@ -47,15 +45,24 @@ public class Interactable : MonoBehaviour
         if (ableToUse)
         {
             DialogueManager.Instance.StartDialogue(this);
+            ableToUse = false;
         }
 
         if (collectable)
         {
             collectableInteracted?.Invoke(this, new NewItemCollected()
             {
-                id = this.id
+                id = data.id
             });
         }
+
+        if (photo != null)
+        {
+            photo.SetActive(true);
+        }
+        
+
+
     }
 
     public bool getAbleToUse()
