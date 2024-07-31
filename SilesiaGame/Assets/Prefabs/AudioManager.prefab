@@ -47,47 +47,65 @@ MonoBehaviour:
   mixerGroup: {fileID: 24300002, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
   sounds:
   - name: BackgroundMusic
-    clip: {fileID: 8300000, guid: d9c5321f9abaf1e4d90396947eead339, type: 3}
-    volume: 0.2
+    clip: {fileID: 8300000, guid: d9cb6a90ce22fe94cb0653a54595ac0b, type: 3}
+    volume: 0.175
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
     loop: 1
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: -3923962580777651335, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
   - name: AmbientHum
     clip: {fileID: 8300000, guid: 0f42ebe4e6000e640b43ffafb11fc195, type: 3}
-    volume: 0.3
+    volume: 0.75
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
     loop: 1
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: -3923962580777651335, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
+    source: {fileID: 0}
+  - name: RainLoop1
+    clip: {fileID: 8300000, guid: 6efb18003b0276942be332964d6bfe57, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    mixerGroup: {fileID: -3923962580777651335, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
+    source: {fileID: 0}
+  - name: RainLoop2
+    clip: {fileID: 8300000, guid: 066b601b4edbdfc44b06eaf06c7d524d, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    mixerGroup: {fileID: -3923962580777651335, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
   - name: Footstep1
     clip: {fileID: 8300000, guid: 13d10ec5c9cf751408362373630a5899, type: 3}
     volume: 0.8
-    volumeVariance: 0
+    volumeVariance: 0.1
     pitch: 1
-    pitchVariance: 0
+    pitchVariance: 0.2
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - name: Footstep2
     clip: {fileID: 8300000, guid: b5da130b2f22f824db2784db217d5a98, type: 3}
     volume: 0.8
-    volumeVariance: 0
+    volumeVariance: 0.1
     pitch: 1
-    pitchVariance: 0
+    pitchVariance: 0.2
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - name: Footstep3
     clip: {fileID: 8300000, guid: a28a245b5d7ec404a9c37557de28b51d, type: 3}
     volume: 0.8
-    volumeVariance: 0
+    volumeVariance: 0.1
     pitch: 1
-    pitchVariance: 0
+    pitchVariance: 0.2
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
@@ -197,24 +215,6 @@ MonoBehaviour:
     pitch: 1
     pitchVariance: 0
     loop: 0
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - name: RainLoop1
-    clip: {fileID: 8300000, guid: 6efb18003b0276942be332964d6bfe57, type: 3}
-    volume: 0.25
-    volumeVariance: 0
-    pitch: 1
-    pitchVariance: 0
-    loop: 1
-    mixerGroup: {fileID: 0}
-    source: {fileID: 0}
-  - name: RainLoop2
-    clip: {fileID: 8300000, guid: 066b601b4edbdfc44b06eaf06c7d524d, type: 3}
-    volume: 0.25
-    volumeVariance: 0
-    pitch: 1
-    pitchVariance: 0
-    loop: 1
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - name: MTElement
