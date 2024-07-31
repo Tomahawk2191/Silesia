@@ -11,8 +11,13 @@ public class SettingsMenu : MonoBehaviour
         audioMixer.SetFloat("volume",volume);
     }
 
-    public void setFullScreen(bool isFullScreen)
+    public void SetFullScreen(bool isFullScreen)
     {
         Screen.fullScreen = isFullScreen;
+    }
+
+    public void SetSensitivity(float value)
+    {
+        PlayerCam.setSensModifier(value);
     }
 }

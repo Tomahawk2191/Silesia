@@ -24,9 +24,14 @@ public class Mark : MonoBehaviour
             transform.position = _openPos.transform.position - new Vector3(0,40*id,0);
             transform.Rotate(0,0,180,0);
         }
+        else
+        {
+            transform.position = _defPos.transform.position - new Vector3(0,40*id,0);
+            transform.Rotate(0,0,0,0);
+
+        }
         maxid++;
         if (previousPage == null) previousPage = this;
-        transform.position = _defPos.transform.position - new Vector3(0,40*id,0);
         
 
     }
