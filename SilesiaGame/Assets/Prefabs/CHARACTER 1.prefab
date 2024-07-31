@@ -77,12 +77,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43ce74b716857664d99d325c3adb1d5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 6
+  moveSpeed: 4
   groundDrag: 5
   orientation: {fileID: 8784157470321378215}
   oscillationVal: 0
   oscillationFreq: 8
-  lurchStrength: 0.05
+  lurchStrength: 0.075
+  stepDelayTime: 0.95
 --- !u!114 &7494342777094325639
 MonoBehaviour:
   m_ObjectHideFlags: 0

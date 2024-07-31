@@ -1,6 +1,7 @@
 using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class AudioManager : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class AudioManager : MonoBehaviour
 	public AudioMixerGroup mixerGroup;
 
 	public Sound[] sounds;
+
+	private static Dictionary<Sound, float> soundTimerDictionary; 
+
 
 	void Awake()
 	{
@@ -47,5 +51,6 @@ public class AudioManager : MonoBehaviour
 
 		s.source.Play();
 	}
+
 
 }
