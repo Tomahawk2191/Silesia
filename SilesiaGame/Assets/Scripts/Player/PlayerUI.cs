@@ -51,6 +51,7 @@ public class PlayerUI : MonoBehaviour
         {
             if (_pauseMenuPanel.activeSelf )
             {
+                
                 _pause.SetActive(true);
                 PlayerCam.LockCursor();
                 PlayerMovement.setCanMove(true);
