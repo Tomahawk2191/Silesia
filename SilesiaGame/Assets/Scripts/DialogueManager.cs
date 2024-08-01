@@ -43,7 +43,6 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     public void StartDialogue(Interactable interactable)
     {
-        FindObjectOfType<AudioManager>().Play("Grab");
         currentObject = interactable;
         rotation.setObject(currentObject.transform);
         rotation.setEnabledRotation(true);

@@ -1,5 +1,5 @@
 using System;
-using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -16,26 +16,17 @@ public class PlayerMovement : MonoBehaviour
 
     float horizontalInput;
     float verticalInput;
-    bool isMoving;
-    
 
     Vector3 moveDirection;
     Rigidbody rb;
     private static bool canMove = true;
-
+    
     // The Oscillator to create slight lurching in the movement
     [SerializeField] float oscillationVal = 0f;
-    [SerializeField] float oscillationFreq = 8f;
+    [SerializeField] float oscillationFreq = 8f; 
     float lurchVal = 0f;
-    [SerializeField] float lurchStrength = 0.05f;
+    [SerializeField] float lurchStrength = 0.05f; 
 
-    // values for footstep sounds
-    float lastStepTime;
-    [SerializeField]
-    float stepDelayTime = .5f; 
-
-    
-    //FindObjectOfType<AudioManager>().Play("Footstep" + (UnityEngine.Random.Range(0, 2) + 1));
 
     // Start is called before the first frame update
     void Start()
@@ -43,8 +34,6 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         rb.drag = groundDrag;
-        isMoving = false;
-        lastStepTime = 0f;
 
     }
 
@@ -52,18 +41,16 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
-        StepTimer();
-
     }
 
 
     // Update is called once per frame
     void Update()
     {
-
+        
         // update the oscillation value
         oscillationVal = MathF.Sin(oscillationFreq * Time.time);
-        lurchVal = oscillationVal * moveSpeed /* + UnityEngine.Random.Range(-1f, 1f)*/  * lurchStrength;
+        lurchVal = oscillationVal * moveSpeed /* + UnityEngine.Random.Range(-1f, 1f)*/  * lurchStrength ;
 
         MyInput();
 
@@ -73,18 +60,6 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
-        isMoving = horizontalInput != 0 || verticalInput != 0 && canMove;
-
-    }
-
-    private void CalcLurch()
-    {
-        if (isMoving)
-        {
-            // update the oscillation value
-            oscillationVal = MathF.Sin(oscillationFreq * Time.time);
-            lurchVal = oscillationVal * moveSpeed /* + UnityEngine.Random.Range(-1f, 1f)*/  * lurchStrength;
-        }
     }
 
     private void MovePlayer()
@@ -96,23 +71,9 @@ public class PlayerMovement : MonoBehaviour
             moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
             //                                      pos fwd                               pos right
 
-            rb.AddForce(moveDirection.normalized * (moveSpeed + lurchVal) * 10f, ForceMode.Force);
-            
-        }
-
-    }
-
-
-    public void StepTimer()
-    {
-        if (lastStepTime + stepDelayTime <= Time.time && isMoving)
-        {
-            FindObjectOfType<AudioManager>().Play("Footstep" + (UnityEngine.Random.Range(0, 2) + 1));
-            lastStepTime = Time.time;
+            rb.AddForce(moveDirection.normalized * (moveSpeed + lurchVal) * 10f, ForceMode.Force); 
         }
     }
-
-
 
     public static void setCanMove(bool value)
     {
