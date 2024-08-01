@@ -29,6 +29,7 @@ public class AudioManager : MonoBehaviour
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
             s.source.loop = s.loop;
+            s.source.outputAudioMixerGroup = s.mixerGroup;
 
 
         }
@@ -52,7 +53,7 @@ public class AudioManager : MonoBehaviour
 
         s.source.volume = s.volume * (1f + UnityEngine.Random.Range(-s.volumeVariance / 2f, s.volumeVariance / 2f));
         s.source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
-        s.source.outputAudioMixerGroup = mixerGroup;
+
 
         s.source.Play();
     }
