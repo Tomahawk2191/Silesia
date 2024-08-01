@@ -181,23 +181,23 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - name: Swipe1JDS
+  - name: Swipe1
     clip: {fileID: 8300000, guid: 98ae2a7c056de7c4d99e42a3c743aec6, type: 3}
     volume: 1
-    volumeVariance: 0
+    volumeVariance: 0.2
     pitch: 1
-    pitchVariance: 0
+    pitchVariance: 0.2
     loop: 0
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 3637026261727890521, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
-  - name: Swipe2JDS
+  - name: Swipe2
     clip: {fileID: 8300000, guid: b043739f0179bee4bbd7bc9067d022e4, type: 3}
     volume: 1
-    volumeVariance: 0
+    volumeVariance: 0.2
     pitch: 1
-    pitchVariance: 0
+    pitchVariance: 0.2
     loop: 0
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 3637026261727890521, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
   - name: UIHover
     clip: {fileID: 8300000, guid: 656574da10ac57046bd21b696f89b06e, type: 3}
@@ -209,13 +209,22 @@ MonoBehaviour:
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - name: UIClick
-    clip: {fileID: 8300000, guid: d0a008bc5f1dafb4e835ef6034b2f9ab, type: 3}
+    clip: {fileID: 8300000, guid: 90c9607311ed4cf4697c025ffdf6dd67, type: 3}
     volume: 1
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
     loop: 0
     mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Grab
+    clip: {fileID: 8300000, guid: b305d785d8ddc4a4cabfd189fdf45f5f, type: 3}
+    volume: 0.25
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 3637026261727890521, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
   - name: MTElement
     clip: {fileID: 0}
