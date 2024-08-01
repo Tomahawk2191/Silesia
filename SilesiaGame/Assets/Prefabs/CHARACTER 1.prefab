@@ -77,12 +77,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43ce74b716857664d99d325c3adb1d5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 6
+  moveSpeed: 4
   groundDrag: 5
   orientation: {fileID: 8784157470321378215}
   oscillationVal: 0
   oscillationFreq: 8
-  lurchStrength: 0.05
+  lurchStrength: 0.075
+  stepDelayTime: 0.95
 --- !u!114 &7494342777094325639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  distance: 8
+  distance: 5
   mask:
     serializedVersion: 2
     m_Bits: 128
@@ -139,7 +140,7 @@ Transform:
   m_GameObject: {fileID: 1906905164904468273}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.88199997, z: 0}
+  m_LocalPosition: {x: 0, y: 0.625, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -167,7 +168,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 23
+    FieldOfView: 38
     OrthographicSize: 5
     NearClipPlane: 0.01
     FarClipPlane: 1000
@@ -419,6 +420,7 @@ MonoBehaviour:
   AmplitudeGain: 2
   FrequencyGain: 0.02
   inspectCam: {fileID: 2536065113160646168}
+  blendTime: 0
   shaderMat: {fileID: -876546973899608171, guid: 121e46c39e42d8943b5686d691c3365a, type: 3}
 --- !u!1 &5773915141460706914
 GameObject:
@@ -493,6 +495,7 @@ GameObject:
   - component: {fileID: 5080003049644289032}
   - component: {fileID: 7976865495589056501}
   - component: {fileID: 1566910214554576026}
+  - component: {fileID: 4260290937700798914}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -545,6 +548,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 235aa2ea0a576af458c7fed20b5be98d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4260290937700798914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7054907510172944869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e6ed6302c38402ab12390c151c02c33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalSpeed: 2
+  verticalSpeed: 2
 --- !u!1 &7481716280178846890
 GameObject:
   m_ObjectHideFlags: 0
@@ -684,4 +701,4 @@ MonoBehaviour:
   m_PivotOffset: {x: 0, y: 0, z: 0}
   m_AmplitudeGain: 2.5
   m_FrequencyGain: 0.02
-  mNoiseOffsets: {x: 0, y: 0, z: 0}
+  mNoiseOffsets: {x: -19.997253, y: -113.60657, z: -730.21265}
