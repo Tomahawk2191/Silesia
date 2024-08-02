@@ -673,7 +673,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 5062223359232209454}
         m_TargetAssemblyTypeName: PlayerUI, Assembly-CSharp
         m_MethodName: TogglePauseMenu
         m_Mode: 1
@@ -3545,6 +3545,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3740708403221788523}
+  - component: {fileID: 5062223359232209454}
   m_Layer: 0
   m_Name: UIDisplay
   m_TagString: Untagged
@@ -3570,6 +3571,26 @@ Transform:
   - {fileID: 3900434547769292026}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5062223359232209454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2412445399962525382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f50f6826dab971418c1c482e7cc7f48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactCursor: {fileID: 7942423777162602459}
+  normalCursor: {fileID: 7958287947092524818}
+  DialogueDisplay: {fileID: 857323511497022719}
+  fadeDuration: 0.5
+  fadeDistance: 2
+  _pauseMenuPanel: {fileID: 1205727303995971027}
+  _settings: {fileID: 5487380583507625680}
+  _pause: {fileID: 6218827663774965983}
 --- !u!1 &2628765409236000627
 GameObject:
   m_ObjectHideFlags: 0
@@ -9202,19 +9223,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 317372028500753098}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerUI, Assembly-CSharp
-        m_MethodName: goToMainMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &6173892167809335745
 GameObject:
   m_ObjectHideFlags: 0
@@ -10377,7 +10386,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 5062223359232209454}
         m_TargetAssemblyTypeName: PlayerUI, Assembly-CSharp
         m_MethodName: TogglePauseMenu
         m_Mode: 1
