@@ -17,7 +17,7 @@ public class PlayerCam : MonoBehaviour
     private static bool canMoveCamera = true;
 
     private float xRotation;
-    private float yRotation;
+    private float yRotation = -90f;
 
     [Header("CameraBob Variables")]
     private bool bIsOnTheMove;
@@ -149,41 +149,5 @@ public class PlayerCam : MonoBehaviour
     public static CinemachineVirtualCamera getCurrentCamera()
     {
         return currentCam;
-    }
-
-    public void playIntroLetter()
-    {
-        GameObject player = transform.parent.transform.parent.transform.Find("Player").gameObject;
-        player.transform.position = new Vector3(84.9300003f, 3.61249995f, -2.66000009f);
-        player.transform.rotation = Vector3(0,270,0);
-        
-        PlayerInteract playerInteract =
-            player.GetComponent<PlayerInteract>();
-        playerInteract.blockPlayerForDialogue();
-        
-        GameObject introLetter = GameObject.Find("IntroLetter");
-
-        introLetter.transform.position = new Vector3(83.3259964f,4.8499999f,-2.3900001f);
-        StartCoroutine(ScrollLetter(introLetter, playerInteract));
-
-    }
-
-    IEnumerator ScrollLetter(GameObject introLetter, PlayerInteract playerInteract)
-    {
-        yield return new WaitForSeconds(1);
-        while (introLetter.transform.position.y < 6.81699991f || introLetter.transform.position.z < -2.43199992f)
-        {
-            introLetter.transform.Translate(Vector3.up);
-        }
-        yield return new WaitForSeconds(1);
-        playerInteract.unblockPlayerFromDialogue();
-    }
-    
-    public void playOutroLetter()
-    {
-        PlayerInteract playerInteract =
-            transform.parent.transform.parent.transform.Find("Player").GetComponent<PlayerInteract>();
-        playerInteract.unblockPlayerFromDialogue();
-        
     }
 }
