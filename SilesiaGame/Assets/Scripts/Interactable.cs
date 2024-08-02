@@ -1,4 +1,5 @@
 using System;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class Interactable : MonoBehaviour
@@ -22,7 +23,14 @@ public class Interactable : MonoBehaviour
 
     private void Start()
     {
-        cameraMovementType = new CameraForSmallObjects(this.transform);
+        if (data.isBig)
+        {
+            cameraMovementType = new CameraForBigObjects();
+        }
+        else
+        {
+            cameraMovementType = new CameraForSmallObjects(this.transform);
+        }
         collectable = data.collectable;
         ableToUse = data.basicState;
         input = PlayerInteract.input;

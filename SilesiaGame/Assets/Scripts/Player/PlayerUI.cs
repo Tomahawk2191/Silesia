@@ -116,7 +116,6 @@ public class PlayerUI : MonoBehaviour
         outSeq.AppendCallback(() =>
         {
             inAnimation = false;
-            Debug.Log("Anim is finished");
         });
         outSeq.Play();
     }

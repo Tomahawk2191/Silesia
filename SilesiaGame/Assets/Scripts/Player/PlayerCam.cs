@@ -2,6 +2,7 @@ using Cinemachine;
 using System;
 using System.Collections;
 using System.Linq.Expressions;
+using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
@@ -55,11 +56,12 @@ public class PlayerCam : MonoBehaviour
         //rend = shaderMat.GetComponent<Renderer>();
     }
 
+   
+
     private void onZoomIn(object sender, EventArgs e)
     {
         isZoomed = true;
         switchCamera(inspectCam);
-        rend.material.SetFloat("_ditherStrength", 200);
     }
 
     public static void setSensModifier(float value)
@@ -94,7 +96,6 @@ public class PlayerCam : MonoBehaviour
             float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX * sensModifier;
             float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY * sensModifier;
 
-            Debug.Log(sensModifier);
             yRotation += mouseX;
 
             xRotation -= mouseY;
