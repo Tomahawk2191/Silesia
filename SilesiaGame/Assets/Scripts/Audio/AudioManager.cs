@@ -30,7 +30,7 @@ public class AudioManager : MonoBehaviour
             s.source.clip = s.clip;
             s.source.loop = s.loop;
             s.source.outputAudioMixerGroup = s.mixerGroup;
-
+            s.source.spatialBlend = s.spatialBlend;
 
         }
     }
