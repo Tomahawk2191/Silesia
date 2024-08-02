@@ -21,6 +21,15 @@ public class JournalManager : MonoBehaviour
         input.QuitJournal += QuitJournal;
     }
 
+    /*
+    IEnumerator DelayAction(float delayTime)
+    {
+        //Wait for the specified delay time before continuing.
+        yield return new WaitForSeconds(delayTime);
+
+        //Do the action after the delay time has finished.
+    } */
+
     private void QuitJournal(object sender, EventArgs e)
     {
         PlayerCam.LockCursor();
@@ -28,6 +37,8 @@ public class JournalManager : MonoBehaviour
         PlayerCam.setCanMoveCamera(true);
         gameObject.SetActive(false);
         Debug.Log("close");
+        FindObjectOfType<AudioManager>().Play("CloseBook");
+        //StartCoroutine(DelayAction(4f)); 
         PlayerInteract.input.SwitchToPlayerMap();
     }
 
@@ -38,6 +49,8 @@ public class JournalManager : MonoBehaviour
         PlayerMovement.setCanMove(false);
         gameObject.SetActive(true);
         Debug.Log("open");
+        FindObjectOfType<AudioManager>().Play("OpenBook");
+        //StartCoroutine(DelayAction(4f));
         PlayerInteract.input.SwitchToJournalMap();
     }
 
