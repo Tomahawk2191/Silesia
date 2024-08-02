@@ -21,6 +21,8 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] float fadeDuration;
     [SerializeField] float fadeDistance;
     [SerializeField] private GameObject _pauseMenuPanel;
+    [SerializeField] private GameObject _settings;
+    [SerializeField] private GameObject _pause;
     public bool inAnimation { get; private set; }
 
     // Start is called before the first frame update
@@ -49,7 +51,8 @@ public class PlayerUI : MonoBehaviour
         {
             if (_pauseMenuPanel.activeSelf )
             {
-            
+                
+                _pause.SetActive(true);
                 PlayerCam.LockCursor();
                 PlayerMovement.setCanMove(true);
                 _pauseMenuPanel.SetActive(false);
@@ -59,6 +62,7 @@ public class PlayerUI : MonoBehaviour
             {
                 PlayerCam.UnlockCursor();
                 PlayerCam.setCanMoveCamera(false);
+                _settings.SetActive(false);
                 _pauseMenuPanel.SetActive(true);
                 PlayerMovement.setCanMove(false);
             }
@@ -66,11 +70,6 @@ public class PlayerUI : MonoBehaviour
         
     }
 
-    public void pint()
-    {
-        Debug.Log("Resume");
-    }
-    
 
     private void Start()
     {

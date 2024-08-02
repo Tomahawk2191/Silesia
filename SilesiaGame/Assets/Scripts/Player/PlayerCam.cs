@@ -9,8 +9,10 @@ using UnityEngine;
 public class PlayerCam : MonoBehaviour
 {
     [Header("Camera Attributes")]
-    [SerializeField] private float sensX = 600f;
-    [SerializeField] private float sensY = 600f;
+    [SerializeField] private float sensX = 100f;
+    [SerializeField] private float sensY = 100f;
+    private static float sensModifier = 5; 
+    
     [SerializeField] private Transform orientation;
     private static bool canMoveCamera = true;
 
@@ -60,6 +62,11 @@ public class PlayerCam : MonoBehaviour
         rend.material.SetFloat("_ditherStrength", 200);
     }
 
+    public static void setSensModifier(float value)
+    {
+        sensModifier = value;
+    }
+
     private void onZoomOut(object sender, EventArgs e)
     {
         isZoomed = false;
@@ -84,9 +91,10 @@ public class PlayerCam : MonoBehaviour
     {
         if (canMoveCamera)
         {
-            float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
-            float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
+            float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX * sensModifier;
+            float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY * sensModifier;
 
+            Debug.Log(sensModifier);
             yRotation += mouseX;
 
             xRotation -= mouseY;

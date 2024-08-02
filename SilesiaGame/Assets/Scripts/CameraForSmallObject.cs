@@ -19,7 +19,7 @@ public class CameraForSmallObjects : ICameraMovementType
     {
         PlayerInteract.input.BlockInputForInteraction();
         objToMove.DOMove(PlayerInteract.Instance.objPos.transform.position, 2);
-        objToMove.GetChild(0).DORotate(PlayerInteract.Instance.objPos.transform.eulerAngles, 2);
+       // objToMove.GetChild(0).DORotate(PlayerInteract.Instance.objPos.transform.eulerAngles, 2);
        
     }
 

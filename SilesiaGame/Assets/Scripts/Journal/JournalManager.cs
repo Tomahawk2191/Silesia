@@ -9,6 +9,8 @@ public class JournalManager : MonoBehaviour
     public static GameObject previousMainPage;
     // Start is called before the first frame update
     private static PlayerInput input;
+    public static GameObject openJournal;
+    
     void Start()
     {
         gameObject.SetActive(false);

@@ -15,7 +15,7 @@ namespace DefaultNamespace
             {
                 float h = horizontalSpeed * Input.GetAxis("Mouse X");
                 float v = verticalSpeed * Input.GetAxis("Mouse Y");
-                obj.Rotate(v, h, 0, Space.World);
+                obj.transform.Rotate(v, h, 0);
             }
         }
 
