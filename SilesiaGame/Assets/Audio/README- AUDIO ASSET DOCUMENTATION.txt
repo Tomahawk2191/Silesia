@@ -82,3 +82,24 @@ PALOMA: PIXABAY CONTENT LICENSE - FREE USE NO ATTRIBUTION
 
 PIGEONS FLYING: PIXABAY CONTENT LICENSE
 - https://pixabay.com/sound-effects/pigeons-flying-6351/
+
+PAGE TURN: PIXABAY CONTENT LICENSE
+- https://pixabay.com/sound-effects/pageturn-102978/
+
+TURNPAGE: PIXABAY CONTENT LICENSE
+- https://pixabay.com/sound-effects/turnpage-99756/
+
+BOOK_PAGE: PIXABAY CONTENT LICENSE
+- https://pixabay.com/sound-effects/book-page-45210/
+
+FOLDING PAPER: PIXABAY CONTENT LICENSE
+- https://pixabay.com/sound-effects/folding-paper-34965/
+
+SHUFFLING BOOK: 
+- https://pixabay.com/sound-effects/shuffling-book-80736/
+
+BOOK: 
+- https://pixabay.com/sound-effects/book-79836/
+
+BOOK GRAB OPEN AND CLOSE HARD: 
+- https://pixabay.com/sound-effects/book-grab-open-and-close-hard-99898/
