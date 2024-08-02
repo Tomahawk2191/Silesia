@@ -52,7 +52,7 @@ public class PlayerCam : MonoBehaviour
         LockCursor();
         PlayerInteract.input.OnZoomOutEvent += onZoomOut;
         PlayerInteract.input.OnZoomInEvent += onZoomIn;
-        rend = shaderMat.GetComponent<Renderer>();
+        //rend = shaderMat.GetComponent<Renderer>();
     }
 
     private void onZoomIn(object sender, EventArgs e)
