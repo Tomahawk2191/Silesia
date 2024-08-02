@@ -7,6 +7,7 @@ public class Interactable : MonoBehaviour
     private bool ableToUse;
     private bool collectable;
     [SerializeField] private GameObject photo;
+    [SerializeField] private GameObject bigObjectPosition;
     public ICameraMovementType cameraMovementType { get; protected set; }
     public static event EventHandler<NewItemCollected> collectableInteracted;
 
@@ -22,7 +23,14 @@ public class Interactable : MonoBehaviour
 
     private void Start()
     {
-        cameraMovementType = new CameraForSmallObjects(this.transform);
+        if (data.isBig)
+        {
+            cameraMovementType = new CameraForBigObjects(bigObjectPosition.transform);
+        }
+        else
+        {
+            cameraMovementType = new CameraForSmallObjects(this.transform);
+        }
         collectable = data.collectable;
         ableToUse = data.basicState;
         input = PlayerInteract.input;

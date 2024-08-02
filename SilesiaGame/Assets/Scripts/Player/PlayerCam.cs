@@ -2,6 +2,7 @@ using Cinemachine;
 using System;
 using System.Collections;
 using System.Linq.Expressions;
+using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
@@ -54,6 +55,8 @@ public class PlayerCam : MonoBehaviour
         PlayerInteract.input.OnZoomInEvent += onZoomIn;
         //rend = shaderMat.GetComponent<Renderer>();
     }
+
+   
 
     private void onZoomIn(object sender, EventArgs e)
     {
