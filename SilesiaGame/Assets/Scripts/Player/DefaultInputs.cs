@@ -55,15 +55,6 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""OpenJournal"",
-                    ""type"": ""Button"",
-                    ""id"": ""24abfa57-060d-4eb6-a1a5-2c9c67e1b127"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""PauseMenu"",
                     ""type"": ""Button"",
                     ""id"": ""a41d6b9b-36d0-431b-a910-17deacddfb78"",
@@ -162,17 +153,6 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""b5f48961-c742-455e-8daf-9c1a6224ecb1"",
-                    ""path"": ""<Keyboard>/j"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""OpenJournal"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""246cb5bc-0fea-4044-a812-a7a171f8e354"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
@@ -253,6 +233,15 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CloseWithESC"",
+                    ""type"": ""Button"",
+                    ""id"": ""6509d0cb-440c-463f-b21d-c08149c1ab3b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -280,8 +269,8 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""237edc57-d562-4767-ba38-bc428657f589"",
-                    ""path"": ""<Keyboard>/escape"",
+                    ""id"": ""9ccc69bc-a7fa-4d8d-82f2-86772336080f"",
+                    ""path"": ""<Keyboard>/j"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -291,12 +280,12 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""9ccc69bc-a7fa-4d8d-82f2-86772336080f"",
-                    ""path"": ""<Keyboard>/j"",
+                    ""id"": ""3851d6eb-416f-4c13-9549-c4d5e8657f51"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""QuitJournal"",
+                    ""action"": ""CloseWithESC"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -310,7 +299,6 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_ShowHint = m_Player.FindAction("ShowHint", throwIfNotFound: true);
-        m_Player_OpenJournal = m_Player.FindAction("OpenJournal", throwIfNotFound: true);
         m_Player_PauseMenu = m_Player.FindAction("PauseMenu", throwIfNotFound: true);
         m_Player_ZoomIn = m_Player.FindAction("Zoom In", throwIfNotFound: true);
         // Dialogue
@@ -321,6 +309,7 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
         m_Journal_JournalPreviousPage = m_Journal.FindAction("JournalPreviousPage", throwIfNotFound: true);
         m_Journal_JournalNextPage = m_Journal.FindAction("JournalNextPage", throwIfNotFound: true);
         m_Journal_QuitJournal = m_Journal.FindAction("QuitJournal", throwIfNotFound: true);
+        m_Journal_CloseWithESC = m_Journal.FindAction("CloseWithESC", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -385,7 +374,6 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_ShowHint;
-    private readonly InputAction m_Player_OpenJournal;
     private readonly InputAction m_Player_PauseMenu;
     private readonly InputAction m_Player_ZoomIn;
     public struct PlayerActions
@@ -395,7 +383,6 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @ShowHint => m_Wrapper.m_Player_ShowHint;
-        public InputAction @OpenJournal => m_Wrapper.m_Player_OpenJournal;
         public InputAction @PauseMenu => m_Wrapper.m_Player_PauseMenu;
         public InputAction @ZoomIn => m_Wrapper.m_Player_ZoomIn;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -416,9 +403,6 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
             @ShowHint.started += instance.OnShowHint;
             @ShowHint.performed += instance.OnShowHint;
             @ShowHint.canceled += instance.OnShowHint;
-            @OpenJournal.started += instance.OnOpenJournal;
-            @OpenJournal.performed += instance.OnOpenJournal;
-            @OpenJournal.canceled += instance.OnOpenJournal;
             @PauseMenu.started += instance.OnPauseMenu;
             @PauseMenu.performed += instance.OnPauseMenu;
             @PauseMenu.canceled += instance.OnPauseMenu;
@@ -438,9 +422,6 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
             @ShowHint.started -= instance.OnShowHint;
             @ShowHint.performed -= instance.OnShowHint;
             @ShowHint.canceled -= instance.OnShowHint;
-            @OpenJournal.started -= instance.OnOpenJournal;
-            @OpenJournal.performed -= instance.OnOpenJournal;
-            @OpenJournal.canceled -= instance.OnOpenJournal;
             @PauseMenu.started -= instance.OnPauseMenu;
             @PauseMenu.performed -= instance.OnPauseMenu;
             @PauseMenu.canceled -= instance.OnPauseMenu;
@@ -517,6 +498,7 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Journal_JournalPreviousPage;
     private readonly InputAction m_Journal_JournalNextPage;
     private readonly InputAction m_Journal_QuitJournal;
+    private readonly InputAction m_Journal_CloseWithESC;
     public struct JournalActions
     {
         private @DefaultInputs m_Wrapper;
@@ -524,6 +506,7 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
         public InputAction @JournalPreviousPage => m_Wrapper.m_Journal_JournalPreviousPage;
         public InputAction @JournalNextPage => m_Wrapper.m_Journal_JournalNextPage;
         public InputAction @QuitJournal => m_Wrapper.m_Journal_QuitJournal;
+        public InputAction @CloseWithESC => m_Wrapper.m_Journal_CloseWithESC;
         public InputActionMap Get() { return m_Wrapper.m_Journal; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -542,6 +525,9 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
             @QuitJournal.started += instance.OnQuitJournal;
             @QuitJournal.performed += instance.OnQuitJournal;
             @QuitJournal.canceled += instance.OnQuitJournal;
+            @CloseWithESC.started += instance.OnCloseWithESC;
+            @CloseWithESC.performed += instance.OnCloseWithESC;
+            @CloseWithESC.canceled += instance.OnCloseWithESC;
         }
 
         private void UnregisterCallbacks(IJournalActions instance)
@@ -555,6 +541,9 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
             @QuitJournal.started -= instance.OnQuitJournal;
             @QuitJournal.performed -= instance.OnQuitJournal;
             @QuitJournal.canceled -= instance.OnQuitJournal;
+            @CloseWithESC.started -= instance.OnCloseWithESC;
+            @CloseWithESC.performed -= instance.OnCloseWithESC;
+            @CloseWithESC.canceled -= instance.OnCloseWithESC;
         }
 
         public void RemoveCallbacks(IJournalActions instance)
@@ -577,7 +566,6 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
         void OnShowHint(InputAction.CallbackContext context);
-        void OnOpenJournal(InputAction.CallbackContext context);
         void OnPauseMenu(InputAction.CallbackContext context);
         void OnZoomIn(InputAction.CallbackContext context);
     }
@@ -590,5 +578,6 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
         void OnJournalPreviousPage(InputAction.CallbackContext context);
         void OnJournalNextPage(InputAction.CallbackContext context);
         void OnQuitJournal(InputAction.CallbackContext context);
+        void OnCloseWithESC(InputAction.CallbackContext context);
     }
 }

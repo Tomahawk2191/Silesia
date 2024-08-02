@@ -62,7 +62,6 @@ public class PlayerCam : MonoBehaviour
     {
         isZoomed = true;
         switchCamera(inspectCam);
-        rend.material.SetFloat("_ditherStrength", 200);
     }
 
     public static void setSensModifier(float value)
@@ -97,7 +96,6 @@ public class PlayerCam : MonoBehaviour
             float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX * sensModifier;
             float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY * sensModifier;
 
-            Debug.Log(sensModifier);
             yRotation += mouseX;
 
             xRotation -= mouseY;
