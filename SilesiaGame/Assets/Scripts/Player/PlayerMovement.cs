@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     float horizontalInput;
     float verticalInput;
     bool isMoving;
-    
+
 
     Vector3 moveDirection;
     Rigidbody rb;
@@ -32,9 +32,9 @@ public class PlayerMovement : MonoBehaviour
     // values for footstep sounds
     float lastStepTime;
     [SerializeField]
-    float stepDelayTime = .5f; 
+    float stepDelayTime = .5f;
 
-    
+
     //FindObjectOfType<AudioManager>().Play("Footstep" + (UnityEngine.Random.Range(0, 2) + 1));
 
     // Start is called before the first frame update
@@ -97,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
             //                                      pos fwd                               pos right
 
             rb.AddForce(moveDirection.normalized * (moveSpeed + lurchVal) * 10f, ForceMode.Force);
-            
+
         }
 
     }
