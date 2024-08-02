@@ -9,8 +9,8 @@ using UnityEngine;
 public class PlayerCam : MonoBehaviour
 {
     [Header("Camera Attributes")]
-    [SerializeField] private float sensX = 100f;
-    [SerializeField] private float sensY = 100f;
+    [SerializeField] private float sensX = 25f;
+    [SerializeField] private float sensY = 25f;
     private static float sensModifier = 5; 
     
     [SerializeField] private Transform orientation;
