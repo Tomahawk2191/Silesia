@@ -52,6 +52,7 @@ public class Mark : MonoBehaviour
         Debug.Log("open page");
         transform.Rotate(0,0,180,0);
         transform.position = _openPos.transform.position - new Vector3(0,40*id,0);
+        FindObjectOfType<AudioManager>().Play("PageTurn" + (UnityEngine.Random.Range(0, 2) + 1));
     }
 
     private void CloseDedicatedPage()
