@@ -64,10 +64,11 @@ public class PlayerInput
         _currentActionMap = input.Dialogue;
         _currentActionMap.Enable();
         input.Journal.Enable();
+        input.Zoom.Enable();
         input.Player.PauseMenu.performed -= OpenPauseMenu_performed;
         input.Journal.CloseWithESC.performed -= OpenJournal_performed;
-        input.Player.ZoomIn.performed -= OnZoomIn;
-        input.Player.ZoomIn.canceled -= OnzoomOut;
+        input.Zoom.ZoomIn.performed -= OnZoomIn;
+        input.Zoom.ZoomIn.canceled -= OnzoomOut;
 
     }
 
@@ -80,10 +81,20 @@ public class PlayerInput
         _currentActionMap = input.Player;
         _currentActionMap.Enable();
         input.Journal.Enable();
+        input.Zoom.Enable();
         input.Player.PauseMenu.performed += OpenPauseMenu_performed;
         input.Journal.CloseWithESC.performed -= OpenJournal_performed;
-        input.Player.ZoomIn.performed += OnZoomIn;
-        input.Player.ZoomIn.canceled += OnzoomOut;
+        input.Zoom.ZoomIn.performed += OnZoomIn;
+        input.Zoom.ZoomIn.canceled += OnzoomOut;
+
+    }
+
+    public void EnableZoomIN()
+    {
+        
+    }
+    public void DisableZoomIN()
+    {
         
     }
 
@@ -97,8 +108,9 @@ public class PlayerInput
         _currentActionMap.Enable();
         input.Player.PauseMenu.performed -= OpenPauseMenu_performed;
         input.Journal.CloseWithESC.performed += OpenJournal_performed;
-        input.Player.ZoomIn.performed -= OnZoomIn;
-        input.Player.ZoomIn.canceled -= OnzoomOut;
+        input.Zoom.Disable();
+        input.Zoom.ZoomIn.performed -= OnZoomIn;
+        input.Zoom.ZoomIn.canceled -= OnzoomOut;
 
     }
 

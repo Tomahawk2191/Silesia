@@ -62,15 +62,6 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Zoom In"",
-                    ""type"": ""Button"",
-                    ""id"": ""ad8992ae-73c2-42ac-b75f-ef35ddf0152b"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -159,17 +150,6 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""PauseMenu"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""60d2d925-e4d5-4e20-b5de-e472285953e1"",
-                    ""path"": ""<Mouse>/middleButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Zoom In"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -290,6 +270,34 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Zoom"",
+            ""id"": ""3545efe5-68bb-4812-945b-1be8145b2208"",
+            ""actions"": [
+                {
+                    ""name"": ""Zoom In"",
+                    ""type"": ""Button"",
+                    ""id"": ""e0ee4412-a52d-42d4-b15e-1ee7e60d3e38"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""ab30b1e4-0e5a-457f-aa66-0667a87c590a"",
+                    ""path"": ""<Mouse>/middleButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Zoom In"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -300,7 +308,6 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_ShowHint = m_Player.FindAction("ShowHint", throwIfNotFound: true);
         m_Player_PauseMenu = m_Player.FindAction("PauseMenu", throwIfNotFound: true);
-        m_Player_ZoomIn = m_Player.FindAction("Zoom In", throwIfNotFound: true);
         // Dialogue
         m_Dialogue = asset.FindActionMap("Dialogue", throwIfNotFound: true);
         m_Dialogue_NextLine = m_Dialogue.FindAction("NextLine", throwIfNotFound: true);
@@ -310,6 +317,9 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
         m_Journal_JournalNextPage = m_Journal.FindAction("JournalNextPage", throwIfNotFound: true);
         m_Journal_QuitJournal = m_Journal.FindAction("QuitJournal", throwIfNotFound: true);
         m_Journal_CloseWithESC = m_Journal.FindAction("CloseWithESC", throwIfNotFound: true);
+        // Zoom
+        m_Zoom = asset.FindActionMap("Zoom", throwIfNotFound: true);
+        m_Zoom_ZoomIn = m_Zoom.FindAction("Zoom In", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -375,7 +385,6 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_ShowHint;
     private readonly InputAction m_Player_PauseMenu;
-    private readonly InputAction m_Player_ZoomIn;
     public struct PlayerActions
     {
         private @DefaultInputs m_Wrapper;
@@ -384,7 +393,6 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @ShowHint => m_Wrapper.m_Player_ShowHint;
         public InputAction @PauseMenu => m_Wrapper.m_Player_PauseMenu;
-        public InputAction @ZoomIn => m_Wrapper.m_Player_ZoomIn;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -406,9 +414,6 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
             @PauseMenu.started += instance.OnPauseMenu;
             @PauseMenu.performed += instance.OnPauseMenu;
             @PauseMenu.canceled += instance.OnPauseMenu;
-            @ZoomIn.started += instance.OnZoomIn;
-            @ZoomIn.performed += instance.OnZoomIn;
-            @ZoomIn.canceled += instance.OnZoomIn;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -425,9 +430,6 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
             @PauseMenu.started -= instance.OnPauseMenu;
             @PauseMenu.performed -= instance.OnPauseMenu;
             @PauseMenu.canceled -= instance.OnPauseMenu;
-            @ZoomIn.started -= instance.OnZoomIn;
-            @ZoomIn.performed -= instance.OnZoomIn;
-            @ZoomIn.canceled -= instance.OnZoomIn;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -561,13 +563,58 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
         }
     }
     public JournalActions @Journal => new JournalActions(this);
+
+    // Zoom
+    private readonly InputActionMap m_Zoom;
+    private List<IZoomActions> m_ZoomActionsCallbackInterfaces = new List<IZoomActions>();
+    private readonly InputAction m_Zoom_ZoomIn;
+    public struct ZoomActions
+    {
+        private @DefaultInputs m_Wrapper;
+        public ZoomActions(@DefaultInputs wrapper) { m_Wrapper = wrapper; }
+        public InputAction @ZoomIn => m_Wrapper.m_Zoom_ZoomIn;
+        public InputActionMap Get() { return m_Wrapper.m_Zoom; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ZoomActions set) { return set.Get(); }
+        public void AddCallbacks(IZoomActions instance)
+        {
+            if (instance == null || m_Wrapper.m_ZoomActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_ZoomActionsCallbackInterfaces.Add(instance);
+            @ZoomIn.started += instance.OnZoomIn;
+            @ZoomIn.performed += instance.OnZoomIn;
+            @ZoomIn.canceled += instance.OnZoomIn;
+        }
+
+        private void UnregisterCallbacks(IZoomActions instance)
+        {
+            @ZoomIn.started -= instance.OnZoomIn;
+            @ZoomIn.performed -= instance.OnZoomIn;
+            @ZoomIn.canceled -= instance.OnZoomIn;
+        }
+
+        public void RemoveCallbacks(IZoomActions instance)
+        {
+            if (m_Wrapper.m_ZoomActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IZoomActions instance)
+        {
+            foreach (var item in m_Wrapper.m_ZoomActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_ZoomActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public ZoomActions @Zoom => new ZoomActions(this);
     public interface IPlayerActions
     {
         void OnInteract(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
         void OnShowHint(InputAction.CallbackContext context);
         void OnPauseMenu(InputAction.CallbackContext context);
-        void OnZoomIn(InputAction.CallbackContext context);
     }
     public interface IDialogueActions
     {
@@ -579,5 +626,9 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
         void OnJournalNextPage(InputAction.CallbackContext context);
         void OnQuitJournal(InputAction.CallbackContext context);
         void OnCloseWithESC(InputAction.CallbackContext context);
+    }
+    public interface IZoomActions
+    {
+        void OnZoomIn(InputAction.CallbackContext context);
     }
 }

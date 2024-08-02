@@ -40,15 +40,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Zoom In",
-                    "type": "Button",
-                    "id": "ad8992ae-73c2-42ac-b75f-ef35ddf0152b",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -137,17 +128,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "PauseMenu",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "60d2d925-e4d5-4e20-b5de-e472285953e1",
-                    "path": "<Mouse>/middleButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Zoom In",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -264,6 +244,34 @@
                     "processors": "",
                     "groups": "",
                     "action": "CloseWithESC",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Zoom",
+            "id": "3545efe5-68bb-4812-945b-1be8145b2208",
+            "actions": [
+                {
+                    "name": "Zoom In",
+                    "type": "Button",
+                    "id": "e0ee4412-a52d-42d4-b15e-1ee7e60d3e38",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ab30b1e4-0e5a-457f-aa66-0667a87c590a",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Zoom In",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
