@@ -77,12 +77,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43ce74b716857664d99d325c3adb1d5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 6
+  moveSpeed: 4
   groundDrag: 5
   orientation: {fileID: 8784157470321378215}
   oscillationVal: 0
   oscillationFreq: 8
-  lurchStrength: 0.05
+  lurchStrength: 0.075
+  stepDelayTime: 0.95
 --- !u!114 &7494342777094325639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,7 +140,7 @@ Transform:
   m_GameObject: {fileID: 1906905164904468273}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.88199997, z: 0}
+  m_LocalPosition: {x: 0, y: 0.625, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -383,7 +384,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 60
+    FieldOfView: 50
     OrthographicSize: 5
     NearClipPlane: 0.01
     FarClipPlane: 1000
@@ -413,8 +414,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b8416c2a1a689c4d978cae6a8ae6959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensX: 150
-  sensY: 150
+  sensX: 500
+  sensY: 500
   orientation: {fileID: 8784157470321378215}
   AmplitudeGain: 2
   FrequencyGain: 0.02
@@ -446,7 +447,7 @@ Transform:
   m_GameObject: {fileID: 5773915141460706914}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.025, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -492,9 +493,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5080003049644289032}
-  - component: {fileID: 7976865495589056501}
   - component: {fileID: 1566910214554576026}
-  - component: {fileID: 1290941379352995000}
+  - component: {fileID: 4260290937700798914}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -517,26 +517,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8512532301736226367}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7976865495589056501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7054907510172944869}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f50f6826dab971418c1c482e7cc7f48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactCursor: {fileID: 0}
-  normalCursor: {fileID: 0}
-  DialogueDisplay: {fileID: 0}
-  fadeDuration: 0
-  fadeDistance: 0
-  _pauseMenuPanel: {fileID: 0}
-  _settings: {fileID: 0}
-  _pause: {fileID: 0}
 --- !u!114 &1566910214554576026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -549,7 +529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 235aa2ea0a576af458c7fed20b5be98d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1290941379352995000
+--- !u!114 &4260290937700798914
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -702,4 +682,4 @@ MonoBehaviour:
   m_PivotOffset: {x: 0, y: 0, z: 0}
   m_AmplitudeGain: 2.5
   m_FrequencyGain: 0.02
-  mNoiseOffsets: {x: 0, y: 0, z: 0}
+  mNoiseOffsets: {x: -19.997253, y: -113.60657, z: -730.21265}
