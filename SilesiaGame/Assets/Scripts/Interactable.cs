@@ -22,6 +22,7 @@ public class Interactable : MonoBehaviour
 
     private void Start()
     {
+        cameraMovementType = new CameraForSmallObjects(this.transform);
         collectable = data.collectable;
         ableToUse = data.basicState;
         input = PlayerInteract.input;

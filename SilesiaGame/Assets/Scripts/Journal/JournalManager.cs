@@ -9,7 +9,8 @@ public class JournalManager : MonoBehaviour
     public static GameObject previousMainPage;
     // Start is called before the first frame update
     private static PlayerInput input;
-    [SerializeField] private GameObject _openJounal;
+    public static GameObject openJournal;
+    
     void Start()
     {
         gameObject.SetActive(false);
@@ -32,7 +33,6 @@ public class JournalManager : MonoBehaviour
 
     private void OpenJournal(object sender, EventArgs e)
     {
-        _openJounal.SetActive(false);
         PlayerCam.UnlockCursor();
         PlayerCam.setCanMoveCamera(false);
         PlayerMovement.setCanMove(false);
