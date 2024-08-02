@@ -9,11 +9,7 @@ public class CameraForBigObjects : ICameraMovementType
     private Transform cameraPosition;
 
     private Transform transform;
-
-    public CameraForBigObjects(Transform transform)
-    {
-        this.transform = transform;
-    }
+    
 
     public void cameraMoveIn()
     {

@@ -11,7 +11,7 @@ public class DoorOpeningScript : MonoBehaviour
     public static void newInteraction()
     {
         interactions++;
-        if (interactions == 3)
+        if (interactions == 1)
         {
             Debug.Log("openThedoor");
             Instance.transform.Rotate(0,90,0);

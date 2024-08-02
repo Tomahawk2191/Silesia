@@ -1,4 +1,5 @@
 using System;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class Interactable : MonoBehaviour
@@ -7,7 +8,6 @@ public class Interactable : MonoBehaviour
     private bool ableToUse;
     private bool collectable;
     [SerializeField] private GameObject photo;
-    [SerializeField] private GameObject bigObjectPosition;
     public ICameraMovementType cameraMovementType { get; protected set; }
     public static event EventHandler<NewItemCollected> collectableInteracted;
 
@@ -25,7 +25,7 @@ public class Interactable : MonoBehaviour
     {
         if (data.isBig)
         {
-            cameraMovementType = new CameraForBigObjects(bigObjectPosition.transform);
+            cameraMovementType = new CameraForBigObjects();
         }
         else
         {
