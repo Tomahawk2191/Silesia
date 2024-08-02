@@ -18,7 +18,7 @@ public class PlayerCam : MonoBehaviour
     private static bool canMoveCamera = true;
 
     private float xRotation;
-    private float yRotation;
+    private float yRotation = -90f;
 
     [Header("CameraBob Variables")]
     private bool bIsOnTheMove;
@@ -95,7 +95,6 @@ public class PlayerCam : MonoBehaviour
         {
             float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX * sensModifier;
             float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY * sensModifier;
-
             yRotation += mouseX;
 
             xRotation -= mouseY;
