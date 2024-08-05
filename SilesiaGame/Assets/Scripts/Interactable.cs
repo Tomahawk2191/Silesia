@@ -51,6 +51,7 @@ public class Interactable : MonoBehaviour
 
     public void TriggerDialogue()
     {
+        GetComponentInChildren<Renderer>().material.renderQueue = 4000;
         if (ableToUse)
         {
             DialogueManager.Instance.StartDialogue(this);

@@ -5,8 +5,8 @@ namespace DefaultNamespace
 {
     public class InspectorModeRotation : MonoBehaviour
     {
-        public float horizontalSpeed = 2.0F;
-        public float verticalSpeed = 2.0F;
+        public float horizontalSpeed = 8.0F;
+        public float verticalSpeed = 8.0F;
         private bool enabledRot = false;
         private Transform obj;
 
