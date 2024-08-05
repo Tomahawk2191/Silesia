@@ -8,18 +8,6 @@ public class ProgressTracker : MonoBehaviour
     [HideInInspector] public float percentcomplete = 0f;
     [SerializeField] private float totalItems = 15f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Increment()
     {
         itemsCollected = itemsCollected + 1f; 
