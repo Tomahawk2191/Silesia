@@ -7,9 +7,12 @@ public class LetterScript : MonoBehaviour
     [SerializeField] private float waitTimeSeconds = 3f;
 
     [SerializeField] private float scrollSpeed = 5f;
+
+    [SerializeField] private FullScreenPassRendererFeature _renderer;
     // Start is called before the first frame update
     void Start()
     {
+        _renderer.SetActive(false);
         playIntroLetter();
     }
     
@@ -19,12 +22,12 @@ public class LetterScript : MonoBehaviour
         GameObject player = GameObject.Find("Player").gameObject;
         PlayerInteract playerInteract =
             player.GetComponent<PlayerInteract>();
-        player.transform.position = new Vector3(10.5999985f, 3.79999995f, 45.4399986f);
+        player.transform.position = new Vector3(11f, 4f, 45f);
         playerInteract.blockPlayerForDialogue();
         
         GameObject introLetter = GameObject.Find("IntroLetter");
 
-        introLetter.transform.position = new Vector3(9.175f, 6.9f, 45.6749992f);
+        introLetter.transform.localPosition = new Vector3(0.1f,1.16f,0.64f);
         StartCoroutine(ScrollLetter(introLetter, playerInteract));
 
     }
@@ -32,12 +35,14 @@ public class LetterScript : MonoBehaviour
     IEnumerator ScrollLetter(GameObject introLetter, PlayerInteract playerInteract)
     {
         yield return new WaitForSeconds(waitTimeSeconds);
-        while (introLetter.transform.position.y < 8.4f)
+        while (introLetter.transform.localPosition.y < 1.9f)
         {
             introLetter.transform.Translate(Vector3.up * Time.deltaTime * scrollSpeed/100);
             yield return null;
         }
+        
         yield return new WaitForSeconds(waitTimeSeconds);
+        _renderer.SetActive(true);
         
         var startPos = transform.position;
         var targetPos = transform.position + new Vector3(-7.3f, 0, 0);
