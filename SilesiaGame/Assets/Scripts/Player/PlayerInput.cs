@@ -31,16 +31,13 @@ public class PlayerInput
         input = new DefaultInputs();
         SwitchToPlayerMap();
         //input.UI.Enable();
-
+        input.Journal.Enable();
         input.Player.Interact.performed += Interact_performed;
         input.Player.ShowHint.performed += ShowHint_performed;
         input.Player.ShowHint.canceled += ShowHint_canceled;
-        input.Player.OpenJournal.performed += OpenJournal_performed;
+        input.Journal.QuitJournal.performed += OpenJournal_performed;
         input.Dialogue.NextLine.performed += NextLine_performed;
         input.Player.PauseMenu.performed += OpenPauseMenu_performed;
-        input.Journal.QuitJournal.performed += QuitJournal_performed;
-        input.Player.ZoomIn.performed += OnZoomIn;
-        input.Player.ZoomIn.canceled += OnzoomOut;
     }
 
     private void OnzoomOut(InputAction.CallbackContext obj)
@@ -55,7 +52,6 @@ public class PlayerInput
 
     private void OpenPauseMenu_performed(InputAction.CallbackContext obj)
     {
-        Debug.Log("opened menu");
         OpenPauseMenu?.Invoke(this, EventArgs.Empty);
     }
 
@@ -67,34 +63,55 @@ public class PlayerInput
         }
         _currentActionMap = input.Dialogue;
         _currentActionMap.Enable();
+        input.Journal.Enable();
+        input.Zoom.Enable();
         input.Player.PauseMenu.performed -= OpenPauseMenu_performed;
-        input.Journal.QuitJournal.performed -= QuitJournal_performed;
+        input.Journal.CloseWithESC.performed -= OpenJournal_performed;
+        input.Zoom.ZoomIn.performed -= OnZoomIn;
+        input.Zoom.ZoomIn.canceled -= OnzoomOut;
+
     }
 
     public void SwitchToPlayerMap()
     {
         if (_currentActionMap != null)
         {
-            Debug.Log(_currentActionMap.name + " disabled");
             _currentActionMap.Disable();
         }
         _currentActionMap = input.Player;
         _currentActionMap.Enable();
+        input.Journal.Enable();
+        input.Zoom.Enable();
         input.Player.PauseMenu.performed += OpenPauseMenu_performed;
-        input.Journal.QuitJournal.performed -= QuitJournal_performed;
+        input.Journal.CloseWithESC.performed -= OpenJournal_performed;
+        input.Zoom.ZoomIn.performed += OnZoomIn;
+        input.Zoom.ZoomIn.canceled += OnzoomOut;
+
+    }
+
+    public void EnableZoomIN()
+    {
+        
+    }
+    public void DisableZoomIN()
+    {
+        
     }
 
     public void SwitchToJournalMap()
     {
         if (_currentActionMap != null)
         {
-            Debug.Log(_currentActionMap.name + " disabled");
             _currentActionMap.Disable();
         }
         _currentActionMap = input.Journal;
         _currentActionMap.Enable();
         input.Player.PauseMenu.performed -= OpenPauseMenu_performed;
-        input.Journal.QuitJournal.performed += QuitJournal_performed;
+        input.Journal.CloseWithESC.performed += OpenJournal_performed;
+        input.Zoom.Disable();
+        input.Zoom.ZoomIn.performed -= OnZoomIn;
+        input.Zoom.ZoomIn.canceled -= OnzoomOut;
+
     }
 
     private void QuitJournal_performed(InputAction.CallbackContext obj)

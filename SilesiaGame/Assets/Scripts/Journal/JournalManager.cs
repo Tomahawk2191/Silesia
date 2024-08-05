@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class JournalManager : MonoBehaviour
@@ -17,8 +18,20 @@ public class JournalManager : MonoBehaviour
         
         input = PlayerInteract.input;
 
-        input.OpenJournal += OpenJournal;
-        input.QuitJournal += QuitJournal;
+        input.OpenJournal += onPressJ;
+    }
+
+    private void onPressJ(object sender, EventArgs e)
+    {
+        if (gameObject.activeSelf)
+        {
+            QuitJournal(this, EventArgs.Empty);
+        }
+
+        else
+        {
+            OpenJournal(this,EventArgs.Empty);
+        }
     }
 
     /*
@@ -32,6 +45,7 @@ public class JournalManager : MonoBehaviour
 
     private void QuitJournal(object sender, EventArgs e)
     {
+        Debug.Log("quit journal");
         PlayerCam.LockCursor();
         PlayerMovement.setCanMove(true);
         PlayerCam.setCanMoveCamera(true);
@@ -44,6 +58,7 @@ public class JournalManager : MonoBehaviour
 
     private void OpenJournal(object sender, EventArgs e)
     {
+        Debug.Log("open journal");
         PlayerCam.UnlockCursor();
         PlayerCam.setCanMoveCamera(false);
         PlayerMovement.setCanMove(false);
@@ -53,9 +68,6 @@ public class JournalManager : MonoBehaviour
         //StartCoroutine(DelayAction(4f));
         PlayerInteract.input.SwitchToJournalMap();
     }
-
-    // Update is called once per frame
-    
 
     public void CloseButtonPressed()
     {
