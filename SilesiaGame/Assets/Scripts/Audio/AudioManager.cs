@@ -52,7 +52,7 @@ public class AudioManager : MonoBehaviour
         Play("RainLoop1");
 
         Play("Fire", Position_Stove.position);
-        Play("Pigeon", Position_Pigeon.position);
+        Play("PigeonCoo", Position_Pigeon.position);
 
     }
 
