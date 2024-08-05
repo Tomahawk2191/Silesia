@@ -19,12 +19,12 @@ public class LetterScript : MonoBehaviour
         GameObject player = GameObject.Find("Player").gameObject;
         PlayerInteract playerInteract =
             player.GetComponent<PlayerInteract>();
-        player.transform.position = new Vector3(84.9300003f, 3.61249995f, -2.66000009f);
+        player.transform.position = new Vector3(10.5999985f, 3.79999995f, 45.4399986f);
         playerInteract.blockPlayerForDialogue();
         
         GameObject introLetter = GameObject.Find("IntroLetter");
 
-        introLetter.transform.position = new Vector3(83.3259964f,6.4f,-2.3900001f);
+        introLetter.transform.position = new Vector3(9.175f, 6.9f, 45.6749992f);
         StartCoroutine(ScrollLetter(introLetter, playerInteract));
 
     }
