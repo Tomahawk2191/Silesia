@@ -27,6 +27,6 @@ public class CameraForSmallObjects : ICameraMovementType
     {
         PlayerInteract.input.EnableInputForInteraction();
         objToMove.DOMove(startPos, 2);
-        objToMove.GetChild(0).DORotate(startRot, 2);
+        objToMove.DORotate(startRot, 2);
     }
 }
