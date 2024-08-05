@@ -33,27 +33,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "OpenJournal",
-                    "type": "Button",
-                    "id": "24abfa57-060d-4eb6-a1a5-2c9c67e1b127",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "PauseMenu",
                     "type": "Button",
                     "id": "a41d6b9b-36d0-431b-a910-17deacddfb78",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Zoom In",
-                    "type": "Button",
-                    "id": "ad8992ae-73c2-42ac-b75f-ef35ddf0152b",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -140,34 +122,12 @@
                 },
                 {
                     "name": "",
-                    "id": "b5f48961-c742-455e-8daf-9c1a6224ecb1",
-                    "path": "<Keyboard>/j",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "OpenJournal",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "246cb5bc-0fea-4044-a812-a7a171f8e354",
                     "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "PauseMenu",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "60d2d925-e4d5-4e20-b5de-e472285953e1",
-                    "path": "<Mouse>/middleButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Zoom In",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -231,6 +191,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "CloseWithESC",
+                    "type": "Button",
+                    "id": "6509d0cb-440c-463f-b21d-c08149c1ab3b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -258,8 +227,8 @@
                 },
                 {
                     "name": "",
-                    "id": "237edc57-d562-4767-ba38-bc428657f589",
-                    "path": "<Keyboard>/escape",
+                    "id": "9ccc69bc-a7fa-4d8d-82f2-86772336080f",
+                    "path": "<Keyboard>/j",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -269,12 +238,40 @@
                 },
                 {
                     "name": "",
-                    "id": "9ccc69bc-a7fa-4d8d-82f2-86772336080f",
-                    "path": "<Keyboard>/j",
+                    "id": "3851d6eb-416f-4c13-9549-c4d5e8657f51",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "QuitJournal",
+                    "action": "CloseWithESC",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Zoom",
+            "id": "3545efe5-68bb-4812-945b-1be8145b2208",
+            "actions": [
+                {
+                    "name": "Zoom In",
+                    "type": "Button",
+                    "id": "e0ee4412-a52d-42d4-b15e-1ee7e60d3e38",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ab30b1e4-0e5a-457f-aa66-0667a87c590a",
+                    "path": "<Mouse>/middleButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Zoom In",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -14,4 +14,5 @@ public class InteractableSO : ScriptableObject
     public bool basicState;
     public bool collectable;
     public int id;
+    public bool isBig;
 }

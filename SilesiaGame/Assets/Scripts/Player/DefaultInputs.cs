@@ -55,27 +55,9 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""OpenJournal"",
-                    ""type"": ""Button"",
-                    ""id"": ""24abfa57-060d-4eb6-a1a5-2c9c67e1b127"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""PauseMenu"",
                     ""type"": ""Button"",
                     ""id"": ""a41d6b9b-36d0-431b-a910-17deacddfb78"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Zoom In"",
-                    ""type"": ""Button"",
-                    ""id"": ""ad8992ae-73c2-42ac-b75f-ef35ddf0152b"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -162,34 +144,12 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""b5f48961-c742-455e-8daf-9c1a6224ecb1"",
-                    ""path"": ""<Keyboard>/j"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""OpenJournal"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""246cb5bc-0fea-4044-a812-a7a171f8e354"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""PauseMenu"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""60d2d925-e4d5-4e20-b5de-e472285953e1"",
-                    ""path"": ""<Mouse>/middleButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Zoom In"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -253,6 +213,15 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CloseWithESC"",
+                    ""type"": ""Button"",
+                    ""id"": ""6509d0cb-440c-463f-b21d-c08149c1ab3b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -280,8 +249,8 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""237edc57-d562-4767-ba38-bc428657f589"",
-                    ""path"": ""<Keyboard>/escape"",
+                    ""id"": ""9ccc69bc-a7fa-4d8d-82f2-86772336080f"",
+                    ""path"": ""<Keyboard>/j"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -291,12 +260,40 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""9ccc69bc-a7fa-4d8d-82f2-86772336080f"",
-                    ""path"": ""<Keyboard>/j"",
+                    ""id"": ""3851d6eb-416f-4c13-9549-c4d5e8657f51"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""QuitJournal"",
+                    ""action"": ""CloseWithESC"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Zoom"",
+            ""id"": ""3545efe5-68bb-4812-945b-1be8145b2208"",
+            ""actions"": [
+                {
+                    ""name"": ""Zoom In"",
+                    ""type"": ""Button"",
+                    ""id"": ""e0ee4412-a52d-42d4-b15e-1ee7e60d3e38"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""ab30b1e4-0e5a-457f-aa66-0667a87c590a"",
+                    ""path"": ""<Mouse>/middleButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Zoom In"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -310,9 +307,7 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_ShowHint = m_Player.FindAction("ShowHint", throwIfNotFound: true);
-        m_Player_OpenJournal = m_Player.FindAction("OpenJournal", throwIfNotFound: true);
         m_Player_PauseMenu = m_Player.FindAction("PauseMenu", throwIfNotFound: true);
-        m_Player_ZoomIn = m_Player.FindAction("Zoom In", throwIfNotFound: true);
         // Dialogue
         m_Dialogue = asset.FindActionMap("Dialogue", throwIfNotFound: true);
         m_Dialogue_NextLine = m_Dialogue.FindAction("NextLine", throwIfNotFound: true);
@@ -321,6 +316,10 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
         m_Journal_JournalPreviousPage = m_Journal.FindAction("JournalPreviousPage", throwIfNotFound: true);
         m_Journal_JournalNextPage = m_Journal.FindAction("JournalNextPage", throwIfNotFound: true);
         m_Journal_QuitJournal = m_Journal.FindAction("QuitJournal", throwIfNotFound: true);
+        m_Journal_CloseWithESC = m_Journal.FindAction("CloseWithESC", throwIfNotFound: true);
+        // Zoom
+        m_Zoom = asset.FindActionMap("Zoom", throwIfNotFound: true);
+        m_Zoom_ZoomIn = m_Zoom.FindAction("Zoom In", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -385,9 +384,7 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_ShowHint;
-    private readonly InputAction m_Player_OpenJournal;
     private readonly InputAction m_Player_PauseMenu;
-    private readonly InputAction m_Player_ZoomIn;
     public struct PlayerActions
     {
         private @DefaultInputs m_Wrapper;
@@ -395,9 +392,7 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @ShowHint => m_Wrapper.m_Player_ShowHint;
-        public InputAction @OpenJournal => m_Wrapper.m_Player_OpenJournal;
         public InputAction @PauseMenu => m_Wrapper.m_Player_PauseMenu;
-        public InputAction @ZoomIn => m_Wrapper.m_Player_ZoomIn;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -416,15 +411,9 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
             @ShowHint.started += instance.OnShowHint;
             @ShowHint.performed += instance.OnShowHint;
             @ShowHint.canceled += instance.OnShowHint;
-            @OpenJournal.started += instance.OnOpenJournal;
-            @OpenJournal.performed += instance.OnOpenJournal;
-            @OpenJournal.canceled += instance.OnOpenJournal;
             @PauseMenu.started += instance.OnPauseMenu;
             @PauseMenu.performed += instance.OnPauseMenu;
             @PauseMenu.canceled += instance.OnPauseMenu;
-            @ZoomIn.started += instance.OnZoomIn;
-            @ZoomIn.performed += instance.OnZoomIn;
-            @ZoomIn.canceled += instance.OnZoomIn;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -438,15 +427,9 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
             @ShowHint.started -= instance.OnShowHint;
             @ShowHint.performed -= instance.OnShowHint;
             @ShowHint.canceled -= instance.OnShowHint;
-            @OpenJournal.started -= instance.OnOpenJournal;
-            @OpenJournal.performed -= instance.OnOpenJournal;
-            @OpenJournal.canceled -= instance.OnOpenJournal;
             @PauseMenu.started -= instance.OnPauseMenu;
             @PauseMenu.performed -= instance.OnPauseMenu;
             @PauseMenu.canceled -= instance.OnPauseMenu;
-            @ZoomIn.started -= instance.OnZoomIn;
-            @ZoomIn.performed -= instance.OnZoomIn;
-            @ZoomIn.canceled -= instance.OnZoomIn;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -517,6 +500,7 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Journal_JournalPreviousPage;
     private readonly InputAction m_Journal_JournalNextPage;
     private readonly InputAction m_Journal_QuitJournal;
+    private readonly InputAction m_Journal_CloseWithESC;
     public struct JournalActions
     {
         private @DefaultInputs m_Wrapper;
@@ -524,6 +508,7 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
         public InputAction @JournalPreviousPage => m_Wrapper.m_Journal_JournalPreviousPage;
         public InputAction @JournalNextPage => m_Wrapper.m_Journal_JournalNextPage;
         public InputAction @QuitJournal => m_Wrapper.m_Journal_QuitJournal;
+        public InputAction @CloseWithESC => m_Wrapper.m_Journal_CloseWithESC;
         public InputActionMap Get() { return m_Wrapper.m_Journal; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -542,6 +527,9 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
             @QuitJournal.started += instance.OnQuitJournal;
             @QuitJournal.performed += instance.OnQuitJournal;
             @QuitJournal.canceled += instance.OnQuitJournal;
+            @CloseWithESC.started += instance.OnCloseWithESC;
+            @CloseWithESC.performed += instance.OnCloseWithESC;
+            @CloseWithESC.canceled += instance.OnCloseWithESC;
         }
 
         private void UnregisterCallbacks(IJournalActions instance)
@@ -555,6 +543,9 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
             @QuitJournal.started -= instance.OnQuitJournal;
             @QuitJournal.performed -= instance.OnQuitJournal;
             @QuitJournal.canceled -= instance.OnQuitJournal;
+            @CloseWithESC.started -= instance.OnCloseWithESC;
+            @CloseWithESC.performed -= instance.OnCloseWithESC;
+            @CloseWithESC.canceled -= instance.OnCloseWithESC;
         }
 
         public void RemoveCallbacks(IJournalActions instance)
@@ -572,14 +563,58 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
         }
     }
     public JournalActions @Journal => new JournalActions(this);
+
+    // Zoom
+    private readonly InputActionMap m_Zoom;
+    private List<IZoomActions> m_ZoomActionsCallbackInterfaces = new List<IZoomActions>();
+    private readonly InputAction m_Zoom_ZoomIn;
+    public struct ZoomActions
+    {
+        private @DefaultInputs m_Wrapper;
+        public ZoomActions(@DefaultInputs wrapper) { m_Wrapper = wrapper; }
+        public InputAction @ZoomIn => m_Wrapper.m_Zoom_ZoomIn;
+        public InputActionMap Get() { return m_Wrapper.m_Zoom; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ZoomActions set) { return set.Get(); }
+        public void AddCallbacks(IZoomActions instance)
+        {
+            if (instance == null || m_Wrapper.m_ZoomActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_ZoomActionsCallbackInterfaces.Add(instance);
+            @ZoomIn.started += instance.OnZoomIn;
+            @ZoomIn.performed += instance.OnZoomIn;
+            @ZoomIn.canceled += instance.OnZoomIn;
+        }
+
+        private void UnregisterCallbacks(IZoomActions instance)
+        {
+            @ZoomIn.started -= instance.OnZoomIn;
+            @ZoomIn.performed -= instance.OnZoomIn;
+            @ZoomIn.canceled -= instance.OnZoomIn;
+        }
+
+        public void RemoveCallbacks(IZoomActions instance)
+        {
+            if (m_Wrapper.m_ZoomActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IZoomActions instance)
+        {
+            foreach (var item in m_Wrapper.m_ZoomActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_ZoomActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public ZoomActions @Zoom => new ZoomActions(this);
     public interface IPlayerActions
     {
         void OnInteract(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
         void OnShowHint(InputAction.CallbackContext context);
-        void OnOpenJournal(InputAction.CallbackContext context);
         void OnPauseMenu(InputAction.CallbackContext context);
-        void OnZoomIn(InputAction.CallbackContext context);
     }
     public interface IDialogueActions
     {
@@ -590,5 +625,10 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
         void OnJournalPreviousPage(InputAction.CallbackContext context);
         void OnJournalNextPage(InputAction.CallbackContext context);
         void OnQuitJournal(InputAction.CallbackContext context);
+        void OnCloseWithESC(InputAction.CallbackContext context);
+    }
+    public interface IZoomActions
+    {
+        void OnZoomIn(InputAction.CallbackContext context);
     }
 }
