@@ -1,4 +1,5 @@
 using System;
+using DefaultNamespace;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -51,6 +52,7 @@ public class Interactable : MonoBehaviour
 
     public void TriggerDialogue()
     {
+        InspectorModeRotation.setEnabledRotation(!data.isBig);
         if (ableToUse)
         {
             DialogueManager.Instance.StartDialogue(this);

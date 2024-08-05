@@ -45,8 +45,8 @@ public class DialogueManager : MonoBehaviour
     {
         FindObjectOfType<AudioManager>().Play("Grab");
         currentObject = interactable;
-        rotation.setObject(currentObject.transform);
-        rotation.setEnabledRotation(true);
+        InspectorModeRotation.setObject(currentObject.transform);
+        InspectorModeRotation.setEnabledRotation(true);
         PlayerInteract.Instance.blockPlayerForDialogue();
         currentObject.cameraMovementType.cameraMoveIn();
         _input.SwitchToDialogueMap();
@@ -82,7 +82,7 @@ public class DialogueManager : MonoBehaviour
         PlayerInteract.input.SwitchToPlayerMap();
         PlayerInteract.Instance.unblockPlayerFromDialogue();
         currentObject = null;
-        rotation.setEnabledRotation(false);
+        InspectorModeRotation.setEnabledRotation(false);
 
 
     }
