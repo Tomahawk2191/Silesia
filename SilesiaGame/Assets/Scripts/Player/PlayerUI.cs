@@ -49,22 +49,25 @@ public class PlayerUI : MonoBehaviour
     {
         if (_pauseMenuPanel != null)
         {
-            if (_pauseMenuPanel.activeSelf )
+            if (_pauseMenuPanel.activeSelf)
             {
-                
                 _pause.SetActive(true);
                 PlayerCam.LockCursor();
                 PlayerMovement.setCanMove(true);
                 _pauseMenuPanel.SetActive(false);
                 PlayerCam.setCanMoveCamera(true);
+                Time.timeScale = 1f;
+                Debug.Log("starts");
             }
             else
             {
+                Time.timeScale = 0f;
                 PlayerCam.UnlockCursor();
                 PlayerCam.setCanMoveCamera(false);
                 _settings.SetActive(false);
                 _pauseMenuPanel.SetActive(true);
                 PlayerMovement.setCanMove(false);
+                Debug.Log("stop");
             }
         }
         
@@ -132,8 +135,5 @@ public class PlayerUI : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(0);
     }
-
-
-
 
 }

@@ -5,7 +5,7 @@ public class PlayerInteract : MonoBehaviour
 {
     [SerializeField] private Camera cam;
     public static PlayerInput input;
-    [SerializeField] private float distance = 5f;
+    [SerializeField] private float distance;
     [SerializeField] private LayerMask mask;
     private PlayerUI playerUI;
     Rigidbody rb;
@@ -45,10 +45,9 @@ public class PlayerInteract : MonoBehaviour
         }
     }
 
-    // Update is called once per frame 
     // using the raycast it check if there is an interactable object in front of the camera and sets it as the selected interactable
     // also triggers event for each interactable object to check if it is the one looked at, if so -> turns on the outline
-    void Update()
+    void FixedUpdate()
     {
         //playerUI.UpdateText(String.Empty);
         playerUI.ShowNormalCursor();
@@ -64,6 +63,7 @@ public class PlayerInteract : MonoBehaviour
         if (Physics.Raycast(ray, out hitInfo, distance, mask))
         {
             var facedInteractable = hitInfo.collider.GetComponent<Interactable>();
+            Debug.Log(hitInfo.transform.gameObject.layer);
             if (facedInteractable != null && Vector3.Distance(facedInteractable.transform.position, rb.position) < 100)
             {
                 if (facedInteractable.getAbleToUse())
