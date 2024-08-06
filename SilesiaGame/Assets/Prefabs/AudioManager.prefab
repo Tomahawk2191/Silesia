@@ -1,5 +1,98 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2057319470625215470
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2887796435547716600}
+  m_Layer: 0
+  m_Name: KitchenWindow_Coord
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2887796435547716600
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057319470625215470}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.5, y: 3, z: 28}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8735754063622336259}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2343477158949163218
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8814641104789076971}
+  m_Layer: 0
+  m_Name: PigeonCage_Coord
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8814641104789076971
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2343477158949163218}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -20.447, y: 0, z: 52.378}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8735754063622336259}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2594320601824655342
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8043021253129713347}
+  m_Layer: 0
+  m_Name: Center
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8043021253129713347
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2594320601824655342}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.099, y: 2, z: 47.694}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8735754063622336259}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7170614708003928020
 GameObject:
   m_ObjectHideFlags: 0
@@ -29,7 +122,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8735754063622336259}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7214740397852380714
@@ -44,6 +138,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5aacd0d1b1e847479d34da8a378543e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Position_Stove: {fileID: 3313071298792116399}
+  Position_Window: {fileID: 2887796435547716600}
+  Position_Pigeon: {fileID: 8814641104789076971}
+  Position_Center: {fileID: 8043021253129713347}
   mixerGroup: {fileID: 24300002, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
   sounds:
   - name: BackgroundMusic
@@ -94,7 +192,7 @@ MonoBehaviour:
     pitchVariance: 0.2
     spatialBlend: 0
     loop: 0
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 8559514659386129567, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
   - name: Footstep2
     clip: {fileID: 8300000, guid: b5da130b2f22f824db2784db217d5a98, type: 3}
@@ -104,7 +202,7 @@ MonoBehaviour:
     pitchVariance: 0.2
     spatialBlend: 0
     loop: 0
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 8559514659386129567, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
   - name: Footstep3
     clip: {fileID: 8300000, guid: a28a245b5d7ec404a9c37557de28b51d, type: 3}
@@ -114,7 +212,7 @@ MonoBehaviour:
     pitchVariance: 0.2
     spatialBlend: 0
     loop: 0
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 8559514659386129567, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
   - name: DoorOpen
     clip: {fileID: 8300000, guid: 66f742b30dfbe4543949776fb1abbcc2, type: 3}
@@ -124,7 +222,7 @@ MonoBehaviour:
     pitchVariance: 0
     spatialBlend: 0
     loop: 0
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: -297476489788410926, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
   - name: DoorClose
     clip: {fileID: 8300000, guid: ccbbf610f1135984a9eae620e41303db, type: 3}
@@ -134,17 +232,17 @@ MonoBehaviour:
     pitchVariance: 0
     spatialBlend: 0
     loop: 0
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: -297476489788410926, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
-  - name: FireStove
-    clip: {fileID: 8300000, guid: 4c9e459924708d347abbbf7b9e00d622, type: 3}
+  - name: Fire
+    clip: {fileID: 8300000, guid: 9bfde0647e5a8fe4bad50b20930273ce, type: 3}
     volume: 1
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
     spatialBlend: 0
     loop: 1
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: -297476489788410926, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
   - name: SmallGust
     clip: {fileID: 8300000, guid: 9f3253fc9c3255741a43e337595c326f, type: 3}
@@ -154,7 +252,7 @@ MonoBehaviour:
     pitchVariance: 0
     spatialBlend: 0
     loop: 0
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: -297476489788410926, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
   - name: MidGust
     clip: {fileID: 8300000, guid: 1bf7c44b39cdffb4baa8f90d7eed4647, type: 3}
@@ -164,7 +262,7 @@ MonoBehaviour:
     pitchVariance: 0
     spatialBlend: 0
     loop: 0
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: -297476489788410926, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
   - name: BigGust
     clip: {fileID: 8300000, guid: 1496b7a4f99896846a99b84579020030, type: 3}
@@ -173,8 +271,8 @@ MonoBehaviour:
     pitch: 1
     pitchVariance: 0
     spatialBlend: 0
-    loop: 0
-    mixerGroup: {fileID: 0}
+    loop: 1
+    mixerGroup: {fileID: -297476489788410926, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
   - name: PigeonCoo
     clip: {fileID: 8300000, guid: 79be143a1d4331048b9395af050bbfe0, type: 3}
@@ -184,7 +282,7 @@ MonoBehaviour:
     pitchVariance: 0.5
     spatialBlend: 0
     loop: 1
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: -8411428173429143761, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
   - name: PigeonFly
     clip: {fileID: 8300000, guid: 5556fadcc51451f47afbeb8766f3bb89, type: 3}
@@ -194,7 +292,7 @@ MonoBehaviour:
     pitchVariance: 0
     spatialBlend: 0
     loop: 0
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: -8411428173429143761, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
   - name: Swipe1
     clip: {fileID: 8300000, guid: 98ae2a7c056de7c4d99e42a3c743aec6, type: 3}
@@ -204,7 +302,7 @@ MonoBehaviour:
     pitchVariance: 0.2
     spatialBlend: 0
     loop: 0
-    mixerGroup: {fileID: 3637026261727890521, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
+    mixerGroup: {fileID: 8559514659386129567, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
   - name: Swipe2
     clip: {fileID: 8300000, guid: b043739f0179bee4bbd7bc9067d022e4, type: 3}
@@ -214,7 +312,7 @@ MonoBehaviour:
     pitchVariance: 0.2
     spatialBlend: 0
     loop: 0
-    mixerGroup: {fileID: 3637026261727890521, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
+    mixerGroup: {fileID: 8559514659386129567, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
   - name: UIHover
     clip: {fileID: 8300000, guid: 656574da10ac57046bd21b696f89b06e, type: 3}
@@ -224,7 +322,7 @@ MonoBehaviour:
     pitchVariance: 0
     spatialBlend: 0
     loop: 0
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 8559514659386129567, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
   - name: UIClick
     clip: {fileID: 8300000, guid: 90c9607311ed4cf4697c025ffdf6dd67, type: 3}
@@ -234,7 +332,7 @@ MonoBehaviour:
     pitchVariance: 0
     spatialBlend: 0
     loop: 0
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 8559514659386129567, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
   - name: Grab
     clip: {fileID: 8300000, guid: b305d785d8ddc4a4cabfd189fdf45f5f, type: 3}
@@ -244,7 +342,7 @@ MonoBehaviour:
     pitchVariance: 0
     spatialBlend: 0
     loop: 0
-    mixerGroup: {fileID: 3637026261727890521, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
+    mixerGroup: {fileID: 8559514659386129567, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
   - name: PageTurn1
     clip: {fileID: 8300000, guid: 45f05302d0db48e40a140dbf97aa788d, type: 3}
@@ -254,7 +352,7 @@ MonoBehaviour:
     pitchVariance: 0.5
     spatialBlend: 0
     loop: 0
-    mixerGroup: {fileID: 3637026261727890521, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
+    mixerGroup: {fileID: 8559514659386129567, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
   - name: PageTurn2
     clip: {fileID: 8300000, guid: da8671104df36e547a8f933effa94c6f, type: 3}
@@ -264,7 +362,7 @@ MonoBehaviour:
     pitchVariance: 0.5
     spatialBlend: 0
     loop: 0
-    mixerGroup: {fileID: 3637026261727890521, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
+    mixerGroup: {fileID: 8559514659386129567, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
   - name: PageTurn3
     clip: {fileID: 8300000, guid: e613e515d5a2f154aa2bbbd434dc2194, type: 3}
@@ -274,7 +372,7 @@ MonoBehaviour:
     pitchVariance: 0.5
     spatialBlend: 0
     loop: 0
-    mixerGroup: {fileID: 3637026261727890521, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
+    mixerGroup: {fileID: 8559514659386129567, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
   - name: OpenBook
     clip: {fileID: 8300000, guid: 958eec48fdd33864ebeb32aed1e8f48c, type: 3}
@@ -284,7 +382,7 @@ MonoBehaviour:
     pitchVariance: 0
     spatialBlend: 0
     loop: 0
-    mixerGroup: {fileID: 3637026261727890521, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
+    mixerGroup: {fileID: 8559514659386129567, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
   - name: CloseBook
     clip: {fileID: 8300000, guid: 7e38d22dd0c0aae4f8e5d4f5cb7616f2, type: 3}
@@ -294,7 +392,7 @@ MonoBehaviour:
     pitchVariance: 0
     spatialBlend: 0
     loop: 0
-    mixerGroup: {fileID: 3637026261727890521, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
+    mixerGroup: {fileID: 8559514659386129567, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
   - name: LetterFold
     clip: {fileID: 8300000, guid: ec12c320b9c6d1b4bbed5adb749097a9, type: 3}
@@ -304,7 +402,7 @@ MonoBehaviour:
     pitchVariance: 0
     spatialBlend: 0
     loop: 0
-    mixerGroup: {fileID: 3637026261727890521, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
+    mixerGroup: {fileID: 8559514659386129567, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
   - name: MTElement
     clip: {fileID: 0}
@@ -316,3 +414,69 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
+--- !u!1 &7482572459617030707
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3313071298792116399}
+  m_Layer: 0
+  m_Name: KitchenFire
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3313071298792116399
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7482572459617030707}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.5, y: -3.04, z: 44.217}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8735754063622336259}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8818381945039087751
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8735754063622336259}
+  m_Layer: 0
+  m_Name: Sound Locations
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8735754063622336259
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8818381945039087751}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.295904, y: 3.2245245, z: 2.357749}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2887796435547716600}
+  - {fileID: 8814641104789076971}
+  - {fileID: 3313071298792116399}
+  - {fileID: 8043021253129713347}
+  m_Father: {fileID: 3298326882873164907}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
