@@ -69,6 +69,8 @@ public class PlayerInput
         input.Journal.CloseWithESC.performed -= OpenJournal_performed;
         input.Zoom.ZoomIn.performed -= OnZoomIn;
         input.Zoom.ZoomIn.canceled -= OnzoomOut;
+        input.Journal.QuitJournal.performed -= OpenJournal_performed;
+        
 
     }
 
@@ -86,6 +88,7 @@ public class PlayerInput
         input.Journal.CloseWithESC.performed -= OpenJournal_performed;
         input.Zoom.ZoomIn.performed += OnZoomIn;
         input.Zoom.ZoomIn.canceled += OnzoomOut;
+        input.Journal.QuitJournal.performed += OpenJournal_performed;
 
     }
 

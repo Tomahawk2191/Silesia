@@ -5,10 +5,10 @@ namespace DefaultNamespace
 {
     public class InspectorModeRotation : MonoBehaviour
     {
-        public float horizontalSpeed = 2.0F;
-        public float verticalSpeed = 2.0F;
-        private  static bool enabledRot = false;
-        private static Transform obj;
+        public float horizontalSpeed = 8.0F;
+        public float verticalSpeed = 8.0F;
+        private bool enabledRot = false;
+        private Transform obj;
 
         void Update() {
             if (enabledRot && Input.GetMouseButton(1))
