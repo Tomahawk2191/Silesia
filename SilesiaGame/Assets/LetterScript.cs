@@ -46,6 +46,7 @@ public class LetterScript : MonoBehaviour
         transform.DOLocalMoveZ(3.5f, 1.5f).SetEase(Ease.OutCubic);
         yield return new WaitForSeconds(1.5f);
         transform.GetChild(0).GetComponent<Animator>().SetTrigger("Folded");
+        FindObjectOfType<AudioManager>().Play("LetterFold"); 
         yield return new WaitForSeconds(1.25f);
         
         transform.DOLocalMoveY(-1.2f, 1.5f).SetEase(Ease.InOutExpo);
