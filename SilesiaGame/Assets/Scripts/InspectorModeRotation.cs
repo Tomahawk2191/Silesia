@@ -7,8 +7,8 @@ namespace DefaultNamespace
     {
         public float horizontalSpeed = 8.0F;
         public float verticalSpeed = 8.0F;
-        private bool enabledRot = false;
-        private Transform obj;
+        private static bool enabledRot = false;
+        private static Transform obj;
 
         void Update() {
             if (enabledRot && Input.GetMouseButton(1))
@@ -19,7 +19,7 @@ namespace DefaultNamespace
             }
         }
 
-        public static  void setEnabledRotation(bool value)
+        public static void setEnabledRotation(bool value)
         {
             enabledRot = value;
         }
