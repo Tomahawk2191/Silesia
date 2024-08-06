@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 7455367804972104478}
   - component: {fileID: 7360509464962436945}
   - component: {fileID: 522557247990724503}
-  - component: {fileID: 4443448826689397880}
-  - component: {fileID: 7564091180156221763}
   m_Layer: 7
   m_Name: LP_Clock_Prefab
   m_TagString: Untagged
@@ -85,39 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4443448826689397880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7838017729324210350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b60a79f80269b3946b5fb846077ef286, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  photo: {fileID: 0}
-  data: {fileID: 11400000, guid: 2348cd66419c97d47a4e6ef810455886, type: 2}
---- !u!64 &7564091180156221763
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7838017729324210350}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -2069000707580979226, guid: 97747ee487a5be7459d2a36b76912668, type: 3}
