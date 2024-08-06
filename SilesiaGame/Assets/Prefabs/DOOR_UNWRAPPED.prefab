@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8897065692686831640}
   - component: {fileID: 2688273671965342193}
   - component: {fileID: 7066631707699301714}
+  - component: {fileID: 3272914543570026094}
   m_Layer: 0
   m_Name: pCylinder12.001
   m_TagString: Untagged
@@ -27,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 765217160959940502}
   serializedVersion: 2
   m_LocalRotation: {x: -0.000000037748947, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.15600002, y: -0.01700002, z: 0.60400003}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.15600002, y: -0.0072749, z: 0.60400003}
+  m_LocalScale: {x: 1, y: 1.0145, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9079220719344236414}
@@ -62,7 +63,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 02ff9ff1b787d0b42902002035c8379f, type: 2}
-  - {fileID: 2100000, guid: 22ee6cec45c487a4e88c38e5f3a61f15, type: 2}
+  - {fileID: 2100000, guid: 9737b8f9f0d9e8148b5685704d040464, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,6 +85,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3272914543570026094
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765217160959940502}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.039540555, y: 1.9466391, z: 0.7177091}
+  m_Center: {x: 0.020484837, y: 0.887116, z: 0.0036417933}
 --- !u!1 &2720792527862188607
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,7 +115,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1624610604578708312}
-  - component: {fileID: 2895129317411647252}
   m_Layer: 0
   m_Name: DOOR_UNWRAPPED
   m_TagString: Untagged
@@ -111,35 +132,14 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 82.529, y: -0.51, z: 1.86}
-  m_LocalScale: {x: 4.499546, y: 4.499546, z: 4.499546}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 3.829401, y: 4.326074, z: 5.216341}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2605001434067630343}
   - {fileID: 8357028671454903503}
   - {fileID: 8430543836319287124}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!65 &2895129317411647252
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2720792527862188607}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.5758962, y: 2.684064, z: 2.3076453}
-  m_Center: {x: -0.21205068, y: 0.84202975, z: -0.124156766}
 --- !u!1 &3272047421435577877
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,6 +323,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38e1470c1d09e4f47a5149fb71b649bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 0}
+  _bedroomDoor: {fileID: 0}
 --- !u!1 &7224331486190868456
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,6 +370,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38e1470c1d09e4f47a5149fb71b649bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 0}
+  _bedroomDoor: {fileID: 2720792527862188607}
 --- !u!1 &8384145694005413392
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,8 +399,8 @@ Transform:
   m_GameObject: {fileID: 8384145694005413392}
   serializedVersion: 2
   m_LocalRotation: {x: -0.000000037748947, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -0.0082894, z: 0}
+  m_LocalScale: {x: 1, y: 1.0145, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1624610604578708312}
