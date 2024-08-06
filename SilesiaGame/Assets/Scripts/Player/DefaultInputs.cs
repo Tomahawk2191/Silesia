@@ -452,6 +452,45 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Rotate"",
+            ""id"": ""b0e1456d-4a88-49cc-b6f6-fd24dd8d879c"",
+            ""actions"": [
+                {
+                    ""name"": ""Rotate On"",
+                    ""type"": ""Button"",
+                    ""id"": ""f719877d-36a4-4d44-af8d-26927dcf3a99"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""2190c87e-f204-4d10-a729-5962df8750f9"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate On"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4522dcd4-3c9c-4837-ad75-a424af2513d7"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate On"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -474,6 +513,9 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
         // Zoom
         m_Zoom = asset.FindActionMap("Zoom", throwIfNotFound: true);
         m_Zoom_ZoomIn = m_Zoom.FindAction("Zoom In", throwIfNotFound: true);
+        // Rotate
+        m_Rotate = asset.FindActionMap("Rotate", throwIfNotFound: true);
+        m_Rotate_RotateOn = m_Rotate.FindAction("Rotate On", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -763,6 +805,52 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
         }
     }
     public ZoomActions @Zoom => new ZoomActions(this);
+
+    // Rotate
+    private readonly InputActionMap m_Rotate;
+    private List<IRotateActions> m_RotateActionsCallbackInterfaces = new List<IRotateActions>();
+    private readonly InputAction m_Rotate_RotateOn;
+    public struct RotateActions
+    {
+        private @DefaultInputs m_Wrapper;
+        public RotateActions(@DefaultInputs wrapper) { m_Wrapper = wrapper; }
+        public InputAction @RotateOn => m_Wrapper.m_Rotate_RotateOn;
+        public InputActionMap Get() { return m_Wrapper.m_Rotate; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(RotateActions set) { return set.Get(); }
+        public void AddCallbacks(IRotateActions instance)
+        {
+            if (instance == null || m_Wrapper.m_RotateActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_RotateActionsCallbackInterfaces.Add(instance);
+            @RotateOn.started += instance.OnRotateOn;
+            @RotateOn.performed += instance.OnRotateOn;
+            @RotateOn.canceled += instance.OnRotateOn;
+        }
+
+        private void UnregisterCallbacks(IRotateActions instance)
+        {
+            @RotateOn.started -= instance.OnRotateOn;
+            @RotateOn.performed -= instance.OnRotateOn;
+            @RotateOn.canceled -= instance.OnRotateOn;
+        }
+
+        public void RemoveCallbacks(IRotateActions instance)
+        {
+            if (m_Wrapper.m_RotateActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IRotateActions instance)
+        {
+            foreach (var item in m_Wrapper.m_RotateActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_RotateActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public RotateActions @Rotate => new RotateActions(this);
     public interface IPlayerActions
     {
         void OnInteract(InputAction.CallbackContext context);
@@ -784,5 +872,9 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
     public interface IZoomActions
     {
         void OnZoomIn(InputAction.CallbackContext context);
+    }
+    public interface IRotateActions
+    {
+        void OnRotateOn(InputAction.CallbackContext context);
     }
 }

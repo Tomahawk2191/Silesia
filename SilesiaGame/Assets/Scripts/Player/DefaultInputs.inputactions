@@ -430,6 +430,45 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Rotate",
+            "id": "b0e1456d-4a88-49cc-b6f6-fd24dd8d879c",
+            "actions": [
+                {
+                    "name": "Rotate On",
+                    "type": "Button",
+                    "id": "f719877d-36a4-4d44-af8d-26927dcf3a99",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "2190c87e-f204-4d10-a729-5962df8750f9",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotate On",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4522dcd4-3c9c-4837-ad75-a424af2513d7",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotate On",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
