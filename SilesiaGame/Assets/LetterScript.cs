@@ -18,7 +18,6 @@ public class LetterScript : MonoBehaviour
     
     public void playIntroLetter()
     {
-        Debug.Log("oorah");
         GameObject player = GameObject.Find("Player").gameObject;
         PlayerInteract playerInteract =
             player.GetComponent<PlayerInteract>();
