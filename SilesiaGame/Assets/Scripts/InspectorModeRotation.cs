@@ -15,7 +15,8 @@ namespace DefaultNamespace
             {
                 float h = horizontalSpeed * Input.GetAxis("Mouse X");
                 float v = verticalSpeed * Input.GetAxis("Mouse Y");
-                obj.transform.Rotate(v, h, 0);
+                obj.transform.RotateAround(obj.position, Camera.main.transform.right, v);
+                obj.transform.RotateAround(obj.position, Camera.main.transform.up, h);
             }
         }
 
