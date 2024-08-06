@@ -25,6 +25,9 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private GameObject _pause;
     public bool inAnimation { get; private set; }
 
+
+    private bool cameraWasLocked = false;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -52,21 +55,29 @@ public class PlayerUI : MonoBehaviour
             if (_pauseMenuPanel.activeSelf)
             {
                 _pause.SetActive(true);
-                PlayerCam.LockCursor();
-                PlayerMovement.setCanMove(true);
                 _pauseMenuPanel.SetActive(false);
-                PlayerCam.setCanMoveCamera(true);
+                if (cameraWasLocked)
+                {                    
+                    PlayerMovement.setCanMove(true);                    
+                    PlayerCam.setCanMoveCamera(true);                    
+                }
+                PlayerCam.LockCursor();
+
                 Time.timeScale = 1f;
                 Debug.Log("starts");
             }
             else
             {
+                cameraWasLocked = PlayerCam.getCanMoveCamera();
+                Debug.Log(cameraWasLocked);
                 Time.timeScale = 0f;
+                
                 PlayerCam.UnlockCursor();
                 PlayerCam.setCanMoveCamera(false);
                 _settings.SetActive(false);
                 _pauseMenuPanel.SetActive(true);
                 PlayerMovement.setCanMove(false);
+                
                 Debug.Log("stop");
             }
         }
