@@ -19,6 +19,7 @@ public class PlayerInput
     public event EventHandler OpenJournal;
     public event EventHandler QuitJournal;
     public event EventHandler OpenPauseMenu;
+    public event EventHandler ClosePauseMenu;
     public event EventHandler OnZoomInEvent;
     public event EventHandler OnZoomOutEvent;
 
@@ -38,6 +39,7 @@ public class PlayerInput
         input.Journal.QuitJournal.performed += OpenJournal_performed;
         input.Dialogue.NextLine.performed += NextLine_performed;
         input.Player.PauseMenu.performed += OpenPauseMenu_performed;
+        input.Player.PauseMenu.canceled += ClosePauseMenu_performed;
     }
 
     private void OnzoomOut(InputAction.CallbackContext obj)
@@ -55,6 +57,11 @@ public class PlayerInput
         OpenPauseMenu?.Invoke(this, EventArgs.Empty);
     }
 
+    private void ClosePauseMenu_performed(InputAction.CallbackContext obj)
+    {
+        ClosePauseMenu?.Invoke(this, EventArgs.Empty);
+    }
+
     public void SwitchToDialogueMap()
     {
         if (_currentActionMap != null)
@@ -70,8 +77,6 @@ public class PlayerInput
         input.Zoom.ZoomIn.performed -= OnZoomIn;
         input.Zoom.ZoomIn.canceled -= OnzoomOut;
         input.Journal.QuitJournal.performed -= OpenJournal_performed;
-        
-
     }
 
     public void SwitchToPlayerMap()
@@ -90,15 +95,6 @@ public class PlayerInput
         input.Zoom.ZoomIn.canceled += OnzoomOut;
         input.Journal.QuitJournal.performed += OpenJournal_performed;
 
-    }
-
-    public void EnableZoomIN()
-    {
-        
-    }
-    public void DisableZoomIN()
-    {
-        
     }
 
     public void SwitchToJournalMap()

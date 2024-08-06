@@ -51,6 +51,7 @@ public class Interactable : MonoBehaviour
 
     public void TriggerDialogue()
     {
+
         InspectorModeRotation.setEnabledRotation(!data.isBig);
         if (ableToUse)
         {

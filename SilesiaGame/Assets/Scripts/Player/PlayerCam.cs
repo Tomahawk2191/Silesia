@@ -78,8 +78,7 @@ public class PlayerCam : MonoBehaviour
     public static void LockCursor()
     {
         Cursor.lockState = CursorLockMode.Locked; 
-        Cursor.visible = false;
-        
+        Cursor.visible = false;       
     }
 
     public static void UnlockCursor()
@@ -87,6 +86,7 @@ public class PlayerCam : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined; 
         Cursor.visible = true;
     }
+
 
     // Update is called once per frame
     void Update()

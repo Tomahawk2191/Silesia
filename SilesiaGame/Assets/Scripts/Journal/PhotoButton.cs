@@ -12,6 +12,7 @@ public class PhotoButton : MonoBehaviour
     // Start is called before the first frame update
     public void OpenArtefactDescriptionPage()
     {
+        Debug.Log("chuj");
         artefactDescriptionPage.SetActive(true);
         JournalManager.previousArtefactPage = this.artefactDescriptionPage;
         JournalManager.previousMainPage = mainPage;
