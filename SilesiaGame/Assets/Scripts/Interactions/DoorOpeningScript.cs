@@ -2,11 +2,19 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class DoorOpeningScript : MonoBehaviour
 {
     private static int interactions = 0;
     private static DoorOpeningScript Instance { get; set; }
+
+    private static Animator _animator;
+
+    [SerializeField] private GameObject _player;
+
+    [SerializeField] private GameObject _bedroomDoor;
+    
 
     public static void newInteraction()
     {
@@ -14,7 +22,15 @@ public class DoorOpeningScript : MonoBehaviour
         if (interactions == 1)
         {
             Debug.Log("openThedoor");
-            Instance.transform.Rotate(0,90,0);
+            _animator.SetTrigger("OpenDoor");
+        }
+    }
+
+    private void Update()
+    {
+        if (Vector3.Distance(_bedroomDoor.transform.position, _player.transform.position) < 5f)
+        {
+            newInteraction();
         }
     }
 
@@ -27,6 +43,7 @@ public class DoorOpeningScript : MonoBehaviour
         else
         {
             Instance = this;
+            _animator = transform.parent.GetComponent<Animator>();
         }
     }
 }
