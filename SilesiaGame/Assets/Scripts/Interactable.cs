@@ -1,7 +1,5 @@
 using System;
 using DefaultNamespace;
-using JetBrains.Annotations;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Interactable : MonoBehaviour
