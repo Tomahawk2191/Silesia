@@ -1,30 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 public class LetterScript : MonoBehaviour
 {
     [SerializeField] private float waitTimeSeconds = 3f;
 
     [SerializeField] private float scrollSpeed = 5f;
+
+    [SerializeField] private FullScreenPassRendererFeature _renderer;
     // Start is called before the first frame update
     void Start()
     {
+        _renderer.SetActive(false);
         playIntroLetter();
     }
     
     public void playIntroLetter()
     {
-        Debug.Log("oorah");
         GameObject player = GameObject.Find("Player").gameObject;
         PlayerInteract playerInteract =
             player.GetComponent<PlayerInteract>();
-        player.transform.position = new Vector3(84.9300003f, 3.61249995f, -2.66000009f);
+        player.transform.position = new Vector3(11f, 4f, 45f);
         playerInteract.blockPlayerForDialogue();
         
         GameObject introLetter = GameObject.Find("IntroLetter");
 
-        introLetter.transform.position = new Vector3(83.3259964f,6.4f,-2.3900001f);
+        introLetter.transform.localPosition = new Vector3(0.1f,1.16f,0.64f);
         StartCoroutine(ScrollLetter(introLetter, playerInteract));
 
     }
@@ -32,48 +34,22 @@ public class LetterScript : MonoBehaviour
     IEnumerator ScrollLetter(GameObject introLetter, PlayerInteract playerInteract)
     {
         yield return new WaitForSeconds(waitTimeSeconds);
-        while (introLetter.transform.position.y < 8.4f)
+        while (introLetter.transform.localPosition.y < 1.9f)
         {
             introLetter.transform.Translate(Vector3.up * Time.deltaTime * scrollSpeed/100);
             yield return null;
         }
+        
         yield return new WaitForSeconds(waitTimeSeconds);
+        _renderer.SetActive(true);
         
-        var startPos = transform.position;
-        var targetPos = transform.position + new Vector3(-7.3f, 0, 0);
-        var distance = Vector3.Distance(startPos, targetPos);
-        float velocity = 7f;
-        var duration = distance / velocity;
-
-        var timePassed = 0f;
-        while(timePassed < duration)
-        {
-            var factor = timePassed / duration;
-            
-            transform.position = Vector3.Lerp(startPos, targetPos, EaseInOut(factor));
-            yield return null;
-            timePassed += Time.deltaTime;
-        }
-        transform.position = targetPos;
-        
+        transform.DOLocalMoveZ(3.5f, 1.5f).SetEase(Ease.OutCubic);
+        yield return new WaitForSeconds(1.5f);
         transform.GetChild(0).GetComponent<Animator>().SetTrigger("Folded");
         yield return new WaitForSeconds(1.25f);
-        startPos = transform.position;
-        targetPos = transform.position + new Vector3(0, -10f, 0);
-        distance = Vector3.Distance(startPos, targetPos);
-        velocity = 10f;
-        duration = distance / velocity;
-
-        timePassed = 0f;
-        while(timePassed < duration)
-        {
-            var factor = timePassed / duration;
-            
-            transform.position = Vector3.Lerp(startPos, targetPos, EaseInOut(factor));
-            yield return null;
-            timePassed += Time.deltaTime;
-        }
-        transform.position = targetPos;
+        
+        transform.DOLocalMoveY(-1.2f, 1.5f).SetEase(Ease.InOutExpo);
+        yield return new WaitForSeconds(1.5f);
         gameObject.SetActive(false);
         playerInteract.unblockPlayerFromDialogue();
     }

@@ -1,5 +1,7 @@
 using System;
+using DefaultNamespace;
 using JetBrains.Annotations;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Interactable : MonoBehaviour
@@ -51,6 +53,7 @@ public class Interactable : MonoBehaviour
 
     public void TriggerDialogue()
     {
+        InspectorModeRotation.setEnabledRotation(!data.isBig);
         if (ableToUse)
         {
             DialogueManager.Instance.StartDialogue(this);
@@ -72,6 +75,24 @@ public class Interactable : MonoBehaviour
         
 
 
+    }
+
+    public void setLayerToInteractable()
+    {
+        gameObject.layer = LayerMask.NameToLayer("Interactable");
+        foreach (Transform child in transform)
+        {
+            child.gameObject.layer = LayerMask.NameToLayer("Interactable");
+        }
+    }
+
+    public void setLayerToDefault()
+    {
+        gameObject.layer = LayerMask.NameToLayer("Default");
+        foreach (Transform child in transform)
+        {
+            child.gameObject.layer = LayerMask.NameToLayer("Default");
+        }
     }
 
     public bool getAbleToUse()

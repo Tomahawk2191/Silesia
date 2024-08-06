@@ -21,13 +21,11 @@ public class Mark : MonoBehaviour
         if (this.id == 0)
         {
             isOpen = true;
-            transform.position = _openPos.transform.position - new Vector3(0,40*id,0);
-            transform.Rotate(0,0,180,0);
+            transform.position = _defPos.transform.position - new Vector3(-40,40*id,0);
         }
         else
         {
             transform.position = _defPos.transform.position - new Vector3(0,40*id,0);
-            transform.Rotate(0,0,0,0);
 
         }
         maxid++;
@@ -49,18 +47,13 @@ public class Mark : MonoBehaviour
     {
         relatedPage.SetActive(true);
         isOpen = true;
-        Debug.Log("open page");
-        transform.Rotate(0,0,180,0);
-        transform.position = _openPos.transform.position - new Vector3(0,40*id,0);
-        FindObjectOfType<AudioManager>().Play("PageTurn" + (UnityEngine.Random.Range(0, 2) + 1));
+        transform.position = _defPos.transform.position - new Vector3(-40,40*id,0);
     }
 
     private void CloseDedicatedPage()
     {
         relatedPage.SetActive(false);
         isOpen = false;
-        Debug.Log("close page");
         transform.position = _defPos.transform.position - new Vector3(0,40*id,0);
-        transform.Rotate(0,0,180,0);
     }
 }

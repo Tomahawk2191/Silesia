@@ -1,3 +1,4 @@
+using DefaultNamespace;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,7 @@ public class CameraForBigObjects : ICameraMovementType
     public void cameraMoveIn()
     {
         PlayerInteract.input.BlockInputForInteraction();
+        InspectorModeRotation.setEnabledRotation(false);
     }
 
     public void cameraMoveOut()
