@@ -39,6 +39,7 @@ public class Mark : MonoBehaviour
         if (previousPage == this) return;
         previousPage.CloseDedicatedPage();
         OpenDedicatedPage();
+        FindObjectOfType<AudioManager>().Play("PageTurn" + (UnityEngine.Random.Range(0, 2) + 1));
         previousPage = this;
     }
 
