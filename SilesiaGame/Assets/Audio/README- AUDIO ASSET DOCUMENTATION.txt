@@ -103,3 +103,18 @@ BOOK:
 
 BOOK GRAB OPEN AND CLOSE HARD: 
 - https://pixabay.com/sound-effects/book-grab-open-and-close-hard-99898/
+
+STATIC NOISE: PXB
+- https://pixabay.com/sound-effects/static-noise-194184/
+
+TV STATIC: PXB
+- https://pixabay.com/sound-effects/tv-static-6411/
+
+TV STATIC: PXB
+- https://pixabay.com/sound-effects/tv-static-7019/
+
+AM RADIO STATIC: PXB
+- https://pixabay.com/sound-effects/am-radio-static-60183/
+
+REAL VHS: PXB
+- https://pixabay.com/sound-effects/real-vhs-169982/
