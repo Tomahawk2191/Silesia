@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProgressTracker : MonoBehaviour
+public class Progress : MonoBehaviour
 {
     private float itemsCollected = 0f; 
     [HideInInspector] public float percentcomplete = 0f;
