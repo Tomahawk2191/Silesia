@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8486331664684503319}
-  - component: {fileID: 6985486172124983128}
   - component: {fileID: 3490392345415316867}
   m_Layer: 7
   m_Name: TOY_UNWRAPPED
@@ -34,28 +33,6 @@ Transform:
   - {fileID: 2727697811950497784}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &6985486172124983128
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1261222819587444943}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 6061318359680129517, guid: 9d7cf8533cdfc21479d26e8b9dff939e, type: 3}
 --- !u!114 &3490392345415316867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,6 +58,7 @@ GameObject:
   - component: {fileID: 2727697811950497784}
   - component: {fileID: 4359180057594375006}
   - component: {fileID: 7790705521269281713}
+  - component: {fileID: 8223280712372964728}
   m_Layer: 0
   m_Name: TOY_UNWRAPPED
   m_TagString: Untagged
@@ -153,3 +131,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8223280712372964728
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6429809562449866899}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6061318359680129517, guid: 9d7cf8533cdfc21479d26e8b9dff939e, type: 3}
