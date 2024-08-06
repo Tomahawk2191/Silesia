@@ -52,34 +52,7 @@ public class LetterScript : MonoBehaviour
         transform.DOLocalMoveY(-1.2f, 1.5f).SetEase(Ease.InOutExpo);
         yield return new WaitForSeconds(1.5f);
         gameObject.SetActive(false);
-        playerInteract.unblockPlayerFromDialogue();
-    }
-    
-    public static float EaseIn(float t)
-    {
-        return t*t*t;
-    }
-    
-    public static float EaseOut(float t)
-    {
-        return Flip(EaseIn(Flip(t)));
-    }
-    
-    static float Flip(float x)
-    {
-        return 1 - x;
-    }
-    
-    public static float EaseInOut(float t)
-    {
-        return Mathf.Lerp(EaseIn(t), EaseOut(t), t);
-    }
-    
-    public void playOutroLetter()
-    {
-        PlayerInteract playerInteract =
-            transform.parent.transform.parent.transform.Find("Player").GetComponent<PlayerInteract>();
-        playerInteract.unblockPlayerFromDialogue();
         
+        playerInteract.unblockPlayerFromDialogue();
     }
 }
