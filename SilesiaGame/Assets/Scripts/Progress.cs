@@ -15,5 +15,13 @@ public class Progress : MonoBehaviour
 
     }
 
+    public float GetPercent()
+    {
+        return percentcomplete;
+    }
 
+    public float GetAbsolute()
+    {
+        return itemsCollected; 
+    }
 }

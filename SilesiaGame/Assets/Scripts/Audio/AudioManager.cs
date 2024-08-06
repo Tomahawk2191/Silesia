@@ -6,13 +6,19 @@ public class AudioManager : MonoBehaviour
 {
     // locations for the objects to be instantiated on start
     [SerializeField]
-    private Transform Position_Stove;
+    private Transform position_Stove;
     [SerializeField]
-    private Transform Position_Window;
+    private Transform position_Window;
     [SerializeField]
-    private Transform Position_Pigeon;
+    private Transform position_Pigeon;
     [SerializeField]
-    private Transform Position_Center; 
+    private Transform position_BedDoor;
+    [SerializeField]
+    private Transform position_LivingDoor;
+    [SerializeField]
+    private Transform position_TV; 
+    [SerializeField]
+    private Transform position_Center; 
 
 
     public static AudioManager instance;
@@ -51,8 +57,9 @@ public class AudioManager : MonoBehaviour
         Play("AmbientHum");
         Play("RainLoop1");
 
-        Play("Fire", Position_Stove.position);
-        Play("PigeonCoo", Position_Pigeon.position);
+        Play("Fire", position_Stove.position);
+        Play("PigeonCoo", position_Pigeon.position);
+        Play("TVStatic", position_TV.position);
 
     }
 

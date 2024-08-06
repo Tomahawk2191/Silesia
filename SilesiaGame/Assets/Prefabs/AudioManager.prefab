@@ -103,7 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8043021253129713347}
   m_Layer: 0
-  m_Name: Center
+  m_Name: Center_Coord
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -200,10 +200,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5aacd0d1b1e847479d34da8a378543e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Position_Stove: {fileID: 3313071298792116399}
-  Position_Window: {fileID: 2887796435547716600}
-  Position_Pigeon: {fileID: 8814641104789076971}
-  Position_Center: {fileID: 8043021253129713347}
+  position_Stove: {fileID: 3313071298792116399}
+  position_Window: {fileID: 2887796435547716600}
+  position_Pigeon: {fileID: 8814641104789076971}
+  position_BedDoor: {fileID: 1125586592172412995}
+  position_LivingDoor: {fileID: 8007298032297567380}
+  position_TV: {fileID: 132533476573585548}
+  position_Center: {fileID: 8043021253129713347}
   mixerGroup: {fileID: 24300002, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
   sounds:
   - name: BackgroundMusic
@@ -466,6 +469,16 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 8559514659386129567, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
+  - name: TVStatic
+    clip: {fileID: 8300000, guid: b4a64742841f9054e9c788928bef1e8c, type: 3}
+    volume: 0.4
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    spatialBlend: 0
+    loop: 1
+    mixerGroup: {fileID: -297476489788410926, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
+    source: {fileID: 0}
   - name: MTElement
     clip: {fileID: 0}
     volume: 1
@@ -486,7 +499,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3313071298792116399}
   m_Layer: 0
-  m_Name: KitchenFire
+  m_Name: Stove_Coord
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -502,6 +515,37 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.5, y: -3.04, z: 44.217}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8735754063622336259}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8434986791923145648
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 132533476573585548}
+  m_Layer: 0
+  m_Name: TV_Coord
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &132533476573585548
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8434986791923145648}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -17.767096, y: -1.4616754, z: 59.48225}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -542,5 +586,6 @@ Transform:
   - {fileID: 8043021253129713347}
   - {fileID: 1125586592172412995}
   - {fileID: 8007298032297567380}
+  - {fileID: 132533476573585548}
   m_Father: {fileID: 3298326882873164907}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
