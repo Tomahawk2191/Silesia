@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class DoorOpeningScript : MonoBehaviour
+public class BedroomDoor : MonoBehaviour
 {
     private static int interactions = 0;
-    private static DoorOpeningScript Instance { get; set; }
+    private static BedroomDoor Instance { get; set; }
 
     private static Animator _animator;
     private static bool bedDoorOpen = false;
@@ -12,14 +12,14 @@ public class DoorOpeningScript : MonoBehaviour
     //[SerializeField] private GameObject _bedroomDoor;
     //private AudioManager audioManager = FindObjectOfType<AudioManager>();
 
-    private Vector3 bedDoorPos;
-    private Vector3 livingDoorPos;
+    private static Vector3 bedDoorPos = AudioManager.instance.GetBedDoorPos();
+    private static Vector3 livingDoorPos = AudioManager.instance.GetLivingDoorPos();
 
     [SerializeField] private Transform position_LivingDoor;
 
 
 
-    public void OpenDoor()
+    public static void OpenDoor()
     {
         Debug.Log("openThedoor");
         _animator.SetTrigger("OpenDoor");
@@ -51,7 +51,7 @@ public class DoorOpeningScript : MonoBehaviour
         }*/
     }
 
-    private void Awake()
+    /*private void Awake()
     {
         if (Instance != null)
         {
@@ -64,7 +64,7 @@ public class DoorOpeningScript : MonoBehaviour
             bedDoorPos = AudioManager.instance.GetBedDoorPos();
             livingDoorPos = AudioManager.instance.GetLivingDoorPos();
         }
-    }
+    }*/
 
     private void PlayDoorSound()
     {

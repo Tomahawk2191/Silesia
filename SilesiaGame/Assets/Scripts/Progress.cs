@@ -49,10 +49,10 @@ public class Progress : MonoBehaviour
             return;
         }
         percentcomplete = Mathf.Floor(100 * itemsCollected / totalItems);
-        PigeonVol(); 
+        PigeonVol();
 
         // bedroom door opening
-        if (itemsCollected == numKitchen) { /* INSERT DOOR OPEN TRIGER*/}
+        if (itemsCollected == numKitchen) BedroomDoor.OpenDoor(); /* INSERT DOOR OPEN TRIGER*/
 
         // living room door opening
         if (itemsCollected == numKitchen + numBedroom) { /* INSERT DOOR OPEN TRIGER*/}
