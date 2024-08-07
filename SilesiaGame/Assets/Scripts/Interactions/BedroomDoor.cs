@@ -8,16 +8,15 @@ public class BedroomDoor : MonoBehaviour
     private static Animator _animator;
     private static bool bedDoorOpen = false;
 
-    //[SerializeField] private GameObject _player;
-    //[SerializeField] private GameObject _bedroomDoor;
-    //private AudioManager audioManager = FindObjectOfType<AudioManager>();
-
-    private static Vector3 bedDoorPos = AudioManager.instance.GetBedDoorPos();
-    private static Vector3 livingDoorPos = AudioManager.instance.GetLivingDoorPos();
-
-    [SerializeField] private Transform position_LivingDoor;
+    private static Vector3 bedDoorPos;
+    private static Vector3 livingDoorPos;
 
 
+    private void Start()
+    {
+        bedDoorPos = AudioManager.instance.GetBedDoorPos();
+        livingDoorPos = AudioManager.instance.GetLivingDoorPos();
+    }
 
     public static void OpenDoor()
     {
@@ -48,10 +47,10 @@ public class BedroomDoor : MonoBehaviour
         /*if (Vector3.Distance(_bedroomDoor.transform.position, _player.transform.position) < 5f)
         {
             newInteraction();
-        }*/
+        }//*/
     }
-
-    /*private void Awake()
+    
+    private void Awake()
     {
         if (Instance != null)
         {
@@ -64,7 +63,7 @@ public class BedroomDoor : MonoBehaviour
             bedDoorPos = AudioManager.instance.GetBedDoorPos();
             livingDoorPos = AudioManager.instance.GetLivingDoorPos();
         }
-    }*/
+    }//*/
 
     private void PlayDoorSound()
     {
