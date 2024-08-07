@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -13,8 +14,24 @@ public class Progress : MonoBehaviour
 
     [SerializeField] float numKitchen;
     [SerializeField] float numBedroom;
-    [SerializeField] float numLivingRoom; 
+    [SerializeField] float numLivingRoom;
 
+    public static Progress instance; 
+
+    void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            instance = this;
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+
+    }
 
     private void Start()
     {
@@ -52,11 +69,6 @@ public class Progress : MonoBehaviour
     public float GetAbsolute()
     {
         return itemsCollected; 
-    }
-
-    private void Update()
-    {
-        //PigeonVol(); 
     }
 
     private void PigeonVol()
