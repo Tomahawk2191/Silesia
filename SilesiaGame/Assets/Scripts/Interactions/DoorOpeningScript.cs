@@ -12,10 +12,8 @@ public class DoorOpeningScript : MonoBehaviour
     //[SerializeField] private GameObject _bedroomDoor;
     //private AudioManager audioManager = FindObjectOfType<AudioManager>();
 
-    private Vector3 bedDoorPos = FindObjectOfType<AudioManager>().GetBedDoorPos();
-
-    private Vector3 livingDoorPos = FindAnyObjectByType<AudioManager>().GetLivingDoorPos();
-
+    private Vector3 bedDoorPos;
+    private Vector3 livingDoorPos;
 
     [SerializeField] private Transform position_LivingDoor;
 
@@ -28,15 +26,12 @@ public class DoorOpeningScript : MonoBehaviour
         //PlayDoorSound();
         if (!bedDoorOpen)
         {
-            FindObjectOfType<AudioManager>().Play("DoorOpen", bedDoorPos);
+            AudioManager.instance.Play("DoorOpen", bedDoorPos);
             bedDoorOpen = true;
         }
-        FindObjectOfType<AudioManager>().Play("DoorOpen", livingDoorPos);
+        AudioManager.instance.Play("DoorOpen", livingDoorPos);
 
     }
-
-
-
 
     public static void newInteraction()
     {
@@ -66,6 +61,8 @@ public class DoorOpeningScript : MonoBehaviour
         {
             Instance = this;
             _animator = transform.parent.GetComponent<Animator>();
+            bedDoorPos = AudioManager.instance.GetBedDoorPos();
+            livingDoorPos = AudioManager.instance.GetLivingDoorPos();
         }
     }
 

@@ -51,7 +51,7 @@ public class JournalManager : MonoBehaviour
         PlayerCam.setCanMoveCamera(true);
         gameObject.SetActive(false);
         Debug.Log("close");
-        FindObjectOfType<AudioManager>().Play("CloseBook");
+        AudioManager.instance.Play("CloseBook");
         //StartCoroutine(DelayAction(4f)); 
         PlayerInteract.input.SwitchToPlayerMap();
     }
@@ -64,7 +64,7 @@ public class JournalManager : MonoBehaviour
         PlayerMovement.setCanMove(false);
         gameObject.SetActive(true);
         Debug.Log("open");
-        FindObjectOfType<AudioManager>().Play("OpenBook");
+        AudioManager.instance.Play("OpenBook");
         //StartCoroutine(DelayAction(4f));
         PlayerInteract.input.SwitchToJournalMap();
     }
