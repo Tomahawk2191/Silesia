@@ -18,7 +18,7 @@ public class Progress : MonoBehaviour
     [SerializeField] float numLivingRoom;
 
     // Stored vals for calling other things
-    private AudioManager audioManager = AudioManager.instance;
+    private AudioManager audioManager;
     private Vector3 windowPos;
 
     public static Progress instance;
@@ -45,7 +45,8 @@ public class Progress : MonoBehaviour
         itemsCollected = 0f;
         percentcomplete = 0f;
         windowOpen = false;
-        windowPos = AudioManager.instance.GetWindowPos();
+        audioManager = AudioManager.instance; 
+        windowPos = audioManager.GetWindowPos();
     }
 
     public void Increment()
@@ -70,9 +71,13 @@ public class Progress : MonoBehaviour
         // bedroom door opening
         if (itemsCollected == numKitchen)
         {
+            Debug.Log("Finished kitchen"); 
             audioManager.Play("BigGust", windowPos);
-            new WaitForSeconds(0.5f); 
+            Debug.Log("Played BigGust"); 
+            new WaitForSeconds(5f); // SET BACK TO A REASONABLE VALUE< THIS IS JUST FOR NOW
+            Debug.Log("Calling OpenDoor"); 
             BedroomDoor.OpenDoor(); /* INSERT DOOR OPEN TRIGER*/
+            Debug.Log("Called OpenDoor"); 
         }
         // living room door opening
         if (itemsCollected == numKitchen + numBedroom) { /* INSERT DOOR OPEN TRIGER*/}

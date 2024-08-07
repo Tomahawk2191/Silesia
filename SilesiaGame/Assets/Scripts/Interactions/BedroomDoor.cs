@@ -10,12 +10,14 @@ public class BedroomDoor : MonoBehaviour
 
     private static Vector3 bedDoorPos;
     private static Vector3 livingDoorPos;
+    private AudioManager audioManager;
 
 
     private void Start()
     {
-        bedDoorPos = AudioManager.instance.GetBedDoorPos();
-        livingDoorPos = AudioManager.instance.GetLivingDoorPos();
+        audioManager = AudioManager.instance;
+        bedDoorPos = audioManager.GetBedDoorPos();
+        livingDoorPos = audioManager.GetLivingDoorPos();
     }
 
     public static void OpenDoor()
