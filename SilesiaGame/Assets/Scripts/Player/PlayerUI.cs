@@ -40,7 +40,7 @@ public class PlayerUI : MonoBehaviour
             Instance = this;
         }
 
-        DialogueDisplay.text = string.Empty;
+        DialogueDisplay.text = String.Empty;
     }
 
     private void TogglePauseMenuPerformed(object sender, EventArgs e)
@@ -65,12 +65,10 @@ public class PlayerUI : MonoBehaviour
                 PlayerCam.LockCursor();
 
                 Time.timeScale = 1f;
-                Debug.Log("starts");
             }
             else
             {
                 cameraWasLocked = PlayerCam.getCanMoveCamera();
-                Debug.Log(cameraWasLocked);
                 Time.timeScale = 0f;
                 
                 PlayerCam.UnlockCursor();
@@ -78,7 +76,6 @@ public class PlayerUI : MonoBehaviour
                 _settings.SetActive(false);
                 _pauseMenuPanel.SetActive(true);
                 PlayerMovement.setCanMove(false);
-                Debug.Log("stop");
             }
         }
     }
@@ -107,21 +104,26 @@ public class PlayerUI : MonoBehaviour
         normalCursor.SetActive(false);
     }
 
-    public void UpdateDialogueText(string promptMessage)
-    {
+    public void UpdateDialogueText(string promptMessage, Color lineColor) {
         if (DialogueDisplay.text != string.Empty)
         {
-            HidePreviousLine(promptMessage);
+            HidePreviousLine(promptMessage, lineColor);
         }
         else
         {
-            ShowNewLine(promptMessage);
+            ShowNewLine(promptMessage, lineColor);
         }
     }
 
-    private void ShowNewLine(string promptMessage)
+    public void ClearDialogueText()
+    {
+        HidePreviousLine(String.Empty, Color.clear);
+    }
+
+    private void ShowNewLine(string promptMessage, Color lineColor)
     {
         inAnimation = true;
+        DialogueDisplay.color = lineColor;
         DialogueDisplay.text = promptMessage;
         var outSeq = DOTween.Sequence();
         outSeq.Insert(0, DialogueDisplay.DOFade(1f, fadeDuration).SetEase(Ease.InOutSine));
@@ -132,12 +134,12 @@ public class PlayerUI : MonoBehaviour
         outSeq.Play();
     }
 
-    private void HidePreviousLine(string promptMessage)
+    private void HidePreviousLine(string promptMessage, Color linecolor)
     {
         inAnimation = true;
         var outSeq = DOTween.Sequence();
         outSeq.Insert(0, DialogueDisplay.DOFade(0f, fadeDuration).SetEase(Ease.InSine));
-        outSeq.AppendCallback(() => ShowNewLine(promptMessage));
+        outSeq.AppendCallback(() => ShowNewLine(promptMessage, linecolor));
     }
 
     public void goToMainMenu()

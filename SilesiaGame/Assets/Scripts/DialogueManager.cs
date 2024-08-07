@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.Linq;
 using DefaultNamespace;
 using DG.Tweening;
@@ -13,7 +15,8 @@ public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance { get; set; }
 
-    private Queue<string> _sentences;
+    private Queue<String> _sentences;
+    private Queue<Color> _sentColors;
     private PlayerInput _input;
     public static bool justFinishedTheDialogue = false;
     public static Interactable currentObject;
@@ -35,15 +38,15 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         _input = PlayerInteract.input;
-        _sentences = new Queue<string>();
+        _sentences = new Queue<String>();
+        _sentColors = new Queue<Color>();
         PlayerInteract.input.NextLine += DisplayNextSentence;
         rotation = GetComponent<InspectorModeRotation>();
     }
 
-    // Update is called once per frame
     public void StartDialogue(Interactable interactable)
     {
-        FindObjectOfType<AudioManager>().Play("Grab");
+        AudioManager.instance.Play("Grab");
         currentObject = interactable;
         currentObject.setLayerToInteractable();
         InspectorModeRotation.setObject(currentObject.transform);
@@ -53,41 +56,53 @@ public class DialogueManager : MonoBehaviour
         _input.SwitchToDialogueMap();
 
         _sentences.Clear();
-        string[] str = interactable.getText().Split('\n');
-        foreach (var sentence in str)
+        // get array of text obj for enqueue
+        InteractableSO.DialogueText dialogueTexts = currentObject.getDialogueTextObj();
+        foreach (var text in dialogueTexts.getComboSpeakerTexts())
         {
-            _sentences.Enqueue(sentence);
+            //Debug.Log("color start");
+            foreach (String extractedText in text.getTextAsset())
+            {
+                _sentences.Enqueue(extractedText);
+                Color extractedColor = text.getTextColor();
+                _sentColors.Enqueue(extractedColor);
+            }
+            // Debug.Log("extractedColor: " + extractedColor);
         }
         DisplayNextSentence(this, EventArgs.Empty);
-
     }
 
     private void DisplayNextSentence(object sender, EventArgs e)
     {
-        
         if (PlayerUI.Instance.inAnimation)
             return;
-        if (!_sentences.Any()) 
+        if (!_sentences.Any())
         {
             EndDialogue();
             return;
         }
         string sentence = _sentences.Dequeue();
-        PlayerUI.Instance.UpdateDialogueText(sentence);
+        Color lineColor = _sentColors.Dequeue();
+
+        if (lineColor != null)
+        {
+            PlayerUI.Instance.UpdateDialogueText(sentence, lineColor);
+        }
+        else
+        {
+            Debug.LogError(sentence + " color is null");
+        }
     }
 
     private static void EndDialogue()
     {
         currentObject.setLayerToDefault();
         currentObject.cameraMovementType.cameraMoveOut();
-        PlayerUI.Instance.UpdateDialogueText(String.Empty);
+        PlayerUI.Instance.ClearDialogueText();
         PlayerInteract.input.SwitchToPlayerMap();
         PlayerInteract.Instance.unblockPlayerFromDialogue();
         currentObject = null;
         InspectorModeRotation.setEnabledRotation(false);
-
-
     }
-
 }
 

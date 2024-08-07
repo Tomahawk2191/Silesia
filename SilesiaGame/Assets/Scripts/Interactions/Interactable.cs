@@ -11,6 +11,7 @@ public class Interactable : MonoBehaviour
     public ICameraMovementType cameraMovementType { get; protected set; }
     public static event EventHandler<NewItemCollected> collectableInteracted;
 
+
     public class NewItemCollected : EventArgs
     {
         public int id;
@@ -99,8 +100,8 @@ public class Interactable : MonoBehaviour
         return ableToUse;
     }
 
-    public string getText()
+    public InteractableSO.DialogueText getDialogueTextObj()
     {
-        return data.text.text;
+        return data.text;
     }
 }

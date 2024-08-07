@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761a1ba4ecd5554478c56c14bd85e459, type: 3}
   m_Name: Helmet
   m_EditorClassIdentifier: 
-  text: {fileID: 4900000, guid: 823759e25a91eef45918c13de27515b0, type: 3}
   basicState: 1
   collectable: 0
   id: 0
   isBig: 0
+  text:
+    speakerText:
+    - dialogueText: {fileID: 4900000, guid: 823759e25a91eef45918c13de27515b0, type: 3}
+      speaker: 0
+    - dialogueText: {fileID: 4900000, guid: ca6ce21a020cf7945b62a91a4bf7cd97, type: 3}
+      speaker: 1

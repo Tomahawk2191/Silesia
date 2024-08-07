@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761a1ba4ecd5554478c56c14bd85e459, type: 3}
   m_Name: Drum
   m_EditorClassIdentifier: 
-  text: {fileID: 4900000, guid: 80a3a518f39d50743827235aab6f9467, type: 3}
   basicState: 1
   collectable: 0
   id: 0
   isBig: 0
+  text:
+    speakerText:
+    - dialogueText: {fileID: 4900000, guid: 80a3a518f39d50743827235aab6f9467, type: 3}
+      speaker: 0
+    - dialogueText: {fileID: 4900000, guid: e4372cfddc90aff49aabc1b2bc02f851, type: 3}
+      speaker: 1

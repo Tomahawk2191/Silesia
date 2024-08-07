@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761a1ba4ecd5554478c56c14bd85e459, type: 3}
   m_Name: Window
   m_EditorClassIdentifier: 
-  text: {fileID: 4900000, guid: 01eec59abdbe43444a6d4d17cf5e60e4, type: 3}
   basicState: 1
   collectable: 1
   id: 6
   isBig: 1
+  text:
+    speakerText:
+    - dialogueText: {fileID: 4900000, guid: 01eec59abdbe43444a6d4d17cf5e60e4, type: 3}
+      speaker: 0
+    - dialogueText: {fileID: 4900000, guid: 2f3af3a5175f89a46a46237942b0746a, type: 3}
+      speaker: 1

@@ -64,7 +64,7 @@ public class PlayerInteract : MonoBehaviour
         if (Physics.Raycast(ray, out hitInfo, distance, mask))
         {
             var facedInteractable = hitInfo.collider.GetComponent<Interactable>();
-            Debug.Log(hitInfo.transform.gameObject.layer);
+            //Debug.Log(hitInfo.transform.gameObject.layer);
             if (facedInteractable != null && Vector3.Distance(facedInteractable.transform.position, rb.position) < 100)
             {
                 if (facedInteractable.getAbleToUse())
