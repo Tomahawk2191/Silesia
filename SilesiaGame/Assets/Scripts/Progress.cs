@@ -11,6 +11,10 @@ public class Progress : MonoBehaviour
     private float totalItems;
     [SerializeField] public AudioMixer mixer;
 
+    [SerializeField] float numKitchen;
+    [SerializeField] float numBedroom;
+    [SerializeField] float numLivingRoom; 
+
 
     private void Start()
     {
@@ -28,7 +32,16 @@ public class Progress : MonoBehaviour
             return;
         }
         percentcomplete = Mathf.Floor(100 * itemsCollected / totalItems);
+        PigeonVol(); 
 
+        // bedroom door opening
+        if (itemsCollected == numKitchen) { /* INSERT DOOR OPEN TRIGER*/}
+
+        // living room door opening
+        if (itemsCollected == numKitchen + numBedroom) { /* INSERT DOOR OPEN TRIGER*/}
+
+        // release pigeons
+        if (itemsCollected == totalItems - 1) { /* INSERT DOOR OPEN TRIGER*/}
     }
 
     public float GetPercent()
@@ -43,7 +56,7 @@ public class Progress : MonoBehaviour
 
     private void Update()
     {
-        PigeonVol(); 
+        //PigeonVol(); 
     }
 
     private void PigeonVol()

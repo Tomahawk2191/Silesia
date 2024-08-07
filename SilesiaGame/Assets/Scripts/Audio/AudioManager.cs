@@ -150,4 +150,15 @@ public class AudioManager : MonoBehaviour
         Destroy(go, clip.length * (Time.timeScale < 0.01f ? 0.01f : Time.timeScale));
     }*/
 
+    public Vector3 GetBedDoorPos()
+    {
+        return position_BedDoor.position; 
+    }
+
+    public Vector3 GetLivingDoorPos()
+    {
+        return position_LivingDoor.position;
+    }
+
+
 }
