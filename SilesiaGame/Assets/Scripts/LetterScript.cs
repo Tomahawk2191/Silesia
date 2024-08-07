@@ -9,10 +9,17 @@ public class LetterScript : MonoBehaviour
     [SerializeField] private float scrollSpeed = 5f;
 
     [SerializeField] private FullScreenPassRendererFeature _renderer;
+
+    private SkinnedMeshRenderer _skinnedMeshRenderer;
+    
+    [SerializeField] private Material _introMaterial;
+    [SerializeField] private Material _outroMaterial;
     // Start is called before the first frame update
     void Start()
     {
         _renderer.SetActive(false);
+        _skinnedMeshRenderer = transform.GetChild(0).GetComponent<SkinnedMeshRenderer>();
+        _skinnedMeshRenderer.material = _introMaterial;
         playIntroLetter();
     }
     
@@ -52,6 +59,16 @@ public class LetterScript : MonoBehaviour
         transform.DOLocalMoveY(-1.2f, 1.5f).SetEase(Ease.InOutExpo);
         yield return new WaitForSeconds(1.5f);
         gameObject.SetActive(false);
+        
+        
+        //OUTRO LETTER
+        yield return new WaitForSeconds(1.5f);
+        gameObject.SetActive(true);
+        _skinnedMeshRenderer.material = _outroMaterial;
+        
+        transform.DOLocalMoveY(1.16f, 1.5f).SetEase(Ease.InOutExpo);
+        yield return new WaitForSeconds(1.25f);
+        
         
         playerInteract.unblockPlayerFromDialogue();
     }
