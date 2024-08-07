@@ -107,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (lastStepTime + stepDelayTime <= Time.time && isMoving && canMove)
         {
-            FindObjectOfType<AudioManager>().Play("Footstep" + (UnityEngine.Random.Range(0, 2) + 1));
+            AudioManager.instance.Play("Footstep" + (UnityEngine.Random.Range(0, 2) + 1));
             lastStepTime = Time.time;
         }
     }

@@ -732,7 +732,7 @@ GameObject:
   - component: {fileID: 2271578699237023756}
   - component: {fileID: 8594047624679013085}
   m_Layer: 5
-  m_Name: Page1
+  m_Name: Page1_Helmet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2896,16 +2896,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "And everything around here is starting to fall apart. Good St. Joseph,
-    I really do sound like an old man. But it\u2019s true; last week, I had to fix
-    our radio. The week before, the handle of our coffee mill. Whenever we need a
-    quick fix, I turn to my handy toolbox. Some screwdrivers, a hammer, a wrench,
-    a plier - that\u2019s all I need. Hela might not agree, but I think that the
-    toolbox is the most important thing we own.\r\n\r\nSpeaking of Hela, I\u2019ve
-    become worried about her. She hasn\u2019t been out of bed in a few days, and
-    the fever won\u2019t break. These illnesses have been coming on more frequently
-    in the last few years, but the doctors say there\u2019s nothing to worry about.
-    I worry nonetheless.\r\""
+  m_text: "\tMaybe I\u2019ll become a handyman - everything around here is starting
+    to fall apart. Good St. Joseph, I really do sound like an old man. But it\u2019s
+    true; last week, I had to fix our radio. The week before, the handle of our coffee
+    mill. Whenever we need a quick fix, I turn to my handy toolbox. Some screwdrivers,
+    a hammer, a wrench, a plier - that\u2019s all I need. Hela might not agree, but
+    I think that the toolbox is the most important thing we own."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
   m_sharedMaterial: {fileID: -2648206945053064882, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
@@ -2932,8 +2928,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3001,7 +2997,7 @@ RectTransform:
   m_GameObject: {fileID: 1848804936381058665}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalScale: {x: 0.15489087, y: 0.15489087, z: 0.15489087}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6234605727559608414}
@@ -3786,7 +3782,7 @@ GameObject:
   - component: {fileID: 4397887834689689233}
   - component: {fileID: 3879588258638079464}
   m_Layer: 5
-  m_Name: Page2
+  m_Name: Page2_Journal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3941,16 +3937,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "To my love Hela, who waits for me in Heaven.\n\nAs I write this, I struggle
-    for words. What can I say about our lives, our family, our home, that could ever
-    suffice? But I must try. When we first met, we were just two wide-eyed kids.
-    Dear St.Stanislaus, it was so long ago. You must remember how scared I was about
-    everything. But anytime I saw your lips curl into that smile, it all melted away.
-    Nothing and nobody mattered except you. I loved you in the funny way your nose
-    wrinkled when you laughed, in the kindness which you showed everyone, even if
-    they didn\u2019t deserve it, in your beautiful black hair, your saintly patience,
-    your sweet baked Babas that made the whole house smell like sugar and orange,
-    your kiss, your touch, your mind, your soul. I loved it all. "
+  m_text: Owned by Pawol Skarbek.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
   m_sharedMaterial: {fileID: -2648206945053064882, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
@@ -3977,14 +3964,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 26
+  m_fontSizeBase: 26
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -4125,7 +4112,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 222.4, y: 191.3}
+  m_AnchoredPosition: {x: 209, y: 173}
   m_SizeDelta: {x: 350, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8529725101926723
@@ -4156,11 +4143,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "It\u2019s an odd thing; most of the food I\u2019ve ever eaten was cooked
+  m_text: "\tIt\u2019s an odd thing; most of the food I\u2019ve ever eaten was cooked
     right on this stove top. When I was a boy, my mama cooked for me here. When I
     was a young man, my wife cooked for me here. Now, as an old man, I cook for myself
     here. It\u2019s nothing fancy, but this old thing has done well for me.\r\n\r\nI
-    wonder if anyone else will use it after I\u2019m gone.\r"
+    wonder if anyone else will use it after I\u2019m gone."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
   m_sharedMaterial: {fileID: -2648206945053064882, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
@@ -4187,8 +4174,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4539,7 +4526,7 @@ RectTransform:
   m_GameObject: {fileID: 2712604939355592304}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalScale: {x: 0.15414491, y: 0.15414491, z: 0.15414491}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1562265548687014287}
@@ -4692,7 +4679,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -1}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -266.4, y: 55.5}
+  m_AnchoredPosition: {x: -279, y: 161}
   m_SizeDelta: {x: 350, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &845622697071557234
@@ -4723,14 +4710,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Dec 10th, 1962.\r\n\r\nIt\u2019s almost Christmas, praise St. Barbara!
+  m_text: "Dec 10th, 1962.\r\n\r\n\tIt\u2019s almost Christmas, praise St. Barbara!
     This is always one of my favorite times of the year, even as winter\u2019s bitter
     cold reaches its worst. I haven\u2019t gotten any presents for the children yet
     - I\u2019ll have to ask my love Hela if she has any ideas. And, of course, I
-    need to find something for her.\r\n\r\nToday is my rare day off, and I\u2019m
-    not exactly sure what to do with myself. Hela and I took a walk through the neighborhood
-    this morning. Now, I sit here, fidgeting around with my thoughts as I look out
-    through the window.\r\n\r\n"
+    need to find something for her.\r\n\n\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
   m_sharedMaterial: {fileID: -2648206945053064882, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
@@ -4757,8 +4741,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5176,13 +5160,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "June 23rd, 1977.\r\n\r\nI\u2019m thinking about work again. It\u2019s
-    much later than I usually stay up, but I\u2019m struggling to find any sleep.\r\n\r\nRight
+  m_text: "June 23rd, 1977.\r\n\r\n\tI\u2019m thinking about work again. It\u2019s
+    much later than I usually stay up, but I\u2019m struggling to find any sleep.\r\n\r\n\tRight
     now, I\u2019m looking through some of my old equipment. Most of it is tattered,
     but my helmet is still in good shape. A good, trusty helmet is a miner\u2019s
     best friend; this one was passed down to me from my father. Putting it on every
     day made me feel a little less vulnerable when I was underground. I know that
-    may sound a little silly.\r\n\n"
+    may sound a little silly.\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
   m_sharedMaterial: {fileID: -2648206945053064882, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
@@ -5209,8 +5193,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 21
+  m_fontSizeBase: 21
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5316,15 +5300,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "I retired almost five years ago, but I suspect a piece of me remains down
-    in those mineshafts. When I reflect on my career, I don\u2019t always know what
-    to think. It wasn\u2019t work that I loved, few miners can say that, and I cursed
-    the long hours away from my family. And yet, I find it all curiously hard to
-    leave behind.\r\n\r\nMaybe my hesitance is a result of routine. For most of my
-    life, I spent day after day doing the same thing with the same crew of men. The
-    comfort of this repetition was powerful, more than I foresaw. I knew that I could
-    hold a stable livelihood and keep my family safe as long as I kept working. But
-    now, I rely on my pension and putz around all day. And my Hela is gone."
+  m_text: "\tI retired almost five years ago, but I suspect a piece of me remains
+    down in those mineshafts. When I reflect on my career, I don\u2019t always know
+    what to think. It wasn\u2019t work that I loved, few miners can say that, and
+    I cursed the long hours away from my family. And yet, I find it all curiously
+    hard to leave behind. Maybe my hesitance is the result of forty years of routine."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
   m_sharedMaterial: {fileID: -2648206945053064882, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
@@ -5351,8 +5331,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -10365,15 +10345,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Aug 22nd, 1971.\r\n\r\nI haven\u2019t been doing well at work recently;
+  m_text: "Aug 22nd, 1971.\r\n\r\n\tI haven\u2019t been doing well at work recently;
     I fear that my age has finally caught up with me. The loads are too heavy, the
     hours too long - I feel like an old dog amongst young pups. Luckily, the man
     at the union office said that I could retire with a pension soon. But what will
-    I do with my time?\r\n\r\nPerhaps I\u2019ll spend more time fulfilling my important
-    role as an opa. Wilus just had his first boy, a beautiful little guy. They named
-    him Bynek. With more people living in the house, it\u2019s gotten to be a little
-    hectic. Everyone is talking and eating and moving all of the time; I hardly have
-    the energy to keep up!\r\n\r\n\n"
+    I do with my time?\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
   m_sharedMaterial: {fileID: -2648206945053064882, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
@@ -10400,8 +10376,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -10714,15 +10690,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Clean windows and morning walks. These little things don\u2019t mean much,
-    but for whatever reason they stay on my mind. I think my age has made me sentimental.
-    \r\n\r\nI should go to the store later today to buy those presents.\n\nYesterday,
-    little Agneska asked me why I always make sure to clean these windows. I didn\u2019t
-    have an immediate answer, but after some reflection I think I know why. In my
-    mind, windows are the calling card of the family behind them. Keeping them clean
-    shows the world your work ethic. Also, there is a lot of soot in the air of a
-    mining town. If I didn\u2019t clean them, we couldn\u2019t see the beautiful
-    neighborhood outside.\r"
+  m_text: "\tYesterday, little Agneska asked me why I always make sure to clean these
+    windows. I didn\u2019t have an immediate answer, but after some reflection I
+    think I know why. In my mind, windows are the calling card of the family behind
+    them. Keeping them clean shows the world your work ethic. Also, there is a lot
+    of soot in the air of a mining town. If I didn\u2019t clean them, we couldn\u2019t
+    see the beautiful neighborhood outside.\r\n\r\nI should go to the store later
+    today to buy those presents."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
   m_sharedMaterial: {fileID: -2648206945053064882, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
@@ -10749,8 +10723,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -10979,7 +10953,7 @@ GameObject:
   - component: {fileID: 4532712426805800775}
   - component: {fileID: 5093501743730288812}
   m_Layer: 5
-  m_Name: Page4
+  m_Name: Page4_Stove
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11966,7 +11940,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7242687746642832244
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12001,7 +11975,7 @@ GameObject:
   - component: {fileID: 5273803548421015567}
   - component: {fileID: 8005230545166366427}
   m_Layer: 5
-  m_Name: Page5
+  m_Name: Page5_Window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12377,7 +12351,7 @@ GameObject:
   - component: {fileID: 8834637428359636440}
   - component: {fileID: 8575464295178828836}
   m_Layer: 5
-  m_Name: Page3
+  m_Name: Page3_Toolbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13122,15 +13096,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "April 11th, 1984.\r\n\r\nI\u2019m writing this as I finish my Sunday night
-    dinner. I made a beef roulade with some boiled potatoes, but I overcooked it.
-    I was never much of a cook. Nothing like Hela - she could work miracles on this
-    small stovetop. I miss that woman more than I have words to express.\r\n\r\nWhen
-    Hela first passed, I feared how lonely I would be without her. Every morning
-    walk, every evening listening to the radio, every meal in the kitchen. I\u2019ve
-    gotten far too familiar with the silence of eating alone. And since the children
-    have all moved out with children of their own, I do feel alone. I wish they would
-    visit more often, but I know they have their own lives to live.\r\n\r\n\n"
+  m_text: "April 11th, 1984.\r\n\r\n\tI\u2019m writing this as I finish my Sunday
+    night dinner. I made a beef roulade with some boiled potatoes, but I overcooked
+    it. I was never much of a cook. Nothing like Hela - she could work miracles on
+    this small stovetop. I miss that woman more than I have words to express.\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
   m_sharedMaterial: {fileID: -2648206945053064882, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
@@ -13157,8 +13126,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -13583,7 +13552,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 2}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 224.7, y: 204.8}
+  m_AnchoredPosition: {x: -260, y: -344}
   m_SizeDelta: {x: 350, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2487125724104724800
@@ -13614,16 +13583,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\nAnd when you left, it was like part of me left too. \n\nI loved you
-    in the funny way your nose wrinkled when you laughed, in the kindness which you
-    showed everyone, even if they didn\u2019t deserve it, in your beautiful black
-    hair, your saintly patience, your sweet baked Babas that made the whole house
-    smell like sugar and orange, your kiss, your touch, your mind, your soul. I loved
-    it all. And when you left, it was like part of me left too. \nOver these past
-    fifteen years, I\u2019ve been looking forward to this moment. I\u2019ve gotten
-    to see our children grow old themselves - you would be so proud of them. But
-    I know that you\u2019ve been waiting for me. I\u2019ve been waiting too.\n\nDo
-    zobaczenia wkr\xF3tce m\xF3j kochany."
+  m_text: ' A reflection on the people and things that mean the world to me.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
   m_sharedMaterial: {fileID: -2648206945053064882, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
@@ -13650,14 +13610,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -13686,7 +13646,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: 135.12251}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

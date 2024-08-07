@@ -33,6 +33,7 @@ public class AudioManager : MonoBehaviour
         if (instance != null)
         {
             Destroy(gameObject);
+            instance = this;
         }
         else
         {
@@ -149,5 +150,16 @@ public class AudioManager : MonoBehaviour
         // is taken above 0 again.
         Destroy(go, clip.length * (Time.timeScale < 0.01f ? 0.01f : Time.timeScale));
     }*/
+
+    public Vector3 GetBedDoorPos()
+    {
+        return position_BedDoor.position; 
+    }
+
+    public Vector3 GetLivingDoorPos()
+    {
+        return position_LivingDoor.position;
+    }
+
 
 }

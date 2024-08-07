@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class DoorOpeningScript : MonoBehaviour
 {
@@ -10,11 +6,32 @@ public class DoorOpeningScript : MonoBehaviour
     private static DoorOpeningScript Instance { get; set; }
 
     private static Animator _animator;
+    private static bool bedDoorOpen = false;
 
-    [SerializeField] private GameObject _player;
+    //[SerializeField] private GameObject _player;
+    //[SerializeField] private GameObject _bedroomDoor;
+    //private AudioManager audioManager = FindObjectOfType<AudioManager>();
 
-    [SerializeField] private GameObject _bedroomDoor;
-    
+    private Vector3 bedDoorPos;
+    private Vector3 livingDoorPos;
+
+    [SerializeField] private Transform position_LivingDoor;
+
+
+
+    public void OpenDoor()
+    {
+        Debug.Log("openThedoor");
+        _animator.SetTrigger("OpenDoor");
+        //PlayDoorSound();
+        if (!bedDoorOpen)
+        {
+            AudioManager.instance.Play("DoorOpen", bedDoorPos);
+            bedDoorOpen = true;
+        }
+        AudioManager.instance.Play("DoorOpen", livingDoorPos);
+
+    }
 
     public static void newInteraction()
     {
@@ -28,10 +45,10 @@ public class DoorOpeningScript : MonoBehaviour
 
     private void Update()
     {
-        if (Vector3.Distance(_bedroomDoor.transform.position, _player.transform.position) < 5f)
+        /*if (Vector3.Distance(_bedroomDoor.transform.position, _player.transform.position) < 5f)
         {
             newInteraction();
-        }
+        }*/
     }
 
     private void Awake()
@@ -44,6 +61,13 @@ public class DoorOpeningScript : MonoBehaviour
         {
             Instance = this;
             _animator = transform.parent.GetComponent<Animator>();
+            bedDoorPos = AudioManager.instance.GetBedDoorPos();
+            livingDoorPos = AudioManager.instance.GetLivingDoorPos();
         }
+    }
+
+    private void PlayDoorSound()
+    {
+
     }
 }

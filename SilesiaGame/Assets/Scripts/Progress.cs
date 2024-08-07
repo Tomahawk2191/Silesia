@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -11,6 +12,26 @@ public class Progress : MonoBehaviour
     private float totalItems;
     [SerializeField] public AudioMixer mixer;
 
+    [SerializeField] float numKitchen;
+    [SerializeField] float numBedroom;
+    [SerializeField] float numLivingRoom;
+
+    public static Progress instance; 
+
+    void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            instance = this;
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+
+    }
 
     private void Start()
     {
@@ -28,7 +49,16 @@ public class Progress : MonoBehaviour
             return;
         }
         percentcomplete = Mathf.Floor(100 * itemsCollected / totalItems);
+        PigeonVol(); 
 
+        // bedroom door opening
+        if (itemsCollected == numKitchen) { /* INSERT DOOR OPEN TRIGER*/}
+
+        // living room door opening
+        if (itemsCollected == numKitchen + numBedroom) { /* INSERT DOOR OPEN TRIGER*/}
+
+        // release pigeons
+        if (itemsCollected == totalItems - 1) { /* INSERT DOOR OPEN TRIGER*/}
     }
 
     public float GetPercent()
@@ -39,11 +69,6 @@ public class Progress : MonoBehaviour
     public float GetAbsolute()
     {
         return itemsCollected; 
-    }
-
-    private void Update()
-    {
-        PigeonVol(); 
     }
 
     private void PigeonVol()

@@ -7,7 +7,7 @@ public class TestAudio : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        FindObjectOfType<AudioManager>().Play("PigeonCoo",
+        AudioManager.instance.Play("PigeonCoo",
             gameObject.transform.position);
     }
 
