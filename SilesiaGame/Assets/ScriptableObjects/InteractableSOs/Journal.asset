@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761a1ba4ecd5554478c56c14bd85e459, type: 3}
   m_Name: Journal
   m_EditorClassIdentifier: 
-  text: {fileID: 4900000, guid: 78a7bf19ffe18e846b7932bc603aef4f, type: 3}
   basicState: 1
   collectable: 0
   id: 0
   isBig: 0
+  text:
+    speakerText:
+    - dialogueText: {fileID: 4900000, guid: 6ec08f642fdce1f49b8f0862a5f14e11, type: 3}
+      speaker: 0
+    - dialogueText: {fileID: 4900000, guid: 78a7bf19ffe18e846b7932bc603aef4f, type: 3}
+      speaker: 1

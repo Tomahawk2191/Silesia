@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761a1ba4ecd5554478c56c14bd85e459, type: 3}
   m_Name: Clock
   m_EditorClassIdentifier: 
-  text: {fileID: 4900000, guid: 39efb14db1e3b1a43bed6510a9749563, type: 3}
   basicState: 1
   collectable: 0
   id: 0
   isBig: 1
+  text:
+    speakerText:
+    - dialogueText: {fileID: 4900000, guid: 39efb14db1e3b1a43bed6510a9749563, type: 3}
+      speaker: 0
+    - dialogueText: {fileID: 4900000, guid: 2220482d4e35a3b4699c14432588c61b, type: 3}
+      speaker: 1

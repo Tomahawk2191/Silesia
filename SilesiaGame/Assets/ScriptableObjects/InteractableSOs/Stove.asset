@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761a1ba4ecd5554478c56c14bd85e459, type: 3}
   m_Name: Stove
   m_EditorClassIdentifier: 
-  text: {fileID: 4900000, guid: eba2731412472d0408061fbc531f39cb, type: 3}
   basicState: 1
   collectable: 1
   id: 10
   isBig: 1
+  text:
+    speakerText:
+    - dialogueText: {fileID: 4900000, guid: eba2731412472d0408061fbc531f39cb, type: 3}
+      speaker: 0
+    - dialogueText: {fileID: 4900000, guid: 4ca4460933d97a744b97fea6b8b25642, type: 3}
+      speaker: 1

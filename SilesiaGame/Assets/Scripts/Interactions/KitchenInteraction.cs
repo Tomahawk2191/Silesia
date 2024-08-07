@@ -6,6 +6,6 @@ public class KitchenInteraction : Interactable
 {
     public override void Interact()
     {
-        DoorOpeningScript.newInteraction();
+        BedroomDoor.newInteraction();
     }
 }

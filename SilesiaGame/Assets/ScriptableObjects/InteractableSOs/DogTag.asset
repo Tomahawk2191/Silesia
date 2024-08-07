@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761a1ba4ecd5554478c56c14bd85e459, type: 3}
   m_Name: DogTag
   m_EditorClassIdentifier: 
-  text: {fileID: 4900000, guid: b93a4db29d8b8314881612de438c9153, type: 3}
   basicState: 1
   collectable: 0
   id: 0
   isBig: 0
+  text:
+    speakerText:
+    - dialogueText: {fileID: 4900000, guid: b93a4db29d8b8314881612de438c9153, type: 3}
+      speaker: 0
+    - dialogueText: {fileID: 4900000, guid: 651f97080ec4f5e4d814de4c9d616665, type: 3}
+      speaker: 1

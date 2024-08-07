@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 761a1ba4ecd5554478c56c14bd85e459, type: 3}
   m_Name: Wedding Things
   m_EditorClassIdentifier: 
-  text: {fileID: 4900000, guid: f140b922f1218c84fadabb432dbbf65e, type: 3}
   basicState: 1
   collectable: 0
   id: 0
   isBig: 1
+  text:
+    speakerText:
+    - dialogueText: {fileID: 4900000, guid: f140b922f1218c84fadabb432dbbf65e, type: 3}
+      speaker: 0
+    - dialogueText: {fileID: 4900000, guid: f2bede01be8997042b1e75fff8c791ef, type: 3}
+      speaker: 1

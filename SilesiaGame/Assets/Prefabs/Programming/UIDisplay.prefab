@@ -292,7 +292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _defPos: {fileID: 7386109346699482925}
   _openPos: {fileID: 2294434067208442631}
-  relatedPage: {fileID: 1792427623056286609}
+  relatedPage: {fileID: 7415659639653641531}
 --- !u!1 &145640052885855302
 GameObject:
   m_ObjectHideFlags: 0
@@ -732,7 +732,7 @@ GameObject:
   - component: {fileID: 2271578699237023756}
   - component: {fileID: 8594047624679013085}
   m_Layer: 5
-  m_Name: Page1
+  m_Name: Page1_Helmet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -822,6 +822,140 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &237269494101865774
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8360656454402581503}
+  - component: {fileID: 8159075748514993190}
+  - component: {fileID: 7625525258944395724}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8360656454402581503
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237269494101865774}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 256794438634773559}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &8159075748514993190
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237269494101865774}
+  m_CullTransparentMesh: 1
+--- !u!114 &7625525258944395724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237269494101865774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Button
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4281479730
+  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 24
+  m_fontSizeBase: 24
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &303449535635142794
 GameObject:
   m_ObjectHideFlags: 0
@@ -1040,7 +1174,7 @@ GameObject:
   - component: {fileID: 1687728760699930365}
   - component: {fileID: 8708054492387059654}
   m_Layer: 5
-  m_Name: Photo4
+  m_Name: Photo4_Stove
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1055,14 +1189,14 @@ RectTransform:
   m_GameObject: {fileID: 745020532427365350}
   m_LocalRotation: {x: 0, y: 0, z: 0.13052616, w: 0.9914449}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalScale: {x: 0.19507502, y: 0.19507502, z: 0.19507502}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6234605727559608414}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 15}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -380, y: -140}
+  m_AnchoredPosition: {x: -432, y: -225}
   m_SizeDelta: {x: 2048, y: 1423}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1687728760699930365
@@ -1591,7 +1725,7 @@ GameObject:
   - component: {fileID: 5464184423386225445}
   - component: {fileID: 7060655176630835343}
   m_Layer: 5
-  m_Name: Photo3
+  m_Name: Photo3_Toolbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2005,7 +2139,7 @@ RectTransform:
   m_Father: {fileID: 784327224985905899}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.21052632, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2598,9 +2732,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1555176886572019315}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalScale: {x: 0.22291501, y: 0.22291501, z: 0.22291501}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1680670621935536665}
@@ -2608,7 +2742,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 165.00006, y: -120.6}
+  m_AnchoredPosition: {x: 355.00003, y: -78}
   m_SizeDelta: {x: 2048, y: 1423}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1098607888795507695
@@ -2731,7 +2865,7 @@ GameObject:
   - component: {fileID: 8028765559760992675}
   - component: {fileID: 4926581074299933127}
   m_Layer: 5
-  m_Name: Photo5
+  m_Name: Photo5_Window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2896,16 +3030,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "And everything around here is starting to fall apart. Good St. Joseph,
-    I really do sound like an old man. But it\u2019s true; last week, I had to fix
-    our radio. The week before, the handle of our coffee mill. Whenever we need a
-    quick fix, I turn to my handy toolbox. Some screwdrivers, a hammer, a wrench,
-    a plier - that\u2019s all I need. Hela might not agree, but I think that the
-    toolbox is the most important thing we own.\r\n\r\nSpeaking of Hela, I\u2019ve
-    become worried about her. She hasn\u2019t been out of bed in a few days, and
-    the fever won\u2019t break. These illnesses have been coming on more frequently
-    in the last few years, but the doctors say there\u2019s nothing to worry about.
-    I worry nonetheless.\r\""
+  m_text: "\tMaybe I\u2019ll become a handyman - everything around here is starting
+    to fall apart. Good St. Joseph, I really do sound like an old man. But it\u2019s
+    true; last week, I had to fix our radio. The week before, the handle of our coffee
+    mill. Whenever we need a quick fix, I turn to my handy toolbox. Some screwdrivers,
+    a hammer, a wrench, a plier - that\u2019s all I need. Hela might not agree, but
+    I think that the toolbox is the most important thing we own."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
   m_sharedMaterial: {fileID: -2648206945053064882, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
@@ -2932,8 +3062,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2986,7 +3116,7 @@ GameObject:
   - component: {fileID: 6611450454570242623}
   - component: {fileID: 7608082239872019016}
   m_Layer: 5
-  m_Name: Photo1
+  m_Name: Photo1_Helmet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3001,14 +3131,14 @@ RectTransform:
   m_GameObject: {fileID: 1848804936381058665}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalScale: {x: 0.19587119, y: 0.19587119, z: 0.19587119}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6234605727559608414}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 221, y: 186.2}
+  m_AnchoredPosition: {x: 299, y: 235}
   m_SizeDelta: {x: 2048, y: 1423}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6611450454570242623
@@ -3786,7 +3916,7 @@ GameObject:
   - component: {fileID: 4397887834689689233}
   - component: {fileID: 3879588258638079464}
   m_Layer: 5
-  m_Name: Page2
+  m_Name: Page2_Journal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3941,16 +4071,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "To my love Hela, who waits for me in Heaven.\n\nAs I write this, I struggle
-    for words. What can I say about our lives, our family, our home, that could ever
-    suffice? But I must try. When we first met, we were just two wide-eyed kids.
-    Dear St.Stanislaus, it was so long ago. You must remember how scared I was about
-    everything. But anytime I saw your lips curl into that smile, it all melted away.
-    Nothing and nobody mattered except you. I loved you in the funny way your nose
-    wrinkled when you laughed, in the kindness which you showed everyone, even if
-    they didn\u2019t deserve it, in your beautiful black hair, your saintly patience,
-    your sweet baked Babas that made the whole house smell like sugar and orange,
-    your kiss, your touch, your mind, your soul. I loved it all. "
+  m_text: Owned by Pawol Skarbek.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
   m_sharedMaterial: {fileID: -2648206945053064882, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
@@ -3977,14 +4098,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 26
+  m_fontSizeBase: 26
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -4125,7 +4246,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 222.4, y: 191.3}
+  m_AnchoredPosition: {x: 209, y: 173}
   m_SizeDelta: {x: 350, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8529725101926723
@@ -4156,11 +4277,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "It\u2019s an odd thing; most of the food I\u2019ve ever eaten was cooked
+  m_text: "\tIt\u2019s an odd thing; most of the food I\u2019ve ever eaten was cooked
     right on this stove top. When I was a boy, my mama cooked for me here. When I
     was a young man, my wife cooked for me here. Now, as an old man, I cook for myself
     here. It\u2019s nothing fancy, but this old thing has done well for me.\r\n\r\nI
-    wonder if anyone else will use it after I\u2019m gone.\r"
+    wonder if anyone else will use it after I\u2019m gone."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
   m_sharedMaterial: {fileID: -2648206945053064882, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
@@ -4187,8 +4308,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4537,9 +4658,9 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2712604939355592304}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalScale: {x: 0.2329249, y: 0.2329249, z: 0.2329249}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1562265548687014287}
@@ -4692,7 +4813,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -1}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -266.4, y: 55.5}
+  m_AnchoredPosition: {x: -279, y: 161}
   m_SizeDelta: {x: 350, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &845622697071557234
@@ -4723,14 +4844,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Dec 10th, 1962.\r\n\r\nIt\u2019s almost Christmas, praise St. Barbara!
+  m_text: "Dec 10th, 1962.\r\n\r\n\tIt\u2019s almost Christmas, praise St. Barbara!
     This is always one of my favorite times of the year, even as winter\u2019s bitter
     cold reaches its worst. I haven\u2019t gotten any presents for the children yet
     - I\u2019ll have to ask my love Hela if she has any ideas. And, of course, I
-    need to find something for her.\r\n\r\nToday is my rare day off, and I\u2019m
-    not exactly sure what to do with myself. Hela and I took a walk through the neighborhood
-    this morning. Now, I sit here, fidgeting around with my thoughts as I look out
-    through the window.\r\n\r\n"
+    need to find something for her.\r\n\n\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
   m_sharedMaterial: {fileID: -2648206945053064882, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
@@ -4757,8 +4875,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4935,7 +5053,7 @@ RectTransform:
   m_Father: {fileID: 7022963919839136105}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5176,13 +5294,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "June 23rd, 1977.\r\n\r\nI\u2019m thinking about work again. It\u2019s
-    much later than I usually stay up, but I\u2019m struggling to find any sleep.\r\n\r\nRight
+  m_text: "June 23rd, 1977.\r\n\r\n\tI\u2019m thinking about work again. It\u2019s
+    much later than I usually stay up, but I\u2019m struggling to find any sleep.\r\n\r\n\tRight
     now, I\u2019m looking through some of my old equipment. Most of it is tattered,
     but my helmet is still in good shape. A good, trusty helmet is a miner\u2019s
     best friend; this one was passed down to me from my father. Putting it on every
     day made me feel a little less vulnerable when I was underground. I know that
-    may sound a little silly.\r\n\n"
+    may sound a little silly.\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
   m_sharedMaterial: {fileID: -2648206945053064882, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
@@ -5209,8 +5327,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 21
+  m_fontSizeBase: 21
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5316,15 +5434,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "I retired almost five years ago, but I suspect a piece of me remains down
-    in those mineshafts. When I reflect on my career, I don\u2019t always know what
-    to think. It wasn\u2019t work that I loved, few miners can say that, and I cursed
-    the long hours away from my family. And yet, I find it all curiously hard to
-    leave behind.\r\n\r\nMaybe my hesitance is a result of routine. For most of my
-    life, I spent day after day doing the same thing with the same crew of men. The
-    comfort of this repetition was powerful, more than I foresaw. I knew that I could
-    hold a stable livelihood and keep my family safe as long as I kept working. But
-    now, I rely on my pension and putz around all day. And my Hela is gone."
+  m_text: "\tI retired almost five years ago, but I suspect a piece of me remains
+    down in those mineshafts. When I reflect on my career, I don\u2019t always know
+    what to think. It wasn\u2019t work that I loved, few miners can say that, and
+    I cursed the long hours away from my family. And yet, I find it all curiously
+    hard to leave behind. Maybe my hesitance is the result of forty years of routine."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
   m_sharedMaterial: {fileID: -2648206945053064882, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
@@ -5351,8 +5465,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5696,8 +5810,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6257358624488094655}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6341,7 +6455,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _defPos: {fileID: 7386109346699482925}
   _openPos: {fileID: 2294434067208442631}
-  relatedPage: {fileID: 7415659639653641531}
+  relatedPage: {fileID: 1792427623056286609}
 --- !u!1 &3200742214651011897
 GameObject:
   m_ObjectHideFlags: 0
@@ -6396,7 +6510,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6590388140093621427
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6633,7 +6747,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6851065406440703104
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7742,7 +7856,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7768942251039419970
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7830,6 +7944,154 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &3830531043180789159
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 256794438634773559}
+  - component: {fileID: 2087773723633245598}
+  - component: {fileID: 6995771928476430129}
+  - component: {fileID: 2362712525925339692}
+  - component: {fileID: 6931734245209819521}
+  m_Layer: 5
+  m_Name: ClockEnabled
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &256794438634773559
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3830531043180789159}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.2329249, y: 0.2329249, z: 0.2329249}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 8360656454402581503}
+  m_Father: {fileID: 8896857231221278554}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 221, y: 186.2}
+  m_SizeDelta: {x: 2048, y: 1423}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &2087773723633245598
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3830531043180789159}
+  m_CullTransparentMesh: 1
+--- !u!114 &6995771928476430129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3830531043180789159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: f33d7eb07fdd2ba438056d56aca8da54, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2362712525925339692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3830531043180789159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 6995771928476430129}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6931734245209819521}
+        m_TargetAssemblyTypeName: PhotoButton, Assembly-CSharp
+        m_MethodName: OpenArtefactDescriptionPage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6931734245209819521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3830531043180789159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c254229558ea3614795799d9156d0b07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  artefactDescriptionPage: {fileID: 7965471470648556967}
+  mainPage: {fileID: 9098307448814599405}
 --- !u!1 &4104187862697717426
 GameObject:
   m_ObjectHideFlags: 0
@@ -8039,6 +8301,7 @@ RectTransform:
   - {fileID: 3851128591547606555}
   - {fileID: 8891597725483428462}
   - {fileID: 6288522356039469769}
+  - {fileID: 5476778852532667232}
   m_Father: {fileID: 7242687746642832244}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -8192,7 +8455,7 @@ GameObject:
   - component: {fileID: 5554143740109149164}
   - component: {fileID: 2521079906703305102}
   m_Layer: 5
-  m_Name: Photo2
+  m_Name: Photo2_Journal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8207,14 +8470,14 @@ RectTransform:
   m_GameObject: {fileID: 4512915271382185350}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalScale: {x: 0.22291501, y: 0.22291501, z: 0.22291501}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6234605727559608414}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 165.00006, y: -120.6}
+  m_AnchoredPosition: {x: 363, y: -176}
   m_SizeDelta: {x: 2048, y: 1423}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5554143740109149164
@@ -8559,6 +8822,7 @@ RectTransform:
   - {fileID: 8042091062534966226}
   - {fileID: 1993180512608816647}
   - {fileID: 6166254589327127811}
+  - {fileID: 4449445622350068145}
   m_Father: {fileID: 760362911569310692}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -9253,6 +9517,146 @@ MonoBehaviour:
   _pauseMenuPanel: {fileID: 3328520414596948139}
   _settings: {fileID: 303449535635142794}
   _pause: {fileID: 7081680315028389393}
+--- !u!1 &5161691736906025732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 757845788653306566}
+  - component: {fileID: 1466811882436903494}
+  - component: {fileID: 2094505724491525709}
+  m_Layer: 5
+  m_Name: DescText2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &757845788653306566
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5161691736906025732}
+  m_LocalRotation: {x: 0, y: 0, z: 0.026176924, w: 0.99965733}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5476778852532667232}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 223, y: 193.7}
+  m_SizeDelta: {x: 350, y: 250}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1466811882436903494
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5161691736906025732}
+  m_CullTransparentMesh: 1
+--- !u!114 &2094505724491525709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5161691736906025732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: "\tYesterday, little Agneska asked me why I always make sure to clean these
+    windows. I didn\u2019t have an immediate answer, but after some reflection I
+    think I know why. In my mind, windows are the calling card of the family behind
+    them. Keeping them clean shows the world your work ethic. Also, there is a lot
+    of soot in the air of a mining town. If I didn\u2019t clean them, we couldn\u2019t
+    see the beautiful neighborhood outside.\r\n\r\nI should go to the store later
+    today to buy those presents."
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
+  m_sharedMaterial: {fileID: -2648206945053064882, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4279242769
+  m_fontColor: {r: 0.066037714, g: 0.063234225, b: 0.063234225, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 22
+  m_fontSizeBase: 22
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &5285279249008918176
 GameObject:
   m_ObjectHideFlags: 0
@@ -10365,15 +10769,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Aug 22nd, 1971.\r\n\r\nI haven\u2019t been doing well at work recently;
+  m_text: "Aug 22nd, 1971.\r\n\r\n\tI haven\u2019t been doing well at work recently;
     I fear that my age has finally caught up with me. The loads are too heavy, the
     hours too long - I feel like an old dog amongst young pups. Luckily, the man
     at the union office said that I could retire with a pension soon. But what will
-    I do with my time?\r\n\r\nPerhaps I\u2019ll spend more time fulfilling my important
-    role as an opa. Wilus just had his first boy, a beautiful little guy. They named
-    him Bynek. With more people living in the house, it\u2019s gotten to be a little
-    hectic. Everyone is talking and eating and moving all of the time; I hardly have
-    the energy to keep up!\r\n\r\n\n"
+    I do with my time?\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
   m_sharedMaterial: {fileID: -2648206945053064882, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
@@ -10400,8 +10800,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -10714,15 +11114,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Clean windows and morning walks. These little things don\u2019t mean much,
-    but for whatever reason they stay on my mind. I think my age has made me sentimental.
-    \r\n\r\nI should go to the store later today to buy those presents.\n\nYesterday,
-    little Agneska asked me why I always make sure to clean these windows. I didn\u2019t
-    have an immediate answer, but after some reflection I think I know why. In my
-    mind, windows are the calling card of the family behind them. Keeping them clean
-    shows the world your work ethic. Also, there is a lot of soot in the air of a
-    mining town. If I didn\u2019t clean them, we couldn\u2019t see the beautiful
-    neighborhood outside.\r"
+  m_text: "\tYesterday, little Agneska asked me why I always make sure to clean these
+    windows. I didn\u2019t have an immediate answer, but after some reflection I
+    think I know why. In my mind, windows are the calling card of the family behind
+    them. Keeping them clean shows the world your work ethic. Also, there is a lot
+    of soot in the air of a mining town. If I didn\u2019t clean them, we couldn\u2019t
+    see the beautiful neighborhood outside.\r\n\r\nI should go to the store later
+    today to buy those presents."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
   m_sharedMaterial: {fileID: -2648206945053064882, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
@@ -10749,8 +11147,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -10894,6 +11292,81 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &6733312704472057857
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4449445622350068145}
+  - component: {fileID: 8536244483133252974}
+  - component: {fileID: 2642650548862249913}
+  m_Layer: 5
+  m_Name: Photo6_Clock
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4449445622350068145
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6733312704472057857}
+  m_LocalRotation: {x: -0, y: -0, z: -0.15894894, w: 0.98728687}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.17509317, y: 0.17509317, z: 0.17509317}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 6234605727559608414}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -18.292}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 124, y: 5}
+  m_SizeDelta: {x: 2048, y: 1423}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &8536244483133252974
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6733312704472057857}
+  m_CullTransparentMesh: 1
+--- !u!114 &2642650548862249913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6733312704472057857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: dd4158edd0c31c143a4c9d14b09c9323, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &6757387497031655987
 GameObject:
   m_ObjectHideFlags: 0
@@ -10979,7 +11452,7 @@ GameObject:
   - component: {fileID: 4532712426805800775}
   - component: {fileID: 5093501743730288812}
   m_Layer: 5
-  m_Name: Page4
+  m_Name: Page4_Stove
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11297,8 +11770,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 8075926113057774164}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.21052632, y: 0}
+  m_AnchorMax: {x: 0.21052632, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -12001,7 +12474,7 @@ GameObject:
   - component: {fileID: 5273803548421015567}
   - component: {fileID: 8005230545166366427}
   m_Layer: 5
-  m_Name: Page5
+  m_Name: Page5_Window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12377,7 +12850,7 @@ GameObject:
   - component: {fileID: 8834637428359636440}
   - component: {fileID: 8575464295178828836}
   m_Layer: 5
-  m_Name: Page3
+  m_Name: Page3_Toolbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12457,6 +12930,109 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7933317793345255314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!1 &7965471470648556967
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5476778852532667232}
+  - component: {fileID: 6123161465928836884}
+  - component: {fileID: 621672710382812606}
+  - component: {fileID: 6250754753067212112}
+  m_Layer: 5
+  m_Name: Page6_Clock
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &5476778852532667232
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7965471470648556967}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5453167435935159196}
+  - {fileID: 757845788653306566}
+  m_Father: {fileID: 47916173158449978}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
+--- !u!223 &6123161465928836884
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7965471470648556967}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 6
+  m_TargetDisplay: 0
+--- !u!114 &621672710382812606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7965471470648556967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!114 &6250754753067212112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7965471470648556967}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
@@ -13122,15 +13698,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "April 11th, 1984.\r\n\r\nI\u2019m writing this as I finish my Sunday night
-    dinner. I made a beef roulade with some boiled potatoes, but I overcooked it.
-    I was never much of a cook. Nothing like Hela - she could work miracles on this
-    small stovetop. I miss that woman more than I have words to express.\r\n\r\nWhen
-    Hela first passed, I feared how lonely I would be without her. Every morning
-    walk, every evening listening to the radio, every meal in the kitchen. I\u2019ve
-    gotten far too familiar with the silence of eating alone. And since the children
-    have all moved out with children of their own, I do feel alone. I wish they would
-    visit more often, but I know they have their own lives to live.\r\n\r\n\n"
+  m_text: "April 11th, 1984.\r\n\r\n\tI\u2019m writing this as I finish my Sunday
+    night dinner. I made a beef roulade with some boiled potatoes, but I overcooked
+    it. I was never much of a cook. Nothing like Hela - she could work miracles on
+    this small stovetop. I miss that woman more than I have words to express.\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
   m_sharedMaterial: {fileID: -2648206945053064882, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
@@ -13157,8 +13728,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -13434,6 +14005,144 @@ MonoBehaviour:
   _defPos: {fileID: 7386109346699482925}
   _openPos: {fileID: 2294434067208442631}
   relatedPage: {fileID: 4977919099794200767}
+--- !u!1 &8613867549473345447
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5453167435935159196}
+  - component: {fileID: 3196004598139600292}
+  - component: {fileID: 1404414442999784190}
+  m_Layer: 5
+  m_Name: DescText1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5453167435935159196
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8613867549473345447}
+  m_LocalRotation: {x: 0, y: 0, z: -0.008726465, w: 0.999962}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5476778852532667232}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -279, y: 161}
+  m_SizeDelta: {x: 350, y: 250}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &3196004598139600292
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8613867549473345447}
+  m_CullTransparentMesh: 1
+--- !u!114 &1404414442999784190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8613867549473345447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: "Dec 10th, 1962.\r\n\r\n\tIt\u2019s almost Christmas, praise St. Barbara!
+    This is always one of my favorite times of the year, even as winter\u2019s bitter
+    cold reaches its worst. I haven\u2019t gotten any presents for the children yet
+    - I\u2019ll have to ask my love Hela if she has any ideas. And, of course, I
+    need to find something for her.\r\n\n\r\n"
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
+  m_sharedMaterial: {fileID: -2648206945053064882, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4279242769
+  m_fontColor: {r: 0.066037714, g: 0.063234225, b: 0.063234225, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 22
+  m_fontSizeBase: 22
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &8723492307259526726
 GameObject:
   m_ObjectHideFlags: 0
@@ -13583,7 +14292,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 2}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 224.7, y: 204.8}
+  m_AnchoredPosition: {x: -260, y: -344}
   m_SizeDelta: {x: 350, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2487125724104724800
@@ -13614,16 +14323,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\nAnd when you left, it was like part of me left too. \n\nI loved you
-    in the funny way your nose wrinkled when you laughed, in the kindness which you
-    showed everyone, even if they didn\u2019t deserve it, in your beautiful black
-    hair, your saintly patience, your sweet baked Babas that made the whole house
-    smell like sugar and orange, your kiss, your touch, your mind, your soul. I loved
-    it all. And when you left, it was like part of me left too. \nOver these past
-    fifteen years, I\u2019ve been looking forward to this moment. I\u2019ve gotten
-    to see our children grow old themselves - you would be so proud of them. But
-    I know that you\u2019ve been waiting for me. I\u2019ve been waiting too.\n\nDo
-    zobaczenia wkr\xF3tce m\xF3j kochany."
+  m_text: ' A reflection on the people and things that mean the world to me.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
   m_sharedMaterial: {fileID: -2648206945053064882, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
@@ -13650,14 +14350,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -13686,7 +14386,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: 135.12251}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -14002,6 +14702,7 @@ RectTransform:
   - {fileID: 6742970169307795095}
   - {fileID: 1601194932079488642}
   - {fileID: 7723396051813546268}
+  - {fileID: 256794438634773559}
   m_Father: {fileID: 760362911569310692}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

@@ -17,7 +17,7 @@ public class PhotoButton : MonoBehaviour
         JournalManager.previousArtefactPage = this.artefactDescriptionPage;
         JournalManager.previousMainPage = mainPage;
         mainPage.SetActive(false);
-        FindObjectOfType<AudioManager>().Play("PageTurn" + (UnityEngine.Random.Range(0, 2) + 1));
+        AudioManager.instance.Play("PageTurn" + (UnityEngine.Random.Range(0, 2) + 1));
     }
 
     public static void CloseArtefactDescriptionPage()

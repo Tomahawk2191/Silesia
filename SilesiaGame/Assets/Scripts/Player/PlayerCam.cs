@@ -56,8 +56,6 @@ public class PlayerCam : MonoBehaviour
         //rend = shaderMat.GetComponent<Renderer>();
     }
 
-   
-
     private void onZoomIn(object sender, EventArgs e)
     {
         isZoomed = true;
