@@ -61,6 +61,7 @@ public class PlayerUI : MonoBehaviour
                     PlayerMovement.setCanMove(true);                    
                     PlayerCam.setCanMoveCamera(true);                    
                 }
+
                 PlayerCam.LockCursor();
 
                 Time.timeScale = 1f;
@@ -77,13 +78,10 @@ public class PlayerUI : MonoBehaviour
                 _settings.SetActive(false);
                 _pauseMenuPanel.SetActive(true);
                 PlayerMovement.setCanMove(false);
-                
                 Debug.Log("stop");
             }
         }
-        
     }
-
 
     private void Start()
     {

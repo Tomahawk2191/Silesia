@@ -28,7 +28,6 @@ public class Progress : MonoBehaviour
             return;
         }
         percentcomplete = Mathf.Floor(100 * itemsCollected / totalItems);
-
     }
 
     public float GetPercent()
@@ -50,8 +49,4 @@ public class Progress : MonoBehaviour
     {
         mixer.SetFloat("pigeonVol", (percentcomplete / 100 * 15) -15); 
     }
-
-
-
-
 }

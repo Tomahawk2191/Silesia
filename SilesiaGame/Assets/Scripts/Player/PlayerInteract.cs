@@ -83,7 +83,7 @@ public class PlayerInteract : MonoBehaviour
                     {
                         Outline outline = facedInteractable.gameObject.AddComponent<Outline>();
                         outline.enabled = true;
-                        facedInteractable.gameObject.GetComponent<Outline>().OutlineColor = Color.magenta;
+                        facedInteractable.gameObject.GetComponent<Outline>().OutlineColor = Color.white;
                         facedInteractable.gameObject.GetComponent<Outline>().OutlineWidth = 15.0f;
                     }
                 }
