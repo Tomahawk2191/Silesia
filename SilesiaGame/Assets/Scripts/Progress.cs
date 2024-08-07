@@ -7,11 +7,11 @@ using UnityEngine.Audio;
 
 public class Progress : MonoBehaviour
 {
-    // [SerializeField] 
-    private float itemsCollected = 0f; 
-    [HideInInspector] 
+    [SerializeField] 
+    private float itemsCollected = 0f;
+    [SerializeField]
     private float percentcomplete = 0f;
-    [HideInInspector] 
+    [SerializeField]
     private float totalItems;
     [SerializeField] public AudioMixer mixer;
 

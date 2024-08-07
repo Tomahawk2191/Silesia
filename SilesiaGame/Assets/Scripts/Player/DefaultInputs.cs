@@ -77,6 +77,17 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": """",
+                    ""id"": ""112e431a-d7fe-4d07-8e5b-5e4903137e3d"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""WASD"",
                     ""id"": ""fb6d1267-d516-4966-a3be-60617c7e3a38"",
                     ""path"": ""2DVector"",
@@ -132,6 +143,61 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": ""Left Stick"",
+                    ""id"": ""b89197c6-daee-4dd4-8dd2-912f7b2ef7f5"",
+                    ""path"": ""2DVector(mode=2)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""badced41-8ae4-49ce-8c7d-bf00a4a1d169"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""31e46259-5b71-48f9-8abe-732e19c78b9e"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""85cdc3cb-f6d7-44a3-9f0c-027a6a30874c"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""c8bad870-b01f-4291-be70-efd8ce42b88f"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
                     ""name"": """",
                     ""id"": ""bfdfa082-bcb2-47e4-9714-ae8610cc81da"",
                     ""path"": ""<Keyboard>/alt"",
@@ -146,6 +212,17 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""246cb5bc-0fea-4044-a812-a7a171f8e354"",
                     ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PauseMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1de44e08-6281-4026-9eb9-37b32c5de54a"",
+                    ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -174,6 +251,17 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""0c974475-fa2f-4bff-937a-48676cae9305"",
                     ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextLine"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8fccb3c8-7f3e-44c9-b08e-0bd6377d3061"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -238,8 +326,30 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""25f1f46f-0286-40a9-a3ad-cb38d8093304"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JournalNextPage"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""82b1a49f-2a4e-4dee-9fc4-93765865fbc6"",
                     ""path"": ""<Keyboard>/h"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""JournalPreviousPage"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""825d129d-5915-417e-ae60-1f587c67abd0"",
+                    ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -260,8 +370,41 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""4a44df7c-eaf2-4561-b57e-eb938c2d4812"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""QuitJournal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""3851d6eb-416f-4c13-9549-c4d5e8657f51"",
                     ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CloseWithESC"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2dbb4092-7762-485a-a519-2186be90a8c6"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CloseWithESC"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""add615e4-4bab-43e9-ba71-eebe6379d154"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -296,6 +439,56 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Zoom In"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d0924332-cdab-47d1-a616-b78e8b6fc592"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Zoom In"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Rotate"",
+            ""id"": ""b0e1456d-4a88-49cc-b6f6-fd24dd8d879c"",
+            ""actions"": [
+                {
+                    ""name"": ""Rotate On"",
+                    ""type"": ""Button"",
+                    ""id"": ""f719877d-36a4-4d44-af8d-26927dcf3a99"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""2190c87e-f204-4d10-a729-5962df8750f9"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate On"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4522dcd4-3c9c-4837-ad75-a424af2513d7"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate On"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -320,6 +513,9 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
         // Zoom
         m_Zoom = asset.FindActionMap("Zoom", throwIfNotFound: true);
         m_Zoom_ZoomIn = m_Zoom.FindAction("Zoom In", throwIfNotFound: true);
+        // Rotate
+        m_Rotate = asset.FindActionMap("Rotate", throwIfNotFound: true);
+        m_Rotate_RotateOn = m_Rotate.FindAction("Rotate On", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -609,6 +805,52 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
         }
     }
     public ZoomActions @Zoom => new ZoomActions(this);
+
+    // Rotate
+    private readonly InputActionMap m_Rotate;
+    private List<IRotateActions> m_RotateActionsCallbackInterfaces = new List<IRotateActions>();
+    private readonly InputAction m_Rotate_RotateOn;
+    public struct RotateActions
+    {
+        private @DefaultInputs m_Wrapper;
+        public RotateActions(@DefaultInputs wrapper) { m_Wrapper = wrapper; }
+        public InputAction @RotateOn => m_Wrapper.m_Rotate_RotateOn;
+        public InputActionMap Get() { return m_Wrapper.m_Rotate; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(RotateActions set) { return set.Get(); }
+        public void AddCallbacks(IRotateActions instance)
+        {
+            if (instance == null || m_Wrapper.m_RotateActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_RotateActionsCallbackInterfaces.Add(instance);
+            @RotateOn.started += instance.OnRotateOn;
+            @RotateOn.performed += instance.OnRotateOn;
+            @RotateOn.canceled += instance.OnRotateOn;
+        }
+
+        private void UnregisterCallbacks(IRotateActions instance)
+        {
+            @RotateOn.started -= instance.OnRotateOn;
+            @RotateOn.performed -= instance.OnRotateOn;
+            @RotateOn.canceled -= instance.OnRotateOn;
+        }
+
+        public void RemoveCallbacks(IRotateActions instance)
+        {
+            if (m_Wrapper.m_RotateActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IRotateActions instance)
+        {
+            foreach (var item in m_Wrapper.m_RotateActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_RotateActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public RotateActions @Rotate => new RotateActions(this);
     public interface IPlayerActions
     {
         void OnInteract(InputAction.CallbackContext context);
@@ -630,5 +872,9 @@ public partial class @DefaultInputs: IInputActionCollection2, IDisposable
     public interface IZoomActions
     {
         void OnZoomIn(InputAction.CallbackContext context);
+    }
+    public interface IRotateActions
+    {
+        void OnRotateOn(InputAction.CallbackContext context);
     }
 }
