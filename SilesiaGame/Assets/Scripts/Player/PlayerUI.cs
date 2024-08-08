@@ -104,27 +104,29 @@ public class PlayerUI : MonoBehaviour
         normalCursor.SetActive(false);
     }
 
-    public void UpdateDialogueText(string promptMessage, Color lineColor) {
+    public void UpdateDialogueText(string promptMessage, Color lineColor, FontStyles lineFontStyle, FontWeight lineFontWeight) {
         if (DialogueDisplay.text != string.Empty)
         {
-            HidePreviousLine(promptMessage, lineColor);
+            HidePreviousLine(promptMessage, lineColor, lineFontStyle, lineFontWeight);
         }
         else
         {
-            ShowNewLine(promptMessage, lineColor);
+            ShowNewLine(promptMessage, lineColor, lineFontStyle, lineFontWeight);
         }
     }
 
     public void ClearDialogueText()
     {
-        HidePreviousLine(String.Empty, Color.clear);
+        HidePreviousLine(String.Empty, Color.clear, FontStyles.Normal, FontWeight.Regular);
     }
 
-    private void ShowNewLine(string promptMessage, Color lineColor)
+    private void ShowNewLine(string promptMessage, Color lineColor, FontStyles lineFontStyle, FontWeight linefontWeight)
     {
         inAnimation = true;
         DialogueDisplay.color = lineColor;
         DialogueDisplay.text = promptMessage;
+        DialogueDisplay.fontStyle = lineFontStyle;
+        DialogueDisplay.fontWeight = linefontWeight;
         var outSeq = DOTween.Sequence();
         outSeq.Insert(0, DialogueDisplay.DOFade(1f, fadeDuration).SetEase(Ease.InOutSine));
         outSeq.AppendCallback(() =>
@@ -134,12 +136,12 @@ public class PlayerUI : MonoBehaviour
         outSeq.Play();
     }
 
-    private void HidePreviousLine(string promptMessage, Color linecolor)
+    private void HidePreviousLine(string promptMessage, Color linecolor, FontStyles lineFontStyle, FontWeight linefontWeight)
     {
         inAnimation = true;
         var outSeq = DOTween.Sequence();
         outSeq.Insert(0, DialogueDisplay.DOFade(0f, fadeDuration).SetEase(Ease.InSine));
-        outSeq.AppendCallback(() => ShowNewLine(promptMessage, linecolor));
+        outSeq.AppendCallback(() => ShowNewLine(promptMessage, linecolor, lineFontStyle, linefontWeight));
     }
 
     public void goToMainMenu()

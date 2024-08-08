@@ -8,6 +8,7 @@ using System.Linq;
 using DefaultNamespace;
 using DG.Tweening;
 using TMPro;
+using TMPro.Examples;
 using UnityEngine;
 using UnityEngine.Video;
 
@@ -17,6 +18,8 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<String> _sentences;
     private Queue<Color> _sentColors;
+    private Queue<FontStyles> _sentFontStyle;
+    private Queue<FontWeight> _sentFontWeight;
     private PlayerInput _input;
     public static bool justFinishedTheDialogue = false;
     public static Interactable currentObject;
@@ -40,6 +43,8 @@ public class DialogueManager : MonoBehaviour
         _input = PlayerInteract.input;
         _sentences = new Queue<String>();
         _sentColors = new Queue<Color>();
+        _sentFontStyle = new Queue<FontStyles>();
+        _sentFontWeight = new Queue<FontWeight>();
         PlayerInteract.input.NextLine += DisplayNextSentence;
         rotation = GetComponent<InspectorModeRotation>();
     }
@@ -56,16 +61,22 @@ public class DialogueManager : MonoBehaviour
         _input.SwitchToDialogueMap();
 
         _sentences.Clear();
+        _sentColors.Clear();
+        _sentFontStyle.Clear();
+        _sentFontWeight.Clear();
         // get array of text obj for enqueue
         InteractableSO.DialogueText dialogueTexts = currentObject.getDialogueTextObj();
         foreach (var text in dialogueTexts.getComboSpeakerTexts())
         {
-            //Debug.Log("color start");
             foreach (String extractedText in text.getTextAsset())
             {
-                _sentences.Enqueue(extractedText);
                 Color extractedColor = text.getTextColor();
+                FontStyles extractedFontStyle = text.GetFontStyle();
+                FontWeight extractedFontWeight = text.GetFontWeight();
+                _sentences.Enqueue(extractedText);
                 _sentColors.Enqueue(extractedColor);
+                _sentFontStyle.Enqueue(extractedFontStyle);
+                _sentFontWeight.Enqueue(extractedFontWeight);
             }
             // Debug.Log("extractedColor: " + extractedColor);
         }
@@ -83,10 +94,12 @@ public class DialogueManager : MonoBehaviour
         }
         string sentence = _sentences.Dequeue();
         Color lineColor = _sentColors.Dequeue();
+        FontStyles lineFontStyle = _sentFontStyle.Dequeue();
+        FontWeight lineFontWeight = _sentFontWeight.Dequeue();
 
         if (lineColor != null)
         {
-            PlayerUI.Instance.UpdateDialogueText(sentence, lineColor);
+            PlayerUI.Instance.UpdateDialogueText(sentence, lineColor, lineFontStyle, lineFontWeight);
         }
         else
         {
