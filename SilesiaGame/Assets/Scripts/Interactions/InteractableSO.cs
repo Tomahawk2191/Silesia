@@ -22,13 +22,13 @@ public class InteractableSO : ScriptableObject
 
         [Header("Grandfather")]
         [SerializeField]
-        private static Color grandfatherColor = new Color(251, 213, 116);
+        private static Color grandfatherColor = new Color(0.949f, 0.725f, 0.392f); // TMPro uses 0-1 RGB for some reason, this sucks
         private static FontStyles grandfatherFontStyle = FontStyles.Bold;
         private static FontWeight grandfatherFontWeight = FontWeight.Black;
 
         [Header("Grandson")]
         [SerializeField]
-        private static Color grandsonColor = new Color(249, 233, 236);
+        private static Color grandsonColor = new Color(0.988f, 0.882f, 0.612f);
         private static FontStyles grandsonFontStyle = FontStyles.Normal;
         private static FontWeight grandsonFontWeight = FontWeight.Medium;
 
@@ -50,8 +50,10 @@ public class InteractableSO : ScriptableObject
                 switch (speaker)
                 {
                     case Speaker.Grandfather:
+                        Debug.Log("gf color: " + grandfatherColor);
                         return grandfatherColor;
                     case Speaker.Grandson:
+                        Debug.Log("gs color: " + grandsonColor);
                         return grandsonColor;
                     default:
                         Debug.LogError("illegal enum value" + speaker);
