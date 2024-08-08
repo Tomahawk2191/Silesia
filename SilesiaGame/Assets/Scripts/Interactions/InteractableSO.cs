@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
-
+using TMPro;
 
 //this type of script is a datadump. Here we will store all the information regarding the artefact, like the text, related artefacts, if its enabled at the beginging and so on.
 [CreateAssetMenu(fileName = "ArtefactData", menuName = "ScriptableObjects/InteractableObjectData", order = 1)]
@@ -21,9 +20,17 @@ public class InteractableSO : ScriptableObject
         [SerializeField]
         public List<ComboSpeakerText> speakerText;
 
-        private static readonly Color grandfatherColor = new Color(242, 212, 166);
+        [Header("Grandfather")]
+        [SerializeField]
+        private static Color grandfatherColor = new Color(0.949f, 0.725f, 0.392f); // TMPro uses 0-1 RGB for some reason, this sucks
+        private static FontStyles grandfatherFontStyle = FontStyles.Bold;
+        private static FontWeight grandfatherFontWeight = FontWeight.Black;
 
-        private static readonly Color grandsonColor = Color.blue;
+        [Header("Grandson")]
+        [SerializeField]
+        private static Color grandsonColor = new Color(0.988f, 0.882f, 0.612f);
+        private static FontStyles grandsonFontStyle = FontStyles.Normal;
+        private static FontWeight grandsonFontWeight = FontWeight.Medium;
 
         public enum Speaker
         {
@@ -34,22 +41,51 @@ public class InteractableSO : ScriptableObject
         [Serializable]
         public class ComboSpeakerText
         {
-            [SerializeField] public TextAsset dialogueText;
-            [SerializeField] public Speaker speaker;
+            [SerializeField]
+            public TextAsset dialogueText;
+            public Speaker speaker;
 
             public Color getTextColor()
             {
-                //Debug.Log("color speaker: " + speaker);
                 switch (speaker)
                 {
                     case Speaker.Grandfather:
-                        //Debug.Log("grandfather speaker");
+                        Debug.Log("gf color: " + grandfatherColor);
                         return grandfatherColor;
                     case Speaker.Grandson:
+                        Debug.Log("gs color: " + grandsonColor);
                         return grandsonColor;
                     default:
                         Debug.LogError("illegal enum value" + speaker);
                         return Color.clear;
+                }
+            }
+
+            public FontStyles GetFontStyle()
+            {
+                switch (speaker)
+                {
+                    case Speaker.Grandfather:
+                        return grandfatherFontStyle;
+                    case Speaker.Grandson:
+                        return grandsonFontStyle;
+                    default:
+                        Debug.LogError("illegal enum value: " + speaker);
+                        return FontStyles.Normal;
+                }
+            }
+
+            public FontWeight GetFontWeight()
+            {
+                switch (speaker)
+                {
+                    case Speaker.Grandfather:
+                        return grandfatherFontWeight;
+                    case Speaker.Grandson:
+                        return grandsonFontWeight;
+                    default:
+                        Debug.LogError("illegal enum value: " + speaker);
+                        return FontWeight.Regular;
                 }
             }
 

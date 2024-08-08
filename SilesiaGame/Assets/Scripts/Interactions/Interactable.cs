@@ -72,9 +72,6 @@ public class Interactable : MonoBehaviour
         {
             photo.SetActive(true);
         }
-        
-
-
     }
 
     public void setLayerToInteractable()
