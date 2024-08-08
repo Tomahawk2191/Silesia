@@ -39,7 +39,6 @@ public class LetterScript : MonoBehaviour
 
         introLetter.transform.localPosition = new Vector3(0.1f,1.16f,0.64f);
         StartCoroutine(ScrollLetter(introLetter, playerInteract));
-
     }
 
     IEnumerator ScrollLetter(GameObject introLetter, PlayerInteract playerInteract)
@@ -65,7 +64,7 @@ public class LetterScript : MonoBehaviour
         _skinnedMeshRenderer.enabled = false;
         
         playerInteract.unblockPlayerFromDialogue();
-        StartCoroutine(ScrollOutroLetter(introLetter, playerInteract));
+        //StartCoroutine(ScrollOutroLetter(introLetter, playerInteract));
     }
 
     IEnumerator ScrollOutroLetter(GameObject introLetter, PlayerInteract playerInteract)
