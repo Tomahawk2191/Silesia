@@ -61,15 +61,17 @@ public class LetterScript : MonoBehaviour
         gameObject.SetActive(false);
         
         
-        //OUTRO LETTER
+        /*//OUTRO LETTER
         yield return new WaitForSeconds(1.5f);
         gameObject.SetActive(true);
         _skinnedMeshRenderer.material = _outroMaterial;
         
         transform.DOLocalMoveY(1.16f, 1.5f).SetEase(Ease.InOutExpo);
         yield return new WaitForSeconds(1.25f);
+        */
         
         
         playerInteract.unblockPlayerFromDialogue();
+        Debug.Log("yikes");
     }
 }
