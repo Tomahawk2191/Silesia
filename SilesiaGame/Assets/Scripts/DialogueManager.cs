@@ -117,5 +117,6 @@ public class DialogueManager : MonoBehaviour
         currentObject = null;
         InspectorModeRotation.setEnabledRotation(false);
     }
+    
 }
 

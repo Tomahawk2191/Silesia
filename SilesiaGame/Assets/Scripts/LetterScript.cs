@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace.Interactions;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 
 public class LetterScript : MonoBehaviour
 {
+    [SerializeField] private Interactable startDialogue;
     [SerializeField] private float waitTimeSeconds = 3f;
 
     [SerializeField] private float scrollSpeed = 5f;
@@ -46,26 +48,27 @@ public class LetterScript : MonoBehaviour
         yield return new WaitForSeconds(waitTimeSeconds);
         while (introLetter.transform.localPosition.y < 1.9f)
         {
-            introLetter.transform.Translate(Vector3.up * Time.deltaTime * scrollSpeed/100);
+            introLetter.transform.Translate(Vector3.up * Time.deltaTime * scrollSpeed / 100);
             yield return null;
         }
-        
+
         yield return new WaitForSeconds(waitTimeSeconds);
         _renderer.SetActive(true);
-        
+
         transform.DOLocalMoveZ(3.5f, 1.5f).SetEase(Ease.OutCubic);
         yield return new WaitForSeconds(1.5f);
         transform.GetChild(0).GetComponent<Animator>().SetTrigger("Folded");
-        AudioManager.instance.Play("LetterFold"); 
+        AudioManager.instance.Play("LetterFold");
         yield return new WaitForSeconds(1.25f);
-        
+
         transform.DOLocalMoveY(-1.2f, 1.5f).SetEase(Ease.InOutExpo);
         yield return new WaitForSeconds(1.5f);
         _skinnedMeshRenderer.enabled = false;
-        
+
         playerInteract.unblockPlayerFromDialogue();
         PlayerInteract.input.EnableInputForInteraction();
-        //StartCoroutine(ScrollOutroLetter(introLetter, playerInteract));
+        DialogueManager.Instance.StartDialogue(startDialogue);
+    //StartCoroutine(ScrollOutroLetter(introLetter, playerInteract));
     }
 
     IEnumerator ScrollOutroLetter(GameObject introLetter, PlayerInteract playerInteract)
@@ -104,4 +107,6 @@ public class LetterScript : MonoBehaviour
         
         
     }
+
+    
 }
