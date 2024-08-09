@@ -22,9 +22,21 @@ public class LetterScript : MonoBehaviour
     [SerializeField] private Material _outroMaterial;
 
     [SerializeField] private GameObject _backGround;
+
+    public static LetterScript instance;
     // Start is called before the first frame update
     void Start()
     {
+        if(instance != null)
+        {
+            Destroy(gameObject);
+            instance = this;
+        }
+        else
+        {
+            instance = this;
+        }
+
         _renderer.SetActive(false);
         _skinnedMeshRenderer = transform.GetChild(0).GetComponent<SkinnedMeshRenderer>();
         _skinnedMeshRenderer.material = _introMaterial;
@@ -34,8 +46,7 @@ public class LetterScript : MonoBehaviour
     public void playIntroLetter()
     {
         GameObject player = GameObject.Find("Player").gameObject;
-        PlayerInteract playerInteract =
-            player.GetComponent<PlayerInteract>();
+        PlayerInteract playerInteract = player.GetComponent<PlayerInteract>();
         player.transform.position = new Vector3(11f, 4f, 45f);
         playerInteract.blockPlayerForDialogue();
         PlayerInteract.input.BlockInputForInteraction();
@@ -43,6 +54,18 @@ public class LetterScript : MonoBehaviour
 
         introLetter.transform.localPosition = new Vector3(0.1f, 1.16f, 0.64f);
         StartCoroutine(ScrollLetter(introLetter, playerInteract));
+    }
+
+    public void playOutroLetter()
+    {
+        GameObject player = GameObject.Find("Player").gameObject;
+        PlayerInteract playerInteract = player.GetComponent<PlayerInteract>();
+        playerInteract.blockPlayerForDialogue();
+        PlayerInteract.input.BlockInputForInteraction();
+        GameObject outroLetter = GameObject.Find("IntroLetter");
+
+
+        StartCoroutine(ScrollOutroLetter(outroLetter, playerInteract));
     }
 
     IEnumerator ScrollLetter(GameObject introLetter, PlayerInteract playerInteract)
@@ -75,7 +98,7 @@ public class LetterScript : MonoBehaviour
         //StartCoroutine(ScrollOutroLetter(introLetter, playerInteract));
     }
 
-    IEnumerator ScrollOutroLetter(GameObject introLetter, PlayerInteract playerInteract)
+    IEnumerator ScrollOutroLetter(GameObject outroLetter, PlayerInteract playerInteract)
     {
         playerInteract.blockPlayerForDialogue();
         _skinnedMeshRenderer.enabled = true;
@@ -96,9 +119,9 @@ public class LetterScript : MonoBehaviour
 
         AudioManager.instance.Play("OutroLetter");
         yield return new WaitForSeconds(waitTimeInOutroSeconds);
-        while (introLetter.transform.localPosition.y < 1.9f)
+        while (outroLetter.transform.localPosition.y < 1.9f)
         {
-            introLetter.transform.Translate(Vector3.up * Time.deltaTime * scrollOutroSpeed / 100);
+            outroLetter.transform.Translate(Vector3.up * Time.deltaTime * scrollOutroSpeed/100);
             yield return null;
         }
 
@@ -109,9 +132,5 @@ public class LetterScript : MonoBehaviour
         yield return new WaitForSeconds(7f);
 
         SceneManager.LoadSceneAsync(2);
-
-
     }
-
-
 }

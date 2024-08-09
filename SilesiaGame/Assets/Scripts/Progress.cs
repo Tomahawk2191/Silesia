@@ -43,7 +43,6 @@ public class Progress : MonoBehaviour
     private void Start()
     {
         totalItems = GameObject.FindGameObjectsWithTag("Artifact").Length;
-        totalItems = 1;
         itemsCollected = 0f;
         percentcomplete = 0f;
         windowOpen = false;
@@ -53,7 +52,7 @@ public class Progress : MonoBehaviour
 
     public void Increment()
     {
-        itemsCollected = itemsCollected + 1f;
+        itemsCollected += 1f;
         if (totalItems == 0f)
         {
             Debug.LogWarning("No Artifacts in Scene");
