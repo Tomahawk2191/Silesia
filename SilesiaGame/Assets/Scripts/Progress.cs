@@ -52,7 +52,7 @@ public class Progress : MonoBehaviour
 
     public void Increment()
     {
-        itemsCollected = itemsCollected + 1f;
+        itemsCollected += 1f;
         if (totalItems == 0f)
         {
             Debug.LogWarning("No Artifacts in Scene");
