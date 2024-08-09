@@ -22,14 +22,14 @@ public class InteractableSO : ScriptableObject
 
         [Header("Grandfather")]
         [SerializeField]
-        private static Color grandfatherColor = new Color(0.949f, 0.725f, 0.392f); // TMPro uses 0-1 RGB for some reason, this sucks
+        private static Color grandfatherColor = new Color(0.9490196f, 0.8036447f, 0.3921569f); // TMPro uses 0-1 RGB for some reason, this sucks
         private static FontStyles grandfatherFontStyle = FontStyles.Bold;
         private static FontWeight grandfatherFontWeight = FontWeight.Black;
 
         [Header("Grandson")]
         [SerializeField]
-        private static Color grandsonColor = new Color(0.988f, 0.882f, 0.612f);
-        private static FontStyles grandsonFontStyle = FontStyles.Normal;
+        private static Color grandsonColor = new Color(0.6690548f, 0.8247591f, 0.9150943f);
+        private static FontStyles grandsonFontStyle = FontStyles.Bold;
         private static FontWeight grandsonFontWeight = FontWeight.Medium;
 
         public enum Speaker
