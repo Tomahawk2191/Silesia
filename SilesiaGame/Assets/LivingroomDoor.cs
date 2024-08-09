@@ -32,35 +32,16 @@ public class LivingroomDoor : MonoBehaviour
         AudioManager.instance.Play("DoorOpen", livingDoorPos);
 
     }
-
-<<<<<<< Updated upstream
-=======
     private void Update()
     {
         if (bedDoorOpen)
         {
-            Debug.Log(" rarara "+player.transform.position+"    " +transform.position+"    "+Vector3.Distance(player.transform.position, transform.position));
+            Debug.Log(" rarara " + player.transform.position + "    " + transform.position + "    " + Vector3.Distance(player.transform.position, transform.position));
             if (Vector3.Distance(player.transform.position, transform.position) < 5)
             {
                 bedDoorOpen = false;
                 OpenDoor();
             }
-        }
-    }
-
->>>>>>> Stashed changes
-    private void Awake()
-    {
-        if (Instance != null)
-        {
-            Debug.Log("Two instances of the door");
-        }
-        else
-        {
-            Instance = this;
-            _animator = transform.parent.GetComponent<Animator>();
-            bedDoorPos = AudioManager.instance.GetBedDoorPos();
-            livingDoorPos = AudioManager.instance.GetLivingDoorPos();
         }
     }
 }
