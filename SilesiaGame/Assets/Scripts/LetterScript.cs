@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
+
 public class LetterScript : MonoBehaviour
 {
     [SerializeField] private float waitTimeSeconds = 3f;
@@ -9,10 +11,19 @@ public class LetterScript : MonoBehaviour
     [SerializeField] private float scrollSpeed = 5f;
 
     [SerializeField] private FullScreenPassRendererFeature _renderer;
+
+    private SkinnedMeshRenderer _skinnedMeshRenderer;
+    
+    [SerializeField] private Material _introMaterial;
+    [SerializeField] private Material _outroMaterial;
+
+    [SerializeField] private GameObject _backGround;
     // Start is called before the first frame update
     void Start()
     {
         _renderer.SetActive(false);
+        _skinnedMeshRenderer = transform.GetChild(0).GetComponent<SkinnedMeshRenderer>();
+        _skinnedMeshRenderer.material = _introMaterial;
         playIntroLetter();
     }
     
@@ -28,7 +39,6 @@ public class LetterScript : MonoBehaviour
 
         introLetter.transform.localPosition = new Vector3(0.1f,1.16f,0.64f);
         StartCoroutine(ScrollLetter(introLetter, playerInteract));
-
     }
 
     IEnumerator ScrollLetter(GameObject introLetter, PlayerInteract playerInteract)
@@ -51,35 +61,46 @@ public class LetterScript : MonoBehaviour
         
         transform.DOLocalMoveY(-1.2f, 1.5f).SetEase(Ease.InOutExpo);
         yield return new WaitForSeconds(1.5f);
-        gameObject.SetActive(false);
+        _skinnedMeshRenderer.enabled = false;
+        
         playerInteract.unblockPlayerFromDialogue();
+        //StartCoroutine(ScrollOutroLetter(introLetter, playerInteract));
     }
-    
-    public static float EaseIn(float t)
+
+    IEnumerator ScrollOutroLetter(GameObject introLetter, PlayerInteract playerInteract)
     {
-        return t*t*t;
-    }
-    
-    public static float EaseOut(float t)
-    {
-        return Flip(EaseIn(Flip(t)));
-    }
-    
-    static float Flip(float x)
-    {
-        return 1 - x;
-    }
-    
-    public static float EaseInOut(float t)
-    {
-        return Mathf.Lerp(EaseIn(t), EaseOut(t), t);
-    }
-    
-    public void playOutroLetter()
-    {
-        PlayerInteract playerInteract =
-            transform.parent.transform.parent.transform.Find("Player").GetComponent<PlayerInteract>();
-        playerInteract.unblockPlayerFromDialogue();
+        playerInteract.blockPlayerForDialogue();
+        _skinnedMeshRenderer.enabled = true;
+        _skinnedMeshRenderer.material = _outroMaterial;
+        
+        transform.DOLocalMoveY(1.16f, 1.5f).SetEase(Ease.InOutExpo);
+        yield return new WaitForSeconds(1.5f);
+        
+        transform.GetChild(0).GetComponent<Animator>().SetTrigger("Folded");
+        AudioManager.instance.Play("LetterFold"); 
+        yield return new WaitForSeconds(1.25f);
+
+        
+        transform.DOLocalMoveZ(0.64f, 1.5f).SetEase(Ease.InCubic);
+        yield return new WaitForSeconds(1.5f);
+        
+        _renderer.SetActive(false);
+        
+        yield return new WaitForSeconds(waitTimeSeconds);
+        while (introLetter.transform.localPosition.y < 1.9f)
+        {
+            introLetter.transform.Translate(Vector3.up * Time.deltaTime * scrollSpeed/100);
+            yield return null;
+        }
+        
+        yield return new WaitForSeconds(waitTimeSeconds);
+        
+        _backGround.GetComponent<Animator>().SetTrigger("FadeOut");
+        
+        yield return new WaitForSeconds(7f);
+        
+        SceneManager.LoadSceneAsync(2);
+        
         
     }
 }

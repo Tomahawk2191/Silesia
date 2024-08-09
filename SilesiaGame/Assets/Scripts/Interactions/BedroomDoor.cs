@@ -18,6 +18,7 @@ public class BedroomDoor : MonoBehaviour
         audioManager = AudioManager.instance;
         bedDoorPos = audioManager.GetBedDoorPos();
         livingDoorPos = audioManager.GetLivingDoorPos();
+        _animator = gameObject.GetComponent<Animator>();
     }
 
     public static void OpenDoor()
@@ -43,14 +44,6 @@ public class BedroomDoor : MonoBehaviour
             _animator.SetTrigger("OpenDoor");
         }
     }
-
-    private void Update()
-    {
-        /*if (Vector3.Distance(_bedroomDoor.transform.position, _player.transform.position) < 5f)
-        {
-            newInteraction();
-        }//*/
-    }
     
     private void Awake()
     {
@@ -65,10 +58,5 @@ public class BedroomDoor : MonoBehaviour
             bedDoorPos = AudioManager.instance.GetBedDoorPos();
             livingDoorPos = AudioManager.instance.GetLivingDoorPos();
         }
-    }//*/
-
-    private void PlayDoorSound()
-    {
-
     }
 }
