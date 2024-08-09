@@ -32,6 +32,8 @@ public class LivingroomDoor : MonoBehaviour
         AudioManager.instance.Play("DoorOpen", livingDoorPos);
 
     }
+
+    /*
     private void Update()
     {
         if (bedDoorOpen)
@@ -44,4 +46,21 @@ public class LivingroomDoor : MonoBehaviour
             }
         }
     }
+
+
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Debug.Log("Two instances of the door");
+        }
+        else
+        {
+            Instance = this;
+            _animator = transform.parent.GetComponent<Animator>();
+            bedDoorPos = AudioManager.instance.GetBedDoorPos();
+            livingDoorPos = AudioManager.instance.GetLivingDoorPos();
+        }
+    }*/
 }
