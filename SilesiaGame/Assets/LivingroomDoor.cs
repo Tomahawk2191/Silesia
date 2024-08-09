@@ -30,16 +30,6 @@ public class LivingroomDoor : MonoBehaviour
 
     }
 
-    public static void newInteraction()
-    {
-        interactions++;
-        if (interactions == 1)
-        {
-            Debug.Log("openThedoor");
-            _animator.SetTrigger("OpenDoor");
-        }
-    }
-
     private void Awake()
     {
         if (Instance != null)
