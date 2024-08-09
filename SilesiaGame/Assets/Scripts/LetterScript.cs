@@ -95,7 +95,8 @@ public class LetterScript : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         
         _renderer.SetActive(false);
-        
+
+        AudioManager.instance.Play("OutroLetter"); 
         yield return new WaitForSeconds(waitTimeInOutroSeconds);
         while (introLetter.transform.localPosition.y < 1.9f)
         {
