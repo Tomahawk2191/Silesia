@@ -100,6 +100,7 @@ public class Progress : MonoBehaviour
         if (itemsCollected == totalItems) 
         {
             GameObject.Find("CAGE").GetComponent<BasicBig>().setAbleToUse(true);
+            LetterScript.instance.playOutroLetter();
         }
     }
     // set pigeons volume relative to game progress
