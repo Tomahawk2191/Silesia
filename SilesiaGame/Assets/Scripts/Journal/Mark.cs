@@ -7,31 +7,32 @@ public class Mark : MonoBehaviour
 {
     [SerializeField] private GameObject _defPos;
     [SerializeField] private GameObject _openPos;
-    private bool isOpen;
+    [SerializeField] private bool isOpen;
     private int id;
-    private static int maxid = 0;
+    private static int maxid = 1;
     private static Mark previousPage;
     [SerializeField] private GameObject relatedPage;
     
 
     private void Start()
     {
-        
-        id = maxid;
-        if (this.id == 0)
+        if (isOpen)
         {
+            id = 0;
             isOpen = true;
             transform.position = _defPos.transform.position - new Vector3(-40,40*id,0);
+            if (id == 0 && previousPage != null)
+            {
+                Debug.LogError("Two pages of the diary are selected as isOpen = true");
+            }
+            previousPage = this;
         }
         else
         {
+            id = maxid;
             transform.position = _defPos.transform.position - new Vector3(0,40*id,0);
-
+            maxid++;
         }
-        maxid++;
-        if (previousPage == null) previousPage = this;
-        
-
     }
 
     public void SwitchPage()
