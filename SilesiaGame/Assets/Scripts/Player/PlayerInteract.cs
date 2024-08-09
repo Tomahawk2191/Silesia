@@ -42,7 +42,7 @@ public class PlayerInteract : MonoBehaviour
         {
             selectedInteractable.TriggerDialogue();
             selectedInteractable.Interact();
-            transform.GetComponent<Progress>().Increment();
+            //transform.GetComponent<Progress>().Increment();
         }
     }
 
