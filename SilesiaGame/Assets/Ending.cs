@@ -40,7 +40,7 @@ public class Ending : MonoBehaviour
         foreach (Texture tex in _textures)
         {
             _rawImage.texture = tex;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(1f/9);
         }
         
         gameObject.GetComponent<Animator>().SetTrigger("EndOfEnding");
