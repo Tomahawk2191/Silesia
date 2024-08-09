@@ -101,4 +101,9 @@ public class Interactable : MonoBehaviour
     {
         return data.text;
     }
+
+    public void setAbleToUse(bool value)
+    {
+        ableToUse = value;
+    }
 }

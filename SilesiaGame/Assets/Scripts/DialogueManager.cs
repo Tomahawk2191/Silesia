@@ -64,6 +64,7 @@ public class DialogueManager : MonoBehaviour
         _sentColors.Clear();
         _sentFontStyle.Clear();
         _sentFontWeight.Clear();
+
         // get array of text obj for enqueue
         InteractableSO.DialogueText dialogueTexts = currentObject.getDialogueTextObj();
         foreach (var text in dialogueTexts.getComboSpeakerTexts())
@@ -78,7 +79,6 @@ public class DialogueManager : MonoBehaviour
                 _sentFontStyle.Enqueue(extractedFontStyle);
                 _sentFontWeight.Enqueue(extractedFontWeight);
             }
-            // Debug.Log("extractedColor: " + extractedColor);
         }
         DisplayNextSentence(this, EventArgs.Empty);
     }
@@ -116,6 +116,7 @@ public class DialogueManager : MonoBehaviour
         PlayerInteract.Instance.unblockPlayerFromDialogue();
         currentObject = null;
         InspectorModeRotation.setEnabledRotation(false);
+        Progress.instance.Increment();
     }
     
 }

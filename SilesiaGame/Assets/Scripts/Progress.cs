@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -42,6 +43,7 @@ public class Progress : MonoBehaviour
     private void Start()
     {
         totalItems = GameObject.FindGameObjectsWithTag("Artifact").Length;
+        totalItems = 1;
         itemsCollected = 0f;
         percentcomplete = 0f;
         windowOpen = false;
@@ -92,7 +94,10 @@ public class Progress : MonoBehaviour
         }
 
         // release pigeons
-        if (itemsCollected == totalItems) { /* INSERT DOOR OPEN TRIGER*/}
+        if (itemsCollected == totalItems) 
+        {
+            GameObject.Find("CAGE").GetComponent<BasicBig>().setAbleToUse(true);
+        }
     }
     // set pigeons volume relative to game progress
     private void PigeonVol()
