@@ -471,8 +471,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startDialogue: {fileID: 1387774352226061977}
-  waitTimeSeconds: 3
-  scrollSpeed: 100
+  waitTimeInIntroSeconds: 12
+  waitTimeInOutroSeconds: 19
+  waitTimeOutIntroSeconds: 6
+  waitTimeOutOutroSeconds: 3
+  scrollIntroSpeed: 2.9
+  scrollOutroSpeed: 5
   _renderer: {fileID: -8538862462556230406, guid: c0b701049f7ed4d48842c5c4aefd1bdf, type: 2}
   _introMaterial: {fileID: 2100000, guid: 181a3afad5a978546a44b8f995fcc950, type: 2}
   _outroMaterial: {fileID: 2100000, guid: 3a00ecee0ab88e74bac8782ebd96846a, type: 2}
