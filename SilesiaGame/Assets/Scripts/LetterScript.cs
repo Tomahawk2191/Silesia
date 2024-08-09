@@ -45,6 +45,7 @@ public class LetterScript : MonoBehaviour
 
     IEnumerator ScrollLetter(GameObject introLetter, PlayerInteract playerInteract)
     {
+        AudioManager.instance.Play("IntroLetter"); 
         yield return new WaitForSeconds(waitTimeSeconds);
         while (introLetter.transform.localPosition.y < 1.9f)
         {
