@@ -34,7 +34,7 @@ public class LetterScript : MonoBehaviour
             player.GetComponent<PlayerInteract>();
         player.transform.position = new Vector3(11f, 4f, 45f);
         playerInteract.blockPlayerForDialogue();
-        
+        PlayerInteract.input.BlockInputForInteraction();
         GameObject introLetter = GameObject.Find("IntroLetter");
 
         introLetter.transform.localPosition = new Vector3(0.1f,1.16f,0.64f);
@@ -64,6 +64,7 @@ public class LetterScript : MonoBehaviour
         _skinnedMeshRenderer.enabled = false;
         
         playerInteract.unblockPlayerFromDialogue();
+        PlayerInteract.input.EnableInputForInteraction();
         //StartCoroutine(ScrollOutroLetter(introLetter, playerInteract));
     }
 
