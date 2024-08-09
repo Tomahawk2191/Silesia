@@ -43,7 +43,6 @@ public class Progress : MonoBehaviour
     private void Start()
     {
         totalItems = GameObject.FindGameObjectsWithTag("Artifact").Length;
-        totalItems = 1;
         itemsCollected = 0f;
         percentcomplete = 0f;
         windowOpen = false;
