@@ -256,7 +256,7 @@ MonoBehaviour:
   percentcomplete: 3
   totalItems: 10
   mixer: {fileID: 24100000, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
-  numKitchen: 6
+  numKitchen: 7
   numBedroom: 8
   numLivingRoom: 10
 --- !u!1 &4192013453769595523
@@ -414,7 +414,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5156572591077751064}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 10.599998, y: 3.8, z: 45.44}
   m_LocalScale: {x: 2.4999998, y: 2.5, z: 2.4999998}
   m_ConstrainProportionsScale: 1
@@ -471,11 +471,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startDialogue: {fileID: 1387774352226061977}
-  waitTimeInIntroSeconds: 7
-  waitTimeInOutroSeconds: 19
-  waitTimeOutIntroSeconds: 2
-  waitTimeOutOutroSeconds: 3
-  scrollOutroSpeed: 5
   _renderer: {fileID: -8538862462556230406, guid: c0b701049f7ed4d48842c5c4aefd1bdf, type: 2}
   _introMaterial: {fileID: 2100000, guid: 181a3afad5a978546a44b8f995fcc950, type: 2}
   _outroMaterial: {fileID: 2100000, guid: 3a00ecee0ab88e74bac8782ebd96846a, type: 2}
