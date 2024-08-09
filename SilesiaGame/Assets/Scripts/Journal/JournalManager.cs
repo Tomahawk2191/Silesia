@@ -54,6 +54,15 @@ public class JournalManager : MonoBehaviour
         AudioManager.instance.Play("CloseBook");
         //StartCoroutine(DelayAction(4f)); 
         PlayerInteract.input.SwitchToPlayerMap();
+        if (previousArtefactPage != null)
+        {
+            previousArtefactPage.SetActive(false);
+        }
+
+        if (previousMainPage != null)
+        {
+            previousMainPage.SetActive(true);
+        }
     }
 
     private void OpenJournal(object sender, EventArgs e)

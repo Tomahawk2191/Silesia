@@ -19,6 +19,7 @@ public class PhotoButton : MonoBehaviour
         mainPage.SetActive(false);
         AudioManager.instance.Play("PageTurn" + (UnityEngine.Random.Range(0, 2) + 1));
     }
+    
 
     public static void CloseArtefactDescriptionPage()
     {
