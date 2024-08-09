@@ -8,9 +8,13 @@ using UnityEngine.SceneManagement;
 public class LetterScript : MonoBehaviour
 {
     [SerializeField] private Interactable startDialogue;
-    [SerializeField] private float waitTimeSeconds = 3f;
+    [SerializeField] private float waitTimeInIntroSeconds = 18f;
+    [SerializeField] private float waitTimeInOutroSeconds = 19f;
+    [SerializeField] private float waitTimeOutIntroSeconds = 6f;
+    [SerializeField] private float waitTimeOutOutroSeconds = 3f;
 
-    [SerializeField] private float scrollSpeed = 5f;
+    [SerializeField] private float scrollIntroSpeed = 4f;
+    [SerializeField] private float scrollOutroSpeed = 5f;
 
     [SerializeField] private FullScreenPassRendererFeature _renderer;
 
@@ -46,14 +50,15 @@ public class LetterScript : MonoBehaviour
     IEnumerator ScrollLetter(GameObject introLetter, PlayerInteract playerInteract)
     {
         AudioManager.instance.Play("IntroLetter"); 
-        yield return new WaitForSeconds(waitTimeSeconds);
+        yield return new WaitForSeconds(waitTimeInIntroSeconds);
+
         while (introLetter.transform.localPosition.y < 1.9f)
         {
-            introLetter.transform.Translate(Vector3.up * Time.deltaTime * scrollSpeed / 100);
+            introLetter.transform.Translate(Vector3.up * Time.deltaTime * scrollIntroSpeed / 100);
             yield return null;
         }
 
-        yield return new WaitForSeconds(waitTimeSeconds);
+        yield return new WaitForSeconds(waitTimeOutIntroSeconds);
         _renderer.SetActive(true);
 
         transform.DOLocalMoveZ(3.5f, 1.5f).SetEase(Ease.OutCubic);
@@ -91,14 +96,14 @@ public class LetterScript : MonoBehaviour
         
         _renderer.SetActive(false);
         
-        yield return new WaitForSeconds(waitTimeSeconds);
+        yield return new WaitForSeconds(waitTimeInOutroSeconds);
         while (introLetter.transform.localPosition.y < 1.9f)
         {
-            introLetter.transform.Translate(Vector3.up * Time.deltaTime * scrollSpeed/100);
+            introLetter.transform.Translate(Vector3.up * Time.deltaTime * scrollOutroSpeed/100);
             yield return null;
         }
         
-        yield return new WaitForSeconds(waitTimeSeconds);
+        yield return new WaitForSeconds(waitTimeOutOutroSeconds);
         
         _backGround.GetComponent<Animator>().SetTrigger("FadeOut");
         
