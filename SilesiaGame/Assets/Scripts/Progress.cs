@@ -1,3 +1,4 @@
+using System;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -17,6 +18,8 @@ public class Progress : MonoBehaviour
     [SerializeField] float numKitchen;
     [SerializeField] float numBedroom;
     [SerializeField] float numLivingRoom;
+
+    [SerializeField] private GameObject windowKitchen;
 
     // Stored vals for calling other things
     private AudioManager audioManager;
@@ -78,9 +81,10 @@ public class Progress : MonoBehaviour
             new WaitForSeconds(5f); // SET BACK TO A REASONABLE VALUE< THIS IS JUST FOR NOW
             Debug.Log("Calling OpenDoor"); 
             BedroomDoor.OpenDoor(); /* INSERT DOOR OPEN TRIGER*/
+            windowKitchen.GetComponent<Animator>().SetTrigger("OpenWindow");
             Debug.Log("Called OpenDoor"); 
         }
-        // living room door opening
+        /*// living room door opening
         if (itemsCollected == numKitchen + numBedroom) 
         {
             Debug.Log("Finished Bedroom"); 
@@ -88,9 +92,9 @@ public class Progress : MonoBehaviour
             //Debug.Log("Played BigGust"); 
             //new WaitForSeconds(5f); // SET BACK TO A REASONABLE VALUE< THIS IS JUST FOR NOW
             Debug.Log("Calling OpenDoor"); 
-            LivingroomDoor.OpenDoor(); /* INSERT DOOR OPEN TRIGER*/
+            LivingroomDoor.OpenDoor(); /* INSERT DOOR OPEN TRIGER#1#
             Debug.Log("Called OpenDoor"); 
-        }
+        }*/
 
         // release pigeons
         if (itemsCollected == totalItems) 

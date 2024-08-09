@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class LivingroomDoor : MonoBehaviour
@@ -6,11 +7,13 @@ public class LivingroomDoor : MonoBehaviour
     private static LivingroomDoor Instance { get; set; }
 
     private static Animator _animator;
-    private static bool bedDoorOpen = false;
+    public static bool bedDoorOpen = false;
 
     private static Vector3 bedDoorPos;
     private static Vector3 livingDoorPos;
     private AudioManager audioManager;
+
+    [SerializeField] private GameObject player;
 
 
     private void Start()
@@ -30,6 +33,22 @@ public class LivingroomDoor : MonoBehaviour
 
     }
 
+<<<<<<< Updated upstream
+=======
+    private void Update()
+    {
+        if (bedDoorOpen)
+        {
+            Debug.Log(" rarara "+player.transform.position+"    " +transform.position+"    "+Vector3.Distance(player.transform.position, transform.position));
+            if (Vector3.Distance(player.transform.position, transform.position) < 5)
+            {
+                bedDoorOpen = false;
+                OpenDoor();
+            }
+        }
+    }
+
+>>>>>>> Stashed changes
     private void Awake()
     {
         if (Instance != null)
