@@ -54,7 +54,6 @@ public class LetterScript : MonoBehaviour
 
         while (introLetter.transform.localPosition.y < 1.9f)
         {
-            introLetter.transform.Translate(Vector3.up * Time.deltaTime * scrollSpeed / 100);
             introLetter.transform.Translate(Vector3.up * Time.deltaTime * scrollIntroSpeed / 100);
             yield return null;
         }
