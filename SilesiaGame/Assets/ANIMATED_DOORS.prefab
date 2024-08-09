@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2357030112821651811, guid: 17d1fa3b00a22194db20576484c47260, type: 3}
       propertyPath: m_Name
-      value: mn_DOORS_kitchen_to_bedroom_UNWRAPPED Variant
+      value: ANIMATED_DOORS
       objectReference: {fileID: 0}
     - target: {fileID: 3169983054124053465, guid: 17d1fa3b00a22194db20576484c47260, type: 3}
       propertyPath: m_LocalPosition.x
@@ -55,5 +55,25 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5583511876844373770, guid: 17d1fa3b00a22194db20576484c47260, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 962883976253767008}
   m_SourcePrefab: {fileID: 100100000, guid: 17d1fa3b00a22194db20576484c47260, type: 3}
+--- !u!1 &7973633316232896608 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5583511876844373770, guid: 17d1fa3b00a22194db20576484c47260, type: 3}
+  m_PrefabInstance: {fileID: 2581854759156967274}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &962883976253767008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7973633316232896608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5edeb9825c894ce49a125740b15b62dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
