@@ -1,25 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
-using DefaultNamespace.Interactions;
-using UnityEngine;
 using DG.Tweening;
+using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LetterScript : MonoBehaviour
 {
     [SerializeField] private Interactable startDialogue;
-    [SerializeField] private float waitTimeInIntroSeconds = 18f;
-    [SerializeField] private float waitTimeInOutroSeconds = 19f;
-    [SerializeField] private float waitTimeOutIntroSeconds = 6f;
-    [SerializeField] private float waitTimeOutOutroSeconds = 3f;
+    private float waitTimeInIntroSeconds = 7f;
+    private float waitTimeInOutroSeconds = 19f;
+    private float waitTimeOutIntroSeconds = 3f;
+    private float waitTimeOutOutroSeconds = 3f;
 
-    [SerializeField] private float scrollIntroSpeed = 4f;
-    [SerializeField] private float scrollOutroSpeed = 5f;
+    //[SerializeField] private float scrollIntroSpeed = 2.9f;
+    private float scrollOutroSpeed = 5f;
 
     [SerializeField] private FullScreenPassRendererFeature _renderer;
 
     private SkinnedMeshRenderer _skinnedMeshRenderer;
-    
+
     [SerializeField] private Material _introMaterial;
     [SerializeField] private Material _outroMaterial;
 
@@ -32,7 +30,7 @@ public class LetterScript : MonoBehaviour
         _skinnedMeshRenderer.material = _introMaterial;
         playIntroLetter();
     }
-    
+
     public void playIntroLetter()
     {
         GameObject player = GameObject.Find("Player").gameObject;
@@ -43,18 +41,18 @@ public class LetterScript : MonoBehaviour
         PlayerInteract.input.BlockInputForInteraction();
         GameObject introLetter = GameObject.Find("IntroLetter");
 
-        introLetter.transform.localPosition = new Vector3(0.1f,1.16f,0.64f);
+        introLetter.transform.localPosition = new Vector3(0.1f, 1.16f, 0.64f);
         StartCoroutine(ScrollLetter(introLetter, playerInteract));
     }
 
     IEnumerator ScrollLetter(GameObject introLetter, PlayerInteract playerInteract)
     {
-        AudioManager.instance.Play("IntroLetter"); 
+        AudioManager.instance.Play("IntroLetter");
         yield return new WaitForSeconds(waitTimeInIntroSeconds);
 
         while (introLetter.transform.localPosition.y < 1.9f)
         {
-            introLetter.transform.Translate(Vector3.up * Time.deltaTime * scrollIntroSpeed / 100);
+            introLetter.transform.Translate(Vector3.up * Time.deltaTime * 3f / 100);
             yield return null;
         }
 
@@ -74,7 +72,7 @@ public class LetterScript : MonoBehaviour
         playerInteract.unblockPlayerFromDialogue();
         PlayerInteract.input.EnableInputForInteraction();
         DialogueManager.Instance.StartDialogue(startDialogue);
-    //StartCoroutine(ScrollOutroLetter(introLetter, playerInteract));
+        //StartCoroutine(ScrollOutroLetter(introLetter, playerInteract));
     }
 
     IEnumerator ScrollOutroLetter(GameObject introLetter, PlayerInteract playerInteract)
@@ -82,38 +80,38 @@ public class LetterScript : MonoBehaviour
         playerInteract.blockPlayerForDialogue();
         _skinnedMeshRenderer.enabled = true;
         _skinnedMeshRenderer.material = _outroMaterial;
-        
+
         transform.DOLocalMoveY(1.16f, 1.5f).SetEase(Ease.InOutExpo);
         yield return new WaitForSeconds(1.5f);
-        
+
         transform.GetChild(0).GetComponent<Animator>().SetTrigger("Folded");
-        AudioManager.instance.Play("LetterFold"); 
+        AudioManager.instance.Play("LetterFold");
         yield return new WaitForSeconds(1.25f);
 
-        
+
         transform.DOLocalMoveZ(0.64f, 1.5f).SetEase(Ease.InCubic);
         yield return new WaitForSeconds(1.5f);
-        
+
         _renderer.SetActive(false);
 
-        AudioManager.instance.Play("OutroLetter"); 
+        AudioManager.instance.Play("OutroLetter");
         yield return new WaitForSeconds(waitTimeInOutroSeconds);
         while (introLetter.transform.localPosition.y < 1.9f)
         {
-            introLetter.transform.Translate(Vector3.up * Time.deltaTime * scrollOutroSpeed/100);
+            introLetter.transform.Translate(Vector3.up * Time.deltaTime * scrollOutroSpeed / 100);
             yield return null;
         }
-        
+
         yield return new WaitForSeconds(waitTimeOutOutroSeconds);
-        
+
         _backGround.GetComponent<Animator>().SetTrigger("FadeOut");
-        
+
         yield return new WaitForSeconds(7f);
-        
+
         SceneManager.LoadSceneAsync(2);
-        
-        
+
+
     }
 
-    
+
 }
