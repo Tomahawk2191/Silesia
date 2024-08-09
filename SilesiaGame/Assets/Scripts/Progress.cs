@@ -99,8 +99,10 @@ public class Progress : MonoBehaviour
         // release pigeons
         if (itemsCollected == totalItems) 
         {
-            GameObject.Find("CAGE").GetComponent<BasicBig>().setAbleToUse(true);
+            GameObject.Find("CAGE").GetComponentInChildren<BasicBig>().setAbleToUse(true);
+            LetterScript.instance.playOutroLetter();
         }
+
     }
     // set pigeons volume relative to game progress
     private void PigeonVol()
