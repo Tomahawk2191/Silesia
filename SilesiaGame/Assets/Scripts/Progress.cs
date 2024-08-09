@@ -80,7 +80,16 @@ public class Progress : MonoBehaviour
             Debug.Log("Called OpenDoor"); 
         }
         // living room door opening
-        if (itemsCollected == numKitchen + numBedroom) { /* INSERT DOOR OPEN TRIGER*/}
+        if (itemsCollected == numKitchen + numBedroom) 
+        {
+            Debug.Log("Finished Bedroom"); 
+            //audioManager.Play("BigGust", windowPos);
+            //Debug.Log("Played BigGust"); 
+            //new WaitForSeconds(5f); // SET BACK TO A REASONABLE VALUE< THIS IS JUST FOR NOW
+            Debug.Log("Calling OpenDoor"); 
+            LivingroomDoor.OpenDoor(); /* INSERT DOOR OPEN TRIGER*/
+            Debug.Log("Called OpenDoor"); 
+        }
 
         // release pigeons
         if (itemsCollected == totalItems) { /* INSERT DOOR OPEN TRIGER*/}
