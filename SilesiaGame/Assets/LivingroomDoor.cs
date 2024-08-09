@@ -26,11 +26,6 @@ public class LivingroomDoor : MonoBehaviour
         Debug.Log("openThedoor");
         _animator.SetTrigger("OpenDoor");
         //PlayDoorSound();
-        if (!bedDoorOpen)
-        {
-            AudioManager.instance.Play("DoorOpen", bedDoorPos);
-            bedDoorOpen = true;
-        }
         AudioManager.instance.Play("DoorOpen", livingDoorPos);
 
     }
