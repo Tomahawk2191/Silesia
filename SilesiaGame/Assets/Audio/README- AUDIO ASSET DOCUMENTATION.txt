@@ -106,3 +106,7 @@ BOOK GRAB OPEN AND CLOSE HARD:
 
 REAL VHS: PXB
 - https://pixabay.com/sound-effects/real-vhs-169982/
+
+CLOTH FLAPPING ON A CLOTHESLINE GENTLY: PXB
+- https://pixabay.com/sound-effects/cloth-flapping-on-a-clothesline-gently-6148/
+
