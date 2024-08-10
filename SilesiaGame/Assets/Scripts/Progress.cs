@@ -14,7 +14,6 @@ public class Progress : MonoBehaviour
     private float totalItems;
     [SerializeField] public AudioMixer mixer;
     private bool windowOpen;
-    [SerializeField] float incompleteCushion = 2f;  
 
     [SerializeField] float numKitchen;
     [SerializeField] float numBedroom;
@@ -66,15 +65,15 @@ public class Progress : MonoBehaviour
         PigeonVol();
 
         // CONDITION TRIGGERS AT CERTAIN VALUES
-        if (itemsCollected <= numKitchen - (2f + incompleteCushion) && windowOpen)
+        if (itemsCollected == numKitchen - 2f && windowOpen)
             audioManager.Play("SmallGust", windowPos);
 
-        if (itemsCollected == numKitchen - (1f + incompleteCushion) && windowOpen)
+        if (itemsCollected == numKitchen - 1f && windowOpen)
             audioManager.Play("MedGust", windowPos);
 
 
         // bedroom door opening
-        if (itemsCollected == numKitchen - incompleteCushion)
+        if (itemsCollected == numKitchen - 2)
         {
             Debug.Log("Finished kitchen"); 
             audioManager.Play("BigGust", windowPos);
@@ -82,8 +81,7 @@ public class Progress : MonoBehaviour
             new WaitForSeconds(5f); // SET BACK TO A REASONABLE VALUE< THIS IS JUST FOR NOW
             Debug.Log("Calling OpenDoor"); 
             BedroomDoor.OpenDoor(); /* INSERT DOOR OPEN TRIGER*/
-            //windowKitchen.GetComponent<Animator>().SetTrigger("OpenWindow");
-
+            windowKitchen.GetComponent<Animator>().SetTrigger("OpenWindow");
             Debug.Log("Called OpenDoor"); 
         }
         /*// living room door opening

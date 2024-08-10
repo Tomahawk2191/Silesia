@@ -20,13 +20,11 @@ public class KitchenWindow : MonoBehaviour
         _animator = gameObject.GetComponent<Animator>();
     }
 
-    public static IEnumerator OpenWindow()
+    public static void OpenWindow()
     {
         Debug.Log("openWindow");
         _animator.SetTrigger("OpenWindow");
-        Progress.instance.OpenWindow();
-        yield return new WaitForSeconds(1);
-        AudioManager.instance.Play("OpenWindow", windowPos);
+        //AudioManager.instance.Play("WindowOpen", windowPos);
 
     }
 
@@ -34,7 +32,7 @@ public class KitchenWindow : MonoBehaviour
     {
         if (Instance != null)
         {
-            Debug.Log("Two instances of the window");
+            Debug.Log("Two instances of the door");
         }
         else
         {
