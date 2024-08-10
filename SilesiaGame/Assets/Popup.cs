@@ -6,6 +6,7 @@ using UnityEngine;
 public class Popup : MonoBehaviour
 {
     private GameObject _journalPopup;
+    private GameObject _WASDPopup;
     
 
     public static Popup Instance { get; private set; }
@@ -21,20 +22,26 @@ public class Popup : MonoBehaviour
         {
             Instance = this;
             _journalPopup = transform.Find("JournalPopup").gameObject;
+            _WASDPopup = transform.Find("WASDPopup").gameObject;
         }
     }
     public void JournalPopup()
     {
-        StartCoroutine(JournalFade());
+        StartCoroutine(Fade(_journalPopup));
         
     }
 
-  
-    IEnumerator JournalFade()
+    public void WASDPopup()
     {
-        float alpha = _journalPopup.GetComponent<CanvasGroup>().alpha;
-        DOTween.To(() => alpha, x => alpha = x, 1f, 2f).SetEase(Ease.InOutCubic).OnUpdate(() => _journalPopup.GetComponent<CanvasGroup>().alpha = alpha);
+        StartCoroutine(Fade(_WASDPopup));
+    }
+
+    IEnumerator Fade(GameObject obj)
+    {
+        Debug.Log(obj.name);
+        float alpha = obj.GetComponent<CanvasGroup>().alpha;
+        DOTween.To(() => alpha, x => alpha = x, 1f, 2f).SetEase(Ease.InOutCubic).OnUpdate(() => obj.GetComponent<CanvasGroup>().alpha = alpha);
         yield return new WaitForSeconds(3f);
-        DOTween.To(() => alpha, x => alpha = x, 0f, 2f).SetEase(Ease.InOutCubic).OnUpdate(() => _journalPopup.GetComponent<CanvasGroup>().alpha = alpha);
+        DOTween.To(() => alpha, x => alpha = x, 0f, 2f).SetEase(Ease.InOutCubic).OnUpdate(() => obj.GetComponent<CanvasGroup>().alpha = alpha);
     }
 }
