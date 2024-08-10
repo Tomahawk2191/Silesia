@@ -110,3 +110,5 @@ REAL VHS: PXB
 CLOTH FLAPPING ON A CLOTHESLINE GENTLY: PXB
 - https://pixabay.com/sound-effects/cloth-flapping-on-a-clothesline-gently-6148/
 
+WINDOW OPENING: PXB
+- https://pixabay.com/sound-effects/window-opening-100430/
