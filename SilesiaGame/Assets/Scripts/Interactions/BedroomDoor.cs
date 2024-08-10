@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BedroomDoor : MonoBehaviour
@@ -11,6 +13,7 @@ public class BedroomDoor : MonoBehaviour
     private static Vector3 bedDoorPos;
     private static Vector3 livingDoorPos;
     private AudioManager audioManager;
+    public static BedroomDoor instance;
 
 
     private void Start()
@@ -21,32 +24,41 @@ public class BedroomDoor : MonoBehaviour
         _animator = gameObject.GetComponent<Animator>();
     }
 
-    public static void OpenDoor()
+    public void OpenDoor()
     {
         Debug.Log("openThedoor");
         _animator.SetTrigger("OpenDoor");
         //PlayDoorSound();
         if (!bedDoorOpen)
         {
-            AudioManager.instance.Play("DoorOpen", bedDoorPos);
+            StartCoroutine(PlayDoorSoundOnDelay("DoorOpen", 0.5f));
+            //AudioManager.instance.Play("DoorOpen", bedDoorPos);
             bedDoorOpen = true;
         }
         AudioManager.instance.Play("DoorOpen", livingDoorPos);
 
     }
 
+    IEnumerator PlayDoorSoundOnDelay(string key, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        AudioManager.instance.Play(key, bedDoorPos);
+    }
+
     private void Awake()
     {
-        if (Instance != null)
+        if (instance != null)
         {
-            Debug.Log("Two instances of the door");
+            Destroy(gameObject);
+            instance = this;
         }
         else
         {
-            Instance = this;
+            instance = this;
             _animator = transform.parent.GetComponent<Animator>();
             bedDoorPos = AudioManager.instance.GetBedDoorPos();
             livingDoorPos = AudioManager.instance.GetLivingDoorPos();
         }
     }
+
 }
