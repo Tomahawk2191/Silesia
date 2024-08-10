@@ -7,6 +7,6 @@ public class JournalObjectInteractable : Interactable
     // Start is called before the first frame update
     public override void Interact()
     {
-        //JournalManager.openJournal.SetActive(true);
+        JournalManager.openedJournal = true;
     }
 }

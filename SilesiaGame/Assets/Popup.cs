@@ -31,7 +31,11 @@ public class Popup : MonoBehaviour
     }
     public void JournalPopup()
     {
-        StartCoroutine(Fade(_journalPopup));
+        if (JournalManager.openedJournal)
+        {
+            StartCoroutine(Fade(_journalPopup));
+        }
+        
         
     }
 
