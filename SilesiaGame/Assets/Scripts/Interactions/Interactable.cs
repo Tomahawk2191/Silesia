@@ -72,6 +72,7 @@ public class Interactable : MonoBehaviour
         {
             photo.SetActive(true);
         }
+        Popup.Instance.JournalPopup();
     }
 
     public void setLayerToInteractable()

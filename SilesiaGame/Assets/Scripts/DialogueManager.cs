@@ -24,6 +24,7 @@ public class DialogueManager : MonoBehaviour
     public static bool justFinishedTheDialogue = false;
     public static Interactable currentObject;
     public static InspectorModeRotation rotation;
+    private static bool firstDialogue = true;
 
     // Start is called before the first frame update
     private void Awake()
@@ -109,6 +110,16 @@ public class DialogueManager : MonoBehaviour
 
     private static void EndDialogue()
     {
+        if (firstDialogue)
+        {
+            firstDialogue = false;
+            Popup.Instance.WASDPopup();
+        }
+        if (JournalManager.currentlyJournal)
+        {
+            JournalManager.currentlyJournal = false;
+            Popup.Instance.JournalTextPopup();
+        }
         currentObject.setLayerToDefault();
         currentObject.cameraMovementType.cameraMoveOut();
         PlayerUI.Instance.ClearDialogueText();
