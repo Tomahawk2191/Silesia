@@ -33,7 +33,7 @@ public class LivingroomDoor : MonoBehaviour
 
     }
 
-    /*
+
     private void Update()
     {
         if (bedDoorOpen)
@@ -42,6 +42,7 @@ public class LivingroomDoor : MonoBehaviour
             if (Vector3.Distance(player.transform.position, transform.position) < 5)
             {
                 bedDoorOpen = false;
+                Popup.Instance.KeyPopup();
                 OpenDoor();
             }
         }
@@ -62,5 +63,5 @@ public class LivingroomDoor : MonoBehaviour
             bedDoorPos = AudioManager.instance.GetBedDoorPos();
             livingDoorPos = AudioManager.instance.GetLivingDoorPos();
         }
-    }*/
+    }
 }
