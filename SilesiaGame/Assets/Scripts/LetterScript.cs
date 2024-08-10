@@ -117,6 +117,7 @@ public class LetterScript : MonoBehaviour
 
         playerInteract.unblockPlayerFromDialogue();
         PlayerInteract.input.EnableInputForInteraction();
+        Popup.Instance.LMBPopup();
         DialogueManager.Instance.StartDialogue(startDialogue);
         //StartCoroutine(ScrollOutroLetter(introLetter, playerInteract));
     }
