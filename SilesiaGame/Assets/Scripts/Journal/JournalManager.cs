@@ -11,6 +11,7 @@ public class JournalManager : MonoBehaviour
     // Start is called before the first frame update
     private static PlayerInput input;
     public static bool openedJournal;
+    public static bool currentlyJournal;
     
     void Start()
     {

@@ -8,5 +8,6 @@ public class JournalObjectInteractable : Interactable
     public override void Interact()
     {
         JournalManager.openedJournal = true;
+        JournalManager.currentlyJournal = true;
     }
 }

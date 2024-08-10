@@ -9,6 +9,7 @@ public class Popup : MonoBehaviour
     private GameObject _WASDPopup;
     private GameObject _LMBPopup;
     private GameObject _KeyPopup;
+    private GameObject _journalTextPopup;
     
 
     public static Popup Instance { get; private set; }
@@ -24,6 +25,7 @@ public class Popup : MonoBehaviour
         {
             Instance = this;
             _journalPopup = transform.Find("JournalPopup").gameObject;
+            _journalTextPopup = transform.Find("JournalTextPopup").gameObject;
             _WASDPopup = transform.Find("WASDPopup").gameObject;
             _LMBPopup = transform.Find("LMBPopup").gameObject;
             _KeyPopup = transform.Find("KeyPopup").gameObject;
@@ -35,8 +37,11 @@ public class Popup : MonoBehaviour
         {
             StartCoroutine(Fade(_journalPopup));
         }
-        
-        
+    }
+
+    public void JournalTextPopup()
+    {
+        StartCoroutine(Fade(_journalTextPopup));
     }
 
     public void WASDPopup()
