@@ -18,6 +18,9 @@ public class LetterScript : MonoBehaviour
     [SerializeField]
     private float scrollSpeed = 3f;
 
+    [SerializeField] bool introToggle = true;
+   
+
     //[SerializeField] private float scrollIntroSpeed = 2.9f;
     [SerializeField] 
     private float scrollOutroSpeed = 5f;
@@ -48,7 +51,19 @@ public class LetterScript : MonoBehaviour
         _renderer.SetActive(false);
         _skinnedMeshRenderer = transform.GetChild(0).GetComponent<SkinnedMeshRenderer>();
         _skinnedMeshRenderer.material = _introMaterial;
-        playIntroLetter();
+        if (introToggle)
+        {
+            playIntroLetter();
+
+        }
+        else
+        {
+            _skinnedMeshRenderer.enabled = false;
+            transform.DOLocalMoveY(1.9f, 0.1f);
+            transform.DOLocalMoveZ(3.5f, 0.1f);
+            transform.DOLocalMoveY(-1.2f, 0.1f);
+            
+        }
     }
 
     public void playIntroLetter()
