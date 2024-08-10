@@ -73,7 +73,7 @@ public class Progress : MonoBehaviour
 
 
         // bedroom door opening
-        if (itemsCollected == numKitchen)
+        if (itemsCollected == numKitchen - 2)
         {
             Debug.Log("Finished kitchen"); 
             audioManager.Play("BigGust", windowPos);
@@ -97,7 +97,7 @@ public class Progress : MonoBehaviour
         }*/
 
         // release pigeons
-        if (itemsCollected == totalItems) 
+        if (itemsCollected >= totalItems) 
         {
             GameObject.Find("CAGE").GetComponentInChildren<BasicBig>().setAbleToUse(true);
             LetterScript.instance.playOutroLetter();
