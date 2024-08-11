@@ -10,13 +10,13 @@ public class JournalManager : MonoBehaviour
     public static GameObject previousMainPage;
     // Start is called before the first frame update
     private static PlayerInput input;
-    public static bool openedJournal;
+    public static bool openedJournal = false;
     public static bool currentlyJournal;
-    
+
     void Start()
     {
         gameObject.SetActive(false);
-        
+
         input = PlayerInteract.input;
 
         input.OpenJournal += onPressJ;
@@ -24,14 +24,17 @@ public class JournalManager : MonoBehaviour
 
     private void onPressJ(object sender, EventArgs e)
     {
-        if (gameObject.activeSelf)
+        if (openedJournal)
         {
-            QuitJournal(this, EventArgs.Empty);
-        }
+            if (gameObject.activeSelf)
+            {
+                QuitJournal(this, EventArgs.Empty);
+            }
 
-        else
-        {
-            OpenJournal(this,EventArgs.Empty);
+            else
+            {
+                OpenJournal(this, EventArgs.Empty);
+            }
         }
     }
 
@@ -85,7 +88,7 @@ public class JournalManager : MonoBehaviour
         {
             if (previousMainPage.activeSelf)
             {
-                QuitJournal(this,EventArgs.Empty);
+                QuitJournal(this, EventArgs.Empty);
             }
             else
             {
@@ -94,9 +97,9 @@ public class JournalManager : MonoBehaviour
         }
         else
         {
-            QuitJournal(this,EventArgs.Empty);
+            QuitJournal(this, EventArgs.Empty);
         }
-        
+
     }
-    
+
 }
