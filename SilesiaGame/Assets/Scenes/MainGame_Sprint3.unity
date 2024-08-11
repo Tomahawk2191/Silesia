@@ -5967,6 +5967,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 447050758971891736}
     - target: {fileID: 5226504002553188152, guid: 0fe0ff98f781a8146a036a034dbc213e, type: 3}
+      propertyPath: _backGround
+      value: 
+      objectReference: {fileID: 1867989242}
+    - target: {fileID: 5226504002553188152, guid: 0fe0ff98f781a8146a036a034dbc213e, type: 3}
       propertyPath: introToggle
       value: 0
       objectReference: {fileID: 0}
@@ -6009,6 +6013,10 @@ PrefabInstance:
     - target: {fileID: 6231048001098611597, guid: 0fe0ff98f781a8146a036a034dbc213e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7612834506148657663, guid: 0fe0ff98f781a8146a036a034dbc213e, type: 3}
+      propertyPath: m_Name
+      value: Letter
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17543,14 +17551,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 898321178}
     m_Modifications:
-    - target: {fileID: 8206520414923195607, guid: a654589714aabbd4db55760afbd37754, type: 3}
-      propertyPath: m_Name
-      value: LIVINGROOM_WINDOW_UNWRAPPED_NEW_COURTAINS (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8206520414923195607, guid: a654589714aabbd4db55760afbd37754, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
     - target: {fileID: 1438937643946886839, guid: a654589714aabbd4db55760afbd37754, type: 3}
       propertyPath: m_LocalScale.x
       value: 4.233461
@@ -17602,6 +17602,14 @@ PrefabInstance:
     - target: {fileID: 1438937643946886839, guid: a654589714aabbd4db55760afbd37754, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8206520414923195607, guid: a654589714aabbd4db55760afbd37754, type: 3}
+      propertyPath: m_Name
+      value: LIVINGROOM_WINDOW_UNWRAPPED_NEW_COURTAINS (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8206520414923195607, guid: a654589714aabbd4db55760afbd37754, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: -5089839362047724069, guid: 35614e28eba3aaa4a81cce969418d6ac, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -22125,6 +22133,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2352954498865711158}
     m_Modifications:
+    - target: {fileID: 756709670608846097, guid: 0e969e13ec212924c9722f2162e01ace, type: 3}
+      propertyPath: m_Name
+      value: FullScreenBackground
+      objectReference: {fileID: 0}
     - target: {fileID: 5110571954447407662, guid: 0e969e13ec212924c9722f2162e01ace, type: 3}
       propertyPath: m_Name
       value: UIDisplay
@@ -22169,6 +22181,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7410937998479959358, guid: 0e969e13ec212924c9722f2162e01ace, type: 3}
+      propertyPath: m_Name
+      value: SensBackground
+      objectReference: {fileID: 0}
+    - target: {fileID: 8869340041081921071, guid: 0e969e13ec212924c9722f2162e01ace, type: 3}
+      propertyPath: m_Name
+      value: VolumeBackground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22182,6 +22202,11 @@ Transform:
 --- !u!1 &1867989241 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6313597601871685829, guid: 0e969e13ec212924c9722f2162e01ace, type: 3}
+  m_PrefabInstance: {fileID: 1867989239}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1867989242 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8317816140255575321, guid: 0e969e13ec212924c9722f2162e01ace, type: 3}
   m_PrefabInstance: {fileID: 1867989239}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1874142947 stripped
