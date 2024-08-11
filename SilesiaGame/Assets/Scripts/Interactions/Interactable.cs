@@ -57,6 +57,8 @@ public class Interactable : MonoBehaviour
         if (ableToUse)
         {
             DialogueManager.Instance.StartDialogue(this);
+            AudioManager.instance.Play("Swipe" + UnityEngine.Random.Range(1, 2));
+            Debug.Log("Played Grab Sound");
             ableToUse = false;
         }
 

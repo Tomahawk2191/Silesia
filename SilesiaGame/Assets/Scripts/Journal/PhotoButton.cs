@@ -31,6 +31,7 @@ public class PhotoButton : MonoBehaviour
         if (JournalManager.previousMainPage != null)
         {
             JournalManager.previousMainPage.SetActive(true);
+            AudioManager.instance.Play("PageTurn" + (UnityEngine.Random.Range(0, 2) + 1));
         }
     }
 }

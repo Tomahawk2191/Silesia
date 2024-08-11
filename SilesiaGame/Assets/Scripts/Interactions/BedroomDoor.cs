@@ -27,7 +27,7 @@ public class BedroomDoor : MonoBehaviour
     {
         Debug.Log("openThedoor");
         bedDoorOpen = true;
-        StartCoroutine(PlayDoorSoundOnDelay("DoorOpen", 0.25f));
+        StartCoroutine(PlayDoorSoundOnDelay("DoorOpen", 0.5f));
 
     }
 
