@@ -104,9 +104,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4586771944300200453}
-  - component: {fileID: 2022766488507117101}
   - component: {fileID: 1693583452925670648}
   - component: {fileID: 4851871294704636881}
+  - component: {fileID: 3121723981891577044}
   m_Layer: 7
   m_Name: WARDROBE 1
   m_TagString: Artifact
@@ -130,27 +130,6 @@ Transform:
   - {fileID: 5726689837364651342}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!65 &2022766488507117101
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 422544226021047701}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 1
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.038617976, y: 0.48333415, z: 0.24380063}
-  m_Center: {x: -0.032974184, y: 0.2583317, z: -0.22396198}
 --- !u!114 &1693583452925670648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,10 +163,33 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.08124088
-  m_Height: 0.45692834
+  m_Radius: 0.08093629
+  m_Height: 0.4137698
   m_Direction: 1
-  m_Center: {x: -0.27, y: 0.22319108, z: -0.27}
+  m_Center: {x: -0.31508842, y: 0.24477, z: -0.27799997}
+--- !u!136 &3121723981891577044
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422544226021047701}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.097807065
+  m_Height: 0.47342503
+  m_Direction: 1
+  m_Center: {x: -0.07582607, y: 0.25921327, z: -0.16801901}
 --- !u!1 &454633879107062753
 GameObject:
   m_ObjectHideFlags: 0

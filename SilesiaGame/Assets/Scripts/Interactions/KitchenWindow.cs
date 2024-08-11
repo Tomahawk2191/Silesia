@@ -5,7 +5,6 @@ using UnityEngine;
 public class KitchenWindow : MonoBehaviour
 {
     //private static int interactions = 0;
-    private static KitchenWindow Instance { get; set; }
     public static KitchenWindow instance;
     private static bool windowOpen = false; 
 
