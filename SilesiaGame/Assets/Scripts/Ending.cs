@@ -22,20 +22,6 @@ public class Ending : MonoBehaviour
 
     IEnumerator PlayEnding()
     {
-        /*String num = "000";
-        for (int i = 1; i <= 44; i++)
-        {
-            if (i > 0 && i <= 9)
-            {
-                num = "00" + i;
-            }
-            else
-            {
-                num = "0" + i;
-            }
-
-            _rawImage.texture = Resources.Load("/EndingJPGs/ezgif-frame-"+num) as Texture;
-        }*/
 
         foreach (Texture tex in _textures)
         {

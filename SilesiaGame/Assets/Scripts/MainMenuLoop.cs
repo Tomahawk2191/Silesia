@@ -5,39 +5,31 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
+using Object = UnityEngine.Object;
+
 public class MainMenuLoop : MonoBehaviour
 {
-    private List<Transform> frames = new List<Transform>();
-    private int currentFrame = 2;
-    private int previousFrame = 1;
+    private RawImage _rawImage;
 
-    private void Start()
+    private Object[] _textures;
+
+    [SerializeField] private GameObject _credits;
+    void Start()
     {
-        foreach (Transform child in transform)
-        {
-                frames.Add(child);
-                child.gameObject.SetActive(false);
-        }
-        frames[0].gameObject.SetActive(true);
-        StartCoroutine(measureTime());
+        _rawImage = gameObject.GetComponent<RawImage>();
+        _textures = Resources.LoadAll("MainMenuLoopJPGs", typeof(Texture));
+        StartCoroutine(PlayMenu());
     }
 
-    IEnumerator measureTime()
+    IEnumerator PlayMenu()
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.2f);
-            NextFrame();
+            foreach (Texture tex in _textures)
+            {
+                _rawImage.texture = tex;
+                yield return new WaitForSeconds(1f / 3);
+            }
         }
-    }
-
-    private void NextFrame()
-    {
-        frames[previousFrame].gameObject.SetActive(false);
-        frames[currentFrame].gameObject.SetActive(true);
-        
-        previousFrame = currentFrame;
-        currentFrame++;
-        currentFrame %= 7;
     }
 }
