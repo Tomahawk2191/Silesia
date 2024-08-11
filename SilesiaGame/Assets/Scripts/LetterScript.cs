@@ -155,6 +155,6 @@ public class LetterScript : MonoBehaviour
 
         yield return new WaitForSeconds(7f);
 
-        SceneManager.LoadSceneAsync(2);
+        SceneManager.LoadScene(2);
     }
 }
