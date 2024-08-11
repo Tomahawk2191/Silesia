@@ -257,7 +257,7 @@ MonoBehaviour:
   totalItems: 23
   mixer: {fileID: 24100000, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
   incompleteCushion: 2
-  numKitchen: 7
+  numKitchen: 6
   numBedroom: 8
   numLivingRoom: 10
   windowKitchen: {fileID: 0}
@@ -473,6 +473,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startDialogue: {fileID: 1387774352226061977}
+  waitTimeInIntroSeconds: 7
+  waitTimeInOutroSeconds: 19
+  waitTimeOutIntroSeconds: 3
+  waitTimeOutOutroSeconds: 3
+  scrollSpeed: 3
+  introToggle: 1
+  scrollOutroSpeed: 5
   _renderer: {fileID: -8538862462556230406, guid: c0b701049f7ed4d48842c5c4aefd1bdf, type: 2}
   _introMaterial: {fileID: 2100000, guid: 181a3afad5a978546a44b8f995fcc950, type: 2}
   _outroMaterial: {fileID: 2100000, guid: 3a00ecee0ab88e74bac8782ebd96846a, type: 2}

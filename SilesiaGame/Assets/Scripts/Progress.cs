@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -7,7 +8,7 @@ public class Progress : MonoBehaviour
 {
     // Progress Tracking vals
     [SerializeField] // comment out later, just visible for testing
-    private float itemsCollected = 0f;
+    private float itemsCollected = -1f; // STARTS at -1, when u complete the intro dialogue it auto-flips to 0 to begin gameplay
     [SerializeField] // comment out later, just visible for testing
     private float percentcomplete = 0f;
     [SerializeField] // comment out later, just visible for testing
@@ -47,7 +48,7 @@ public class Progress : MonoBehaviour
     private void Start()
     {
         totalItems = GameObject.FindGameObjectsWithTag("Artifact").Length;
-        itemsCollected = 0f;
+        itemsCollected = -1f;
         percentcomplete = 0f;
         windowOpen = false;
         audioManager = AudioManager.instance; 
@@ -79,13 +80,21 @@ public class Progress : MonoBehaviour
             if (!windowOpen) KitchenWindow.instance.OpenWindow(); 
             Debug.Log("Finished kitchen"); 
             audioManager.Play("BigGust", windowPos);
-            Debug.Log("Played BigGust"); 
-            Debug.Log("Calling OpenDoor"); 
-            BedroomDoor.instance.OpenDoor(); /* INSERT DOOR OPEN TRIGER*/
-            //windowKitchen.GetComponent<Animator>().SetTrigger("OpenWindow");
-
-            Debug.Log("Called OpenDoor"); 
+            Debug.Log("Played BigGust");
+            Debug.Log("Calling OpenDoor");
+            StartCoroutine(OpenBedroom()); 
+            
         }
+
+        IEnumerator OpenBedroom()
+        {
+            Debug.Log("Called OpenDoor");
+            yield return new WaitForSeconds(0.3f);   
+            BedroomDoor.instance.OpenDoor(); /* INSERT DOOR OPEN TRIGER*/
+
+            //windowKitchen.GetComponent<Animator>().SetTrigger("OpenWindow");
+        }
+
         /*// living room door opening
         if (itemsCollected == numKitchen + numBedroom) 
         {
