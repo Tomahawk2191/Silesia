@@ -12,6 +12,6 @@ public class WindowInteract : Interactable
     //Interact is empty because it doesn't do anything else other than run dialogue
     public override void Interact()
     {
-        KitchenWindow.OpenWindow(); 
+        if (!Progress.instance.GetWindowStatus()) KitchenWindow.instance.OpenWindow(); 
     }
 }

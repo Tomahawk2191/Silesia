@@ -6,6 +6,8 @@ public class KitchenWindow : MonoBehaviour
 {
     //private static int interactions = 0;
     private static KitchenWindow Instance { get; set; }
+    public static KitchenWindow instance;
+    private static bool windowOpen = false; 
 
     private static Animator _animator;
 
@@ -20,25 +22,31 @@ public class KitchenWindow : MonoBehaviour
         _animator = gameObject.GetComponent<Animator>();
     }
 
-    public static IEnumerator OpenWindow()
+    public void OpenWindow()
     {
         Debug.Log("openWindow");
         _animator.SetTrigger("OpenWindow");
         Progress.instance.OpenWindow();
-        yield return new WaitForSeconds(1);
-        AudioManager.instance.Play("OpenWindow", windowPos);
+        StartCoroutine(PlayWindowSoundOnDelay("OpenWindow", 0)); 
 
+    }
+
+    IEnumerator PlayWindowSoundOnDelay(string key, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        AudioManager.instance.Play(key, windowPos);
     }
 
     private void Awake()
     {
-        if (Instance != null)
+        if (instance != null)
         {
-            Debug.Log("Two instances of the window");
+            Destroy(gameObject);
+            instance = this;
         }
         else
         {
-            Instance = this;
+            instance = this;
             _animator = transform.parent.GetComponent<Animator>();
             windowPos = AudioManager.instance.GetWindowPos();
 

@@ -211,7 +211,6 @@ GameObject:
   m_Component:
   - component: {fileID: 60385545336079435}
   - component: {fileID: 6641402688816240537}
-  - component: {fileID: 8761746795809179695}
   - component: {fileID: 2552803836651927024}
   m_Layer: 7
   m_Name: KITCHEN_WINDOW_UNWRAPPED
@@ -257,20 +256,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.6275581, y: 1.9547145, z: 0.6743133}
   m_Center: {x: 1.4469701, y: 1.4567769, z: -3.476918}
---- !u!114 &8761746795809179695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5457957166285838803}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b60a79f80269b3946b5fb846077ef286, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  photo: {fileID: 0}
-  data: {fileID: 11400000, guid: 748285cf01934a54e9e091703e75b3b5, type: 2}
 --- !u!114 &2552803836651927024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,6 +268,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5632dc7908f469444995f8dbb0b26a69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  photo: {fileID: 0}
+  data: {fileID: 11400000, guid: 748285cf01934a54e9e091703e75b3b5, type: 2}
 --- !u!1 &7764731418074596076
 GameObject:
   m_ObjectHideFlags: 0
