@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Artifact
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &1091240147968788217
 Transform:
@@ -32,6 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7327774638032043273}
+  - {fileID: 8105010649220537874}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 122.969, z: 0}
 --- !u!114 &8133783241824922152
@@ -135,10 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: ba724680ef3a43741a460f365e47fdaa, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8105010649220537874}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba724680ef3a43741a460f365e47fdaa, type: 3}
 --- !u!4 &7327774638032043273 stripped
@@ -152,19 +150,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 7327774638032043273}
+    m_TransformParent: {fileID: 1091240147968788217}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 3367aa2cf4bd4d24795d43b6d749eb0e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.34100002
+      value: -0.343
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3367aa2cf4bd4d24795d43b6d749eb0e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.012100011
+      value: 0.014100011
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3367aa2cf4bd4d24795d43b6d749eb0e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.13599995
+      value: 0.1369999
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3367aa2cf4bd4d24795d43b6d749eb0e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -212,7 +210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3367aa2cf4bd4d24795d43b6d749eb0e, type: 3}
       propertyPath: m_TagString
-      value: Artifact
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 2060804197129961047, guid: 3367aa2cf4bd4d24795d43b6d749eb0e, type: 3}
       propertyPath: m_Materials.Array.data[0]

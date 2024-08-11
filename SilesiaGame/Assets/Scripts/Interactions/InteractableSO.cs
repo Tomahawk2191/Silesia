@@ -50,10 +50,8 @@ public class InteractableSO : ScriptableObject
                 switch (speaker)
                 {
                     case Speaker.Grandfather:
-                        Debug.Log("gf color: " + grandfatherColor);
                         return grandfatherColor;
                     case Speaker.Grandson:
-                        Debug.Log("gs color: " + grandsonColor);
                         return grandsonColor;
                     default:
                         Debug.LogError("illegal enum value" + speaker);
