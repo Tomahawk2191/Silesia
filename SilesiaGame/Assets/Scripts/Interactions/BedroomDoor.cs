@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BedroomDoor : MonoBehaviour
@@ -27,22 +26,17 @@ public class BedroomDoor : MonoBehaviour
     public void OpenDoor()
     {
         Debug.Log("openThedoor");
-        _animator.SetTrigger("OpenDoor");
-        //PlayDoorSound();
-        if (!bedDoorOpen)
-        {
-            StartCoroutine(PlayDoorSoundOnDelay("DoorOpen", 0.5f));
-            //AudioManager.instance.Play("DoorOpen", bedDoorPos);
-            bedDoorOpen = true;
-        }
-        AudioManager.instance.Play("DoorOpen", livingDoorPos);
+        bedDoorOpen = true;
+        StartCoroutine(PlayDoorSoundOnDelay("DoorOpen", 0.25f));
 
     }
 
     IEnumerator PlayDoorSoundOnDelay(string key, float delay)
     {
-        yield return new WaitForSeconds(delay);
         AudioManager.instance.Play(key, bedDoorPos);
+        yield return new WaitForSeconds(delay);
+        _animator.SetTrigger("OpenDoor");
+        
     }
 
     private void Awake()

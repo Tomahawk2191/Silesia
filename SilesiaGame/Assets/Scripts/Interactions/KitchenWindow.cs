@@ -6,7 +6,8 @@ public class KitchenWindow : MonoBehaviour
 {
     //private static int interactions = 0;
     private static KitchenWindow Instance { get; set; }
-    public static KitchenWindow instance; 
+    public static KitchenWindow instance;
+    private static bool windowOpen = false; 
 
     private static Animator _animator;
 

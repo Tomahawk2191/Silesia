@@ -76,10 +76,10 @@ public class Progress : MonoBehaviour
         // bedroom door opening
         if (itemsCollected == numKitchen - incompleteCushion)
         {
+            if (!windowOpen) KitchenWindow.instance.OpenWindow(); 
             Debug.Log("Finished kitchen"); 
             audioManager.Play("BigGust", windowPos);
             Debug.Log("Played BigGust"); 
-            new WaitForSeconds(5f); // SET BACK TO A REASONABLE VALUE< THIS IS JUST FOR NOW
             Debug.Log("Calling OpenDoor"); 
             BedroomDoor.instance.OpenDoor(); /* INSERT DOOR OPEN TRIGER*/
             //windowKitchen.GetComponent<Animator>().SetTrigger("OpenWindow");
@@ -116,6 +116,11 @@ public class Progress : MonoBehaviour
     public void OpenWindow()
     {
         windowOpen = true;
+    }
+
+    public bool GetWindowStatus()
+    {
+        return windowOpen;
     }
 
     public float GetPercent()

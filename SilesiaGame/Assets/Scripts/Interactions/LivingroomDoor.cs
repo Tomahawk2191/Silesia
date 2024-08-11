@@ -1,10 +1,11 @@
-using System;
+using System.Collections;
 using UnityEngine;
 
 public class LivingroomDoor : MonoBehaviour
 {
     private static int interactions = 0;
     private static LivingroomDoor Instance { get; set; }
+    public static LivingroomDoor instance; 
 
     private static Animator _animator;
     public static bool bedDoorOpen = false;
@@ -15,6 +16,21 @@ public class LivingroomDoor : MonoBehaviour
 
     [SerializeField] private GameObject player;
 
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            instance = this;
+        }
+        else
+        {
+            instance = this;
+            _animator = transform.parent.GetComponent<Animator>();
+            bedDoorPos = AudioManager.instance.GetBedDoorPos();
+            livingDoorPos = AudioManager.instance.GetLivingDoorPos();
+        }
+    }
 
     private void Start()
     {
@@ -24,12 +40,19 @@ public class LivingroomDoor : MonoBehaviour
         _animator = gameObject.GetComponent<Animator>();
     }
 
-    public static void OpenDoor()
+
+    public void OpenDoor()
     {
         Debug.Log("openThedoor");
+        StartCoroutine(PlayDoorSoundOnDelay("DoorOpen", 0.5f));
+
+    }
+
+    IEnumerator PlayDoorSoundOnDelay(string key, float delay)
+    {
+        AudioManager.instance.Play(key, livingDoorPos);
+        yield return new WaitForSeconds(delay);
         _animator.SetTrigger("OpenDoor");
-        //PlayDoorSound();
-        AudioManager.instance.Play("DoorOpen", livingDoorPos);
 
     }
 
@@ -48,20 +71,4 @@ public class LivingroomDoor : MonoBehaviour
         }
     }
 
-
-
-    private void Awake()
-    {
-        if (Instance != null)
-        {
-            Debug.Log("Two instances of the door");
-        }
-        else
-        {
-            Instance = this;
-            _animator = transform.parent.GetComponent<Animator>();
-            bedDoorPos = AudioManager.instance.GetBedDoorPos();
-            livingDoorPos = AudioManager.instance.GetLivingDoorPos();
-        }
-    }
 }
