@@ -115,10 +115,19 @@ public class DialogueManager : MonoBehaviour
             firstDialogue = false;
             Popup.Instance.WASDPopup();
         }
+        
+            
         if (JournalManager.currentlyJournal)
         {
             JournalManager.currentlyJournal = false;
             Popup.Instance.JournalTextPopup();
+        }
+        else
+        {
+            if (JournalManager.openedJournal)
+            {
+                Popup.Instance.JournalPopup();
+            }
         }
         currentObject.setLayerToDefault();
         currentObject.cameraMovementType.cameraMoveOut();

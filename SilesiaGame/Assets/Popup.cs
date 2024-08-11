@@ -33,10 +33,8 @@ public class Popup : MonoBehaviour
     }
     public void JournalPopup()
     {
-        if (JournalManager.openedJournal)
-        {
+        Debug.Log("normal journal popup[");
             StartCoroutine(Fade(_journalPopup));
-        }
     }
 
     public void JournalTextPopup()
