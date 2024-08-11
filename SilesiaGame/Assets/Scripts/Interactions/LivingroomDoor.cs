@@ -61,7 +61,7 @@ public class LivingroomDoor : MonoBehaviour
     {
         if (bedDoorOpen)
         {
-            Debug.Log(" rarara " + player.transform.position + "    " + transform.position + "    " + Vector3.Distance(player.transform.position, transform.position));
+            //Debug.Log(" rarara " + player.transform.position + "    " + transform.position + "    " + Vector3.Distance(player.transform.position, transform.position));
             if (Vector3.Distance(player.transform.position, transform.position) < 5)
             {
                 bedDoorOpen = false;

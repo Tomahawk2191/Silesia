@@ -5,7 +5,7 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     private static int maxID = 1;
-    private bool ableToUse;
+    protected bool ableToUse;
     private bool collectable;
     [SerializeField] private GameObject photo;
     public ICameraMovementType cameraMovementType { get; protected set; }

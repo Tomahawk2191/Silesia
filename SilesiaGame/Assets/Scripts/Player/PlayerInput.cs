@@ -13,6 +13,8 @@ public class PlayerInput
 
     public event EventHandler ShowHint;
 
+    public event EventHandler EndGame;
+
     public event EventHandler HideHint;
     public event EventHandler NextLine;
 
@@ -36,6 +38,7 @@ public class PlayerInput
         input.Player.Interact.performed += Interact_performed;
         input.Player.ShowHint.performed += ShowHint_performed;
         input.Player.ShowHint.canceled += ShowHint_canceled;
+        input.Player.EndGame.performed += EndGame_performed;
         input.Journal.QuitJournal.performed += OpenJournal_performed;
         input.Dialogue.NextLine.performed += NextLine_performed;
         input.Player.PauseMenu.performed += OpenPauseMenu_performed;
@@ -72,6 +75,7 @@ public class PlayerInput
         _currentActionMap.Enable();
         input.Journal.Enable();
         input.Zoom.Enable();
+        input.Player.EndGame.performed -= EndGame_performed;
         input.Player.PauseMenu.performed -= OpenPauseMenu_performed;
         input.Journal.CloseWithESC.performed -= OpenJournal_performed;
         input.Zoom.ZoomIn.performed -= OnZoomIn;
@@ -89,6 +93,7 @@ public class PlayerInput
         _currentActionMap.Enable();
         input.Journal.Enable();
         input.Zoom.Enable();
+        input.Player.EndGame.performed += EndGame_performed;
         input.Player.PauseMenu.performed += OpenPauseMenu_performed;
         input.Journal.CloseWithESC.performed -= OpenJournal_performed;
         input.Zoom.ZoomIn.performed += OnZoomIn;
@@ -105,6 +110,7 @@ public class PlayerInput
         }
         _currentActionMap = input.Journal;
         _currentActionMap.Enable();
+        input.Player.EndGame.performed -= EndGame_performed;
         input.Player.PauseMenu.performed -= OpenPauseMenu_performed;
         input.Journal.CloseWithESC.performed += OpenJournal_performed;
         input.Zoom.Disable();
@@ -121,6 +127,11 @@ public class PlayerInput
     private void OpenJournal_performed(InputAction.CallbackContext obj)
     {
         OpenJournal?.Invoke(this, EventArgs.Empty);
+    }
+
+    private void EndGame_performed(InputAction.CallbackContext obj)
+    {
+        EndGame?.Invoke(this, EventArgs.Empty);
     }
 
     public void DisableInputForCameraMovemen()

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4708273096014804905}
   - component: {fileID: 5406655875552450548}
-  - component: {fileID: 9048055341090936448}
+  - component: {fileID: 8333009008018226038}
   m_Layer: 7
   m_Name: CAGE
   m_TagString: Artifact
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6619203363074066779}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.3960808, z: -0, w: 0.9182157}
+  m_LocalRotation: {x: 0, y: -0.39608246, z: 0, w: 0.918215}
   m_LocalPosition: {x: -23.973, y: 3.868, z: 54.837}
   m_LocalScale: {x: 3.382543, y: 3.3825426, z: 3.382543}
   m_ConstrainProportionsScale: 0
@@ -57,7 +57,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.4842169, y: 0.8372337, z: 0.4958341}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &9048055341090936448
+--- !u!114 &8333009008018226038
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -66,11 +66,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6619203363074066779}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b60a79f80269b3946b5fb846077ef286, type: 3}
+  m_Script: {fileID: 11500000, guid: 4dfef237c45b24d42b9e43aab5d978ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   photo: {fileID: 0}
   data: {fileID: 11400000, guid: 79d06282ebad90a4e925b3865e97f635, type: 2}
+  pigeonInteraction: 0
+  pigeonInteracted: 0
+  player: {fileID: 0}
 --- !u!1 &7506041330497077396
 GameObject:
   m_ObjectHideFlags: 0

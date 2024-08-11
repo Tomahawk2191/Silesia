@@ -38,7 +38,7 @@ public class LetterScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(instance != null)
+        if (instance != null)
         {
             Destroy(gameObject);
             instance = this;
@@ -62,7 +62,8 @@ public class LetterScript : MonoBehaviour
             transform.DOLocalMoveY(1.9f, 0.1f);
             transform.DOLocalMoveZ(3.5f, 0.1f);
             transform.DOLocalMoveY(-1.2f, 0.1f);
-            
+            transform.GetChild(0).GetComponent<Animator>().SetTrigger("Folded");
+
         }
     }
 
@@ -127,6 +128,22 @@ public class LetterScript : MonoBehaviour
         playerInteract.blockPlayerForDialogue();
         _skinnedMeshRenderer.enabled = true;
         _skinnedMeshRenderer.material = _outroMaterial;
+
+        Vector3 pos = transform.localPosition;
+        Debug.Log(pos);
+        pos.z = pos.z - 1.2f;
+        transform.localPosition = pos;
+        Debug.Log(transform.localPosition);
+
+
+        transform.parent.Find("FPS Cam").transform.DOLocalRotate(Vector3.zero, 3f).SetEase(Ease.InOutCubic);
+        transform.parent.transform.DOLocalMove(new Vector3(3.73534656f, 0.116072178f, 11.2674656f), 3f).SetEase(Ease.InOutCubic);
+        transform.parent.transform.parent.Find("Player").transform.DOLocalMove(new Vector3(3.73534656f, 0.116072178f-0.625f, 11.2674656f), 3f).SetEase(Ease.InOutCubic);
+        yield return new WaitForSeconds(3f);
+        
+
+        
+
 
         transform.DOLocalMoveY(1.16f, 1.5f).SetEase(Ease.InOutExpo);
         yield return new WaitForSeconds(1.5f);

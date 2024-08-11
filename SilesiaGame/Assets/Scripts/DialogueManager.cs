@@ -115,7 +115,12 @@ public class DialogueManager : MonoBehaviour
             firstDialogue = false;
             Popup.Instance.WASDPopup();
         }
-        
+
+        if (Pigeon.Instance.pigeonInteraction)
+        {
+            Pigeon.Instance.pigeonInteraction = false;
+            Pigeon.Instance.pigeonInteracted = true;
+        }
             
         if (JournalManager.currentlyJournal)
         {

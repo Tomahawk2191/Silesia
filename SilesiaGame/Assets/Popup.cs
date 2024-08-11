@@ -10,6 +10,7 @@ public class Popup : MonoBehaviour
     private GameObject _LMBPopup;
     private GameObject _KeyPopup;
     private GameObject _journalTextPopup;
+    private GameObject _pigeonPopup;
     
 
     public static Popup Instance { get; private set; }
@@ -29,6 +30,7 @@ public class Popup : MonoBehaviour
             _WASDPopup = transform.Find("WASDPopup").gameObject;
             _LMBPopup = transform.Find("LMBPopup").gameObject;
             _KeyPopup = transform.Find("KeyPopup").gameObject;
+            _pigeonPopup = transform.Find("PigeonPopup").gameObject;
         }
     }
     public void JournalPopup()
@@ -50,6 +52,12 @@ public class Popup : MonoBehaviour
     public void LMBPopup()
     {
         StartCoroutine(Fade(_LMBPopup));
+
+    }
+
+    public void TogglePigeonPopup(float alpha)
+    {
+        _pigeonPopup.GetComponent<CanvasGroup>().alpha = alpha;
 
     }
 
