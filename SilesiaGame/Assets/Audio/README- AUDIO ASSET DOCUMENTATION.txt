@@ -12,24 +12,18 @@ https://sfxr.me/ AUDIO CREATIONS (codes so I can mod in the future):
 
 ABSTRACTION STREAM LOOPS / AMBIENT MUSIC: PUBLIC DOMAIN NO ATTRIBUTION REQUIRED
 - https://tallbeard.itch.io/music-loop-bundle
-	- 1. Stream Loops 2024-06-26
-	- 3. Stream Loops 2024-06-16
-	- 11. Stream Loops 2024-05-01_01
 	- 15. Stream Loops 2024-04-24_03
-	- 19. Stream Loops 2024-03-30_02
 	- 22. Stream Loops 2024-03-06_01 * synths are a bit odd
 	- 23. Stream Loops 2024-03-06_02 * might be a favorite
 	- 32. Stream Loops 2024-01-24_01
 	- 39. Ludum Dare 32 - 05
+	- Lundum Dare 32 - 02
 
 AE AMBIENCE COLLECTION: LICENSED AND NO ATTRIBUTION REQUIRED
 - https://audioelk.itch.io/free-sounds-ambience-collection
-	- Thunderstorm 2
-	- Thunderstorm 3
-	- Rain 
-	- Kitchen 1
 	- Kitchen 2
-	- Garage
+	- Neighborhood backyard rain storm
+
 
 
 AE FOOTSTEPS COLLECTION: 
@@ -52,8 +46,7 @@ GDC 2024 - GAME AUDIO BUNDLE - SONNISS: LICENSED (Free) AND NO ATTRIBUTION REQUI
 		- Pol Pos: Amb for Atm v2**
 	- Package 6/9
 		- Pole Pos: Wind in trees
-		- Resopic: Distinct Whooshes**
-		- Rogue waves: Creaking Door, Kawaii UI
+		- Rogue waves: Creaking Door, Kawaii UI **
 	- Package 7/9
 		- Sonic: XAmbisonics Roomtones**X
 	- Package 8/9
@@ -63,7 +56,7 @@ GDC 2024 - GAME AUDIO BUNDLE - SONNISS: LICENSED (Free) AND NO ATTRIBUTION REQUI
 		- 
 
 GDC 2015 AUDIO EFFECTS BUNDLE - SONNIS: LICENSED (Free) AND NO ATTRIBUTION REQUIRED
-	- Heacy wind thunder rain
+	- Heavy wind thunder rain
 
 PIGEON WALKING AND COOING.WAV: CC0 NO ATTRIBUTION
 - https://freesound.org/people/5ro4/sounds/701282/
