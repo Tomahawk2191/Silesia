@@ -14,5 +14,7 @@ public class Matchbox : Interactable
         Debug.Log("matchymatchy");
         LivingroomDoor.bedDoorOpen = true;
         Popup.Instance.KeyPopup();
+        //Progress.instance.CollectKey();
+        LivingDoorLock.instance.gameObject.SetActive(false);
     }
 }

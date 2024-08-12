@@ -15,7 +15,8 @@ public class Progress : MonoBehaviour
     private float totalItems;
     [SerializeField] public AudioMixer mixer;
     private bool windowOpen;
-    [SerializeField] float incompleteCushion = 2f;  
+    [SerializeField] float incompleteCushion = 2f;
+    private bool keyCollected = false; 
 
     [SerializeField] float numKitchen;
     [SerializeField] float numBedroom;
@@ -135,6 +136,16 @@ public class Progress : MonoBehaviour
     public float GetAbsolute()
     {
         return itemsCollected;
+    }
+
+    public bool PlayerHasKey()
+    {
+        return keyCollected;
+    }
+    public void CollectKey()
+    {
+        keyCollected = true;
+        //LivingDoorLock.instance.gameObject.SetActive(false);
     }
 
 

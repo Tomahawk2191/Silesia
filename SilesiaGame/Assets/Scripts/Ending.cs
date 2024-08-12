@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Object = UnityEngine.Object;
 
@@ -18,6 +19,7 @@ public class Ending : MonoBehaviour
         _textures = Resources.LoadAll("EndingJPGs",typeof(Texture));
         Debug.Log(_textures.Length);
         StartCoroutine(PlayEnding());
+
     }
 
     IEnumerator PlayEnding()
@@ -31,5 +33,7 @@ public class Ending : MonoBehaviour
         
         gameObject.GetComponent<Animator>().SetTrigger("EndOfEnding");
         _credits.GetComponent<Animator>().SetTrigger("EndOfEnding");
+        yield return new WaitForSeconds(150);
+        SceneManager.LoadSceneAsync(0);
     }
 }

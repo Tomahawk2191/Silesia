@@ -52,28 +52,28 @@ public class Interactable : MonoBehaviour
 
     public void TriggerDialogue()
     {
-
-        InspectorModeRotation.setEnabledRotation(!data.isBig);
         if (ableToUse)
         {
+            InspectorModeRotation.setEnabledRotation(!data.isBig);
             DialogueManager.Instance.StartDialogue(this);
             AudioManager.instance.Play("Swipe" + UnityEngine.Random.Range(1, 2));
             Debug.Log("Played Grab Sound");
             ableToUse = false;
-        }
-
-        if (collectable)
-        {
-            collectableInteracted?.Invoke(this, new NewItemCollected()
+            if (collectable)
             {
-                id = data.id
-            });
-        }
+                collectableInteracted?.Invoke(this, new NewItemCollected()
+                {
+                    id = data.id
+                });
+            }
 
-        if (photo != null)
-        {
-            photo.SetActive(true);
+            if (photo != null)
+            {
+                photo.SetActive(true);
+            }
+            
         }
+        
         
     }
 
