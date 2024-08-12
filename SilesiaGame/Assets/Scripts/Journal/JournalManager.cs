@@ -12,6 +12,7 @@ public class JournalManager : MonoBehaviour
     private static PlayerInput input;
     public static bool openedJournal = false;
     public static bool currentlyJournal;
+    public static bool inTheMenu = false;
 
     void Start()
     {
@@ -24,7 +25,7 @@ public class JournalManager : MonoBehaviour
 
     private void onPressJ(object sender, EventArgs e)
     {
-        if (openedJournal)
+        if (openedJournal && !inTheMenu)
         {
             if (gameObject.activeSelf)
             {

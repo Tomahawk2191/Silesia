@@ -54,6 +54,7 @@ public class PlayerUI : MonoBehaviour
         {
             if (_pauseMenuPanel.activeSelf)
             {
+                
                 _pause.SetActive(true);
                 _pauseMenuPanel.SetActive(false);
                 if (cameraWasLocked)
@@ -63,6 +64,7 @@ public class PlayerUI : MonoBehaviour
                 }
 
                 PlayerCam.LockCursor();
+                JournalManager.inTheMenu = false;
 
                 Time.timeScale = 1f;
             }
@@ -70,7 +72,7 @@ public class PlayerUI : MonoBehaviour
             {
                 cameraWasLocked = PlayerCam.getCanMoveCamera();
                 Time.timeScale = 0f;
-                
+                JournalManager.inTheMenu = true;
                 PlayerCam.UnlockCursor();
                 PlayerCam.setCanMoveCamera(false);
                 _settings.SetActive(false);
