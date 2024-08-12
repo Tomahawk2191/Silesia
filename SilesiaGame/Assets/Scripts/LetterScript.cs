@@ -7,22 +7,16 @@ public class LetterScript : MonoBehaviour
 {
     [SerializeField]
     private Interactable startDialogue;
-    [SerializeField] 
     private float waitTimeInIntroSeconds = 7f;
-    [SerializeField] 
     private float waitTimeInOutroSeconds = 19f;
-    [SerializeField] 
     private float waitTimeOutIntroSeconds = 3f;
-    [SerializeField] 
     private float waitTimeOutOutroSeconds = 3f;
-    [SerializeField]
-    private float scrollSpeed = 3f;
 
     [SerializeField] bool introToggle = true;
    
 
     //[SerializeField] private float scrollIntroSpeed = 2.9f;
-    [SerializeField] 
+    private float scrollIntroSpeed = 3f;
     private float scrollOutroSpeed = 5f;
 
     [SerializeField] private FullScreenPassRendererFeature _renderer;
@@ -99,7 +93,7 @@ public class LetterScript : MonoBehaviour
 
         while (introLetter.transform.localPosition.y < 1.9f)
         {
-            introLetter.transform.Translate(Vector3.up * Time.deltaTime * scrollSpeed / 100);
+            introLetter.transform.Translate(Vector3.up * Time.deltaTime * scrollIntroSpeed / 100);
             yield return null;
         }
 
