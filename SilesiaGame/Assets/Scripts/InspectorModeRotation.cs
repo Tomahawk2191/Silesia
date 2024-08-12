@@ -18,23 +18,16 @@ namespace DefaultNamespace
         }
 
         void Update() {
-            if (enabledRot /*&& Input.GetMouseButton(1)*/)
+            if (obj != null)
             {
-                float h = horizontalSpeed * Input.GetAxis("Mouse X") * -1;
-                float v = verticalSpeed * Input.GetAxis("Mouse Y");
-                obj.transform.RotateAround(obj.position, Camera.main.transform.right, v * 2);
-                obj.transform.RotateAround(obj.position, Camera.main.transform.up, h * 2);
+                if (enabledRot /*&& Input.GetMouseButton(1)*/)
+                {
+                    float h = horizontalSpeed * Input.GetAxis("Mouse X") * -1;
+                    float v = verticalSpeed * Input.GetAxis("Mouse Y");
+                    obj.transform.RotateAround(obj.position, Camera.main.transform.right, v * 2);
+                    obj.transform.RotateAround(obj.position, Camera.main.transform.up, h * 2);
+                }
             }
-        }
-
-        private void RotateOn(object sender, EventArgs e)
-        {
-            enabledRot = true;
-        }
-
-        private void RotateOff(object sender, EventArgs e)
-        {
-            enabledRot = false;
         }
 
 

@@ -23,7 +23,6 @@ public class DialogueManager : MonoBehaviour
     private PlayerInput _input;
     public static bool justFinishedTheDialogue = false;
     public static Interactable currentObject;
-    public static InspectorModeRotation rotation;
     private static bool firstDialogue = true;
 
     // Start is called before the first frame update
@@ -47,7 +46,6 @@ public class DialogueManager : MonoBehaviour
         _sentFontStyle = new Queue<FontStyles>();
         _sentFontWeight = new Queue<FontWeight>();
         PlayerInteract.input.NextLine += DisplayNextSentence;
-        rotation = GetComponent<InspectorModeRotation>();
     }
 
     public void StartDialogue(Interactable interactable)
@@ -60,7 +58,6 @@ public class DialogueManager : MonoBehaviour
         PlayerInteract.Instance.blockPlayerForDialogue();
         currentObject.cameraMovementType.cameraMoveIn();
         _input.SwitchToDialogueMap();
-
         _sentences.Clear();
         _sentColors.Clear();
         _sentFontStyle.Clear();
@@ -141,6 +138,7 @@ public class DialogueManager : MonoBehaviour
         PlayerInteract.Instance.unblockPlayerFromDialogue();
         currentObject = null;
         InspectorModeRotation.setEnabledRotation(false);
+        InspectorModeRotation.setObject(null);
         Progress.instance.Increment();
     }
     
