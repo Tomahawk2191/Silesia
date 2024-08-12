@@ -1,6 +1,8 @@
 using DG.Tweening;
 using System.Collections;
+using UnityEditor.Rendering.Universal.ShaderGUI;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
 public class LetterScript : MonoBehaviour
@@ -88,6 +90,7 @@ public class LetterScript : MonoBehaviour
 
     IEnumerator ScrollLetter(GameObject introLetter, PlayerInteract playerInteract)
     {
+        PlayerUI.Instance.HideAllCursors();
         AudioManager.instance.Play("IntroLetter");
         yield return new WaitForSeconds(waitTimeInIntroSeconds);
 
@@ -129,15 +132,10 @@ public class LetterScript : MonoBehaviour
         transform.localPosition = pos;
         Debug.Log(transform.localPosition);
 
-
         transform.parent.Find("FPS Cam").transform.DOLocalRotate(Vector3.zero, 3f).SetEase(Ease.InOutCubic);
         transform.parent.transform.DOLocalMove(new Vector3(3.73534656f, 0.116072178f, 11.2674656f), 3f).SetEase(Ease.InOutCubic);
         transform.parent.transform.parent.Find("Player").transform.DOLocalMove(new Vector3(3.73534656f, 0.116072178f-0.625f, 11.2674656f), 3f).SetEase(Ease.InOutCubic);
         yield return new WaitForSeconds(3f);
-        
-
-        
-
 
         transform.DOLocalMoveY(1.16f, 1.5f).SetEase(Ease.InOutExpo);
         yield return new WaitForSeconds(1.5f);
@@ -146,14 +144,15 @@ public class LetterScript : MonoBehaviour
         AudioManager.instance.Play("LetterFold");
         yield return new WaitForSeconds(1.25f);
 
-
         transform.DOLocalMoveZ(0.64f, 1.5f).SetEase(Ease.InCubic);
         yield return new WaitForSeconds(1.5f);
 
         _renderer.SetActive(false);
+        GameObject.Find("TV_UNWRAPPED").transform.GetChild(2).GetComponent<Renderer>().material = default;
 
         AudioManager.instance.Play("OutroLetter");
         yield return new WaitForSeconds(waitTimeInOutroSeconds);
+
         while (outroLetter.transform.localPosition.y < 1.9f)
         {
             outroLetter.transform.Translate(Vector3.up * Time.deltaTime * scrollOutroSpeed/100);
