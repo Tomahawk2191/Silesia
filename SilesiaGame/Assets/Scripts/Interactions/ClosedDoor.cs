@@ -20,6 +20,6 @@ public class ClosedDoor : Interactable
     }
     public override void Interact()
     {
-        AudioManager.instance.Play("DoorClosed");
+        //AudioManager.instance.Play("DoorClosed");
     }
 }
