@@ -89,7 +89,7 @@ public class Progress : MonoBehaviour
         IEnumerator OpenBedroom()
         {
             Debug.Log("Called OpenDoor");
-            yield return new WaitForSeconds(0.3f);   
+            yield return new WaitForSeconds(0.5f);   
             BedroomDoor.instance.OpenDoor(); /* INSERT DOOR OPEN TRIGER*/
 
             //windowKitchen.GetComponent<Animator>().SetTrigger("OpenWindow");
