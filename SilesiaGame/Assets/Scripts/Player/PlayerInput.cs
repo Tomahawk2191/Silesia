@@ -133,16 +133,7 @@ public class PlayerInput
     {
         EndGame?.Invoke(this, EventArgs.Empty);
     }
-
-    public void DisableInputForCameraMovemen()
-    {
-        _currentActionMap.Disable();
-    }
-
-    public void EnableInputForCameraMovemen()
-    {
-        _currentActionMap.Enable();
-    }
+    
 
     private void NextLine_performed(InputAction.CallbackContext obj)
     {

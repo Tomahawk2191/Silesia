@@ -1,8 +1,6 @@
 using DG.Tweening;
 using System.Collections;
-using UnityEditor.Rendering.Universal.ShaderGUI;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
 public class LetterScript : MonoBehaviour
