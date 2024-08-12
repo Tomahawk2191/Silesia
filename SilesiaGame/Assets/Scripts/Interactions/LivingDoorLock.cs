@@ -6,7 +6,7 @@ using UnityEngine;
 public class LivingDoorLock : Interactable
 {
     public static LivingDoorLock instance;
-    /*
+    
     private void Awake()
     {
         if (instance == null)
@@ -17,7 +17,7 @@ public class LivingDoorLock : Interactable
         {
             Debug.LogError("Two instances of door script");
         }
-    }*/
+    }
     public override void Interact()
     {
         AudioManager.instance.Play("DoorLocked", AudioManager.instance.GetLivingDoorPos());

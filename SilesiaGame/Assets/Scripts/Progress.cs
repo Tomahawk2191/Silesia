@@ -145,6 +145,7 @@ public class Progress : MonoBehaviour
     public void CollectKey()
     {
         keyCollected = true;
+        //LivingDoorLock.instance.gameObject.SetActive(false);
     }
 
 
