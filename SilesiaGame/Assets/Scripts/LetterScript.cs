@@ -10,16 +10,16 @@ public class LetterScript : MonoBehaviour
     [SerializeField]
     private Interactable startDialogue;
     private float waitTimeInIntroSeconds = 7f;
-    private float waitTimeInOutroSeconds = 19f;
+    private float waitTimeInOutroSeconds = 11f;
     private float waitTimeOutIntroSeconds = 3f;
-    private float waitTimeOutOutroSeconds = 3f;
+    private float waitTimeOutOutroSeconds = 1f;
 
     [SerializeField] bool introToggle = true;
    
 
     //[SerializeField] private float scrollIntroSpeed = 2.9f;
     private float scrollIntroSpeed = 3f;
-    private float scrollOutroSpeed = 5f;
+    private float scrollOutroSpeed = 2.25f;
 
     [SerializeField] private FullScreenPassRendererFeature _renderer;
 
@@ -30,10 +30,14 @@ public class LetterScript : MonoBehaviour
 
     [SerializeField] private GameObject _backGround;
 
+    [SerializeField] private GameObject screenToDisable;
+
+
     public static LetterScript instance;
     // Start is called before the first frame update
     void Start()
     {
+        screenToDisable.SetActive(true);
         if (instance != null)
         {
             Destroy(gameObject);
@@ -59,7 +63,6 @@ public class LetterScript : MonoBehaviour
             transform.DOLocalMoveZ(3.5f, 0.1f);
             transform.DOLocalMoveY(-1.2f, 0.1f);
             transform.GetChild(0).GetComponent<Animator>().SetTrigger("Folded");
-
         }
     }
 
@@ -83,7 +86,7 @@ public class LetterScript : MonoBehaviour
         playerInteract.blockPlayerForDialogue();
         PlayerInteract.input.BlockInputForInteraction();
         GameObject outroLetter = GameObject.Find("IntroLetter");
-
+        screenToDisable.SetActive(false);
 
         StartCoroutine(ScrollOutroLetter(outroLetter, playerInteract));
     }
