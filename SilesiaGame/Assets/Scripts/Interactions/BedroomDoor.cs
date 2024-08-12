@@ -28,7 +28,7 @@ public class BedroomDoor : MonoBehaviour
         Debug.Log("openThedoor");
         bedDoorOpen = true;
         StartCoroutine(PlayDoorSoundOnDelay("DoorOpen", 0.5f));
-        ClosedDoor.instance.gameObject.SetActive(false);
+        BedDoorLock.instance.gameObject.SetActive(false);
 
     }
 

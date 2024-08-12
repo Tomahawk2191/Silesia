@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ClosedDoor : Interactable
+public class LivingDoorLock : Interactable
 {
-    public static ClosedDoor instance;
-
+    public static LivingDoorLock instance;
+    /*
     private void Awake()
     {
         if (instance == null)
@@ -17,9 +17,9 @@ public class ClosedDoor : Interactable
         {
             Debug.LogError("Two instances of door script");
         }
-    }
+    }*/
     public override void Interact()
     {
-        //AudioManager.instance.Play("DoorClosed");
+        AudioManager.instance.Play("DoorLocked", AudioManager.instance.GetLivingDoorPos());
     }
 }

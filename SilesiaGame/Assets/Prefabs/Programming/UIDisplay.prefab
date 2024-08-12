@@ -4039,6 +4039,7 @@ RectTransform:
   m_Children:
   - {fileID: 1680670621935536665}
   - {fileID: 906514523399728550}
+  - {fileID: 7882334259411339142}
   m_Father: {fileID: 8896857231221278554}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -4140,7 +4141,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7947149683834024101}
+      - m_Target: {fileID: 727774259309414141}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -9936,6 +9937,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c305ae304b605c4586c60d41dd08106, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalCursor: {fileID: 0}
+  interactCursor: {fileID: 0}
 --- !u!1 &3344010381884981836
 GameObject:
   m_ObjectHideFlags: 0
