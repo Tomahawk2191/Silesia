@@ -10,10 +10,8 @@ using Object = UnityEngine.Object;
 public class MainMenuLoop : MonoBehaviour
 {
     private RawImage _rawImage;
-
     private Object[] _textures;
 
-    [SerializeField] private GameObject _credits;
     void Start()
     {
         _rawImage = gameObject.GetComponent<RawImage>();
