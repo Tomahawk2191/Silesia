@@ -54,14 +54,10 @@ public class Interactable : MonoBehaviour
     {
 
         InspectorModeRotation.setEnabledRotation(!data.isBig);
-        if (ableToUse)
-        {
-            DialogueManager.Instance.StartDialogue(this);
-            AudioManager.instance.Play("Swipe" + UnityEngine.Random.Range(1, 2));
-            Debug.Log("Played Grab Sound");
-            ableToUse = false;
-        }
-
+        DialogueManager.Instance.StartDialogue(this);
+        AudioManager.instance.Play("Swipe" + UnityEngine.Random.Range(1, 2));
+        Debug.Log("Played Grab Sound");
+        ableToUse = false;
         if (collectable)
         {
             collectableInteracted?.Invoke(this, new NewItemCollected()
