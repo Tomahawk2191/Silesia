@@ -30,10 +30,14 @@ public class LetterScript : MonoBehaviour
 
     [SerializeField] private GameObject _backGround;
 
+    [SerializeField] private GameObject screenToDisable;
+
+
     public static LetterScript instance;
     // Start is called before the first frame update
     void Start()
     {
+        screenToDisable.SetActive(true);
         if (instance != null)
         {
             Destroy(gameObject);
@@ -82,7 +86,7 @@ public class LetterScript : MonoBehaviour
         playerInteract.blockPlayerForDialogue();
         PlayerInteract.input.BlockInputForInteraction();
         GameObject outroLetter = GameObject.Find("IntroLetter");
-
+        screenToDisable.SetActive(false);
 
         StartCoroutine(ScrollOutroLetter(outroLetter, playerInteract));
     }
