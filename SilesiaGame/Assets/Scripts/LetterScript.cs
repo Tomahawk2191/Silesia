@@ -1,8 +1,6 @@
 using DG.Tweening;
 using System.Collections;
-using UnityEditor.Rendering.Universal.ShaderGUI;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
 public class LetterScript : MonoBehaviour
@@ -59,7 +57,7 @@ public class LetterScript : MonoBehaviour
             transform.DOLocalMoveZ(3.5f, 0.1f);
             transform.DOLocalMoveY(-1.2f, 0.1f);
             transform.GetChild(0).GetComponent<Animator>().SetTrigger("Folded");
-
+            _renderer.SetActive(true);
         }
     }
 
