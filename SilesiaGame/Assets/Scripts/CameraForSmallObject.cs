@@ -17,7 +17,7 @@ public class CameraForSmallObjects : ICameraMovementType
 
     public void cameraMoveIn()
     {
-        PlayerInteract.input.BlockInputForInteraction();
+        PlayerInteract.input.SwitchToDialogueMap();
         objToMove.DOMove(PlayerInteract.Instance.objPos.transform.position, 2);
         //for (int i = 0; i < objToMove.childCount; i++)
         //{
@@ -28,7 +28,7 @@ public class CameraForSmallObjects : ICameraMovementType
 
     public void cameraMoveOut()
     {
-        PlayerInteract.input.EnableInputForInteraction();
+        PlayerInteract.input.SwitchToPlayerMap();
         objToMove.DOMove(startPos, 2);
         objToMove.DORotate(startRot, 2);
     }
