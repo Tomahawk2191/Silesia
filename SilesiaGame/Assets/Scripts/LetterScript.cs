@@ -61,6 +61,7 @@ public class LetterScript : MonoBehaviour
             transform.DOLocalMoveZ(3.5f, 0.1f);
             transform.DOLocalMoveY(-1.2f, 0.1f);
             transform.GetChild(0).GetComponent<Animator>().SetTrigger("Folded");
+            _renderer.SetActive(true);
         }
     }
 
