@@ -23,9 +23,14 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager instance;
 
-    public AudioMixerGroup mixerGroup;
-
     public Sound[] sounds;
+
+    //[SerializeField] public AudioMixerGroup mixerGroup;
+    [SerializeField] public AudioMixerSnapshot _mainMenu;
+    [SerializeField] public AudioMixerSnapshot _inGame;
+    [SerializeField] public AudioMixerSnapshot _pause;
+    [SerializeField] public AudioMixerSnapshot _endLetter;
+    [SerializeField] public AudioMixerSnapshot _endCredits;
 
 
     void Awake()
