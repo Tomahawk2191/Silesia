@@ -158,7 +158,7 @@ public class LetterScript : MonoBehaviour
         transform.DOLocalMoveZ(0.64f, 1.5f).SetEase(Ease.InCubic);
         float volume;
         mixer.GetFloat("pigeonVol",out volume);
-        DOTween.To(() => volume, x => volume = x, -15f, 1.5f).SetEase(Ease.InOutCubic).OnUpdate(() => mixer.SetFloat("pigeonVol", volume));
+        DOTween.To(() => volume, x => volume = x, -25f, 1.5f).SetEase(Ease.InOutCubic).OnUpdate(() => mixer.SetFloat("pigeonVol", volume));
         yield return new WaitForSeconds(1.5f);
 
         _renderer.SetActive(false);
@@ -173,7 +173,7 @@ public class LetterScript : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitForSeconds(waitTimeOutOutroSeconds);
+        yield return new WaitForSeconds(waitTimeOutOutroSeconds+5f);
 
         _backGround.GetComponent<Animator>().SetTrigger("FadeOut");
         float volume2;

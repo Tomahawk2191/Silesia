@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Object = UnityEngine.Object;
@@ -12,10 +13,12 @@ public class Ending : MonoBehaviour
 
     private Object[] _textures;
 
+    [SerializeField] public AudioMixer mixer;
     [SerializeField] private GameObject _credits;
     [SerializeField] private AudioSource _pigeonSound;
     void Start()
     {
+        mixer.SetFloat("volume", -10f);
         _rawImage = gameObject.GetComponent<RawImage>();
         _textures = Resources.LoadAll("EndingJPGs",typeof(Texture));
         Debug.Log(_textures.Length);
