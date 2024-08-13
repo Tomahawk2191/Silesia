@@ -23,6 +23,8 @@ public class LetterScript : MonoBehaviour
 
     private SkinnedMeshRenderer _skinnedMeshRenderer;
 
+    [SerializeField] private GameObject _cursor;
+
     [SerializeField] private Material _introMaterial;
     [SerializeField] private Material _outroMaterial;
 
@@ -71,6 +73,7 @@ public class LetterScript : MonoBehaviour
         PlayerInteract playerInteract = player.GetComponent<PlayerInteract>();
         player.transform.position = new Vector3(11f, 4f, 45f);
         playerInteract.blockPlayerForDialogue();
+        _cursor.transform.localScale = Vector3.zero;
         PlayerInteract.input.BlockInputForInteraction();
         GameObject introLetter = GameObject.Find("IntroLetter");
 
@@ -83,6 +86,8 @@ public class LetterScript : MonoBehaviour
         GameObject player = GameObject.Find("Player").gameObject;
         PlayerInteract playerInteract = player.GetComponent<PlayerInteract>();
         playerInteract.blockPlayerForDialogue();
+        _cursor.transform.localScale = Vector3.zero;
+
         PlayerInteract.input.BlockInputForInteraction();
         GameObject outroLetter = GameObject.Find("IntroLetter");
         screenToDisable.SetActive(false);
@@ -116,6 +121,8 @@ public class LetterScript : MonoBehaviour
         _skinnedMeshRenderer.enabled = false;
 
         playerInteract.unblockPlayerFromDialogue();
+        _cursor.transform.localScale = Vector3.one;
+
         PlayerInteract.input.EnableInputForInteraction();
         Popup.Instance.LMBPopup();
         DialogueManager.Instance.StartDialogue(startDialogue);

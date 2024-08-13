@@ -6790,12 +6790,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 447050758971891736}
     - target: {fileID: 5226504002553188152, guid: 0fe0ff98f781a8146a036a034dbc213e, type: 3}
+      propertyPath: _cursor
+      value: 
+      objectReference: {fileID: 962009230}
+    - target: {fileID: 5226504002553188152, guid: 0fe0ff98f781a8146a036a034dbc213e, type: 3}
       propertyPath: _backGround
       value: 
       objectReference: {fileID: 1867989242}
     - target: {fileID: 5226504002553188152, guid: 0fe0ff98f781a8146a036a034dbc213e, type: 3}
       propertyPath: introToggle
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5226504002553188152, guid: 0fe0ff98f781a8146a036a034dbc213e, type: 3}
       propertyPath: screenToDisable
@@ -6803,7 +6807,7 @@ PrefabInstance:
       objectReference: {fileID: 200511354}
     - target: {fileID: 5432606275016078083, guid: 0fe0ff98f781a8146a036a034dbc213e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5814675636066290773, guid: 0fe0ff98f781a8146a036a034dbc213e, type: 3}
       propertyPath: m_IsActive
@@ -13537,6 +13541,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b78f44869727a524eb4e11fdd00b5ce2, type: 3}
+--- !u!1 &962009230 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5679686696529348044, guid: 0e969e13ec212924c9722f2162e01ace, type: 3}
+  m_PrefabInstance: {fileID: 1867989239}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &964629566 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6137953415710952708, guid: a70872b3e6667f64f9aa9d7ddcab33ae, type: 3}
@@ -27412,38 +27421,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2352954498865711158}
     m_Modifications:
-    - target: {fileID: 408124736697519114, guid: 0e969e13ec212924c9722f2162e01ace, type: 3}
-      propertyPath: m_text
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 408124736697519114, guid: 0e969e13ec212924c9722f2162e01ace, type: 3}
-      propertyPath: m_fontColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 408124736697519114, guid: 0e969e13ec212924c9722f2162e01ace, type: 3}
-      propertyPath: m_fontColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 408124736697519114, guid: 0e969e13ec212924c9722f2162e01ace, type: 3}
-      propertyPath: m_fontColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 408124736697519114, guid: 0e969e13ec212924c9722f2162e01ace, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 408124736697519114, guid: 0e969e13ec212924c9722f2162e01ace, type: 3}
-      propertyPath: m_enableVertexGradient
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3227681549032462197, guid: 0e969e13ec212924c9722f2162e01ace, type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4862838620008226559, guid: 0e969e13ec212924c9722f2162e01ace, type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 5110571954447407662, guid: 0e969e13ec212924c9722f2162e01ace, type: 3}
       propertyPath: m_Name
       value: UIDisplay
@@ -27490,20 +27467,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6794719432834064439, guid: 0e969e13ec212924c9722f2162e01ace, type: 3}
       propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8007997288391652686, guid: 0e969e13ec212924c9722f2162e01ace, type: 3}
-      propertyPath: m_text
-      value: "Nov 28th, 1987.\r\n\r\n\tToday, I heard a conversation at the store
-        between two young men, miners themselves. Apparently, there are talks about
-        a national Solidarity strike. Not only miners, but factory workers and shipyards
-        too. I can\u2019t believe such a thing - it would\u2019ve been unthinkable
-        back in my day. Things must be changing. \r\n\r\n\tMy dear Hela and I would
-        sit down to listen to the national radio reports every night during the early
-        era of the Polish People's Republic. Our youngest, Agneska, would always
-        cry whenever the newsmen talked about the threat of another war. Truthfully,
-        we were all scared. But war never came, and now I wonder if the Soviet influence
-        will stand much longer.\r"
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
