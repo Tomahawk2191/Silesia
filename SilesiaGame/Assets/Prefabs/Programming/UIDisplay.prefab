@@ -1208,7 +1208,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4222999807070331031
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2400,7 +2400,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6742970169307795095
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3147,7 +3147,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1601194932079488642
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4121,7 +4121,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3460399192111731060
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4135,7 +4135,6 @@ RectTransform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1680670621935536665}
-  - {fileID: 906514523399728550}
   - {fileID: 7882334259411339142}
   m_Father: {fileID: 8896857231221278554}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4238,7 +4237,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 727774259309414141}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -4652,12 +4651,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\tBy the time I joined the Allies, there were no more new equipment for
+  m_text: "\tBy the time I joined the Allies, there was no more new equipment for
     me. Funnily enough, I ended the war fighting Germany in old German boots. I\u2019ve
-    had to hide these souveniers for years; if a Soviet government knew that I had
-    ever been in the Wehrmacht, I would\u2019ve been killed. But, strangely, I can\u2019t
-    bring myself to throw the box away. I don\u2019t ever want to forget what they
-    did to my people.\r"
+    had to hide these souveniers for years; if the Soviets knew that I had ever been
+    in the Wehrmacht, I would\u2019ve been killed. But, strangely, I can\u2019t bring
+    myself to throw the box away. I don\u2019t ever want to forget what they did
+    to my people.\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
   m_sharedMaterial: {fileID: -2648206945053064882, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
@@ -5660,10 +5659,10 @@ MonoBehaviour:
     orders from the Wehrmacht, and I didn\u2019t have much of a choice. It was either
     fight for the Nazis, who barely tolerated us Polish Silesians, or die. I spent
     a winter on the Eastern Front. Anyone who was there understands why we called
-    it Hell on earth. Eventually, a battalion of us Silesians, managed to coordinate
+    it hell on earth. Eventually, a battalion of us Silesians, managed to coordinate
     a desertion effort. After months of travel, we were able to take our rightful
     place in the Polish Army, fighting for the Allies. My only regret is that it
-    took so long.\r\n"
+    took us so long.\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
   m_sharedMaterial: {fileID: -2648206945053064882, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
@@ -15574,7 +15573,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '[ Press E to free Katia and read opa''s note ]'
+  m_text: '[ Press E to free Katia and read opa''s note ]
+
+    [[ This WILL end the
+    game ]]'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 4bd38840fb3233142a3ac13c02ec1743, type: 2}
@@ -15608,7 +15610,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -17320,9 +17322,10 @@ MonoBehaviour:
     can\u2019t believe such a thing - it would\u2019ve been unthinkable back in my
     day. Things must be changing. \r\n\r\n\tMy dear Hela and I would sit down to
     listen to the national radio reports every night during the early era of the
-    PRL. Our youngest, Agneska, would always cry whenever the newsmen talked about
-    the threat of another war. Truthfully, we were all scared. But war never came,
-    and now I wonder if the Soviet influence will stand much longer.\r"
+    Polish People's Republic. Our youngest, Agneska, would always cry whenever the
+    newsmen talked about the threat of another war. Truthfully, we were all scared.
+    But war never came, and now I wonder if the Soviet influence will stand much
+    longer.\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
   m_sharedMaterial: {fileID: -2648206945053064882, guid: ab26bfb26db691f409aed1609ea3c3b9, type: 2}
@@ -19472,6 +19475,7 @@ GameObject:
   - component: {fileID: 7882334259411339142}
   - component: {fileID: 4352354243331828206}
   - component: {fileID: 1337405033815390698}
+  - component: {fileID: 5701153580763386172}
   m_Layer: 5
   m_Name: OutlineForJournal
   m_TagString: Untagged
@@ -19536,6 +19540,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &5701153580763386172
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7947149683834024101}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6cd2490e94d4d6f4f92aea0073519ce4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7965471470648556967
 GameObject:
   m_ObjectHideFlags: 0
@@ -20326,7 +20351,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0

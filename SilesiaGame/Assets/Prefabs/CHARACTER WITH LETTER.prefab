@@ -473,12 +473,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startDialogue: {fileID: 1387774352226061977}
-  introToggle: 1
-  scrollOutroSpeed: 3
+  introToggle: 0
   _renderer: {fileID: -8538862462556230406, guid: c0b701049f7ed4d48842c5c4aefd1bdf, type: 2}
+  _cursor: {fileID: 0}
   _introMaterial: {fileID: 2100000, guid: 181a3afad5a978546a44b8f995fcc950, type: 2}
   _outroMaterial: {fileID: 2100000, guid: 3a00ecee0ab88e74bac8782ebd96846a, type: 2}
   _backGround: {fileID: 0}
+  screenToDisable: {fileID: 0}
 --- !u!1 &5814675636066290773
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,10 +682,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.25184855
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -4.8217986e-17, y: 0, z: -0.014158538}
 --- !u!1 &7612834506148657663
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,7 +698,7 @@ GameObject:
   - component: {fileID: 3416719958110248124}
   - component: {fileID: 5323559926258670010}
   m_Layer: 0
-  m_Name: letter
+  m_Name: Letter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

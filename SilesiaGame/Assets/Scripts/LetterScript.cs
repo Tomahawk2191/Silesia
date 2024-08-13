@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class LetterScript : MonoBehaviour
@@ -8,30 +9,37 @@ public class LetterScript : MonoBehaviour
     [SerializeField]
     private Interactable startDialogue;
     private float waitTimeInIntroSeconds = 7f;
-    private float waitTimeInOutroSeconds = 19f;
+    private float waitTimeInOutroSeconds = 11f;
     private float waitTimeOutIntroSeconds = 3f;
-    private float waitTimeOutOutroSeconds = 3f;
+    private float waitTimeOutOutroSeconds = 1f;
+    [SerializeField] public AudioMixer mixer;
 
     [SerializeField] bool introToggle = true;
    
 
     //[SerializeField] private float scrollIntroSpeed = 2.9f;
     private float scrollIntroSpeed = 3f;
-    private float scrollOutroSpeed = 5f;
+    private float scrollOutroSpeed = 2.25f;
 
     [SerializeField] private FullScreenPassRendererFeature _renderer;
 
     private SkinnedMeshRenderer _skinnedMeshRenderer;
+
+    [SerializeField] private GameObject _cursor;
 
     [SerializeField] private Material _introMaterial;
     [SerializeField] private Material _outroMaterial;
 
     [SerializeField] private GameObject _backGround;
 
+    [SerializeField] private GameObject screenToDisable;
+
+
     public static LetterScript instance;
     // Start is called before the first frame update
     void Start()
     {
+        screenToDisable.SetActive(true);
         if (instance != null)
         {
             Destroy(gameObject);
@@ -67,6 +75,7 @@ public class LetterScript : MonoBehaviour
         PlayerInteract playerInteract = player.GetComponent<PlayerInteract>();
         player.transform.position = new Vector3(11f, 4f, 45f);
         playerInteract.blockPlayerForDialogue();
+        _cursor.transform.localScale = Vector3.zero;
         PlayerInteract.input.BlockInputForInteraction();
         GameObject introLetter = GameObject.Find("IntroLetter");
 
@@ -79,9 +88,11 @@ public class LetterScript : MonoBehaviour
         GameObject player = GameObject.Find("Player").gameObject;
         PlayerInteract playerInteract = player.GetComponent<PlayerInteract>();
         playerInteract.blockPlayerForDialogue();
+        _cursor.transform.localScale = Vector3.zero;
+
         PlayerInteract.input.BlockInputForInteraction();
         GameObject outroLetter = GameObject.Find("IntroLetter");
-
+        screenToDisable.SetActive(false);
 
         StartCoroutine(ScrollOutroLetter(outroLetter, playerInteract));
     }
@@ -112,6 +123,8 @@ public class LetterScript : MonoBehaviour
         _skinnedMeshRenderer.enabled = false;
 
         playerInteract.unblockPlayerFromDialogue();
+        _cursor.transform.localScale = Vector3.one;
+
         PlayerInteract.input.EnableInputForInteraction();
         Popup.Instance.LMBPopup();
         DialogueManager.Instance.StartDialogue(startDialogue);
@@ -143,6 +156,9 @@ public class LetterScript : MonoBehaviour
         yield return new WaitForSeconds(1.25f);
 
         transform.DOLocalMoveZ(0.64f, 1.5f).SetEase(Ease.InCubic);
+        float volume;
+        mixer.GetFloat("pigeonVol",out volume);
+        DOTween.To(() => volume, x => volume = x, -25f, 1.5f).SetEase(Ease.InOutCubic).OnUpdate(() => mixer.SetFloat("pigeonVol", volume));
         yield return new WaitForSeconds(1.5f);
 
         _renderer.SetActive(false);
@@ -157,10 +173,13 @@ public class LetterScript : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitForSeconds(waitTimeOutOutroSeconds);
+        yield return new WaitForSeconds(waitTimeOutOutroSeconds+5f);
 
         _backGround.GetComponent<Animator>().SetTrigger("FadeOut");
-
+        float volume2;
+        mixer.GetFloat("volume", out volume2);
+        DOTween.To(() => volume2, x => volume2 = x, -25f, 1.5f).SetEase(Ease.InOutCubic).OnUpdate(() => mixer.SetFloat("volume", volume2));
+        yield return new WaitForSeconds(1.5f);
         yield return new WaitForSeconds(7f);
 
         SceneManager.LoadScene(2);
