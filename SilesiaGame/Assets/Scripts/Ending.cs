@@ -39,7 +39,7 @@ public class Ending : MonoBehaviour
         
         gameObject.GetComponent<Animator>().SetTrigger("EndOfEnding");
         _credits.GetComponent<Animator>().SetTrigger("EndOfEnding");
-        yield return new WaitForSeconds(150);
+        yield return new WaitForSeconds(160);
         SceneManager.LoadSceneAsync(0);
     }
 }
