@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class LetterScript : MonoBehaviour
@@ -11,6 +12,7 @@ public class LetterScript : MonoBehaviour
     private float waitTimeInOutroSeconds = 11f;
     private float waitTimeOutIntroSeconds = 3f;
     private float waitTimeOutOutroSeconds = 1f;
+    [SerializeField] public AudioMixer mixer;
 
     [SerializeField] bool introToggle = true;
    
@@ -154,6 +156,9 @@ public class LetterScript : MonoBehaviour
         yield return new WaitForSeconds(1.25f);
 
         transform.DOLocalMoveZ(0.64f, 1.5f).SetEase(Ease.InCubic);
+        float volume;
+        mixer.GetFloat("pigeonVol",out volume);
+        DOTween.To(() => volume, x => volume = x, -15f, 1.5f).SetEase(Ease.InOutCubic).OnUpdate(() => mixer.SetFloat("pigeonVol", volume));
         yield return new WaitForSeconds(1.5f);
 
         _renderer.SetActive(false);
@@ -171,7 +176,10 @@ public class LetterScript : MonoBehaviour
         yield return new WaitForSeconds(waitTimeOutOutroSeconds);
 
         _backGround.GetComponent<Animator>().SetTrigger("FadeOut");
-
+        float volume2;
+        mixer.GetFloat("volume", out volume2);
+        DOTween.To(() => volume2, x => volume2 = x, -25f, 1.5f).SetEase(Ease.InOutCubic).OnUpdate(() => mixer.SetFloat("volume", volume2));
+        yield return new WaitForSeconds(1.5f);
         yield return new WaitForSeconds(7f);
 
         SceneManager.LoadScene(2);
