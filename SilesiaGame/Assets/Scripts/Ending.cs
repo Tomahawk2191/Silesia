@@ -13,6 +13,7 @@ public class Ending : MonoBehaviour
     private Object[] _textures;
 
     [SerializeField] private GameObject _credits;
+    [SerializeField] private AudioSource _pigeonSound;
     void Start()
     {
         _rawImage = gameObject.GetComponent<RawImage>();
@@ -24,11 +25,16 @@ public class Ending : MonoBehaviour
 
     IEnumerator PlayEnding()
     {
-
+        int frameCount = 0;
         foreach (Texture tex in _textures)
         {
+            if (frameCount == 44)
+            {
+                _pigeonSound.Play();
+            }
             _rawImage.texture = tex;
-            yield return new WaitForSeconds(1f/9);
+            yield return new WaitForSeconds(1f/15);
+            frameCount++;
         }
         
         gameObject.GetComponent<Animator>().SetTrigger("EndOfEnding");
