@@ -1,79 +1,105 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-    private int id;
     private static int maxID = 1;
     private bool ableToUse;
+    private bool collectable;
+    [SerializeField] private GameObject photo;
+    public ICameraMovementType cameraMovementType { get; protected set; }
+    public static event EventHandler<NewItemCollected> collectableInteracted;
+
+    public class NewItemCollected : EventArgs
+    {
+        public int id;
+    }
 
     //datadump of the object. Here we store the serialized info.
     [SerializeField] private InteractableSO data;
-    [SerializeField] private GameObject outline;
+    //[SerializeField] private GameObject outline;
     private static PlayerInput input;
-
 
     private void Start()
     {
-        id = maxID;
-        maxID += 1;
-        ableToUse = data.basicState; // IVAN YOUR CODE IS THROWING NULL REFERENCE EXCEPTION
-        input = GetComponent<PlayerInput>();
-        PlayerMovementInteract.Instance.OnSelectedArtefactChanged += Instance_OnSelectedArtefactChanged;
-        input.ShowHint += ShowAllObjects;
-        input.HideHint += HideAllObjects;
-
-    }
-
-    private void HideAllObjects(object sender, EventArgs e)
-    {
-        setOutlineOFF();
-    }
-
-    private void ShowAllObjects(object sender, EventArgs e)
-    {
-        setOutlineON();
-    }
-
-    private void Instance_OnSelectedArtefactChanged(object sender, PlayerMovementInteract.OnSelectedArtefactChangedEventArgs e)
-    {
-        if (this == e.selectedArtefact)
+        if (data.isBig)
         {
-            setOutlineON();
+            cameraMovementType = new CameraForBigObjects();
         }
         else
         {
-            setOutlineOFF();
+            cameraMovementType = new CameraForSmallObjects(this.transform);
         }
+        collectable = data.collectable;
+        ableToUse = data.basicState;
+        input = PlayerInteract.input;
+
+
     }
 
-    // method called on interacting with an object
-    //this should be completly rewriten once the inpput system will be made
-    //see the OnInteraction State Diagram (lucidchart)
+    // method that handles the outline. Subscribed to PlayerInteract class
 
-    // method called on hovering over the object
 
-    public string getLine(int lineNumber)
-    {
-        return GetComponent<InteractableSO>().text.text.Split('\n')[lineNumber];
-    }
-    // method called to set ableToUse to true for all connected objects
+    //Hide and Show all objects might not be used. Wrote this for hints
+
+
+    //THIS METHOD MUST BE OVERRIDEN IN CLASSES THAT EXTEND INTERACTABLE
     public virtual void Interact()
     {
     }
 
-
-    public void setOutlineON()
+    public void TriggerDialogue()
     {
-        this.outline.SetActive(true);
+        InspectorModeRotation.setEnabledRotation(!data.isBig);
+        if (ableToUse)
+        {
+            DialogueManager.Instance.StartDialogue(this);
+            ableToUse = false;
+        }
+
+        if (collectable)
+        {
+            collectableInteracted?.Invoke(this, new NewItemCollected()
+            {
+                id = data.id
+            });
+        }
+
+        if (photo != null)
+        {
+            photo.SetActive(true);
+        }
+        
+
 
     }
-    public void setOutlineOFF()
+
+    public void setLayerToInteractable()
     {
+        gameObject.layer = LayerMask.NameToLayer("Interactable");
+        foreach (Transform child in transform)
+        {
+            child.gameObject.layer = LayerMask.NameToLayer("Interactable");
+        }
+    }
 
-        this.outline.SetActive(false);
+    public void setLayerToDefault()
+    {
+        gameObject.layer = LayerMask.NameToLayer("Default");
+        foreach (Transform child in transform)
+        {
+            child.gameObject.layer = LayerMask.NameToLayer("Default");
+        }
+    }
 
+    public bool getAbleToUse()
+    {
+        return ableToUse;
+    }
+
+    public string getText()
+    {
+        return data.text.text;
     }
 }
