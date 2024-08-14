@@ -27,6 +27,8 @@ public class LetterScript : MonoBehaviour
 
     [SerializeField] private GameObject _cursor;
 
+    [SerializeField] private GameObject _table;
+
     [SerializeField] private Material _introMaterial;
     [SerializeField] private Material _outroMaterial;
 
@@ -146,7 +148,10 @@ public class LetterScript : MonoBehaviour
         transform.parent.Find("FPS Cam").transform.DOLocalRotate(Vector3.zero, 3f).SetEase(Ease.InOutCubic);
         transform.parent.transform.DOLocalMove(new Vector3(3.73534656f, 0.116072178f, 11.2674656f), 3f).SetEase(Ease.InOutCubic);
         transform.parent.transform.parent.Find("Player").transform.DOLocalMove(new Vector3(3.73534656f, 0.116072178f-0.625f, 11.2674656f), 3f).SetEase(Ease.InOutCubic);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
+        _table.SetActive(false);
+        yield return new WaitForSeconds(1f);
+
 
         transform.DOLocalMoveY(1.16f, 1.5f).SetEase(Ease.InOutExpo);
         yield return new WaitForSeconds(1.5f);
