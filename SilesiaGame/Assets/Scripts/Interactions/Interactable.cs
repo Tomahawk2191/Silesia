@@ -48,12 +48,14 @@ public class Interactable : MonoBehaviour
     //THIS METHOD MUST BE OVERRIDEN IN CLASSES THAT EXTEND INTERACTABLE
     public virtual void Interact()
     {
+        Progress.instance.Increment();
     }
 
     public void TriggerDialogue()
     {
         if (ableToUse)
         {
+            Interact();
             InspectorModeRotation.setEnabledRotation(!data.isBig);
             DialogueManager.Instance.StartDialogue(this);
             AudioManager.instance.Play("Swipe" + UnityEngine.Random.Range(1, 2));
