@@ -21,5 +21,6 @@ public class LivingDoorLock : Interactable
     public override void Interact()
     {
         AudioManager.instance.Play("DoorLocked", AudioManager.instance.GetLivingDoorPos());
+        Progress.instance.SetAbsolute(Progress.instance.GetAbsolute() - 1);
     }
 }

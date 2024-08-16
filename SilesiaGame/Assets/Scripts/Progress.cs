@@ -3,12 +3,13 @@ using System.Collections;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Rendering;
 
 public class Progress : MonoBehaviour
 {
     // Progress Tracking vals
     [SerializeField] // comment out later, just visible for testing
-    private float itemsCollected = -1f; // STARTS at -1, when u complete the intro dialogue it auto-flips to 0 to begin gameplay
+    private float itemsCollected = 0f; // STARTS at -1, when u complete the intro dialogue it auto-flips to 0 to begin gameplay
     [SerializeField] // comment out later, just visible for testing
     private float percentcomplete = 0f;
     [SerializeField] // comment out later, just visible for testing
@@ -51,7 +52,7 @@ public class Progress : MonoBehaviour
     private void Start()
     {
         totalItems = GameObject.FindGameObjectsWithTag("Artifact").Length;
-        itemsCollected = -1f;
+        itemsCollected = 0f;
         percentcomplete = 0f;
         windowOpen = false;
         audioManager = AudioManager.instance; 
@@ -133,6 +134,11 @@ public class Progress : MonoBehaviour
     public float GetPercent()
     {
         return percentcomplete;
+    }
+
+    public void SetAbsolute(float val)
+    {
+        itemsCollected = val;
     }
 
     public float GetAbsolute()

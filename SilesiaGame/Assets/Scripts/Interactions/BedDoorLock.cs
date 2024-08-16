@@ -20,6 +20,7 @@ public class BedDoorLock : Interactable
     }
     public override void Interact()
     {
-        AudioManager.instance.Play("DoorLocked", AudioManager.instance.GetBedDoorPos()); 
+        AudioManager.instance.Play("DoorLocked", AudioManager.instance.GetBedDoorPos());
+        Progress.instance.SetAbsolute(Progress.instance.GetAbsolute() - 1);
     }
 }
