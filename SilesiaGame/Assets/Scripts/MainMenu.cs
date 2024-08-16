@@ -8,8 +8,6 @@ public class MainMenu : MonoBehaviour
     public Texture2D normalCursor;
     public Texture2D interactCursor;
 
-    [SerializeField] private AudioSource _wind;
-    [SerializeField] private AudioMixer mixer;
     private AudioManager audioManager;
     private float flapDelay; 
 

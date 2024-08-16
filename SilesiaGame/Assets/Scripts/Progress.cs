@@ -42,6 +42,8 @@ public class Progress : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+            AudioManager.instance.PlayMainSceneSounds();
+
         }
 
     }
