@@ -45,11 +45,12 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator windSounds()
     {
+
         while (true)
         {
             AudioManager.instance.Play("SmallGust");
-            yield return new WaitForSeconds(UnityEngine.Random.Range(4f, 6f));
-
+            flapDelay = Random.Range(4f, 6f);
+            yield return new WaitForSeconds(flapDelay);
         }
     }
 
