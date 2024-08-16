@@ -15,7 +15,7 @@ public class LetterScript : MonoBehaviour
     [SerializeField] public AudioMixer mixer;
 
     [SerializeField] bool introToggle = true;
-   
+
 
     //[SerializeField] private float scrollIntroSpeed = 2.9f;
     private float scrollIntroSpeed = 3f;
@@ -26,6 +26,8 @@ public class LetterScript : MonoBehaviour
     private SkinnedMeshRenderer _skinnedMeshRenderer;
 
     [SerializeField] private GameObject _cursor;
+
+    [SerializeField] private GameObject _table;
 
     [SerializeField] private Material _introMaterial;
     [SerializeField] private Material _outroMaterial;
@@ -146,8 +148,11 @@ public class LetterScript : MonoBehaviour
 
         transform.parent.Find("FPS Cam").transform.DOLocalRotate(Vector3.zero, 3f).SetEase(Ease.InOutCubic);
         transform.parent.transform.DOLocalMove(new Vector3(3.73534656f, 0.116072178f, 11.2674656f), 3f).SetEase(Ease.InOutCubic);
-        transform.parent.transform.parent.Find("Player").transform.DOLocalMove(new Vector3(3.73534656f, 0.116072178f-0.625f, 11.2674656f), 3f).SetEase(Ease.InOutCubic);
-        yield return new WaitForSeconds(3f);
+        transform.parent.transform.parent.Find("Player").transform.DOLocalMove(new Vector3(3.73534656f, 0.116072178f - 0.625f, 11.2674656f), 3f).SetEase(Ease.InOutCubic);
+        yield return new WaitForSeconds(2f);
+        _table.SetActive(false);
+        yield return new WaitForSeconds(1f);
+
 
         transform.DOLocalMoveY(1.16f, 1.5f).SetEase(Ease.InOutExpo);
         AudioManager.instance._endLetter.TransitionTo(3f);
@@ -159,7 +164,7 @@ public class LetterScript : MonoBehaviour
 
         transform.DOLocalMoveZ(0.64f, 1.5f).SetEase(Ease.InCubic);
         float volume;
-        mixer.GetFloat("pigeonVol",out volume);
+        mixer.GetFloat("pigeonVol", out volume);
         DOTween.To(() => volume, x => volume = x, -25f, 1.5f).SetEase(Ease.InOutCubic).OnUpdate(() => mixer.SetFloat("pigeonVol", volume));
         yield return new WaitForSeconds(1.5f);
 
@@ -171,11 +176,11 @@ public class LetterScript : MonoBehaviour
 
         while (outroLetter.transform.localPosition.y < 1.9f)
         {
-            outroLetter.transform.Translate(Vector3.up * Time.deltaTime * scrollOutroSpeed/100);
+            outroLetter.transform.Translate(Vector3.up * Time.deltaTime * scrollOutroSpeed / 100);
             yield return null;
         }
 
-        yield return new WaitForSeconds(waitTimeOutOutroSeconds+5f);
+        yield return new WaitForSeconds(waitTimeOutOutroSeconds + 5f);
 
         _backGround.GetComponent<Animator>().SetTrigger("FadeOut");
         float volume2;
