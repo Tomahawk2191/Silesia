@@ -67,6 +67,7 @@ public class PlayerUI : MonoBehaviour
                 JournalManager.inTheMenu = false;
 
                 Time.timeScale = 1f;
+                AudioManager.instance._inGame.TransitionTo(0.2f); 
             }
             else
             {
@@ -78,6 +79,7 @@ public class PlayerUI : MonoBehaviour
                 _settings.SetActive(false);
                 _pauseMenuPanel.SetActive(true);
                 PlayerMovement.setCanMove(false);
+                AudioManager.instance._pause.TransitionTo(0.2f); 
             }
         }
     }

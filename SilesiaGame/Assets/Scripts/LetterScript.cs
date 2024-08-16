@@ -119,6 +119,7 @@ public class LetterScript : MonoBehaviour
         yield return new WaitForSeconds(1.25f);
 
         transform.DOLocalMoveY(-1.2f, 1.5f).SetEase(Ease.InOutExpo);
+        Progress.instance.SetAbsolute(-1f);
         yield return new WaitForSeconds(1.5f);
         _skinnedMeshRenderer.enabled = false;
 
@@ -149,6 +150,7 @@ public class LetterScript : MonoBehaviour
         yield return new WaitForSeconds(3f);
 
         transform.DOLocalMoveY(1.16f, 1.5f).SetEase(Ease.InOutExpo);
+        AudioManager.instance._endLetter.TransitionTo(3f);
         yield return new WaitForSeconds(1.5f);
 
         transform.GetChild(0).GetComponent<Animator>().SetTrigger("Folded");
@@ -181,7 +183,7 @@ public class LetterScript : MonoBehaviour
         DOTween.To(() => volume2, x => volume2 = x, -25f, 1.5f).SetEase(Ease.InOutCubic).OnUpdate(() => mixer.SetFloat("volume", volume2));
         yield return new WaitForSeconds(1.5f);
         yield return new WaitForSeconds(7f);
-
+        AudioManager.instance._endCredits.TransitionTo(0.5f);
         SceneManager.LoadScene(2);
     }
 }

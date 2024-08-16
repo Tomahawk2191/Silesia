@@ -47,7 +47,7 @@ public class Pigeon : Interactable
             return;
         }
 
-        if (Vector3.Distance(player.transform.position, transform.position) < 5)
+        if (Vector3.Distance(player.transform.position, transform.position) < 5.3f)
         {
             canEndGame = true;
             Popup.Instance.TogglePigeonPopup(1f);

@@ -10338,7 +10338,6 @@ GameObject:
   - component: {fileID: 8031526042964048287}
   - component: {fileID: 6522350349420494145}
   - component: {fileID: 4566089541705773835}
-  - component: {fileID: 241456613247387357}
   m_Layer: 0
   m_Name: Menus
   m_TagString: Untagged
@@ -10430,22 +10429,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &241456613247387357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3328520414596948139}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c305ae304b605c4586c60d41dd08106, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  normalCursor: {fileID: 0}
-  interactCursor: {fileID: 0}
-  _wind: {fileID: 0}
-  mixer: {fileID: 0}
 --- !u!1 &3344010381884981836
 GameObject:
   m_ObjectHideFlags: 0
@@ -19835,7 +19818,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: c2c730464227952449ebd6abb94ac2db, type: 3}
+  m_Texture: {fileID: 2800000, guid: ad5418dd62ffdad4d8932e100278dc0f, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -23645,7 +23628,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 241456613247387357}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1

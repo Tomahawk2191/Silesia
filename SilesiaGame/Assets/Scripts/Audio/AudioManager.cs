@@ -60,13 +60,25 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         Play("BackgroundMusic");
+        /* ALL OF THESE ARE MOVED INTO LetterScript.PlayIntroLetter() SO THAT THEY DON"T RUN UNTIL THE MAIN GAME SCENE LOADS
         Play("AmbientHum");
         Play("RainLoop1");
 
         Play("Fire", position_Stove.position);
         Play("PigeonCoo", position_Pigeon.position);
         Play("TVStatic", position_TV.position);
+        */
 
+    }
+
+    public void PlayMainSceneSounds()
+    {
+        Play("AmbientHum");
+        Play("RainLoop1");
+
+        Play("Fire", position_Stove.position);
+        Play("PigeonCoo", position_Pigeon.position);
+        Play("TVStatic", position_TV.position);
     }
 
     public void Play(string sound)
