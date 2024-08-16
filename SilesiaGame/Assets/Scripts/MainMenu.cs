@@ -13,11 +13,15 @@ public class MainMenu : MonoBehaviour
 
     public void Awake()
     {
+        audioManager = AudioManager.instance;
+    }
+
+    public void Start()
+    {
         Cursor.lockState = CursorLockMode.None;
         Cursor.SetCursor(normalCursor, Vector2.zero, CursorMode.Auto);
-        audioManager = AudioManager.instance;
         StartCoroutine(windSounds());
-        StartCoroutine(Flapping()); 
+        StartCoroutine(Flapping());
     }
 
     public void OnPointerEnter()
