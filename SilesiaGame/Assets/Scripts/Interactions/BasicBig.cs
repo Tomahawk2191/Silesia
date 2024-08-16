@@ -10,5 +10,8 @@ public class BasicBig : Interactable
     }
 
     //Interact is empty because it doesn't do anything else other than run dialogue
-    
+    public override void Interact()
+    {
+        
+    }
 }

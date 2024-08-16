@@ -11,7 +11,6 @@ public class Matchbox : Interactable
 
     public override void Interact()
     {
-        base.Interact();
         Debug.Log("matchymatchy");
         LivingroomDoor.bedDoorOpen = true;
         Popup.Instance.KeyPopup();

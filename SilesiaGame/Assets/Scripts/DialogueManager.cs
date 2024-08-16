@@ -139,6 +139,7 @@ public class DialogueManager : MonoBehaviour
         currentObject = null;
         InspectorModeRotation.setEnabledRotation(false);
         InspectorModeRotation.setObject(null);
+        Progress.instance.Increment();
     }
     
 }

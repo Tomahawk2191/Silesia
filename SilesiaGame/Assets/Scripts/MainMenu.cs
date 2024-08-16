@@ -49,8 +49,8 @@ public class MainMenu : MonoBehaviour
         while (true)
         {
             AudioManager.instance.Play("SmallGust");
-            // flapDelay = Random.Range(4f, 6f);
-            yield return new WaitForSeconds(5f);
+            flapDelay = Random.Range(4f, 6f);
+            yield return new WaitForSeconds(flapDelay);
         }
     }
 
