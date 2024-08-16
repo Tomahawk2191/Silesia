@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private AudioSource _wind;
     [SerializeField] private AudioMixer mixer;
     private AudioManager audioManager;
+    private float flapDelay; 
 
     public void Awake()
     {
@@ -48,17 +49,19 @@ public class MainMenu : MonoBehaviour
         while (true)
         {
             AudioManager.instance.Play("SmallGust");
-            yield return new WaitForSeconds(UnityEngine.Random.Range(4f, 6f));
+            flapDelay = UnityEngine.Random.Range(4f, 6f);
+            yield return new WaitForSeconds(flapDelay);
 
         }
     }
 
     IEnumerator Flapping()
     {
+        yield return new WaitForSeconds(0.5f); 
         while (true)
         {
-            AudioManager.instance.Play("ClothFlapping");
-            yield return new WaitForSeconds(33.936f);
+            AudioManager.instance.Play("ClothFlap1" /*+ UnityEngine.Random.Range(1, 4)*/); 
+            yield return new WaitForSeconds(flapDelay);
         }
     }
 }

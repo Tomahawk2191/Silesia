@@ -71,6 +71,7 @@ public class LetterScript : MonoBehaviour
 
     public void playIntroLetter()
     {
+        AudioManager.instance.PlayMainSceneSounds(); 
         GameObject player = GameObject.Find("Player").gameObject;
         PlayerInteract playerInteract = player.GetComponent<PlayerInteract>();
         player.transform.position = new Vector3(11f, 4f, 45f);
