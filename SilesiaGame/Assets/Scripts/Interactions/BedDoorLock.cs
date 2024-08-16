@@ -6,12 +6,14 @@ using UnityEngine;
 public class BedDoorLock : Interactable
 {
     public static BedDoorLock instance;
+    private bool alreadyTried; 
 
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
+            alreadyTried = false; 
         }
         else
         {
@@ -21,6 +23,8 @@ public class BedDoorLock : Interactable
     public override void Interact()
     {
         AudioManager.instance.Play("DoorLocked", AudioManager.instance.GetBedDoorPos());
-        Progress.instance.SetAbsolute(Progress.instance.GetAbsolute() - 1);
+        if (!alreadyTried) Progress.instance.SetAbsolute(Progress.instance.GetAbsolute() - 1);
+        alreadyTried=true;
+
     }
 }
