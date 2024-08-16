@@ -25,6 +25,7 @@ public class MainMenu : MonoBehaviour
     public void OnPointerEnter()
     {
         Cursor.SetCursor(interactCursor, Vector2.zero, CursorMode.Auto);
+        audioManager.Play("UIHover"); 
     }
 
     public void OnPointerExit()
@@ -34,14 +35,20 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
+        audioManager.Play("UIClick"); 
         SceneManager.LoadScene(1);
-        audioManager._inGame.TransitionTo(1f);
+        audioManager._inGame.TransitionTo(2f);
 
     }
 
     public void QuitGame()
     {
+        audioManager.Play("UIClick");
+#if UNITY_EDITOR
+///
+#else
         Application.Quit();
+#endif
     }
 
     IEnumerator windSounds()
@@ -57,7 +64,7 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator Flapping()
     {
-        yield return new WaitForSeconds(0.5f); 
+        yield return new WaitForSeconds(0.75f); 
         while (true)
         {
             AudioManager.instance.Play("ClothFlap1" /*+ UnityEngine.Random.Range(1, 4)*/); 
