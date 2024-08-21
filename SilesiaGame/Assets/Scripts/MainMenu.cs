@@ -61,7 +61,7 @@ public class MainMenu : MonoBehaviour
         audioManager.Play("UIClick"); 
         SceneManager.LoadScene(1);
         audioManager._inGame.TransitionTo(2f);
-        audioManager.StopAllCoroutines(); 
+        StopAllCoroutines(); 
     }
 
     public void QuitGame()
