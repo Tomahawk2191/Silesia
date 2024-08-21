@@ -1,8 +1,6 @@
 using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -132,17 +130,6 @@ public class AudioManager : MonoBehaviour
         if (!s.loop)
         Destroy(go, s.clip.length * (Time.timeScale < 0.01f ? 0.01f : Time.timeScale));
 
-    }
-
-    public void BackToMenu()
-    {
-        StartCoroutine(ReturnToMenu()); 
-    }
-
-    IEnumerator ReturnToMenu()
-    {
-        yield return new WaitForSeconds(3f);
-        MainMenu.instance.ReturnToMenu();
     }
 
 
