@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -28,19 +29,21 @@ public class MainMenu : MonoBehaviour
 
     public void Start()
     {
+        audioManager.mixer.SetFloat("volume", 5);
         Cursor.lockState = CursorLockMode.None;
         Cursor.SetCursor(normalCursor, Vector2.zero, CursorMode.Auto);
+        //StartCoroutine(audioManager.PlayMainMenuSounds()); 
         StartCoroutine(windSounds());
         StartCoroutine(Flapping());
     }
 
-    public void ReturnToMenu()
+    /*public void ReturnToMenu()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.SetCursor(normalCursor, Vector2.zero, CursorMode.Auto);
         StartCoroutine(windSounds());
         StartCoroutine(Flapping());
-    }
+    }*/
 
     public void OnPointerEnter()
     {
@@ -58,7 +61,7 @@ public class MainMenu : MonoBehaviour
         audioManager.Play("UIClick"); 
         SceneManager.LoadScene(1);
         audioManager._inGame.TransitionTo(2f);
-        MainMenu.instance.StopAllCoroutines(); 
+        audioManager.StopAllCoroutines(); 
     }
 
     public void QuitGame()

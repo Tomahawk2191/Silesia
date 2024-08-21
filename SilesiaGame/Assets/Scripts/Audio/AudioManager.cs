@@ -18,22 +18,23 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private Transform position_LivingDoor;
     [SerializeField]
-    private Transform position_TV; 
+    private Transform position_TV;
     [SerializeField]
-    private Transform position_Center; 
+    private Transform position_Center;
 
 
     public static AudioManager instance;
 
     public Sound[] sounds;
 
-    //[SerializeField] public AudioMixerGroup mixerGroup;
+    [SerializeField] public AudioMixer mixer;
     [SerializeField] public AudioMixerSnapshot _mainMenu;
     [SerializeField] public AudioMixerSnapshot _inGame;
     [SerializeField] public AudioMixerSnapshot _pause;
     [SerializeField] public AudioMixerSnapshot _endLetter;
     [SerializeField] public AudioMixerSnapshot _endCredits;
 
+    private float flapDelay;
 
     void Awake()
     {
@@ -62,7 +63,7 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         Play("BackgroundMusic");
-        /* ALL OF THESE ARE MOVED INTO LetterScript.PlayIntroLetter() SO THAT THEY DON"T RUN UNTIL THE MAIN GAME SCENE LOADS
+        /* ALL OF THESE ARE MOVED INTO Progress.PlayIntroLetter() SO THAT THEY DON"T RUN UNTIL THE MAIN GAME SCENE LOADS
         Play("AmbientHum");
         Play("RainLoop1");
 
@@ -72,6 +73,19 @@ public class AudioManager : MonoBehaviour
         */
 
     }
+
+    /*public IEnumerator PlayMainMenuSounds()
+    {
+        while (true)
+        {
+            Play("SmallGust");
+            flapDelay = UnityEngine.Random.Range(3.25f, 5.25f);
+            yield return new WaitForSeconds(0.75f);
+            Play("ClothFlap1" /*+ UnityEngine.Random.Range(1, 4));
+            yield return new WaitForSeconds(flapDelay);
+        }
+
+    }*/
 
     public void PlayMainSceneSounds()
     {
@@ -130,27 +144,27 @@ public class AudioManager : MonoBehaviour
         // Note: The behaviour here means that when the timescale is 0, GameObjects will pile up until the timescale
         // is taken above 0 again.
         if (!s.loop)
-        Destroy(go, s.clip.length * (Time.timeScale < 0.01f ? 0.01f : Time.timeScale));
+            Destroy(go, s.clip.length * (Time.timeScale < 0.01f ? 0.01f : Time.timeScale));
 
     }
 
-    public void BackToMenu()
+    /*public void BackToMenu()
     {
-        StartCoroutine(ReturnToMenu()); 
+        StartCoroutine(ReturnToMenu());
     }
 
     IEnumerator ReturnToMenu()
     {
         yield return new WaitForSeconds(3f);
         MainMenu.instance.ReturnToMenu();
-    }
+    }*/
 
 
     // GETTERS AND SETTERS
 
     public Vector3 GetBedDoorPos()
     {
-        return position_BedDoor.position; 
+        return position_BedDoor.position;
     }
 
     public Vector3 GetLivingDoorPos()

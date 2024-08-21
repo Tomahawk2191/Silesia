@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -42,8 +43,14 @@ public class Ending : MonoBehaviour
         
         gameObject.GetComponent<Animator>().SetTrigger("EndOfEnding");
         _credits.GetComponent<Animator>().SetTrigger("EndOfEnding");
-        yield return new WaitForSeconds(160);
-        AudioManager.instance._mainMenu.TransitionTo(1f); 
+        yield return new WaitForSeconds(156.5f);
+        AudioManager.instance._mainMenu.TransitionTo(3f);
+        yield return new WaitForSeconds(3.5f);
+        //float volume;
+        //mixer.GetFloat("volume", out volume);
+        //DOTween.To(() => volume, x => volume = x, 5, 3f).SetEase(Ease.InOutCubic).OnUpdate(() => mixer.SetFloat("volume", volume));
+        //yield return new WaitForSeconds(3f); 
+        Destroy(AudioManager.instance.transform.gameObject); 
         SceneManager.LoadSceneAsync(0);
         //AudioManager.instance.BackToMenu();
     }
