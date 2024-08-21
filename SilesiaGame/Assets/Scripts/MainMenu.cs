@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
@@ -9,14 +10,31 @@ public class MainMenu : MonoBehaviour
     public Texture2D interactCursor;
 
     private AudioManager audioManager;
-    private float flapDelay; 
+    private float flapDelay;
+    public static MainMenu instance;
+    private GameObject gameObject; 
 
     public void Awake()
     {
         audioManager = AudioManager.instance;
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            instance = this;
+        }
+        else instance = this;
+
     }
 
     public void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.SetCursor(normalCursor, Vector2.zero, CursorMode.Auto);
+        StartCoroutine(windSounds());
+        StartCoroutine(Flapping());
+    }
+
+    public void ReturnToMenu()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.SetCursor(normalCursor, Vector2.zero, CursorMode.Auto);
@@ -40,7 +58,7 @@ public class MainMenu : MonoBehaviour
         audioManager.Play("UIClick"); 
         SceneManager.LoadScene(1);
         audioManager._inGame.TransitionTo(2f);
-
+        MainMenu.instance.StopAllCoroutines(); 
     }
 
     public void QuitGame()

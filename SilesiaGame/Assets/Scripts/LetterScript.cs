@@ -155,17 +155,17 @@ public class LetterScript : MonoBehaviour
 
 
         transform.DOLocalMoveY(1.16f, 1.5f).SetEase(Ease.InOutExpo);
-        AudioManager.instance._endLetter.TransitionTo(3f);
         yield return new WaitForSeconds(1.5f);
 
         transform.GetChild(0).GetComponent<Animator>().SetTrigger("Folded");
         AudioManager.instance.Play("LetterFold");
         yield return new WaitForSeconds(1.25f);
 
+        AudioManager.instance._endLetter.TransitionTo(1.5f);
         transform.DOLocalMoveZ(0.64f, 1.5f).SetEase(Ease.InCubic);
-        float volume;
-        mixer.GetFloat("pigeonVol", out volume);
-        DOTween.To(() => volume, x => volume = x, -25f, 1.5f).SetEase(Ease.InOutCubic).OnUpdate(() => mixer.SetFloat("pigeonVol", volume));
+        //float volume;
+        //mixer.GetFloat("pigeonVol", out volume);
+        //DOTween.To(() => volume, x => volume = x, -25f, 1.5f).SetEase(Ease.InOutCubic).OnUpdate(() => mixer.SetFloat("pigeonVol", volume));
         yield return new WaitForSeconds(1.5f);
 
         _renderer.SetActive(false);
@@ -185,10 +185,10 @@ public class LetterScript : MonoBehaviour
         _backGround.GetComponent<Animator>().SetTrigger("FadeOut");
         float volume2;
         mixer.GetFloat("volume", out volume2);
-        DOTween.To(() => volume2, x => volume2 = x, -25f, 1.5f).SetEase(Ease.InOutCubic).OnUpdate(() => mixer.SetFloat("volume", volume2));
-        yield return new WaitForSeconds(1.5f);
+        //DOTween.To(() => volume2, x => volume2 = x, -25f, 1.5f).SetEase(Ease.InOutCubic).OnUpdate(() => mixer.SetFloat("volume", volume2));
+        //yield return new WaitForSeconds(1.5f);
         yield return new WaitForSeconds(7f);
-        AudioManager.instance._endCredits.TransitionTo(0.5f);
+        AudioManager.instance._endCredits.TransitionTo(4f);
         SceneManager.LoadScene(2);
     }
 }
