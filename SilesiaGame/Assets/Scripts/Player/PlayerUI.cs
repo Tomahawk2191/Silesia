@@ -72,14 +72,14 @@ public class PlayerUI : MonoBehaviour
             else
             {
                 cameraWasLocked = PlayerCam.getCanMoveCamera();
+                AudioManager.instance._pause.TransitionTo(0.001f);
                 Time.timeScale = 0f;
                 JournalManager.inTheMenu = true;
                 PlayerCam.UnlockCursor();
                 PlayerCam.setCanMoveCamera(false);
                 _settings.SetActive(false);
                 _pauseMenuPanel.SetActive(true);
-                PlayerMovement.setCanMove(false);
-                AudioManager.instance._pause.TransitionTo(0.2f); 
+                PlayerMovement.setCanMove(false); 
             }
         }
     }
