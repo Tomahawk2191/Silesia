@@ -6,12 +6,14 @@ using UnityEngine;
 public class LivingDoorLock : Interactable
 {
     public static LivingDoorLock instance;
+    private bool alreadyTried; 
     
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
+            alreadyTried = false; 
         }
         else
         {
@@ -21,5 +23,7 @@ public class LivingDoorLock : Interactable
     public override void Interact()
     {
         AudioManager.instance.Play("DoorLocked", AudioManager.instance.GetLivingDoorPos());
+        if (!alreadyTried) Progress.instance.SetAbsolute(Progress.instance.GetAbsolute() - 1);
+        alreadyTried = true;
     }
 }

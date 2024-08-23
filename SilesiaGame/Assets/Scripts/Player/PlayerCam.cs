@@ -10,9 +10,9 @@ using UnityEngine;
 public class PlayerCam : MonoBehaviour
 {
     [Header("Camera Attributes")]
-    [SerializeField] private float sensX = 25f;
-    [SerializeField] private float sensY = 25f;
-    private static float sensModifier = 5; 
+    [SerializeField] private float sensX = 20f; // lowered this to 20 from 25 and raised modifier proportionally
+    [SerializeField] private float sensY = 20f; // same as above
+    private static float sensModifier = 5; // raise this from 5 to 6.5 in order to lower the sens coeff??
     
     [SerializeField] private Transform orientation;
     private static bool canMoveCamera = true;

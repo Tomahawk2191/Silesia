@@ -67,17 +67,19 @@ public class PlayerUI : MonoBehaviour
                 JournalManager.inTheMenu = false;
 
                 Time.timeScale = 1f;
+                AudioManager.instance._inGame.TransitionTo(0.2f); 
             }
             else
             {
                 cameraWasLocked = PlayerCam.getCanMoveCamera();
+                AudioManager.instance._pause.TransitionTo(0.001f);
                 Time.timeScale = 0f;
                 JournalManager.inTheMenu = true;
                 PlayerCam.UnlockCursor();
                 PlayerCam.setCanMoveCamera(false);
                 _settings.SetActive(false);
                 _pauseMenuPanel.SetActive(true);
-                PlayerMovement.setCanMove(false);
+                PlayerMovement.setCanMove(false); 
             }
         }
     }
@@ -148,7 +150,16 @@ public class PlayerUI : MonoBehaviour
 
     public void goToMainMenu()
     {
-        SceneManager.LoadSceneAsync(0);
+        TogglePauseMenu();
+        StartCoroutine(mainMenuLoad());
+    }
+
+    IEnumerator mainMenuLoad()
+    {
+        AudioManager.instance._mainMenu.TransitionTo(0.1f);
+        yield return new WaitForSeconds(0.2f);
+        Destroy(AudioManager.instance.transform.gameObject);
+        SceneManager.LoadScene(0);
     }
 
 }

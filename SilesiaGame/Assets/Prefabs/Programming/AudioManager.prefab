@@ -207,7 +207,6 @@ MonoBehaviour:
   position_LivingDoor: {fileID: 8007298032297567380}
   position_TV: {fileID: 132533476573585548}
   position_Center: {fileID: 8043021253129713347}
-  mixerGroup: {fileID: 24300002, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
   sounds:
   - name: BackgroundMusic
     clip: {fileID: 8300000, guid: d9cb6a90ce22fe94cb0653a54595ac0b, type: 3}
@@ -217,7 +216,7 @@ MonoBehaviour:
     pitchVariance: 0
     spatialBlend: 0
     loop: 1
-    mixerGroup: {fileID: -3923962580777651335, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
+    mixerGroup: {fileID: -8461665832942641473, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
   - name: AmbientHum
     clip: {fileID: 8300000, guid: 0f42ebe4e6000e640b43ffafb11fc195, type: 3}
@@ -327,7 +326,7 @@ MonoBehaviour:
     pitchVariance: 0
     spatialBlend: 0
     loop: 0
-    mixerGroup: {fileID: -297476489788410926, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
+    mixerGroup: {fileID: 8898648246375646462, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
   - name: MidGust
     clip: {fileID: 8300000, guid: 1bf7c44b39cdffb4baa8f90d7eed4647, type: 3}
@@ -337,7 +336,7 @@ MonoBehaviour:
     pitchVariance: 0
     spatialBlend: 0
     loop: 0
-    mixerGroup: {fileID: -297476489788410926, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
+    mixerGroup: {fileID: 8898648246375646462, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
   - name: BigGust
     clip: {fileID: 8300000, guid: 1496b7a4f99896846a99b84579020030, type: 3}
@@ -347,17 +346,57 @@ MonoBehaviour:
     pitchVariance: 0
     spatialBlend: 0
     loop: 0
-    mixerGroup: {fileID: -297476489788410926, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
+    mixerGroup: {fileID: 8898648246375646462, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
   - name: ClothFlapping
     clip: {fileID: 8300000, guid: d51678139f1028548af1abb4b5c07a71, type: 3}
-    volume: 1
+    volume: 0.75
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
     spatialBlend: 0
     loop: 0
-    mixerGroup: {fileID: -7997044817116820506, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
+    mixerGroup: {fileID: 8898648246375646462, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
+    source: {fileID: 0}
+  - name: ClothFlap1
+    clip: {fileID: 8300000, guid: da6d8951811921945aee9fc7b33f114d, type: 3}
+    volume: 0.8
+    volumeVariance: 0.5
+    pitch: 0.9
+    pitchVariance: 0.4
+    spatialBlend: 0
+    loop: 0
+    mixerGroup: {fileID: 8898648246375646462, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
+    source: {fileID: 0}
+  - name: ClothFlap2
+    clip: {fileID: 8300000, guid: e212852eae373264ba1c1a55bc1b84d7, type: 3}
+    volume: 0.8
+    volumeVariance: 0.4
+    pitch: 1
+    pitchVariance: 0.5
+    spatialBlend: 0
+    loop: 0
+    mixerGroup: {fileID: 8898648246375646462, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
+    source: {fileID: 0}
+  - name: ClothFlap3
+    clip: {fileID: 8300000, guid: 4ad82be893af61d47a1d649c1f8aa7a8, type: 3}
+    volume: 0.8
+    volumeVariance: 0.4
+    pitch: 0.8
+    pitchVariance: 0.5
+    spatialBlend: 0
+    loop: 0
+    mixerGroup: {fileID: 8898648246375646462, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
+    source: {fileID: 0}
+  - name: ClothFlap4
+    clip: {fileID: 8300000, guid: e7bd6ad6a1e5db2499d7edc613173d23, type: 3}
+    volume: 0.8
+    volumeVariance: 0.2
+    pitch: 1
+    pitchVariance: 0.3
+    spatialBlend: 0
+    loop: 0
+    mixerGroup: {fileID: 8898648246375646462, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
   - name: OpenWindow
     clip: {fileID: 8300000, guid: a4563f2551775de46be349bed835c34a, type: 3}
@@ -410,24 +449,24 @@ MonoBehaviour:
     mixerGroup: {fileID: 8559514659386129567, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
   - name: UIHover
-    clip: {fileID: 8300000, guid: 656574da10ac57046bd21b696f89b06e, type: 3}
-    volume: 1
-    volumeVariance: 0
+    clip: {fileID: 8300000, guid: 90c9607311ed4cf4697c025ffdf6dd67, type: 3}
+    volume: 0.35
+    volumeVariance: 0.25
     pitch: 1
-    pitchVariance: 0
+    pitchVariance: 0.4
     spatialBlend: 0
     loop: 0
-    mixerGroup: {fileID: 8559514659386129567, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
+    mixerGroup: {fileID: 2051164383092355952, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
   - name: UIClick
-    clip: {fileID: 8300000, guid: 90c9607311ed4cf4697c025ffdf6dd67, type: 3}
+    clip: {fileID: 8300000, guid: 474daf3d0af779541b66a652e2fb8a6e, type: 3}
     volume: 1
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
     spatialBlend: 0
     loop: 0
-    mixerGroup: {fileID: 8559514659386129567, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
+    mixerGroup: {fileID: 2051164383092355952, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
   - name: Grab
     clip: {fileID: 8300000, guid: b305d785d8ddc4a4cabfd189fdf45f5f, type: 3}
@@ -447,7 +486,7 @@ MonoBehaviour:
     pitchVariance: 0.5
     spatialBlend: 0
     loop: 0
-    mixerGroup: {fileID: 8559514659386129567, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
+    mixerGroup: {fileID: 2051164383092355952, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
   - name: PageTurn2
     clip: {fileID: 8300000, guid: da8671104df36e547a8f933effa94c6f, type: 3}
@@ -457,7 +496,7 @@ MonoBehaviour:
     pitchVariance: 0.5
     spatialBlend: 0
     loop: 0
-    mixerGroup: {fileID: 8559514659386129567, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
+    mixerGroup: {fileID: 2051164383092355952, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
   - name: PageTurn3
     clip: {fileID: 8300000, guid: e613e515d5a2f154aa2bbbd434dc2194, type: 3}
@@ -467,7 +506,7 @@ MonoBehaviour:
     pitchVariance: 0.5
     spatialBlend: 0
     loop: 0
-    mixerGroup: {fileID: 8559514659386129567, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
+    mixerGroup: {fileID: 2051164383092355952, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
     source: {fileID: 0}
   - name: OpenBook
     clip: {fileID: 8300000, guid: 958eec48fdd33864ebeb32aed1e8f48c, type: 3}
@@ -539,6 +578,11 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
+  _mainMenu: {fileID: 5667972854219885005, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
+  _inGame: {fileID: 5732319184564316568, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
+  _pause: {fileID: 8955152214453590276, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
+  _endLetter: {fileID: 9177399737030016287, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
+  _endCredits: {fileID: -5732965751358205609, guid: c3028a58b6a921e4584683225d7177b6, type: 2}
 --- !u!1 &7482572459617030707
 GameObject:
   m_ObjectHideFlags: 0
