@@ -150,7 +150,16 @@ public class PlayerUI : MonoBehaviour
 
     public void goToMainMenu()
     {
-        SceneManager.LoadSceneAsync(0);
+        TogglePauseMenu();
+        StartCoroutine(mainMenuLoad());
+    }
+
+    IEnumerator mainMenuLoad()
+    {
+        AudioManager.instance._mainMenu.TransitionTo(0.1f);
+        yield return new WaitForSeconds(0.2f);
+        Destroy(AudioManager.instance.transform.gameObject);
+        SceneManager.LoadScene(0);
     }
 
 }

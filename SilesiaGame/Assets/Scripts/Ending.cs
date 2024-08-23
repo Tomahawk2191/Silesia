@@ -51,7 +51,7 @@ public class Ending : MonoBehaviour
         //DOTween.To(() => volume, x => volume = x, 5, 3f).SetEase(Ease.InOutCubic).OnUpdate(() => mixer.SetFloat("volume", volume));
         //yield return new WaitForSeconds(3f); 
         Destroy(AudioManager.instance.transform.gameObject); 
-        SceneManager.LoadSceneAsync(0);
+        SceneManager.LoadScene(0);
         //AudioManager.instance.BackToMenu();
     }
 }

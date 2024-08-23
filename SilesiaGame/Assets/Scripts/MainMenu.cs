@@ -31,6 +31,7 @@ public class MainMenu : MonoBehaviour
     {
         audioManager.mixer.SetFloat("volume", 5);
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         Cursor.SetCursor(normalCursor, Vector2.zero, CursorMode.Auto);
         //StartCoroutine(audioManager.PlayMainMenuSounds()); 
         StartCoroutine(windSounds());
