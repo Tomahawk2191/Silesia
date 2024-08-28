@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour
     public void Awake()
     {
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         Cursor.SetCursor(normalCursor, Vector2.zero, CursorMode.Auto);
         StartCoroutine(windSounds());
     }
