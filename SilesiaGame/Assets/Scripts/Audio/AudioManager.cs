@@ -16,9 +16,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private Transform position_LivingDoor;
     [SerializeField]
-    private Transform position_TV; 
+    private Transform position_TV;
     [SerializeField]
-    private Transform position_Center; 
+    private Transform position_Center;
 
 
     public static AudioManager instance;
@@ -27,6 +27,12 @@ public class AudioManager : MonoBehaviour
 
     public Sound[] sounds;
 
+    public AudioMixer mixer;
+    public AudioMixerSnapshot _mainMenu;
+    public AudioMixerSnapshot _inGame;
+    public AudioMixerSnapshot _endLetter;
+    public AudioMixerSnapshot _pause;
+    public AudioMixerSnapshot _endCredits;
 
     void Awake()
     {
@@ -111,7 +117,7 @@ public class AudioManager : MonoBehaviour
         // Note: The behaviour here means that when the timescale is 0, GameObjects will pile up until the timescale
         // is taken above 0 again.
         if (!s.loop)
-        Destroy(go, s.clip.length * (Time.timeScale < 0.01f ? 0.01f : Time.timeScale));
+            Destroy(go, s.clip.length * (Time.timeScale < 0.01f ? 0.01f : Time.timeScale));
 
     }
 
@@ -120,7 +126,7 @@ public class AudioManager : MonoBehaviour
 
     public Vector3 GetBedDoorPos()
     {
-        return position_BedDoor.position; 
+        return position_BedDoor.position;
     }
 
     public Vector3 GetLivingDoorPos()
