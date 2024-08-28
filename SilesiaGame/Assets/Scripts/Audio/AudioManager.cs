@@ -28,11 +28,8 @@ public class AudioManager : MonoBehaviour
     public Sound[] sounds;
 
     public AudioMixer mixer;
+
     public AudioMixerSnapshot _mainMenu;
-    public AudioMixerSnapshot _inGame;
-    public AudioMixerSnapshot _endLetter;
-    public AudioMixerSnapshot _pause;
-    public AudioMixerSnapshot _endCredits;
 
     void Awake()
     {
